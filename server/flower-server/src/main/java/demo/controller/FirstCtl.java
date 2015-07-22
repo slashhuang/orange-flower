@@ -14,8 +14,13 @@
 
 package demo.controller;
 
+import demo.api.user.User;
+import demo.api.user.UserService;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -31,9 +36,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/first")
 public class FirstCtl {
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping
     @ResponseBody
-    public String index(){
+    public String index() {
         return "Hello world !";
+    }
+
+    @RequestMapping("/list")
+    public void list(Model model) {
+        User u = new User();
+        u.setName(RandomStringUtils.random(6, 'a', 'e', 'i', 'o', 'u'));
+        userService.save(u);
+        model.addAttribute("users", userService.findAll());
     }
 }
