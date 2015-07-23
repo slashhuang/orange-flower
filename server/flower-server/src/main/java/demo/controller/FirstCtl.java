@@ -18,7 +18,6 @@ import demo.api.user.User;
 import demo.api.user.UserService;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +30,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author <a href="mailto:stormning@163.com">stormning</a>
  * @version V1.0, 2015/7/22
  */
-@EnableAutoConfiguration
 @Controller
 @RequestMapping("/first")
 public class FirstCtl {
