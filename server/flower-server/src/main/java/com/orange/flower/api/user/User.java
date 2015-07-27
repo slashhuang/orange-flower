@@ -3,7 +3,7 @@
  * Module:   flower-server
  * File:     User.java
  * Modifier: nzhou
- * Modified: 2015-07-22 18:04
+ * Modified: 2015-07-27 09:46
  * Copyright (c) 2014 Wisorg All Rights Reserved.
  * Copying of this document or code and giving it to others and the
  * use or communication of the contents thereof, are forbidden without
@@ -12,7 +12,7 @@
  * or the registration of a utility model, design or code.
  */
 
-package demo.api.user;
+package com.orange.flower.api.user;
 
 import javax.persistence.*;
 import java.io.Serializable;

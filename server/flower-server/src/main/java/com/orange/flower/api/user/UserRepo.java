@@ -1,9 +1,9 @@
 /*
  * Project:  flower
  * Module:   flower-server
- * File:     UserService.java
+ * File:     UserRepo.java
  * Modifier: nzhou
- * Modified: 2015-07-22 18:06
+ * Modified: 2015-07-27 09:46
  * Copyright (c) 2014 Wisorg All Rights Reserved.
  * Copying of this document or code and giving it to others and the
  * use or communication of the contents thereof, are forbidden without
@@ -12,9 +12,9 @@
  * or the registration of a utility model, design or code.
  */
 
-package demo.api.user;
+package com.orange.flower.api.user;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * .
@@ -23,9 +23,5 @@ import java.util.List;
  * @author <a href="mailto:stormning@163.com">stormning</a>
  * @version V1.0, 2015/7/22
  */
-public interface UserService {
-
-    List<User> findAll();
-
-    User save(User user);
+public interface UserRepo extends JpaRepository<User,Long> {
 }

@@ -1,9 +1,9 @@
 /*
  * Project:  flower
  * Module:   flower-server
- * File:     TestCtl.java
+ * File:     FirstCtl.java
  * Modifier: nzhou
- * Modified: 2015-07-22 17:14
+ * Modified: 2015-07-27 09:46
  * Copyright (c) 2014 Wisorg All Rights Reserved.
  * Copying of this document or code and giving it to others and the
  * use or communication of the contents thereof, are forbidden without
@@ -12,10 +12,10 @@
  * or the registration of a utility model, design or code.
  */
 
-package demo.controller;
+package com.orange.flower.controller;
 
-import demo.api.user.User;
-import demo.api.user.UserService;
+import com.orange.flower.api.user.User;
+import com.orange.flower.api.user.UserService;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,7 +40,7 @@ public class FirstCtl {
     @RequestMapping
     @ResponseBody
     public String index() {
-        return "Hello world !";
+        return "Hello world 2!";
     }
 
     @RequestMapping("/list")

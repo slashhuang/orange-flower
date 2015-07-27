@@ -1,9 +1,9 @@
 /*
  * Project:  flower
  * Module:   flower-server
- * File:     UserRepo.java
+ * File:     ServletInitializer.java
  * Modifier: nzhou
- * Modified: 2015-07-22 18:07
+ * Modified: 2015-07-22 06:13
  * Copyright (c) 2014 Wisorg All Rights Reserved.
  * Copying of this document or code and giving it to others and the
  * use or communication of the contents thereof, are forbidden without
@@ -12,16 +12,16 @@
  * or the registration of a utility model, design or code.
  */
 
-package demo.api.user;
+package com.orange.flower;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 
-/**
- * .
- * <p/>
- *
- * @author <a href="mailto:stormning@163.com">stormning</a>
- * @version V1.0, 2015/7/22
- */
-public interface UserRepo extends JpaRepository<User,Long> {
+public class ServletInitializer extends SpringBootServletInitializer {
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(FlowerApplication.class);
+	}
+
 }

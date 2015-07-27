@@ -1,9 +1,9 @@
 /*
  * Project:  flower
  * Module:   flower-server
- * File:     ServletInitializer.java
+ * File:     UserService.java
  * Modifier: nzhou
- * Modified: 2015-07-22 06:13
+ * Modified: 2015-07-27 09:46
  * Copyright (c) 2014 Wisorg All Rights Reserved.
  * Copying of this document or code and giving it to others and the
  * use or communication of the contents thereof, are forbidden without
@@ -12,16 +12,20 @@
  * or the registration of a utility model, design or code.
  */
 
-package demo;
+package com.orange.flower.api.user;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
+import java.util.List;
 
-public class ServletInitializer extends SpringBootServletInitializer {
+/**
+ * .
+ * <p/>
+ *
+ * @author <a href="mailto:stormning@163.com">stormning</a>
+ * @version V1.0, 2015/7/22
+ */
+public interface UserService {
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(DemoApplication.class);
-	}
+    List<User> findAll();
 
+    User save(User user);
 }
