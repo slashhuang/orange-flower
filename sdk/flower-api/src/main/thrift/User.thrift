@@ -784,14 +784,6 @@ service TUserService {
      * @param size 推荐个数
      */
     list<Type.TUser> recommendUsers(1: TRecommendType recommendType, 2: i32 size) throws (1: Type.TAppException ex),
-
-    /**
-     * 信用明细
-     *
-     * @param cursor 分页游标
-     * @param size 读取条数
-     */
-    Type.TContentPage getCredits(1: i64 cursor, 2: i32 size)
 }
 
 /**
