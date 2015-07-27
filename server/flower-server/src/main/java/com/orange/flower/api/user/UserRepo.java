@@ -23,5 +23,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author <a href="mailto:stormning@163.com">stormning</a>
  * @version V1.0, 2015/7/22
  */
-public interface UserRepo extends JpaRepository<User,Long> {
+public interface UserRepo extends JpaRepository<User, Long> {
 }
