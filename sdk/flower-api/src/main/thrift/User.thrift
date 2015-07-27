@@ -4,14 +4,14 @@
 
 include "Type.thrift"
 
-namespace java com.wisorg.msc.openapi.user
+namespace java com.orange.flower.openapi.user
 namespace js User
 namespace cocoa User
 
 /**
  * session token name
  */
-const string SESSION_TOKEN = "m_st"
+const string SESSION_TOKEN = "f_st"
 
 /**
  * 网络类型
