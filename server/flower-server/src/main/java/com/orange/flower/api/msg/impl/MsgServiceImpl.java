@@ -32,12 +32,11 @@ public class MsgServiceImpl implements MsgService {
     private MsgRepo msgRepo;
 
     @Override
-    public int sendMsg(MsgBuilder msgBuilder) {
+    public int sendToUsers(MsgBuilder msgBuilder) {
         Msg msg = msgBuilder.build();
 
         //save msg
         msgRepo.save(msg);
-
 
         for (MsgProvider msgProvider : msgProviders) {
             if (msgProvider.supports(msg.getMsgType())) {

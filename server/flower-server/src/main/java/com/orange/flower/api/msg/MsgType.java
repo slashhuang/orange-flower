@@ -24,11 +24,11 @@ import com.orange.flower.core.bean.Titleable;
  * @version V1.0, 2015/7/28
  */
 public enum MsgType implements Titleable {
-    INBOX("站内信"),MSG("短信"),EMAIL("邮件"),PUSH("推送"),WEIXIN("微信模板消息");
+    INBOX("站内信"), MSG("短信"), VOICE("语音"), EMAIL("邮件"), PUSH("推送"), WEIXIN("微信模板消息");
 
     private final String title;
 
-    MsgType(String title){
+    MsgType(String title) {
         this.title = title;
     }
 

@@ -1,9 +1,9 @@
 /*
- * Project:  flower-service
+ * Project:  flower
  * Module:   flower-server
- * File:     MessageService.java
+ * File:     Event.java
  * Modifier: nzhou
- * Modified: 2015-07-29 11:14
+ * Modified: 2015-07-29 14:22
  * Copyright (c) 2014 Wisorg All Rights Reserved.
  * Copying of this document or code and giving it to others and the
  * use or communication of the contents thereof, are forbidden without
@@ -12,17 +12,26 @@
  * or the registration of a utility model, design or code.
  */
 
-package com.orange.flower.api.msg;
+package com.orange.flower.api.weixin.request.event;
+
+
+import com.orange.flower.api.weixin.request.Req;
 
 /**
  * .
  * <p/>
  *
  * @author <a href="mailto:stormning@163.com">stormning</a>
- * @version V1.0, 2015/7/28
+ * @version V1.0, 2014/12/2
  */
-public interface MsgService {
+public class Event extends Req {
+    public EventType Event;
 
-    int sendToUsers(MsgBuilder msgBuilder);
+    public String EventKey;
+
+    public Event(){
+        MsgType = com.orange.flower.api.weixin.request.msg.MsgType.event;
+    }
+
 
 }
