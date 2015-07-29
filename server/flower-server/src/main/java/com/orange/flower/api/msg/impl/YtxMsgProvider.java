@@ -15,9 +15,10 @@
 package com.orange.flower.api.msg.impl;
 
 import com.orange.flower.api.msg.Msg;
-import com.orange.flower.api.msg.MsgProvider;
 import com.orange.flower.api.msg.MsgType;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * .
@@ -26,7 +27,8 @@ import org.springframework.beans.factory.annotation.Value;
  * @author <a href="mailto:stormning@163.com">stormning</a>
  * @version V1.0, 2015/7/29
  */
-public class YtxMsgProvider implements MsgProvider {
+@Component
+public class YtxMsgProvider{
 
     @Value("${ytx.accountSid}")
     private String accountSid;
@@ -40,13 +42,8 @@ public class YtxMsgProvider implements MsgProvider {
     @Value("${ytx.msgTplId}")
     private String msgTplId = "0";
 
-    @Override
-    public boolean supports(MsgType msgType) {
-        return msgType == MsgType.MSG;
-    }
-
-    @Override
-    public void sendMsg(Msg msg) {
-
+    @RabbitListener(queues = "someQueue")
+    public void processMessage(String content) {
+        // ...
     }
 }

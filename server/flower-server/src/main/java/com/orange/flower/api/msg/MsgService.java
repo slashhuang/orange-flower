@@ -23,6 +23,6 @@ package com.orange.flower.api.msg;
  */
 public interface MsgService {
 
-    int sendToUsers(MsgBuilder msgBuilder);
+    void send(MsgBuilder msgBuilder);
 
 }

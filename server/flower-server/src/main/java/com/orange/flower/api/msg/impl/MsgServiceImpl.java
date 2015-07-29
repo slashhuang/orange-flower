@@ -15,6 +15,8 @@
 package com.orange.flower.api.msg.impl;
 
 import com.orange.flower.api.msg.*;
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -27,23 +29,16 @@ import java.util.List;
  */
 public class MsgServiceImpl implements MsgService {
 
-    private List<MsgProvider> msgProviders;
-
     private MsgRepo msgRepo;
 
-    @Override
-    public int sendToUsers(MsgBuilder msgBuilder) {
-        Msg msg = msgBuilder.build();
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
+    @Override
+    public void send(MsgBuilder msgBuilder) {
+        Msg msg = msgBuilder.build();
         //save msg
         msgRepo.save(msg);
-
-        for (MsgProvider msgProvider : msgProviders) {
-            if (msgProvider.supports(msg.getMsgType())) {
-                msgProvider.sendMsg(msg);
-                break;
-            }
-        }
-        return 0;
+        amqpTemplate.convertAndSend(msg);
     }
 }
