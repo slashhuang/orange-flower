@@ -40,7 +40,7 @@ import java.util.Arrays;
 @Controller
 @RequestMapping("/wx")
 public class WeixinCtl {
-    @Autowired
+    @Autowired(required = false)
     private RequestHandler requestHandler;
 
     @Value("${sns.weixin.token}")
