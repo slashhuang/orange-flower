@@ -6,13 +6,13 @@
 
     <parent>
         <groupId>com.orange</groupId>
-        <artifactId>sdk-parent</artifactId>
+        <artifactId>flower-sdk-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>flower-core</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    
+
 </project>

@@ -8,10 +8,10 @@
         <groupId>com.orange</groupId>
         <artifactId>sdk-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>flower-api</artifactId>
-    <version>1.0-SNAPSHOT</version>
 
     
 </project>

@@ -34,6 +34,9 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String name;
 
+    @Column(length = 20)
+    private String mobile;
+
     public Long getId() {
         return id;
     }
@@ -48,5 +51,13 @@ public class User implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 }
