@@ -1,9 +1,9 @@
 /*
- * Project:  flower-service
+ * Project:  flower
  * Module:   flower-server
  * File:     Msg.java
  * Modifier: nzhou
- * Modified: 2015-07-29 11:14
+ * Modified: 2015-07-29 11:15
  * Copyright (c) 2014 Wisorg All Rights Reserved.
  * Copying of this document or code and giving it to others and the
  * use or communication of the contents thereof, are forbidden without
@@ -14,6 +14,12 @@
 
 package com.orange.flower.api.msg;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+
 /**
  * .
  * <p/>
@@ -21,7 +27,13 @@ package com.orange.flower.api.msg;
  * @author <a href="mailto:stormning@163.com">stormning</a>
  * @version V1.0, 2015/7/28
  */
-public class Msg {
+@Entity
+@Table(name = "t_msg")
+public class Msg implements Serializable{
+    @Id
+    @GeneratedValue
+    private Long id;
+
     private long sender;
     private String body;
     private long createAt;
@@ -57,5 +69,13 @@ public class Msg {
 
     public void setMsgType(MsgType msgType) {
         this.msgType = msgType;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
