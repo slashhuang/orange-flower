@@ -44,14 +44,6 @@ public class MsgTimeline extends MsgTimelineKey {
     @Comment("更新时间戳")
     private long updateAt;
 
-    @Column(name = "title_biz",precision = 3, nullable = false)
-    @Comment("会话标题业务类型")
-    private int titleBiz;
-
-    @Column(name = "title_biz_id", nullable = false)
-    @Comment("会话标题业务对象编号")
-    private long titleBizId;
-
     public MsgTimeline(long receiverId, long senderId) {
         super(receiverId, senderId);
     }
@@ -81,21 +73,5 @@ public class MsgTimeline extends MsgTimelineKey {
 
     public void setUpdateAt(long updateAt) {
         this.updateAt = updateAt;
-    }
-
-    public int getTitleBiz() {
-        return titleBiz;
-    }
-
-    public void setTitleBiz(int titleBiz) {
-        this.titleBiz = titleBiz;
-    }
-
-    public long getTitleBizId() {
-        return titleBizId;
-    }
-
-    public void setTitleBizId(long titleBizId) {
-        this.titleBizId = titleBizId;
     }
 }

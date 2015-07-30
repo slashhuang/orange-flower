@@ -12,6 +12,76 @@
     </parent>
 
     <artifactId>flower-api</artifactId>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.wisorg</groupId>
+            <artifactId>libthrift</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.orange</groupId>
+                <artifactId>thrift-maven-plugin</artifactId>
+                <configuration combine.self="override">
+                    <recurse>true</recurse>
+                    <generators>
+                        <generator>java:beans,java5</generator>
+                        <generator>js:jquery</generator>
+                        <generator>xml</generator>
+                        <generator>html</generator>
+                        <generator>cocoa</generator>
+                    </generators>
+                    <addResources>
+                        <resource>target/generated-sources/thrift/gen-xml</resource>
+                    </addResources>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>package-server-java</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/main/assembly/java.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>package-cocoa</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/main/assembly/cocoa.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
     
 </project>
