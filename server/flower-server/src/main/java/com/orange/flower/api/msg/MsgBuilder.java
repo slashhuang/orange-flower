@@ -93,13 +93,13 @@ public class MsgBuilder {
         Assert.isTrue(!CollectionUtils.isEmpty(receivers), "Receivers must not be empty");
         Msg msg = new Msg();
         msg.setMsgType(msgType);
-        msg.setSender(sender);
+        msg.setSenderId(sender);
         msg.setBody(body);
         if (!StringUtils.isEmpty(tpl)) {
             //TODO render tpl and set body
         }
         Assert.isTrue(StringUtils.hasText(body) || StringUtils.hasText(tpl), "Body or tpl must not be empty");
-        msg.setCreateAt(System.currentTimeMillis());
+        msg.setSendAt(System.currentTimeMillis());
         return msg;
     }
 

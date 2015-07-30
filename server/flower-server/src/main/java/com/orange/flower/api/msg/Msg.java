@@ -14,11 +14,13 @@
 
 package com.orange.flower.api.msg;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.orange.flower.core.hibernate.JSONType;
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * .
@@ -34,17 +36,22 @@ public class Msg implements Serializable{
     @GeneratedValue
     private Long id;
 
-    private long sender;
+    private long senderId;
+    private String title;
     private String body;
-    private long createAt;
+    private long sendAt;
     private MsgType msgType;
 
-    public void setSender(long sender) {
-        this.sender = sender;
+    @Type(type = JSONType.TYPE)
+    @Column(length = 4000)
+    private List<MsgItem> items = new ArrayList<MsgItem>();
+
+    public void setSenderId(long senderId) {
+        this.senderId = senderId;
     }
 
-    public long getSender() {
-        return sender;
+    public long getSenderId() {
+        return senderId;
     }
 
     public void setBody(String body) {
@@ -55,12 +62,12 @@ public class Msg implements Serializable{
         return body;
     }
 
-    public void setCreateAt(long createAt) {
-        this.createAt = createAt;
+    public void setSendAt(long sendAt) {
+        this.sendAt = sendAt;
     }
 
-    public long getCreateAt() {
-        return createAt;
+    public long getSendAt() {
+        return sendAt;
     }
 
     public MsgType getMsgType() {
