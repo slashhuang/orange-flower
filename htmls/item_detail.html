@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>商品详情页面</title>
+    <link rel="stylesheet" href="../public/stylesheets/reset.css">
+    <link rel="stylesheet" href="../public/stylesheets/item_detail.css">
+    <link rel="stylesheet" href="../public/stylesheets/sale_item/hot_sale.css">
+    <link rel="stylesheet" href="../public/stylesheets/swiper.min.css">
+</head>
+<body>
+    <div class="item-header">
+        <div class="header-bottom">
+            <a class="header-back" href="javascript:history.go(-1);" title="返回"></a>
+            <p id="headerTitle"><span class="">商品详情</span></p>
+            <a href="javascript:void(0)" class="" id><span class="item-header-right"></span></a>
+        </div>
+    </div>
+    <div class="swiper-container img-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="width: 100%; text-align: center;"><img src="../public/images/item_detail/huawei.jpg"></div>
+            <div class="swiper-slide" style="width: 100%; text-align: center;"><img src="../public/images/item_detail/huawei_2.jpg"></div>
+            <div class="swiper-slide" style="width: 100%; text-align: center;"><img src="../public/images/item_detail/huawei_3.jpg"></div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-clickable pagination-style">
+            <span class="swiper-pagination-bullet"></span>
+            <span class="swiper-pagination-bullet"></span>
+            <span class="swiper-pagination-bullet"></span>
+        </div>
+    </div>
+
+    <div class="item-list">
+        <div class="list-1">
+           <p>手机的相关描述</p>
+        </div>
+        <div class="list-3 ">
+            <p class="font-f2">
+                <span>￥</span>
+                <span class="font-f3">2599.00</span>
+            </p>
+        </div>
+        <div class="item-list-service">
+            <h1></h1>
+            <p>橘花服务承诺</p>
+            <ul class="item-serve-list">
+                <li>
+                    <span class="icon-1"></span>
+                    <span class="name">正品保障</span>
+                </li>
+                <li>
+                    <span class="icon-2"></span>
+                    <span class="name">全国联保</span>
+                </li>
+                <li>
+                    <span class="icon-3"></span>
+                    <span class="name">无忧退换</span>
+                </li>
+                <li>
+                    <span class="icon-4"></span>
+                    <span class="name">闪电发货</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="item-list-bg">
+        <h1></h1>
+    </div>
+    <div class="item-detail-block">
+        <a href="" class="block-link">
+            商品详情
+            <span class="com-arrow arrow-right"></span>
+        </a>
+        <a href="" class="block-link">
+            规格参数
+            <span class="com-arrow arrow-right"></span>
+        </a>
+        <a href="" class="block-link border-last">
+            包装清单
+            <span class="com-arrow arrow-right"></span>
+        </a>
+    </div>
+    <div class="item-buy">
+        <div class="item-buy-div">
+            <button id="buy_installment" class="item-buy-button"> 分期购买 </button>
+        </div>
+    </div>
+
+    <div class="item-frame-background"></div><!--透明背景-->
+    <div class="item-bid-order">
+        <div style="position: relative">
+        <div class="item-bid-good clear-float">
+            <div class="item-bid-img fl">
+                <img src="../public/images/item_detail/huawei_1.jpg" class="full-width">
+            </div>
+            <div class="item-bid-item-detail fl">
+                <p>华为 荣耀 7 (PLK-UL00) 3GB内存标准版 典雅灰 移动联通4G手机 </p>
+                <p>
+                    <span class="font-f4">￥</span>
+                    <span class="font-f5">2599.00</span>
+                    <span class="bkorange">
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="item-bid-form">
+            <div class="item-bid-count clear-float">
+                <p class="fl">购买数量</p>
+                <div class="number-wrap fr">
+                    <a href="javascript:void(0);" class="inline-block number-subtrack">-</a>
+                    <input  value="1" class="number-input" data-maxvalue="10">
+                    <a href="javascript:void(0);" class="inline-block number-add active">+</a>
+                </div>
+            </div>
+            <div class="item-bid-paybox">
+                <p class="item-pay-ration">首付比例</p>
+                <div class="number-box">
+                    <select class="payment-ratio">
+                        <option selected="" value="0">0%</option>
+                        <option value="5">5%</option>
+                        <option value="10">10%</option>
+                        <option value="20">20%</option>
+                        <option value="30">30%</option>
+                        <option value="40">40%</option>
+                        <option value="50">50%</option>
+                        <option value="60">60%</option>
+                        <option value="70">70%</option>
+                        <option value="80">80%</option>
+                        <option value="90">90%</option>
+                    </select>
+                    <span id="initialPaymentTip">(0.00元)</span>
+                </div>
+                <input type="hidden" name="paymentRatio" id="paymentRatioId" value="0">
+            </div>
+            <div class="item-pay-month">
+                <p>分期月数</p>
+                <ul id="installmentMonth" class="clear-float">
+                    <li data-month="3">3个月</li>
+                    <li data-month="6">6个月</li>
+                    <li data-month="9">9个月</li>
+                    <li data-month="12">12个月</li>
+                    <li data-month="15">15个月</li>
+                    <li data-month="18">18个月</li>
+                    <li class="month-selected" data-month="24">24个月</li>
+                </ul>
+                <input type="hidden" name="stagesMonth" id="stagesMonthId" value="18">
+            </div>
+            <div class="item-bid-calculation">
+                <p class="calculation">
+                    <span>首付：</span>
+                    <span class="font-f6">￥</span>
+                    <span id="initialPayment" class="font-bold font-f6">259.90</span>
+                </p>
+                <div class="calculation">
+                    <span>月供：</span>
+                    <span class="font-f6">￥</span>
+                    <span id="monthPrice" class="font-bold font-f6">138.40</span>
+                </div>
+                <p class="calculation">
+                    <span>日供：</span>
+                    <span class="font-f6">￥</span>
+                    <span id="dailyPayment" class="font-bold font-f6">4.61</span>
+                </p>
+            </div>
+        </div>
+        <div id="layer-close"></div>
+        </div>
+    </div>
+    <script src="../public/js/require.js" data-main="../public/js/js_models/item_model.js"></script>
+</body>
+</html>

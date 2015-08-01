@@ -1,0 +1,23 @@
+/**
+ * Created by xg on 2015/7/28.
+ */
+require.config({
+    baseUrl:"../public/js/lib",
+    paths:{
+        "zepto":"./zepto.min",
+        "swiper":"./swiper.jquery.min",
+        "model":"../js_models"
+    },
+    shim:{
+        "zepto":{
+            "exports":"$"
+        },
+        "swiper":{
+            "deps":["zepto"],
+            "exports":"Swiper"
+        }
+    }
+})
+require(['model/item_detail',"swiper_"],function(itemDetail,swiper){
+    swiper.picture();
+})

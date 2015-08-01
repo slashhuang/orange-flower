@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--author：yuji-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <title>我的橘花</title>
+</head>
+<body>
+<!--头部-->
+<div class="of-header of-header-white" id="of-header" >
+    <a class="of-user-icon" style="float: left" href=""></a>
+    我的橘花
+</div>
+<!--底部导航栏-->
+<div class="of-bottom-bar" id="navigationBar">
+    <div>
+        <a href="index.html">
+            <i class="of-icon-bottom of-icon-home"></i>
+            首页
+        </a>
+    </div>
+    <div >
+        <a href="">
+            <i class="of-icon-bottom of-icon-classify"></i>
+            商品分类
+        </a>
+    </div>
+    <div >
+        <a href="user_center.html">
+            <i class="of-icon-bottom of-icon-hot"></i>
+            热卖
+        </a>
+    </div>
+    <div >
+        <a href="user_center.html">
+            <i class="of-icon-bottom of-icon-person active"></i>
+            我的
+        </a>
+    </div>
+    <div >
+        <a href="register.html">
+            <i class="of-icon-bottom of-icon-heart "></i>
+            帮助
+        </a>
+    </div>
+</div>
+
+<!--头像 手机号 认证状态-->
+
+<div class="of-user-abstract" style="margin-top:56px;">
+    <img class="of-avatar" src="../../flower／src/images/pingpong.jpg">
+    158555555555
+    <div >
+        <a hre="">
+            立即认证
+        </a>
+    </div>
+</div>
+
+<!--信用状态总览-->
+<div class="of-tab-memu">
+    <div class="of-tab-menu-item">
+        <div>¥0.0</div>
+        信用额度
+    </div>
+    <div class="of-tab-menu-item">
+        <div>¥0.0</div>
+        可用额度
+    </div>
+    <div class="of-tab-menu-item">
+        <div>¥0.0</div>
+        可借现金
+    </div>
+</div>
+
+<!--列表型视图-->
+<div class="of-single-column-table">
+
+    <div class="of-table-cell">
+        <a href="">
+            <i class="of-icon-book"></i>
+            我的订单
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAWCAYAAADwza0nAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2tpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDozMDcyRjM1RTI1MjA2ODExODIyQUUxQTU5NjYxQ0Y1QSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjYzODI3MUUzMTMxMUU0QkVENURBRUU5OURDREMwOCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjYzODI3MEUzMTMxMUU0QkVENURBRUU5OURDREMwOCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3NTg2Zjk2NC03NGJhLTQwOTYtYmQ2Zi03MjUyN2I4MzZjNDMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzA3MkYzNUUyNTIwNjgxMTgyMkFFMUE1OTY2MUNGNUEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6WJcbDAAAAdUlEQVQ4y2M4efIkDxAfhmJeIGYgBoMIBSB+CMT/SdEMYyiRqhmZQ5JmdAF0zTzEaiRaMy6nENSMLwDwaiYU7Dg1ExPZWDUzEJlSMDSTq5GXLE3kBA4vOdHBS04C4CUnyfGSk8h5aZatFMnJyPLkFh285BRWALNCEUTtfhJwAAAAAElFTkSuQmCC">
+        </a>
+    </div>
+    <div class="of-table-cell">
+        <a href="">
+            <i class="of-icon-book"></i>
+            我的订单
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAWCAYAAADwza0nAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2tpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDozMDcyRjM1RTI1MjA2ODExODIyQUUxQTU5NjYxQ0Y1QSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjYzODI3MUUzMTMxMUU0QkVENURBRUU5OURDREMwOCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjYzODI3MEUzMTMxMUU0QkVENURBRUU5OURDREMwOCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3NTg2Zjk2NC03NGJhLTQwOTYtYmQ2Zi03MjUyN2I4MzZjNDMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzA3MkYzNUUyNTIwNjgxMTgyMkFFMUE1OTY2MUNGNUEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6WJcbDAAAAdUlEQVQ4y2M4efIkDxAfhmJeIGYgBoMIBSB+CMT/SdEMYyiRqhmZQ5JmdAF0zTzEaiRaMy6nENSMLwDwaiYU7Dg1ExPZWDUzEJlSMDSTq5GXLE3kBA4vOdHBS04C4CUnyfGSk8h5aZatFMnJyPLkFh285BRWALNCEUTtfhJwAAAAAElFTkSuQmCC">
+        </a>
+    </div>
+    <div class="of-table-cell">
+        <a href="">
+            <i class="of-icon-book"></i>
+            我的订单
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAWCAYAAADwza0nAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2tpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDozMDcyRjM1RTI1MjA2ODExODIyQUUxQTU5NjYxQ0Y1QSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjYzODI3MUUzMTMxMUU0QkVENURBRUU5OURDREMwOCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjYzODI3MEUzMTMxMUU0QkVENURBRUU5OURDREMwOCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3NTg2Zjk2NC03NGJhLTQwOTYtYmQ2Zi03MjUyN2I4MzZjNDMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzA3MkYzNUUyNTIwNjgxMTgyMkFFMUE1OTY2MUNGNUEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6WJcbDAAAAdUlEQVQ4y2M4efIkDxAfhmJeIGYgBoMIBSB+CMT/SdEMYyiRqhmZQ5JmdAF0zTzEaiRaMy6nENSMLwDwaiYU7Dg1ExPZWDUzEJlSMDSTq5GXLE3kBA4vOdHBS04C4CUnyfGSk8h5aZatFMnJyPLkFh285BRWALNCEUTtfhJwAAAAAElFTkSuQmCC">
+        </a>
+    </div>
+    <div class="of-table-cell">
+        <a href="">
+            <i class="of-icon-book"></i>
+            我的订单
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAWCAYAAADwza0nAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2tpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDozMDcyRjM1RTI1MjA2ODExODIyQUUxQTU5NjYxQ0Y1QSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjYzODI3MUUzMTMxMUU0QkVENURBRUU5OURDREMwOCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjYzODI3MEUzMTMxMUU0QkVENURBRUU5OURDREMwOCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3NTg2Zjk2NC03NGJhLTQwOTYtYmQ2Zi03MjUyN2I4MzZjNDMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzA3MkYzNUUyNTIwNjgxMTgyMkFFMUE1OTY2MUNGNUEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6WJcbDAAAAdUlEQVQ4y2M4efIkDxAfhmJeIGYgBoMIBSB+CMT/SdEMYyiRqhmZQ5JmdAF0zTzEaiRaMy6nENSMLwDwaiYU7Dg1ExPZWDUzEJlSMDSTq5GXLE3kBA4vOdHBS04C4CUnyfGSk8h5aZatFMnJyPLkFh285BRWALNCEUTtfhJwAAAAAElFTkSuQmCC">
+        </a>
+    </div>
+    <div class="of-table-blank">
+
+    </div>
+</div>
+
+<div class="of-foot">
+    <a >orangecard.cn</a>
+</div>
+</body>
+</html>

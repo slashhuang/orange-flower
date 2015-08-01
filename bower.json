@@ -1,0 +1,28 @@
+{
+  "name": "orangeFlower",
+  "version": "0.0.0",
+  "homepage": "https://github.com/renaesop/of",
+  "authors": [
+    "aesop <yujigali@icloud.com>"
+  ],
+  "description": "Foreground of orangeflower",
+  "keywords": [
+    "orange"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.19",
+    "zepto": "~1.1.6",
+    "r.js": "~2.1.19",
+    "zepto-full": "~1.1.2",
+    "swiper": "~3.1.0",
+    "lazyload": "~3.2.1"
+  }
+}
