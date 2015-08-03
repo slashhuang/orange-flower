@@ -34,6 +34,8 @@ require(["../lib/url_config","ajax_check", "zepto"], function(config,check,  $){
         if(checkIsAllOk()){
             formNode.submit();
         }
+        window.location.href="register_info.html";
+        //@TODO 仅仅测试使用，后台接口做好后，放到上一行代码
     });
 
     //检测手机号

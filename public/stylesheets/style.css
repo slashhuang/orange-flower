@@ -203,6 +203,12 @@ body.register {
 .of-class-recommand-item a{
     display: block;
 }
+.swiper-wrapper{
+    margin-top:24px;
+}
+.swiper-slide img{
+    width:100%;
+}
 a{
     text-decoration: none;
     color:#4d4d4d;
