@@ -1,9 +1,11 @@
-body,p,ul,li,h1{
+body,p,ul,li,h1,input{
+    border:0;
     margin:0;
     padding:0;
     list-style: none;
     -webkit-tap-highlight-color:rgba(0,0,0,0);
-    font-size:100%
+    font-size:100%;
+    background: none;
 }
 a, a:hover, a:active, a:visited{
     text-decoration: none;
@@ -23,6 +25,10 @@ a, a:hover, a:active, a:visited{
 }
 *{
     box-sizing:border-box;
+}
+::-webkit-input-placeholder {
+    font-size:inherit;
+    color: #a9a9a9;
 }
 .full-width{
     width:100%;
