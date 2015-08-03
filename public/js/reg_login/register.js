@@ -13,12 +13,12 @@ require.config({
     }
 })
 
-require(["url_config","ajax_check", "zepto"], function(config,check,  $){
+require(["../lib/url_config","ajax_check", "zepto"], function(config,check,  $){
     var phoneNumberInput = document.getElementById("phoneNumber");
     var certNumberInput = document.getElementById("certNumber")
     var certButton = document.getElementById("sendCert");
     var password = document.getElementById("password");
-    var passwordRepeat = document.getElementById("passwrodRepeat");
+    var passwordRepeat = document.getElementById("passwordRepeat");
     var $certButton = $("#sendCert");
     var $submitButton = $("#submit");
     var formNode = document.forms[0];
@@ -28,7 +28,7 @@ require(["url_config","ajax_check", "zepto"], function(config,check,  $){
         "password" : false,
         "passwordRepeat": false,
         "law": true
-    }
+    };
 
     $submitButton.tap(function(){
         if(checkIsAllOk()){
@@ -123,6 +123,5 @@ require(["url_config","ajax_check", "zepto"], function(config,check,  $){
         }
         return true;
     }
-
 
 });

@@ -368,6 +368,14 @@ a{
     height:220px;
 }
 
+
+
+/*头部图片slider部分*/
+.swiper-img-size{
+    width:100%;
+    height:auto;
+}
+
 /*icon部分*/
 .of-icon-clock{
     background: url(../images/icon/icon-clock.png) no-repeat center;

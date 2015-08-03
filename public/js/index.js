@@ -26,7 +26,6 @@ require(['swiper_','zepto','lazyload'],function(swiper, $){
         effect: "fadeIn",
         vertical_only: true
     });
-
     //var $navigationBar = $("#navigationBar");
     //var $header = $("#of-header");
     //$("body").on('touchmove', function(e){
