@@ -2,21 +2,12 @@
     border-bottom: 1px solid #dcdcdc;
     color: #616161;
     height: 3.8rem;
-    line-height: 3.8rem;
+    line-height: 1.8rem;
     background: #ededed;
     font-size: 1.7rem;
     text-align: center;
     position: relative;
-}
-.header-back{
-    display: inline-block;
-    width: 9px;
-    height: 16px;
-    background: url(../../../../flower／src/images/item_detail/logo_compo.png) -63px -42px;
-    background-size: 160px 100px;
-    position: absolute;
-    left: 1.2rem;
-    top: 1.2rem;
+    padding:1rem;
 }
 .header-right{
     position: absolute;
@@ -34,7 +25,7 @@
     display: block;
     width: 18px;
     height: 16px;
-    background: url(../../../../flower／src/images/item_detail/logo_compo.png) -24px -77px;
+    background: url(../../images/item_detail/logo_compo.png) -24px -77px;
     background-size: 160px 100px;
     margin: 0 auto;
 }
@@ -42,7 +33,7 @@
     display: block;
     width: 16px;
     height: 16px;
-    background: url(../../../../flower／src/images/item_detail/logo_compo.png) -88px -77px;
+    background: url(../../images/item_detail/logo_compo.png) -88px -77px;
     background-size: 160px 100px;
     margin: 0 auto;
 }

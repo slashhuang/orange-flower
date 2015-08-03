@@ -1,16 +1,10 @@
-.item-header{
-    width:100%;
-    height:4.4rem;
-    line-height:4.4rem;
-}
-.header-bottom{
+.header-border{
     border-bottom:solid 1px #c9c9c9;
+    padding:1rem;
 }
 .item-header-left{
 }
 #headerTitle {
-    height: 4.4rem;
-    line-height: 4.4rem;
     text-align: center;
     font-weight: 400;
     color: #474747;
@@ -45,7 +39,7 @@
     top: 13px;
     width: 14px;
     height: 12px;
-    background: url(../images/item_detail/logo_compo.png) 0px -12px;
+    background: url(../../images/item_detail/logo_compo.png) 0px -12px;
     background-size: 160px 100px;
     z-index:100000;
 }

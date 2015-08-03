@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="../public/stylesheets/style.css">
     <link rel="stylesheet" href="../public/stylesheets/reset.css">
+    <link rel="stylesheet" href="../public/stylesheets/common.css">
+    <link rel="stylesheet" href="../public/stylesheets/register_login/reg_login.css">
     <title>注册</title>
 </head>
 <body class="register">
 <div class="of-header gray">
-    <a class="of-back" href="javascript:history.back()"></a>
+    <a class="header-back" href="javascript:history.back()"></a>
     个人信息填写
 </div>
 
@@ -19,31 +21,31 @@
     <label>
         姓名 <input  id="phoneNumber" type="tel" placeholder="请输入真实姓名" />
     </label>
-
-
     <label >
         身份证号
-        <input  id="certNumber" type="tel" placeholder="请输入" />
+        <input  id="certNumber" type="tel" placeholder="请输入证件号" />
     </label>
-
     <label>
-        密码
-        <input id="password" type="password" placeholder="请输入密码"/>
+        省份
+        <span id="regProvince" class="arrow-right-select"></span>
     </label>
-
     <label>
-        确认密码<input id="passwrodRepeat" type="password" placeholder="请重复刚才设置的密码" />
+        城市
+        <span id="regCity" class="arrow-right-select"></span>
     </label>
-
-
-    <label class="of-check no-border">
-        <input class="checkbox-style" type="checkbox" value="">我已阅读并同意<a href="">《橘花协议》</a>
+    <label>
+        学校
+        <span id="university" class="arrow-right-select"></span>
+    </label>
+    <label>
+        校区
+        <span id="campus" class="arrow-right-select"></span>
     </label>
     <label class=" no-border">
-        <input class="of-button of-button-bar" id="submit" type="button"  value="注册">
+        <input class="of-button of-button-bar" id="regInfoSubmit" type="button"  value="下一步">
     </label>
 
 </form>
 </body>
-<script src="../public/js/require.js" data-main="../src/js/register"></script>
+<script src="../public/js/require.js" data-main=""></script>
 </html>
