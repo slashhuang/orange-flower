@@ -29,7 +29,7 @@
     * 开发者标签原生的样式加入reset.css   
 - 提交git  
     * 自己测试用的文件加入.gitignore  
-    * 没有完全写好的代码加上**@TODO**
+    * 没有完全写好的代码加上** @TODO **别忘了
 - JavaScript代码   
     * js第三方代码库放在lib文件夹下
     * 复用的swiper放在lib下，修改需加上开发者个人备注
