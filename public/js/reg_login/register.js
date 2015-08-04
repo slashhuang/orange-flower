@@ -1,10 +1,12 @@
 /**
- * Created by yuji on 15/7/27.
+ * Created by slashhuang on 15/8/4.
  */
+
 require.config({
     baseUrl:"../public/js/lib",
     paths:{
-        "zepto":"./zepto.min"
+        "zepto":"./zepto.min",
+        "reg_login":"../reg_login",
     },
     shim:{
         "zepto":{
@@ -13,7 +15,7 @@ require.config({
     }
 })
 
-require(["../lib/url_config","ajax_check", "zepto"], function(config,check,  $){
+define(["url_config","ajax_check", "zepto"], function(config,check,  $){
     var phoneNumberInput = document.getElementById("phoneNumber");
     var certNumberInput = document.getElementById("certNumber")
     var certButton = document.getElementById("sendCert");
@@ -41,9 +43,9 @@ require(["../lib/url_config","ajax_check", "zepto"], function(config,check,  $){
     //检测手机号
     phoneNumberInput.onchange = function(){
         check.checkPhoneNumber(phoneNumberInput.value, function(){
-         //@TODO
+            //@TODO
         })
-    }
+    };
     //检测手机验证码
     certNumberInput.onchange = function(){
         check.checkCertNumber(certNumberInput.value, function(){

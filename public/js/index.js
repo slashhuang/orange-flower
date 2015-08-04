@@ -26,19 +26,4 @@ require(['swiper_','zepto','lazyload'],function(swiper, $){
         effect: "fadeIn",
         vertical_only: true
     });
-    //var $navigationBar = $("#navigationBar");
-    //var $header = $("#of-header");
-    //$("body").on('touchmove', function(e){
-    //    $navigationBar.addClass('hidden');
-    //    //$header.addClass('hidden');
-    //});
-    //$("body").on('touchend', function(e){
-    //    setTimeout(function(){
-    //        $navigationBar.removeClass('hidden');
-    //        //$header.removeClass('hidden');
-    //    },50);
-    //
-    //})
-
-
 });

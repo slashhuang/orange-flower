@@ -20,4 +20,4 @@ require.config({
 })
 require(['model/item_detail',"swiper_"],function(itemDetail,swiper){
     swiper.picture();
-})
+});

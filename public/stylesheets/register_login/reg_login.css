@@ -31,14 +31,17 @@ label input{
     outline: none;
 }
 .of-register-form label select{
-    -webkit-appearance: none;
     float: right;
     border: none;
-    color: #fff;
-    background-image: url(../../images/icon/icon-h.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
+    color: #b5b5b5;
+    text-align: right;
+    width:100px;
+    font-size:0.9em;
+    text-overflow:ellipsis ;
+    background: none;
+    align-items: right;
+    overflow: hidden;
+    outline:none;
 }
 .of-register-form label span{
     margin-left: 24px;
