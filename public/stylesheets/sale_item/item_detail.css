@@ -24,6 +24,7 @@
 .img-slider{
     margin-top:1rem !important;
     padding-bottom:2rem !important;
+    background:inherit;
 }
 .img-slider img{
     width:50%;
