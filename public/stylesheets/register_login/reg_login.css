@@ -10,7 +10,9 @@
     -webkit-appearance: checkbox;
     margin-left: 0;
 }
-
+body.register {
+    background-color: #fff;
+}
 #certNumber{
     width: 100px;
 }

@@ -8,18 +8,6 @@
     /*height: 0;*/
 /*}*/
 
-body {
-    min-width: 320px;
-    font-size: 1.4rem;
-    background-color: #efefef;
-    color: #666;
-    margin:0;
-    overflow: hidden;
-}
-
-body.register {
-    background-color: #fff;
-}
 /**
 *头部
 */
