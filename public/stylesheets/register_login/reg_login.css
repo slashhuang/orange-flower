@@ -3,7 +3,6 @@
 */
 .of-register-form{
     padding:5px ;
-    margin-top:40px;
 }
 
 .of-check input{
@@ -15,23 +14,6 @@ body.register {
 }
 #certNumber{
     width: 100px;
-}
-.of-header{
-    position:fixed;
-    top:0;
-    width: 100%;
-    color:#000;
-    font-size:16px;
-    padding: 9px 11px;
-    text-align: center;
-    z-index: 9999;
-}
-.of-header.gray{
-    background-color: #dfdfdf;
-}
-
-.of-header.hidden{
-    display: none;
 }
 .of-register-form label{
     display: block;

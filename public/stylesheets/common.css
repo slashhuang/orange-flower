@@ -16,4 +16,30 @@
     background-size: 9px 16px;
 }
 
+.of-header{
+    width: 100%;
+    font-size:16px;
+    padding: 9px 11px;
+    text-align: center;
+}
+.of-header.gray{
+    background-color: #dfdfdf;
+}
+.of-header-person{
+    display:block;
+    width: 9px;
+    height: 18px;
+    background: url(../images/icon/icon-person.png);
+    background-size: 9px 18px;
+    float:left;
+}
+.of-header-search{
+    display:block;
+    width: 9px;
+    height: 18px;
+    background: url(../images/icon/icon-search-white.png);
+    background-size: 9px 18px;
+    float:right;
+}
+
 
