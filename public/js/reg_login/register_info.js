@@ -1,9 +1,7 @@
 /**
  * Created by slashhuang on 15/8/4.
  */
-/**
- * Created by yuji on 15/7/27.
- */
+
 require.config({
     baseUrl:"../../public/js/lib",
     paths:{
@@ -15,11 +13,17 @@ require.config({
         "zepto":{
             "exports":"$"
         },
+        "distpicker":{
+            deps: ['jquery',"distpicker.data"],
+            //Once loaded, use the global 'distpicker' as the
+            //module value.
+            exports: 'distpicker'
+        }
 
     }
 })
 
-require(["url_config","ajax_check","jquery","distpicker.data","distpicker"], function (config,check,$,disData,distpicker) {
+require(["url_config","ajax_check","distpicker"], function (config,check,distpicker) {
     $('#regForm').distpicker({
         province: '---- 所在省 ----',
         city: '---- 所在市 ----'
