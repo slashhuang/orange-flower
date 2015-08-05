@@ -1,9 +1,10 @@
+/*登录注册及主页头样式*/
 .header-back{
     display:block;
     width: 9px;
-    height: 16px;
+    height: 18px;
     background: url(../images/icon/icon_arrow_left.png);
-    background-size: 9px 16px;
+    background-size: 9px 18px;
     float:left;
 }
 .arrow-right-select{
@@ -14,3 +15,5 @@
     background: url(../images/icon/icon_arrow_right.png);
     background-size: 9px 16px;
 }
+
+

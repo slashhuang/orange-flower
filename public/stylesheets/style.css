@@ -11,41 +11,6 @@
 /**
 *头部
 */
-.of-header{
-    position:fixed;
-    top:0;
-    width: 100%;
-    color:#000;
-    font-size:16px;
-    padding: 10px 8px;
-    text-align: center;
-    z-index: 9999;
-}
-
-.of-header.gray{
-    background-color: #dfdfdf;
-}
-
-.of-header.hidden{
-    display: none;
-}
-
-
-.of-header-person{
-    display:inline-block;
-    text-decoration: none;
-    background:url(../images/icon/icon-person-white.png) no-repeat center;
-    background-size: contain;
-}
-.of-header-search{
-    display:inline-block;
-    text-decoration: none;
-    background:url(../images/icon/icon-search-white.png) no-repeat center;
-    background-size: contain;
-}
-
-
-
 .of-logo{
     margin-top:44px;
     background-color: #18b9d1;
