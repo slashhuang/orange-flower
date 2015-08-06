@@ -21,7 +21,7 @@ define(['swiper','zepto'], function(swiper, $){
                 var mySwiper = new swiper ('.of-class-recommand-body', {
                     slidesPerView: 4,
                     paginationClickable: true,
-                    spaceBetween: 8,
+                    spaceBetween: 7,
                     freeMode: true
                 })
             })();

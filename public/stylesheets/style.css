@@ -150,12 +150,12 @@
     padding-bottom: 8px;
 }
 .of-class-recommand-body .swiper-wrapper:first-child{
-    margin-left:12px;
+    margin-left:6px;
 }
 
 .of-class-recommand-item.swiper-slide{
     text-align: center;
-    border: 1px solid #e1e1e1;
+    border: 1px solid #e6e6e6;
     background-color:#fff;
     padding: 6px;
     margin-left: 2px;
