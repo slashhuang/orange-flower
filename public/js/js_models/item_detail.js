@@ -1,5 +1,5 @@
 /**
- * Created by ds on 2015/7/28.
+ * Created by slashhuang on 2015/7/28.
  */
 define(["zepto"], function($) {
         var buy_btn = $("#buy_installment");
