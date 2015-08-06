@@ -36,7 +36,6 @@
     text-align:center;
     font-size:11px;
     margin-top:10px ;
-
 }
 
 .of-icon-class-item a{
@@ -171,11 +170,6 @@
 .of-class-recommand-item img{
     width:32px;
 }
-a{
-    text-decoration: none;
-    color:#4d4d4d;
-}
-
 
 .of-class-recommand-item .of-name{
     text-align: center;
