@@ -84,13 +84,12 @@
 .of-special-sale-item{
     display: block;
     position:relative;
-    padding:10px 10px 5px 0;
+    margin:10px 10px 5px 0;
     overflow:hidden;
-}
-.of-special-sale-item img{
-    width: 33px;
-    padding:3px 0 5px 0;
-    box-sizing: content-box;
+    background: url("../../public/images/mobile_demo.png") no-repeat 25px 12px;
+    background-size: 32px 70px;
+    width:100px;
+    height:90px;
 }
 .of-special-sale-item p{
     text-align:center;
