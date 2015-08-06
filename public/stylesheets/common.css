@@ -25,6 +25,9 @@
 .of-header.green{
     background-color: #15c690;
 }
+.of-header.gray{
+    background-color: #dfdfdf;
+}
 .of-header-person{
     display:inline-block;
     width: 22px;
