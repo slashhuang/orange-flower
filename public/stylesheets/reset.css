@@ -10,7 +10,6 @@ body,p,ul,li,h1,input,option{
 body {
     min-width: 320px;
     margin:0;
-    overflow: hidden;
 }
 a, a:hover, a:active, a:visited{
     text-decoration: none;
