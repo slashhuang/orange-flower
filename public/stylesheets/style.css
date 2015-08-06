@@ -23,7 +23,12 @@
     background: url("../images/logo.jpg") center no-repeat;
     height: 180px;
 }
-
+.swiper-pagination-bullet-active{
+    background-color: #939393 !important;
+}
+.swiper-pagination-bullet{
+    background-color: #fff !important;
+}
 
 /**
 *图标和小字的分类
@@ -64,7 +69,7 @@
 /*限时特卖*/
 
 .of-special-sale{
-    backgroud-color:#fff;
+    background-color:#fff;
     margin-top:10px;
     border-top:#c1c1c1 1px solid;
     border-bottom:#c1c1c1 1px solid;
@@ -109,7 +114,7 @@
     border-radius:1px;
 
     overflow: hidden;
-    backgroud-color:#fff;
+    background-color:#fff;
 }
 
 .of-class-recommand-header{

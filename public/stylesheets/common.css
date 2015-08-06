@@ -22,23 +22,23 @@
     padding: 9px 11px;
     text-align: center;
 }
-.of-header.gray{
-    background-color: #dfdfdf;
+.of-header.green{
+    background-color: #15c690;
 }
 .of-header-person{
     display:block;
-    width: 9px;
-    height: 18px;
-    background: url(../images/icon/icon-person.png);
-    background-size: 9px 18px;
+    width: 22px;
+    height: 22px;
+    background: url(../images/icon/icon-person-white.png);
+    background-size: 22px 22px;
     float:left;
 }
 .of-header-search{
     display:block;
-    width: 9px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
     background: url(../images/icon/icon-search-white.png);
-    background-size: 9px 18px;
+    background-size: 22px 22px;
     float:right;
 }
 
