@@ -19,27 +19,29 @@
 .of-header{
     width: 100%;
     font-size:16px;
-    padding: 9px 11px;
+    padding: 9px 11px 6px 11px;
     text-align: center;
 }
 .of-header.green{
     background-color: #15c690;
 }
 .of-header-person{
-    display:block;
+    display:inline-block;
     width: 22px;
     height: 22px;
     background: url(../images/icon/icon-person-white.png);
     background-size: 22px 22px;
     float:left;
+    margin-top:5px;
 }
 .of-header-search{
-    display:block;
+    display:inline-block;
     width: 22px;
     height: 22px;
     background: url(../images/icon/icon-search-white.png);
     background-size: 22px 22px;
     float:right;
+    margin-top:5px;
 }
 
 
