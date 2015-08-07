@@ -27,7 +27,8 @@
     background:inherit;
 }
 .img-slider img{
-    width:50%;
+    width:120px;
+    text-align: center;
     height:auto;
     vertical-align: top;
 }
