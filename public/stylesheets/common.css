@@ -53,6 +53,14 @@
     float:right;
     margin-top:5px;
 }
+.of-header-search-gray{
+    display:inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(../images/icon/icon-search-grey.png) no-repeat;
+    background-size: 18px 18px;
+    float:right;
+}
 /*插入列表空白*/
 .split-line{
     background-color: #f0f0f0;
@@ -112,7 +120,7 @@
 
 .item-hot-list-detail{
     float:left;
-    width:66%;
+    width:60%;
 }
 .item-hot-list-detail .item-new-sale{
     float:right;
