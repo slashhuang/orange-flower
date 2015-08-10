@@ -1,11 +1,13 @@
 /*登录注册及主页头样式*/
 .header-back{
+    position: absolute;
+    top: 9px;
+    left:11px;
     display:block;
     width: 9px;
     height: 18px;
     background: url(../images/icon/icon_arrow_left.png);
     background-size: 9px 18px;
-    float:left;
 }
 .header-back-info{
     font-size:14px;
@@ -37,6 +39,7 @@
     font-size:18px;
     padding: 9px 11px 6px 11px;
     text-align: center;
+    position: relative;
 }
 .of-header.green{
     background-color: #15c690;
@@ -46,21 +49,23 @@
 }
 .of-header-person{
     display:inline-block;
+    position: absolute;
+    top:14px;
+    left:11px;
     width: 22px;
     height: 22px;
     background: url(../images/icon/icon-person-white.png);
     background-size: 22px 22px;
-    float:left;
-    margin-top:5px;
 }
 .of-header-search{
     display:inline-block;
+    position: absolute;
+    top:14px;
+    right:11px;
     width: 22px;
     height: 22px;
     background: url(../images/icon/icon-search-white.png);
     background-size: 22px 22px;
-    float:right;
-    margin-top:5px;
 }
 .of-header-search-gray{
     display:inline-block;
@@ -68,7 +73,9 @@
     height: 18px;
     background: url(../images/icon/icon-search-grey.png) no-repeat;
     background-size: 18px 18px;
-    float:right;
+    position: absolute;
+    top:10px;
+    right:11px;
 }
 /*插入列表空白*/
 .split-line{
