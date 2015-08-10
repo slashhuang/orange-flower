@@ -17,6 +17,9 @@ a, a:hover, a:active, a:visited{
 }
 .fl{float:left}
 .fr{float:right}
+.mg-top{
+    margin-top:20px;
+}
 .inline-block {
     display: inline-block;
 }

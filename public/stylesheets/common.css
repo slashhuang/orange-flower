@@ -7,6 +7,15 @@
     background-size: 9px 18px;
     float:left;
 }
+.header-back-info{
+    font-size:12px;
+    display: inline-block;
+    vertical-align: middle;
+    float:left;
+    padding:2px 0 0 4px;
+    color: #575757;
+}
+
 .header-function{
     float: right;
     font-size: 14px;
@@ -117,7 +126,7 @@
     padding:3px;
     font-size:10px;
 }
-
+/*列表信息*/
 .item-hot-list-detail{
     float:left;
     width:60%;
@@ -169,4 +178,29 @@
     vertical-align: middle;
     color: #000000;
 }
+/*按钮样式*/
+.of-button{
+    padding: 4px 12px 4px 12px;
+    background-color: #16cd9b;
+    color: #fff;
+    font-size:12px;
+    border-radius:15px;
+    margin-left: 0;
+    margin-right:0;
+    text-align: center;
+}
+.of-button.disabled{
+    background-color: #a3a3a3;
+}
+.of-button.of-button-bar{
+    margin-left: 0;
+    width: 100%;
+    font-size: 14px;
+    padding:6px;
+    border-radius: 20px;
+}
+.of-check input{
+    font-size:10px;
+}
+
 
