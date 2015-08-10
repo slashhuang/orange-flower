@@ -104,17 +104,18 @@
 }
 .of-special-sale-banner p{
     background: url("../../public/images/icon/discount_flag.png") no-repeat;
-    background-size:30px 34px ;
-    width:30px;
-    height:34px;
+    background-size:cover ;
     color:#fff;
     font-size:10px;
-    padding-top:5px;
+    padding:5px;
     text-align: center;
 }
 .of-special-sale-banner p i{
     text-align:center;
     font-style: normal;
+    display: block;
+    width: auto;
+    white-space: nowrap
 }
 .of-special-sale:last-child{
     border-right: none;
