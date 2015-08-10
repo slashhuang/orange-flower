@@ -99,7 +99,7 @@
 .of-special-sale-banner{
     position: absolute;
     top:0;
-    right:12px;
+    right:11px;
     z-index:99
 }
 .of-special-sale-banner p{
@@ -107,11 +107,11 @@
     background-size:cover ;
     color:#fff;
     font-size:10px;
-    padding:5px;
+    padding:3px 1px 1px 1px;
     text-align: center;
 }
 .of-special-sale-banner p i{
-    text-align:center;
+   margin:0 auto;
     font-style: normal;
     display: block;
     width: auto;
