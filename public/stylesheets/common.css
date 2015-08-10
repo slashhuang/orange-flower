@@ -11,15 +11,18 @@
 }
 .header-back-info{
     font-size:14px;
+    left:25px;
+    top:14px;
     display: inline-block;
     vertical-align: middle;
-    float:left;
-    padding:2px 0 0 4px;
+    position: absolute;
     color: #575757;
 }
 
 .header-function{
-    float: right;
+    right:16px;
+    top:12px;
+    position: absolute;
     font-size: 14px;
     font-weight: normal;
     color: #2d2d2d;
