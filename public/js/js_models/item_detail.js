@@ -24,6 +24,5 @@ define(["zepto"], function($) {
             buy_btn.text("分期购买");
             init_item_detail_style()
         });
-        console.log(close_btn)
     }
 );

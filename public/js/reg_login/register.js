@@ -90,7 +90,6 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
         var phoneNumber = phoneNumberInput.value;
 
         var tapResponse = function(){
-            //alert("hi");
             certButton.setAttribute("disabled","disabled");
             $certButton.addClass("disabled");
             $certButton.off("tap",tapResponse);
