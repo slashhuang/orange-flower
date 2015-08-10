@@ -80,30 +80,40 @@
     overflow:hidden;
     text-overflow:ellipsis;
 }
-.of-special-sale-item{
+.of-hot-container{
     display: block;
     position:relative;
-    margin:10px 10px 5px 0;
+    margin:5px 10px 5px 0;
     overflow:hidden;
-    background: url("../../public/images/mobile_demo.png") no-repeat 25px 12px;
-    background-size: 32px 70px;
-    width:100px;
-    height:90px;
 }
-.of-special-sale-item p{
-    text-align:center;
+.of-hot-container img{
+    margin-top:5px;
+    text-align: center;
+}
+.of-special-sale-item{
     position: absolute;
-    top:7px;
-    left:0;
-    background: url("../../public/images/icon/discount_flag.png") no-repeat;
-    background-size:cover;
-    color:#fff;
-    font-size:11px;
-    padding:3px;
+    top:0;
+    left:50%;
+    z-index: 999;
 }
-.of-special-sale-item p i{
+.of-special-sale-banner{
+    position: absolute;
+    top:0;
+    right:12px;
+    z-index:99
+}
+.of-special-sale-banner p{
+    background: url("../../public/images/icon/discount_flag.png") no-repeat;
+    background-size:30px 34px ;
+    width:30px;
+    height:34px;
+    color:#fff;
+    font-size:10px;
+    padding:5px 1px 1px 0;
+}
+.of-special-sale-banner p i{
+    text-align:center;
     font-style: normal;
-    display: block;
 }
 .of-special-sale:last-child{
     border-right: none;
