@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>商品详情页面</title>
+    <link rel="stylesheet" href="../../public/stylesheets/reset.css">
+    <link rel="stylesheet" href="../../public/stylesheets/sale_item/item_detail.css">
+    <link rel="stylesheet" href="../../public/stylesheets/common.css">
+    <link rel="stylesheet" href="../../public/stylesheets/swiper.min.css">
+</head>
+<body>
+<div class="of-header gray">
+    <a class="header-back" href="javascript:history.back()"></a>
+    商品详情
+    <a class="header-function" href="javascript:;">筛选</a>
+</div>
+<div class="swiper-container img-slider">
+    <div class="swiper-wrapper">
+        `<div class="swiper-slide" style="width: 100%; text-align: center;">
+                <img src="../../public/images/item_detail/iphone.jpg">
+            </div>
+            <div class="swiper-slide" style="width: 100%; text-align: center;">
+                <img src="../../public/images/item_detail/huawei_2.jpg">
+            </div>
+            <div class="swiper-slide" style="width: 100%; text-align: center;">
+                <img src="../../public/images/item_detail/huawei_3.jpg">
+            </div>
+    </div>
+        <!-- Add Pagination -->
+    <div class="swiper-pagination swiper-pagination-clickable pagination-style">
+            <span class="swiper-pagination-bullet item-detail-bullet-style"></span>
+            <span class="swiper-pagination-bullet"></span>
+            <span class="swiper-pagination-bullet"></span>
+    </div>
+</div>
+<div class="split-line"></div>
+
+<div class="item-detail-intro">
+    <h1>苹果 (Apple) iPhone6 (A1586) 16GB</h1>
+    <h1>每个ID限购一单</h1>
+    <span>￥<i>4188.00</i></span>
+</div>
+<div class="item-detail-option-wrapper">
+    <dl class="item-detail-option-list">
+        <dt>颜色:</dt>
+        <dd>金色</dd>
+        <dd>白色</dd>
+        <dd>黑色</dd>
+    </dl>
+    <dl class="item-detail-option-list">
+        <dt>选购类型:</dt>
+        <dd>公开版(16GB ROM)</dd>
+        <dd>公开版(16GB rom)</dd>
+    </dl>
+</div>
+<div class="split-line"></div>
+<div class="item-detail-list">
+    <h1 id="itemSliderNav">
+        <i>商品详情</i>
+        <i>规格参数</i>
+        <i>包装清单</i>
+    </h1>
+    <div class="item-slider-window">
+        <div class="item-slider-wrapper">
+            <img src="../../public/images/item_detail/item_detail.png">
+            <div class="item-slider-param">
+                <div class="split-line-fff"></div>
+                <table>
+                    <tr>
+                        <td>主体</td>
+                    </tr>
+                    <tr>
+                        <td>品牌</td>
+                        <td>苹果（Apple）</td>
+                    </tr>
+                    <tr>
+                        <td>型号</td>
+                        <td>iPhone 6 Plus A1524</td>
+                    </tr>
+                    <tr>
+                        <td>颜色</td>
+                        <td>金色</td>
+                    </tr>
+                    <tr>
+                        <td>上市年份</td>
+                        <td>2014年</td>
+                    </tr>
+                    <tr>
+                        <td>上市月份	</td>
+                        <td>9月</td>
+                    </tr>
+                    <tr>
+                        <td>输入方式</td>
+                        <td>触控</td>
+                    </tr>
+                    <tr>
+                        <td> 智能机</td>
+                        <td>是</td>
+                    </tr>
+                    <tr>
+                        <td>操作系统</td>
+                        <td>苹果（IOS</td>
+                    </tr>
+                    <tr>
+                        <td>操作系统版本</td>
+                        <td>IOS</td>
+                    </tr>
+                    <tr>
+                        <td>CPU品牌</td>
+                        <td>苹果</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="item-slider-param">
+                <div class="split-line-fff"></div>
+                <span>包装清单：</span>
+                <span>iPhone 6 Plus*1;</span>
+                <span>具有线控功能和麦克风的 Apple EarPods*1；</span>
+                <span>Lightning to USB 连接线*1；</span>
+                <span>Micro USB 转 Lightning接头；</span>
+                <span>USB 电源适配器*1；</span>
+                <span>保修卡*1</span>
+                <span>资料</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="of-bottom-button-wrapper">
+    <div class="of-button item-sale-button">立即分期</div>
+</div>
+    <script src="../../public/js/require.js" data-main="../../public/js/js_models/item_model.js"></script>
+</body>
+</html>
