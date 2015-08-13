@@ -3,7 +3,7 @@
  */
 
 require.config({
-    baseUrl:"../../public/js/lib",
+    baseUrl:"../public/js/lib",
     paths:{
         "zepto":"./zepto.min",
         "reg_login":"../reg_login",

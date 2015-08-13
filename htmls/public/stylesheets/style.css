@@ -103,7 +103,7 @@
     z-index:99
 }
 .of-special-sale-banner p{
-    background: url("../../public/images/icon/discount_flag.png") no-repeat;
+    background: url("../images/icon/discount_flag.png") no-repeat;
     background-size:cover ;
     color:#fff;
     font-size:10px;

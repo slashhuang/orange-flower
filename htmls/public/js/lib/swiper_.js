@@ -1,7 +1,7 @@
 /**
  * Created by yuji on 15/7/28.
  */
-define(['swiper','zepto'], function(swiper, $){
+define(['Swiper','zepto'], function(swiper, $){
     return {
         "picture":function(){
             (function(){

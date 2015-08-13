@@ -2,7 +2,7 @@
  * Created by slashhuang on 2015/7/28.
  */
 require.config({
-    baseUrl:"../../public/js/lib",
+    baseUrl:"../public/js/lib",
     paths:{
         "zepto":"./zepto.min",
         "swiper":"./swiper.jquery.min",
