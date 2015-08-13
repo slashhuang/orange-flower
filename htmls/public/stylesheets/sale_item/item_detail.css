@@ -172,6 +172,7 @@
     left:0;
     right:0;
     width:100%;
+    z-index:1000;
 }
 
 .item-sale-button{
@@ -182,15 +183,24 @@
     border-radius:30px;
 }
 .of-tap-iframe{
-   overflow: scroll;
+    overflow: scroll;
+    position:fixed;
+    height:80%;
+    display: none;
+    background:#fff;
+    padding-bottom:70px;
+    bottom:10px;
+    z-index:99
 }
 .of-item-buy-iframe{
     height:100%;
     width:100%;
+    z-index:98;
+    overflow-y: scroll;
     position:fixed;
-    bottom:0;
+    top:0;
     left:0;
-    display: none;
+    right:0;
 }
 .of-item-buy-frame-info{
     padding:10px;
@@ -200,7 +210,7 @@
     border-top-color:#16cd9b;
 }
 .of-item-buy-info-left{
-    width:25%;
+    width:23%;
     margin-right: 2%;
     display: inline-block;
     text-align: center;
@@ -235,7 +245,7 @@
     font-size:16px;
 }
 .of-item-buy-installation{
-    padding:15px 30px 100px 10px;
+    padding:10px 30px 10px 10px;
     width:100%;
     height:auto;
     background:#fff;
@@ -244,7 +254,7 @@
     display:inline-block;
     margin:7px 3% 5px 0;
     width:21%;
-    padding:3px 10px;
+    padding:3px 9px;
     text-align: center;
     border:1px solid;
     border-color:#e9e9e9;
@@ -268,17 +278,17 @@
     font-weight: normal;
 }
 .of-item-buy-installation-percentage{
-    margin-bottom:5px;
+    margin-bottom:3px;
     font-size:0
 }
 .of-item-buy-installation-hint{
     font-size:10px;
     color:#16cd9b;
-    margin-bottom:18px;
+    margin-bottom:10px;
 }
 .of-item-buy-installation-list{
     display: block;
-    margin-top:5px;
+    margin-top:3px;
     font-size:0
 }
 .of-item-buy-installation-list dt{

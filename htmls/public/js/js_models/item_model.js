@@ -5,7 +5,7 @@ require.config({
     baseUrl:"../public/js/lib",
     paths:{
         "zepto":"./zepto.min",
-        "swiper":"./swiper.jquery.min",
+        "swiper":"./swiper",
         "model":"../js_models"
     },
     shim:{

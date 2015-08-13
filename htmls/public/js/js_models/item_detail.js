@@ -7,10 +7,13 @@ define(["zepto"], function($) {
         var $item_slider_content = $(".item-slider-wrapper").eq(0);
         var $item_slider_window = $(".item-slider-window").eq(0);
         var $item_slider_bar = $("#itemSliderNav").children();
+        var $itemChoice =$(".item-detail-option-list");//选项卡
+        var $iframeChoice=$(".of-item-buy-installation");//iframe选项卡
         //页面基本设置以及选项卡悬浮效果
         (function(){
-            //确保选项卡高度足够
+
             var top_dist = document.getElementById("itemSliderNav").offsetTop;
+            var content_height = $item_slider_content.offset().height;
             $(window).scroll(function() {
                 var scrollListener = function (ele) {
                     if ($(window).scrollTop() > top_dist) {
@@ -31,9 +34,10 @@ define(["zepto"], function($) {
                     }
             }
                 scrollListener("#itemSliderNav")});
+                //确保选项卡高度足够
             $item_slider_content.css("min-height",window_height);
             $item_slider_window.css("min-height",content_height);
-            var content_height = $item_slider_content.offset().height;
+
         })();
         //商品选项卡
         (function(){
@@ -65,31 +69,45 @@ define(["zepto"], function($) {
             };
             ele_bar_tap($item_slider_bar);
         })();
-        //商品外形选项
-        (function () {
-            var $itemChoice =$(".item-detail-option-list");
-            $itemChoice.tap(function(event){
-               var target = event.target||event.srcElement;
-                if(target.tagName == "DD"){
-                    $(target).parent().find("dd").css("border-color","#e9e9e9").find("i").removeClass("active");
-                    $(target).css("border-color","#16cd9b").find("i").addClass("active");
+        //商品外形选项函数
+        var choiceTapper = function(ele){
+            ele.tap(function(event) {
+                var target = event.target || event.srcElement;
+                if (target.tagName == "DD" || target.tagName == "LI") {
+                    console.log(target.tagName);
+                    $(target).parent().find(target.tagName).css("border-color", "#e9e9e9").find("i").removeClass("active");
+                    $(target).css("border-color", "#16cd9b").find("i").addClass("active");
                 }
-            })
-        })();
+
+            });
+        };
+        choiceTapper($itemChoice);
+        choiceTapper($iframeChoice);
         //商品购买跳出iframe页面
         (function(){
-            var $buyNow = $("#itemSaleButton");
-            $buyNow.tap(function(){
-                $(this).html("立即购买");
-                $("#itemBuyIframe").css({
-                    "display":"block",
-                    "background-color":"rgba(91, 91, 91, 0.91)"
+            var $buytap = $("#itemSaleButton");//分期购买按钮
+            var $buyNow = $("#itemSaleBuyNow");//立即购买按钮
+            var mainFrame = $("#itemMainFrame");//主要购买窗口
+            var $tapiframe = $("#itemBuyIframe");//遮罩层
+            $buytap.tap(function(){
+                $(this).hide();
+                $buyNow.show();
+                mainFrame.css({
+                    "display":"block"
                 });
-                $("#itemMainFrame").css({
+                $tapiframe.css({
                     "display":"block",
-                    "position":"fixed",
-                    "bottom":"50px"
-                })
+                    "background-color":"#000"
+                });
+                $("body").addClass("bg-fixed");
+
+            });
+            $tapiframe.tap(function(){
+                $(this).hide();
+                $buytap.show();
+                $buyNow.hide();
+                mainFrame.hide();
+                $("body").removeClass("bg-fixed");
             })
         })();
     });

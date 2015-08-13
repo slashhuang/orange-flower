@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../public/stylesheets/common.css">
     <link rel="stylesheet" href="../public/stylesheets/swiper.min.css">
 </head>
-<body>
+<body class="">
 <div class="of-header gray">
     <a class="header-back" href="javascript:history.back()"></a>
     商品详情
@@ -134,9 +134,8 @@
     </div>
 <div class="of-bottom-button-wrapper">
     <div id="itemSaleButton" class="of-button item-sale-button" >立即分期</div>
+    <div id="itemSaleBuyNow" class="of-button item-sale-button" style="display: none" >立即购买</div>
 </div>
-<div class="of-item-buy-iframe" id="itemBuyIframe"></div>
-<!--背景遮罩层-->
 <div id="itemMainFrame" class="of-tap-iframe">
     <div class="of-item-buy-frame-info">
         <ul>
@@ -153,24 +152,24 @@
         <h1 class="of-item-buy-installation-title">选择首付比例</h1>
         <ul class="of-item-buy-installation-percentage">
             <li style="border-color:#16cd9b">0首付<i class="active"></i></li>
-            <li>5%</li>
-            <li>10%</li>
-            <li>15%</li>
-            <li>20%</li>
-            <li>30%</li>
-            <li>40%</li>
-            <li>50%</li>
+            <li>5%<i></i></li>
+            <li>10%<i></i></li>
+            <li>15%<i></i></li>
+            <li>20%<i></i></li>
+            <li>30%<i></i></li>
+            <li>40%<i></i></li>
+            <li>50%<i></i></li>
         </ul>
         <h1 class="of-item-buy-installation-title">选择分期月数</h1>
         <ul class="of-item-buy-installation-percentage">
             <li style="border-color:#16cd9b">0首付<i class="active"></i></li>
-            <li>3个月</li>
-            <li>6个月</li>
-            <li>9个月</li>
-            <li>12个月</li>
-            <li>15个月</li>
-            <li>18个月</li>
-            <li>24个月</li>
+            <li>3个月<i></i></li>
+            <li>6个月<i></i></li>
+            <li>9个月<i></i></li>
+            <li>12个月<i></i></li>
+            <li>15个月<i></i></li>
+            <li>18个月<i></i></li>
+            <li>24个月<i></i></li>
         </ul>
         <div class="of-item-buy-installation-hint">*若您的毕业时间早于2017年12月11日请减少分期数</div>
         <dl class="of-item-buy-installation-list">
@@ -191,6 +190,8 @@
         </dl>
     </div>
 </div>
+<!--背景遮罩层-->
+<div class="of-item-buy-iframe" id="itemBuyIframe" style="opacity:0.5"></div>
 
     <script src="../public/js/require.js" data-main="../public/js/js_models/item_model.js"></script>
 </body>

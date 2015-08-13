@@ -212,5 +212,13 @@
 .of-check input{
     font-size:10px;
 }
+/*背景防止滚动*/
+.bg-fixed{
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+}
 
 
