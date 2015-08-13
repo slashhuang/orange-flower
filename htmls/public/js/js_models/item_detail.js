@@ -85,6 +85,7 @@ define(["zepto"], function($) {
         choiceTapper($iframeChoice);
         //商品购买跳出iframe页面
         (function(){
+            var $crossTapper = $("#iframeTapCross");//iframe的cross
             var $buytap = $("#itemSaleButton");//分期购买按钮
             var $buyNow = $("#itemSaleBuyNow");//立即购买按钮
             var mainFrame = $("#itemMainFrame");//主要购买窗口
@@ -102,12 +103,14 @@ define(["zepto"], function($) {
                 $("body").addClass("bg-fixed");
 
             });
-            $tapiframe.tap(function(){
-                $(this).hide();
+            var hideframe = function(){
+                $tapiframe.hide();
                 $buytap.show();
                 $buyNow.hide();
                 mainFrame.hide();
                 $("body").removeClass("bg-fixed");
-            })
+            };
+            $crossTapper.tap(hideframe)
+            $tapiframe.tap(hideframe)
         })();
     });
