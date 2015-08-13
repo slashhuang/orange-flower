@@ -3,7 +3,7 @@
  */
 
 require.config({
-    baseUrl:"..public/js/lib",
+    baseUrl:"../public/js/lib",
     paths:{
         "zepto":"./zepto.min",
         "reg_login":"../reg_login",
@@ -17,7 +17,7 @@ require.config({
 
 define(["url_config","ajax_check", "zepto"], function(config,check,  $){
     var phoneNumberInput = document.getElementById("phoneNumber");
-    var certNumberInput = document.getElementById("certNumber")
+    var certNumberInput = document.getElementById("certNumber");
     var certButton = document.getElementById("sendCert");
     var password = document.getElementById("password");
     var passwordRepeat = document.getElementById("passwordRepeat");
@@ -33,40 +33,37 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
     };
 
     $submitButton.tap(function(){
-        if(checkIsAllOk()){
+        if(checkIsAllOk()) {
             formNode.submit();
+            window.location.href = "register_info.html";
         }
-        window.location.href="register_info.html";
-        //@TODO 仅仅测试使用，后台接口做好后，放到上一行代码
     });
+
+    //将检测时机改为提交的时候
 
     //检测手机号
     phoneNumberInput.onchange = function(){
-        check.checkPhoneNumber(phoneNumberInput.value, function(){
+        check.checkPhoneNumber(phoneNumberInput.value)
             //@TODO
-        })
     };
     //检测手机验证码
     certNumberInput.onchange = function(){
-        check.checkCertNumber(certNumberInput.value, function(){
-            //@TODO
-        })
+        check.checkCertNumber(certNumberInput.value)
     }
-
+    //注册密码长度必须>=6
     password.onchange = function(){
-        if(document.getElementById("password").value.length >=4){
+        if(password.value.length >=6){
             inputStatus.password = true;
             return true;
         }
         //@TODO 提示
     }
-
-    passwordRepeat.onchange = function(){
+    //验证重复密码是否一致
+    passwordRepeat.onblur = function(){
         if(!checkPassword()){
-            //@TODO 提示
+            alert("密码未保持一致，请重新输入")
         }
     }
-
     //显示倒计时
     function showCountdown(timeLeft, tapResponse){
         if(timeLeft > 0){
@@ -94,6 +91,7 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
             $certButton.addClass("disabled");
             $certButton.off("tap",tapResponse);
             check.sendSms(phoneNumber,function(data){
+                console.log(data);
                 showCountdown(10, tapResponse);
             })
         };
@@ -101,11 +99,10 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
 
     })();
 
-
     //两次密码是否一致以及密码足够长度
     function checkPassword(){
-        if(document.getElementById("password").value.length >=4 &&
-            (document.getElementById("password").value == document.getElementById("passwordRepeat").value))
+        if(password.value.length >=4 &&
+            (password.value == passwordRepeat.value))
         {
             inputStatus.passwordRepeat = true;
             return true;
@@ -114,7 +111,7 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
             return false;
         }
     }
-
+    //检测是否密码都已经ok
     function checkIsAllOk(){
         var index = null;
         for(index in inputStatus){
