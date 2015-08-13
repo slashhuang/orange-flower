@@ -1,4 +1,5 @@
-body,p,ul,li,h1,h2,h3,h4,h5,h6,input,option,dl,dd,dt{
+body,p,ul,li,h1,h2,h3,h4,h5,h6,input,option,dl,dd,dt,i,em,b{
+    font-style: normal;
     border:0;
     margin:0;
     padding:0;

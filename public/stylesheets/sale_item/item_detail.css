@@ -55,7 +55,8 @@
 }
 .item-detail-option-wrapper{
     padding:15px;
-    border-bottom:1px #e9e9e9 solid;
+    border-bottom:1px solid;
+    border-color:#e9e9e9
     font-size:16px;
 }
 .item-detail-option-list{
@@ -71,48 +72,61 @@
     display:inline-block;
     padding:2px 11px;
     text-align: center;
-    border:1px solid #e9e9e9;
+    border:1px solid;
+    border-color:#e9e9e9;
     font-size:12px;
     margin-right:10px;
+    position:relative;
+}
+.item-detail-option-list dd i{
+    position:absolute;
+    right:0;
+    bottom:0;
+    width:12px;
+    height:10px;
+}
+.item-detail-option-list dd i.active{
+    background:url("../../images/icon/icon-tick-active.png") no-repeat;
+    background-size: 12px 10px;
 }
 .item-detail-option-list dd.active{
     border-color:#15c690;
 }
 /*商品详情&规格参数&包装清单*/
-.item-detail-list{
-    margin:auto 10px;
-    background: #fff;
-    border-bottom:1px solid #e9e9e9 ;
-    padding-bottom:50px;
-}
+
 .item-slider-window{
-    position:relative;
-    width:100%;
-    height:350px;
-    overflow:hidden;
-}
+     width:100%;
+    height:auto;
+    overflow-x:hidden;
+    overflow-y: hidden;
+     position: relative;
+ }
 .item-slider-wrapper{
-    width:300%;
-    height:inherit;
-    overflow-x: hidden;
-    overflow-y:scroll;
-    position:absolute;
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    position: absolute;
     top:0;
-    left:0;
-    font-size:0;
+    left:0
 }
-.item-slider-wrapper img{
+
+.item_detail_img{
     padding:2px;
-    width:33.3%;
-    height:inherit;
-    display:inline-block;
+    width:100%;
+    height:auto;
+    overflow-y: hidden;
+}
+.item_detail_img img{
+    width:100%;
+    height:auto;
+    overflow-y: hidden;
 }
 .item-slider-param {
+    display: none;
+    padding:2px;
     font-size:14px;
-    display: inline-block;
-    width:33.3%;
-    height:150px;
-    padding-top:6px;
+    width:100%;
+    height:auto;
     vertical-align: top;
 }
 .split-line-fff{
@@ -124,18 +138,35 @@
     display: block;
     padding:3px;
 }
-.item-detail-list h1{
-    padding:5px 0;
-    border-bottom:1px solid #000;
-    font-size:0;
+.item-detail-list{
+    margin:auto 10px;
+    background: #fff;
+    border-bottom:1px solid #e9e9e9 ;
+    padding-bottom:50px;
 }
-.item-detail-list i{
+.item-detail-list h1#itemSliderNav{
+    padding:5px 0 10px 0;
+    border-bottom:1px solid #494949;
+    font-size:0;
+    position:relative;
+    background-color: #fff;
+}
+.slider-active-fix-style{
+    width:100%
+}
+.item-canvas{
+    width:33.3%;
+    position:absolute;
+    bottom:0;
+    text-align: center;
+}
+.item-detail-list h1 i{
     display: inline-block;
     width:33%;
     text-align: center;
     color: #bdbdbd;
     font-style: normal;
-    font-size:11px;
+    font-size:13px;
 }
 .of-bottom-button-wrapper{
     background-color: #f6f6f6;
@@ -153,4 +184,127 @@
     margin:8px 30px;
     border-radius:30px;
 }
+.of-tap-iframe{
+   overflow: scroll;
+}
+.of-item-buy-iframe{
+    height:100%;
+    width:100%;
+    position:fixed;
+    bottom:0;
+    left:0;
+}
+.of-item-buy-frame-info{
+    padding:10px;
+    width:100%;
+    background-color: #f0f0f0;
+    border-top:1px solid;
+    border-top-color:#16cd9b;
+}
+.of-item-buy-info-left{
+    width:25%;
+    margin-right: 2%;
+    display: inline-block;
+    text-align: center;
+    padding:1px 0;
+    border:1px solid;
+    border-color:#e9e9e9;
+    background-color: #fff;
+}
+.of-item-buy-info-left img{
+    width:32px;
+    height:auto;
+}
+.of-item-buy-info-right{
+    width:65%;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align:top;
+    font-size:16px;
+    padding:15px 10px 5px 0;
+}
+.of-item-buy-info-right h1{
+    height:17px;
+    font-size:16px;
+    font-weight:normal;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    width:6em;
+    overflow:hidden;
+    margin-bottom:5px;
+}
+.of-item-buy-info-right span{
+    font-size:16px;
+}
+.of-item-buy-installation{
+    padding:15px 30px 100px 10px;
+    width:100%;
+    height:auto;
+    background:#fff;
+}
+.of-item-buy-installation li{
+    display:inline-block;
+    margin:7px 3% 5px 0;
+    width:21%;
+    padding:3px 10px;
+    text-align: center;
+    border:1px solid;
+    border-color:#e9e9e9;
+    font-size:12px;
+    position:relative;
+}
+.of-item-buy-installation li i{
+    position:absolute;
+    right:0;
+    bottom:0;
+    width:12px;
+    height:10px;
+}
+.of-item-buy-installation li i.active{
+    background:url("../../images/icon/icon-tick-active.png") no-repeat;
+    background-size: 12px 10px;
+}
+.of-item-buy-installation-title{
+    font-size:14px;
+    color: #a3a3a3;
+    font-weight: normal;
+}
+.of-item-buy-installation-percentage{
+    margin-bottom:5px;
+    font-size:0
+}
+.of-item-buy-installation-hint{
+    font-size:10px;
+    color:#16cd9b;
+    margin-bottom:18px;
+}
+.of-item-buy-installation-list{
+    display: block;
+    margin-top:5px;
+    font-size:0
+}
+.of-item-buy-installation-list dt{
+    color: #a3a3a3;
+    font-size:12px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.of-item-buy-installation-list dd{
+    font-size:12px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.of-item-buy-installation-list i{
+    color:#000;
+    font-size: 16px;
+}
+.of-item-buy-installation-list b{
+    color: #fe4f4f;
+    font-size:18px;
+    font-weight:bold;
+}
+.of-item-buy-installation-list span{
+    font-weight: bold;
+}
+
 

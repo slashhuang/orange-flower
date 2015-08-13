@@ -44,26 +44,32 @@
 <div class="item-detail-option-wrapper">
     <dl class="item-detail-option-list">
         <dt>颜色:</dt>
-        <dd>金色</dd>
-        <dd>白色</dd>
-        <dd>黑色</dd>
+        <dd style="border-color:#16cd9b">金色<i class="active"></i></dd>
+        <dd>白色<i class=""></i></dd>
+        <dd>黑色<i class=""></i></dd>
     </dl>
     <dl class="item-detail-option-list">
         <dt>选购类型:</dt>
-        <dd>公开版(16GB ROM)</dd>
-        <dd>公开版(16GB rom)</dd>
+        <dd style="border-color:#16cd9b">公开版(16GB ROM)<i class="active"></i></dd>
+        <dd>公开版(16GB rom)<i class=""></i></dd>
     </dl>
 </div>
 <div class="split-line"></div>
 <div class="item-detail-list">
-    <h1 id="itemSliderNav">
-        <i>商品详情</i>
-        <i>规格参数</i>
-        <i>包装清单</i>
+    <h1 id="itemSliderNav" class="slider-active-fix-style">
+            <i>商品详情</i>
+            <i>规格参数</i>
+            <i>包装清单</i>
+        <div class="item-canvas"id="itemCanvasWrapper">
+            <img src="../../public/images/icon/slidetriangle.png" width="14" height="9">
+        </div>
     </h1>
     <div class="item-slider-window">
         <div class="item-slider-wrapper">
-            <img src="../../public/images/item_detail/item_detail.png">
+            <div class="item_detail_img">
+                <img src="../../public/images/item_detail/item_detail.png">
+                <img src="../../public/images/item_detail/item_detail.png">
+            </div>
             <div class="item-slider-param">
                 <div class="split-line-fff"></div>
                 <table>
@@ -124,11 +130,68 @@
                 <span>资料</span>
             </div>
         </div>
+        </div>
+    </div>
+<div class="of-bottom-button-wrapper">
+    <div id="itemSaleButton" class="of-button item-sale-button" >立即分期</div>
+</div>
+<div class="of-item-buy-iframe" id="itemBuyIframe"></div>
+<!--背景遮罩层-->
+<div id="itemMainFrame" class="of-tap-iframe">
+    <div class="of-item-buy-frame-info">
+        <ul>
+            <li class="of-item-buy-info-left">
+                <img src="../../public/images/item_detail/iphone6.png">
+            </li>
+            <li class="of-item-buy-info-right">
+                <h1>苹果 (Apple) iPhone6 (A1586) 16GB</h1>
+                <span>商品价格： ￥<i>4188.00</i></span>
+            </li>
+        </ul>
+    </div>
+    <div class="of-item-buy-installation">
+        <h1 class="of-item-buy-installation-title">选择首付比例</h1>
+        <ul class="of-item-buy-installation-percentage">
+            <li style="border-color:#16cd9b">0首付<i class="active"></i></li>
+            <li>5%</li>
+            <li>10%</li>
+            <li>15%</li>
+            <li>20%</li>
+            <li>30%</li>
+            <li>40%</li>
+            <li>50%</li>
+        </ul>
+        <h1 class="of-item-buy-installation-title">选择分期月数</h1>
+        <ul class="of-item-buy-installation-percentage">
+            <li style="border-color:#16cd9b">0首付<i class="active"></i></li>
+            <li>3个月</li>
+            <li>6个月</li>
+            <li>9个月</li>
+            <li>12个月</li>
+            <li>15个月</li>
+            <li>18个月</li>
+            <li>24个月</li>
+        </ul>
+        <div class="of-item-buy-installation-hint">*若您的毕业时间早于2017年12月11日请减少分期数</div>
+        <dl class="of-item-buy-installation-list">
+            <dt>每期：</dt>
+            <dd>
+                <i>￥</i>
+                <b>186.53</b>
+                <span>×</span>
+                <em>24</em>
+            </dd>
+        </dl>
+        <dl class="of-item-buy-installation-list">
+            <dt>首付：</dt>
+            <dd>
+                <i>￥</i>
+                <b>0</b>
+            </dd>
+        </dl>
     </div>
 </div>
-<div class="of-bottom-button-wrapper">
-    <div class="of-button item-sale-button">立即分期</div>
-</div>
+
     <script src="../../public/js/require.js" data-main="../../public/js/js_models/item_model.js"></script>
 </body>
 </html>

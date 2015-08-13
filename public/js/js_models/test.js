@@ -1,4 +1,7 @@
 /**
+ * Created by slashhuang on 15/8/13.
+ */
+/**
  * Created by slashhuang on 2015/7/28.
  */
 define(["zepto"], function($) {
@@ -9,36 +12,36 @@ define(["zepto"], function($) {
         var $item_slider_bar = $("#itemSliderNav").children();
         //页面基本设置以及选项卡悬浮效果
         (function(){
+            var content_height = $item_slider_content.offset().height;
             //确保选项卡高度足够
             var top_dist = document.getElementById("itemSliderNav").offsetTop;
             $(window).scroll(function() {
                 var scrollListener = function (ele) {
                     if ($(window).scrollTop() > top_dist) {
-                    $(ele).css({
-                        "position": "fixed",
-                        "top": "0",
-                        "left": "0",
-                        "z-index":"999"
-                    }).addClass("slider-active-fix-style");
-                }
+                        $(ele).css({
+                            "position": "fixed",
+                            "top": "0",
+                            "left": "0",
+                            "z-index":"999"
+                        }).addClass("slider-active-fix-style");
+                    }
                     else{
-                      $(ele).css({
+                        $(ele).css({
                             "position": "",
                             "top": "",
                             "left": "",
                             "z-index":""
                         }).removeClass("slider-active-fix-style");
                     }
-            }
+                }
                 scrollListener("#itemSliderNav")});
             $item_slider_content.css("min-height",window_height);
             $item_slider_window.css("min-height",content_height);
-            var content_height = $item_slider_content.offset().height;
         })();
         //商品选项卡
         (function(){
             var ele_show_animation= function (index) {
-            //现在先不用滑动效果
+                //现在先不用滑动效果
                 $item_slider_content.children().each(function(){
                     var ele_index = $(this).index();
                     var that = $(this);
@@ -69,7 +72,7 @@ define(["zepto"], function($) {
         (function () {
             var $itemChoice =$(".item-detail-option-list");
             $itemChoice.tap(function(event){
-               var target = event.target||event.srcElement;
+                var target = event.target||event.srcElement;
                 if(target.tagName == "DD"){
                     $(target).parent().find("dd").css("border-color","#e9e9e9").find("i").removeClass("active");
                     $(target).css("border-color","#16cd9b").find("i").addClass("active");
@@ -81,9 +84,8 @@ define(["zepto"], function($) {
             var $buyNow = $("#itemSaleButton");
             $buyNow.tap(function(){
                 $(this).html("立即购买");
-                alert("hello");
-                $("#itemBuyIframe").css({
-                    "display":"block",
+                $("itemBuyIframe").css({
+                    "display":"initial",
                     "background-color":"rgba(91, 91, 91, 0.91)"
                 });
                 $("#itemMainFrame").css({
@@ -93,4 +95,5 @@ define(["zepto"], function($) {
                 })
             })
         })();
-    });
+    }
+);
