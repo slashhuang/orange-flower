@@ -81,7 +81,6 @@ define(["zepto"], function($) {
             var $buyNow = $("#itemSaleButton");
             $buyNow.tap(function(){
                 $(this).html("立即购买");
-                alert("hello");
                 $("#itemBuyIframe").css({
                     "display":"block",
                     "background-color":"rgba(91, 91, 91, 0.91)"
@@ -89,7 +88,7 @@ define(["zepto"], function($) {
                 $("#itemMainFrame").css({
                     "display":"block",
                     "position":"fixed",
-                    "top":"50px"
+                    "bottom":"50px"
                 })
             })
         })();
