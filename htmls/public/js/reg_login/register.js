@@ -29,13 +29,12 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
         "certNumber": false,
         "password" : false,
         "passwordRepeat": false,
-        "law": true
+        //"law": true
     };
-
+    formNode.action = prefuri+"/url/register"
     $submitButton.tap(function(){
         if(checkIsAllOk()) {
             formNode.submit();
-            window.location.href = "register_info.html";
         }
     });
 
@@ -44,7 +43,6 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
     //检测手机号
     phoneNumberInput.onchange = function(){
         check.checkPhoneNumber(phoneNumberInput.value)
-            //@TODO
     };
     //检测手机验证码
     certNumberInput.onchange = function(){
@@ -56,7 +54,6 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
             inputStatus.password = true;
             return true;
         }
-        //@TODO 提示
     }
     //验证重复密码是否一致
     passwordRepeat.onblur = function(){
@@ -84,13 +81,11 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
     //发送验证码
     (function(){
 
-        var phoneNumber = phoneNumberInput.value;
-
         var tapResponse = function(){
             certButton.setAttribute("disabled","disabled");
             $certButton.addClass("disabled");
             $certButton.off("tap",tapResponse);
-            check.sendSms(phoneNumber,function(data){
+            check.sendSms(phoneNumberInput.value,function(data){
                 console.log(data);
                 showCountdown(10, tapResponse);
             })

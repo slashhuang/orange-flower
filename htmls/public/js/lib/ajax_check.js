@@ -5,9 +5,8 @@
 define(["url_config","zepto"],function(config,$){
 
     function request(url,param, callback){
-        t=new Date().getTime;
-        console.log(t);
-        $.post(url + "?t="+t+ "&" + param, callback);
+        //var t=new Date().getTime();
+        $.post(url +"/"+ param, callback);
     }
 
     return{
@@ -30,7 +29,7 @@ define(["url_config","zepto"],function(config,$){
             }
         },
         "sendSms": function(phone, callback){
-            request(config.sendSms,"phoneNumber=" + phone ,callback);
+            request(config.sendSms,phone ,callback);
         },
     }
 })
