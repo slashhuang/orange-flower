@@ -11,6 +11,12 @@ require.config({
     shim:{
         "zepto":{
             "exports":"$"
+        },
+        "cookie":{
+            deps: ['jquery'],
+            //Once loaded, use the global 'distpicker' as the
+            //module value.
+            exports: 'cookie'
         }
     }
 })
@@ -21,20 +27,27 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
     var certButton = document.getElementById("sendCert");
     var password = document.getElementById("password");
     var passwordRepeat = document.getElementById("passwordRepeat");
+    var checkbox = document.getElementById("registerCheckbox");
     var $certButton = $("#sendCert");
-    var $submitButton = $("#submit");
-    var formNode = document.forms[0];
+    var $submitButton = $("#regsubmit");
+    var formNode = document.getElementById("registerForm");
     var inputStatus = {
         "phoneNumber": false,
         "certNumber": false,
         "password" : false,
         "passwordRepeat": false,
-        //"law": true
+        "checkbox": false
     };
-    formNode.action = prefuri+"/url/register"
+    var regFormData = {
+        "telephone": "",
+        "password" : "",
+        "code":""
+    };
     $submitButton.tap(function(){
+        console.log(checkIsAllOk());
         if(checkIsAllOk()) {
-            formNode.submit();
+            console.log(regFormData);
+            check.regFormSubmit(regFormData)
         }
     });
 
@@ -42,23 +55,37 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
 
     //检测手机号
     phoneNumberInput.onchange = function(){
-        check.checkPhoneNumber(phoneNumberInput.value)
+        regFormData.telephone = phoneNumberInput.value;
+        if(check.checkPhoneNumber(phoneNumberInput.value)){
+            inputStatus.phoneNumber = true
+        }
     };
     //检测手机验证码
     certNumberInput.onchange = function(){
-        check.checkCertNumber(certNumberInput.value)
-    }
+        regFormData.code = certNumberInput.value;
+        if(check.checkCertNumber(certNumberInput.value)){
+            inputStatus.certNumber = true
+        };
+    };
     //注册密码长度必须>=6
     password.onchange = function(){
         if(password.value.length >=6){
             inputStatus.password = true;
+            regFormData.password = password.value;
             return true;
         }
-    }
+    };
     //验证重复密码是否一致
     passwordRepeat.onblur = function(){
         if(!checkPassword()){
             alert("密码未保持一致，请重新输入")
+        }
+    };
+    //验证是否勾选checkbox
+    checkbox.onchange = function(){
+        if(checkbox.checked){
+            inputStatus.checkbox = true;
+            return true;
         }
     }
     //显示倒计时
@@ -86,7 +113,6 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
             $certButton.addClass("disabled");
             $certButton.off("tap",tapResponse);
             check.sendSms(phoneNumberInput.value,function(data){
-                console.log(data);
                 showCountdown(10, tapResponse);
             })
         };
@@ -96,8 +122,7 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
 
     //两次密码是否一致以及密码足够长度
     function checkPassword(){
-        if(password.value.length >=4 &&
-            (password.value == passwordRepeat.value))
+        if(password.value == passwordRepeat.value)
         {
             inputStatus.passwordRepeat = true;
             return true;
@@ -108,10 +133,9 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
     }
     //检测是否密码都已经ok
     function checkIsAllOk(){
-        var index = null;
-        for(index in inputStatus){
-            if(inputStatus.hasOwnProperty(index)){
-                if(inputStatus[index]){
+        for(var index in inputStatus) {
+            if (inputStatus.hasOwnProperty(index)) {
+                if (!inputStatus[index]) {
                     return false;
                 }
             }

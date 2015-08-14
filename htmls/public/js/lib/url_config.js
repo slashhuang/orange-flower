@@ -3,10 +3,11 @@
  */
 define(function(){
     window.prefuri = "http://juhua-server.orange.com";
+    window.localStorage.headerInfo ="";
     return {
             "checkPhoneNumber": "",//查询是否已经注册
-            "sendSms": window.prefuri+"/user/getCode",//发送短信
+            "sendSms": prefuri+"/user/getCode",//发送短信
             //"checkCertNumber": "",//检查验证码
-            //"submitLocation": "",//提交地址
+             "submitLocation": prefuri+"/user/register",//提交地址
     }
 });
