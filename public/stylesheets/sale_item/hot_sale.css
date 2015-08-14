@@ -1,88 +1,16 @@
-.hot-sale-header{
-    border-bottom: 1px solid #dcdcdc;
-    color: #616161;
-    height: 3.8rem;
-    line-height: 1.8rem;
-    background: #ededed;
-    font-size: 1.7rem;
-    text-align: center;
-    position: relative;
-    padding:1rem;
-}
-.header-right{
-    position: absolute;
-    right: 0.5rem;
-    top: 0.5rem;
-}
-.header-right a{
-    font-size: 1rem;
-    float: right;
-    width: 3rem;
-    text-align: center;
-    line-height: 1.8rem;
-}
-.header_home b{
-    display: block;
-    width: 18px;
-    height: 16px;
-    background: url(../../images/item_detail/logo_compo.png) -24px -77px;
-    background-size: 160px 100px;
-    margin: 0 auto;
-}
-.header_search b{
-    display: block;
-    width: 16px;
-    height: 16px;
-    background: url(../../images/item_detail/logo_compo.png) -88px -77px;
-    background-size: 160px 100px;
-    margin: 0 auto;
-}
+
 .hot-sale-main{
-    background: #E5E5E5;
+    background: #fff;
 }
 .sale-item-title{
-   padding:10px;
+   padding:6px;
     width:100%;
+    border-bottom:1px solid #e6e6e6;
+    font-size:12px;
 }
 .sale-sort-option{
     width:33%;float:left;text-align:center;
 }
 .sale-sort-border{
     border-right:1px #ccc solid;
-}
-.item-sale-list{
-    width:94%;
-    margin:auto 3%;
-    padding:1rem 0;
-    background: #fff;
-    border-bottom:1px #ccc solid;
-}
-.item-list-img{
-    width:30%;
-    margin-left:2%;
-    float:left;
-    text-align: center;
-}
-.item-list-img img{
-    display:block;
-}
-.item-hot-list-detail{
-    float:left;
-    width:67%;
-    color:#555;
-}
-.item-hot-list-detail h1{
-    font-size:1.2rem;display: block;
-    height:3rem;
-    text-overflow:ellipsis;
-    overflow: hidden;
-    padding-bottom:1rem;
-}
-.item-price{
-    font-size:1rem;
-    padding-top:1rem;
-}
-.total-price{
-    font-size:1.2rem;
-    color: #ec2000;
 }

@@ -1,29 +1,20 @@
 /**
-*craeted by yuji 2015-7-27
 *橘花第一版样式文件
 */
-
-/*::-webkit-scrollbar {*/
-    /*width: 0;*/
-    /*height: 0;*/
-/*}*/
 
 /**
 *头部
 */
-.of-logo{
-    margin-top:44px;
-    background-color: #18b9d1;
-    width: 100%;
-    text-align: center;
-    padding-bottom: 6px;
-}
-
 .of-logo-icon{
-    background: url("../images/logo.jpg") center no-repeat;
-    height: 180px;
+    height: 30px;
+    width:auto;
 }
-
+.swiper-pagination-bullet-active{
+    background-color: #939393 !important;
+}
+.swiper-pagination-bullet{
+    background-color: #fff !important;
+}
 
 /**
 *图标和小字的分类
@@ -45,7 +36,6 @@
     text-align:center;
     font-size:11px;
     margin-top:10px ;
-
 }
 
 .of-icon-class-item a{
@@ -64,10 +54,8 @@
 /*限时特卖*/
 
 .of-special-sale{
-    backgroud-color:#fff;
-    margin-top:10px;
+    background-color:#fff;
     border-top:#c1c1c1 1px solid;
-    border-bottom:#c1c1c1 1px solid;
     border-radius:1px;
     overflow: hidden;
 }
@@ -76,26 +64,59 @@
     background-color: #fff;
     float: left;
     width:33.33%;
+    padding-left:5%;
     text-align: center;
     border-right:1px solid #e5e5e5;
     font-size: 10px;
 }
 .of-special-sale-body a{
-    color: #4b4b4b;
+    color: #000;
 }
 .of-special-sale-body span{
     display: block;
     margin:auto;
-    padding:12px;
+    padding:5px 10px 5px 0;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
 }
-.of-special-sale-body img{
-    display: inline-block;
-    width: 90px;
+.of-hot-container{
+    display: block;
+    position:relative;
+    margin:5px 10px 5px 0;
+    overflow:hidden;
 }
-
+.of-hot-container img{
+    margin-top:5px;
+    text-align: center;
+}
+.of-special-sale-item{
+    position: absolute;
+    top:0;
+    left:50%;
+    z-index: 999;
+}
+.of-special-sale-banner{
+    position: absolute;
+    top:0;
+    right:11px;
+    z-index:99
+}
+.of-special-sale-banner p{
+    background: url("../../public/images/icon/discount_flag.png") no-repeat;
+    background-size:cover ;
+    color:#fff;
+    font-size:10px;
+    padding:3px 1px 1px 1px;
+    text-align: center;
+}
+.of-special-sale-banner p i{
+   margin:0 auto;
+    font-style: normal;
+    display: block;
+    width: auto;
+    white-space: nowrap
+}
 .of-special-sale:last-child{
     border-right: none;
 }
@@ -104,12 +125,11 @@
 *每个分类推荐的样式
 */
 .of-class-recommand-box{
-    margin-top:12px;
     border:#c9c9c9 1px solid;
     border-radius:1px;
 
     overflow: hidden;
-    backgroud-color:#fff;
+    background-color:#fff;
 }
 
 .of-class-recommand-header{
@@ -132,7 +152,7 @@
     float: right;
     margin-right:10px;
     margin-top: 4px;
-    font-size: 10px;
+    font-size: 12px;
     text-decoration: none;
     color: #2d2d2d;
 }
@@ -142,12 +162,12 @@
     padding-bottom: 8px;
 }
 .of-class-recommand-body .swiper-wrapper:first-child{
-    margin-left:12px;
+    margin-left:6px;
 }
 
 .of-class-recommand-item.swiper-slide{
     text-align: center;
-    border: 1px solid #e1e1e1;
+    border: 1px solid #e6e6e6;
     background-color:#fff;
     padding: 6px;
     margin-left: 2px;
@@ -159,14 +179,9 @@
 .swiper-wrapper{
     margin-top:24px;
 }
-.swiper-slide img{
-    width:100%;
+.of-class-recommand-item img{
+    width:32px;
 }
-a{
-    text-decoration: none;
-    color:#4d4d4d;
-}
-
 
 .of-class-recommand-item .of-name{
     text-align: center;
@@ -183,11 +198,12 @@ a{
 
 .of-class-recommand-item .of-price{
     font-size: 7px;
-    margin-top: 8px;
+    margin-top: 3px;
     color: #2d2d2d;
+    font-weight:900;
 }
 .of-class-recommand-item .of-price span{
-    font-size: 10px;
+    font-size: 11px;
     color: #ff1702;
 }
 
@@ -201,8 +217,8 @@ a{
     width:100%;
 }
 .of-ad.of-bottom{
-    margin-top:10px;
-    margin-bottom:60px;
+    padding-bottom:60px;
+    background: #f6f6f6;
 }
 /**
 *底部样式
@@ -243,88 +259,6 @@ a{
     color:#c8c8c8;
 }
 
-/*尾部信息*/
-.of-foot{
-    text-align: center;
-    padding:20px;
-    font-family: monospace;
-    color:#c9c9c9;
-}
-
-/*个人信息摘要*/
-.of-user-abstract{
-    background-color: #18b9d1;
-    padding: 14px;
-    font-size:18px;
-    color:#fff;
-}
-
-.of-user-abstract img{
-    width: 60px;
-    border: 2px solid #fff;
-    border-radius:60px;
-}
-
-.of-user-abstract div{
-    float:right;
-    background-color:#cccccc ;
-    padding: 8px;
-    border:1px solid #cccccc ;
-    border-radius: 2px;
-    margin-top:8px;
-}
-.of-user-abstract a{
-    color:#fff;
-}
-/*横向列表菜单*/
-
-.of-tab-memu{
-    background-color: #ffffff;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    overflow: hidden;
-    width: 100%;
-}
-.of-tab-menu-item{
-    width: 33.33%;
-    float: left;
-    border-right:1px solid #bbbbbb;
-    text-align: center;
-    font-size: 16px;
-}
-.of-tab-menu-item div{
-    color:red;
-}
-
-/*单列列表视图*/
-.of-single-column-table{
-    background-color:#e9e9e9 ;
-    overflow: hidden;
-}
-.of-table-cell{
-    margin-top: 8px;
-    background-color: #ffffff;
-    border:1px solid #d8d8d8;
-    color: #a3a3a3;
-    padding: 12px;
-    padding-top: 18px;
-    padding-bottom: 18px;
-    font-size: 16px;
-}
-.of-table-cell img{
-    float: right;
-    height:18px;
-}
-.of-table-cell i{
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-}
-.of-table-blank{
-    height:220px;
-}
-
-
 
 /*头部图片slider部分*/
 .swiper-img-size{
@@ -344,7 +278,7 @@ a{
     margin-bottom: 6px;
 }
 .of-icon-home{
-    background: url(../images/icon/icon-house.png) no-repeat center;
+    background: url(../images/icon/icon-home.png) no-repeat center;
     background-size:contain ;
 }
 .of-icon-home.active{
@@ -382,10 +316,4 @@ a{
 .of-icon-heart.active{
     background: url(../images/icon/icon-heart-h.png) no-repeat center ;
     background-size:contain ;
-}
-.of-left-arrow{
-
-}
-.of-right-arrow{
-
 }

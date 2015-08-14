@@ -1,5 +1,5 @@
 /**
- * Created by xg on 2015/7/28.
+ * Created by slashhuang on 2015/7/28.
  */
 require.config({
     baseUrl:"../../public/js/lib",

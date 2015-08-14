@@ -12,18 +12,12 @@ h4,h6{
     padding: 0;
 }
 
-.split-line{
-    background: #f2f2f2;
-    width: 100%;
-    height: 1.5rem;
-}
-
 .user-center-top{
     border-bottom: 1px solid #dcdcdc;
     color: #2d2d2d;
     height: 3.8rem;
     line-height: 1.8rem;
-    background: #ededed;
+    background: #dfdfdf;
     font-size: 1.7rem;
     text-align: center;
     position: relative;
@@ -31,19 +25,11 @@ h4,h6{
     font-weight: 700;
 }
 
-.header-setting{
-    float: right;
-    font-size: 1.4rem;
-    font-weight: normal;
-    color: #2d2d2d;
-    display: inline-block;
-}
 /*头部样式*/
 
 .user-center-info{
     padding: 1rem 5%;
     background: #fff;
-    height: 10rem;
     border-bottom: 1px solid #e6e6e6;
 }
 
@@ -56,7 +42,7 @@ h4,h6{
 .avator{
     display: block;
     float: left;
-    height: 100%;
+    height: 5rem;
 }
 
 .name-mobile{
@@ -65,9 +51,9 @@ h4,h6{
 }
 
 .u-name{
-    font-weight: 500;
+    font-weight: 300;
     font-size: 1.4rem;
-    line-height: 4.8rem;
+    line-height: 4rem;
     color: #2d2d2d;
 }
 
@@ -80,13 +66,13 @@ h4,h6{
 .reg-btn:visited,
 .reg-btn:active{
     float: right;
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 1.5rem;
     background: #c7c7c7;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    -o-border-radius: 1rem;
-    border-radius: 1rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+    border-radius: 2rem;
     font-size: 1.3rem;
     font-weight: 700;
     color: #fff!important;
@@ -94,7 +80,7 @@ h4,h6{
 
 /*个人资料*/
 .user-center-balance{
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     background: #fff;
     overflow: hidden;
     border-top: 1px solid #e6e6e6;
@@ -127,18 +113,20 @@ h4,h6{
 .info-text{
     font-size: 1.1rem;
     color: #888;
-    padding: 0 0 1rem 0;
+    padding: 0 0 0.6rem 0;
 }
 
 .info-num{
-    font-size: 2rem;
+    font-size: 1.9rem;
     color: #f00;
+    font-weight: 600;
 }
 
 /*用户列表*/
 .user-center-btn-list{
     background: #fff;
     border-top: 1px solid #e6e6e6;
+    padding-bottom:100px;
 }
 
 .list-item{
@@ -148,33 +136,32 @@ h4,h6{
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     -ms-box-sizing: content-box;
-    -ms-box-sizing: content-box;
     box-sizing: content-box;
 }
 
 .list-item:nth-of-type(1){
-    background: url(../../images/user_center/icon-5.png) no-repeat 1.25rem 1.5rem;
-    background-size: 2rem;
+    background: url(../../images/user_center/my_order.png) no-repeat 1.25rem 1.5rem;
+    background-size: 2.4rem;
 }
 
 .list-item:nth-of-type(2){
-    background: url(../../images/user_center/icon-1.png) no-repeat 1.25rem 1.5rem;
-    background-size: 2rem;
+    background: url(../../images/user_center/my_bill.png) no-repeat 1.25rem 1.4rem;
+    background-size: 2.4rem;
 }
 
 .list-item:nth-of-type(3){
-    background: url(../../images/user_center/icon-2.png) no-repeat 1.25rem 1.5rem;
-    background-size: 2rem;
+    background: url(../../images/user_center/hot_line.png) no-repeat 1.25rem 1.4rem;
+    background-size: 2.4rem;
 }
 
 .list-item:nth-of-type(4){
-    background: url(../../images/user_center/icon-3.png) no-repeat 1.25rem 1.5rem;
-    background-size: 2rem;
+    background: url(../../images/user_center/change_pwd.png) no-repeat 1.25rem 1.4rem;
+    background-size: 2.4rem;
 }
 
 .list-item:nth-of-type(5){
-    background: url(../../images/user_center/icon-4.png) no-repeat 1.25rem 1.5rem;
-    background-size: 2rem;
+    background: url(../../images/user_center/get_help.png) no-repeat 1.25rem 1.4rem;
+    background-size: 2.4rem;
 }
 
 .list-item-link{
@@ -187,9 +174,10 @@ h4,h6{
 
 .arrow{
     display: inline-block;
-    width: 0.65rem;
-    height: 1.2rem;
-    background: url(../../images/user_center/arrow.png) no-repeat;
+    margin-top:0.3rem;
+    width: 0.7rem;
+    height: 1.3rem;
+    background: url(../../images/user_center/arrow_right.png) no-repeat;
     background-size: 100%;
     float: right;
 }
