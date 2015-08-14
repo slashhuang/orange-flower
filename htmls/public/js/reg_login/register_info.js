@@ -3,7 +3,7 @@
  */
 
 require.config({
-    baseUrl:"./public/js/lib",
+    baseUrl:"../public/js/lib",
     paths:{
         "zepto":"./zepto.min",
         "reg_login":"../reg_login",
@@ -18,6 +18,10 @@ require.config({
             //Once loaded, use the global 'distpicker' as the
             //module value.
             exports: 'distpicker'
+        },
+        "cookie":{
+            deps: ['jquery'],
+            exports: 'cookie'
         }
 
     }

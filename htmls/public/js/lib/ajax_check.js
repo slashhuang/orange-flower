@@ -3,9 +3,10 @@
  */
 
 define(["url_config","jquery","cookie"],function(config,$,cookie){
-
     function request(url,param, callback){
-        var token = $.cookie("x-auth-token")|'';
+        var token = $.cookie("x-auth-token");
+        console.log($.cookie("x-auth-token"));
+        alert(token);
         var settings = {
             type:"POST",
             async:false,
@@ -15,16 +16,19 @@ define(["url_config","jquery","cookie"],function(config,$,cookie){
             dataType : "json",
             success : function(err,status,req){
                 if(callback) callback();
-                $.cookie("x-auth-token",req.getResponseHeader("x-auth-token"));
-                alert( $.cookie("x-auth-token"))
+                token = req.getResponseHeader("x-auth-token");
+                if(token != null && token != "")
+                    $.cookie("x-auth-token", token);
+                alert("fuck"+req.getResponseHeader("x-auth-token"))
             },
             error:function(xhr,status,error){
-                alert(status);
+                alert("here is an error");
+            },
+            beforeSend: function(XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("x-auth-token", token);
             }
         };
-        if(token)
-            settings.headers({"x-auth-token" : token});
-
+        console.log(settings);
         $.ajax(settings);
     }
 
@@ -50,8 +54,8 @@ define(["url_config","jquery","cookie"],function(config,$,cookie){
         "sendSms": function(phone, callback){
             request(config.sendSms+"/"+phone,"" ,callback);
         },
-        "regFormSubmit":function(formData){
-            request(config.submitLocation,formData)
+        "regFormSubmit":function(formData,callback){
+            request(config.submitLocation,formData,callback)
         }
     }
 })

@@ -14,14 +14,12 @@ require.config({
         },
         "cookie":{
             deps: ['jquery'],
-            //Once loaded, use the global 'distpicker' as the
-            //module value.
             exports: 'cookie'
         }
     }
 })
 
-define(["url_config","ajax_check", "zepto"], function(config,check,  $){
+define(["url_config","ajax_check","zepto"], function(config,check,$){
     var phoneNumberInput = document.getElementById("phoneNumber");
     var certNumberInput = document.getElementById("certNumber");
     var certButton = document.getElementById("sendCert");
@@ -29,8 +27,8 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
     var passwordRepeat = document.getElementById("passwordRepeat");
     var checkbox = document.getElementById("registerCheckbox");
     var $certButton = $("#sendCert");
-    var $submitButton = $("#regsubmit");
-    var formNode = document.getElementById("registerForm");
+    var $submitButton = $("#regSubmit");
+    console.log($submitButton)
     var inputStatus = {
         "phoneNumber": false,
         "certNumber": false,
@@ -43,11 +41,15 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
         "password" : "",
         "code":""
     };
-    $submitButton.tap(function(){
-        console.log(checkIsAllOk());
-        if(checkIsAllOk()) {
-            console.log(regFormData);
-            check.regFormSubmit(regFormData)
+    $submitButton.on({
+        "tap":function(){
+            console.log(checkIsAllOk());
+            if(checkIsAllOk()) {
+                console.log(regFormData);
+                check.regFormSubmit(regFormData,function(){
+                    window.location.href="register_info.html"
+                })
+            }
         }
     });
 
@@ -101,7 +103,9 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
             certButton.value = "获取验证码";
             $certButton.removeClass("disabled");
             certButton.removeAttribute("disabled");
-            $certButton.tap(tapResponse);
+            $certButton.on({
+                "tap" : tapResponse
+            })
         }
 
     }
@@ -110,13 +114,17 @@ define(["url_config","ajax_check", "zepto"], function(config,check,  $){
 
         var tapResponse = function(){
             certButton.setAttribute("disabled","disabled");
-            $certButton.addClass("disabled");
+
             $certButton.off("tap",tapResponse);
             check.sendSms(phoneNumberInput.value,function(data){
+                alert("发送成功");
+                $certButton.addClass("disabled");
                 showCountdown(10, tapResponse);
             })
         };
-        $certButton.tap(tapResponse);
+        $certButton.on({
+            "tap" : tapResponse
+        })
 
     })();
 
