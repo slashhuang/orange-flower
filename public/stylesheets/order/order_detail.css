@@ -15,7 +15,7 @@
 
 .order-num,
 .create-time{
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #515151;
     float: left;
 }
@@ -51,7 +51,7 @@
 }
 
 .order-info-name{
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #515151;
 }
 
@@ -63,7 +63,7 @@
 .decrease-icon:before{
     content: "减";
     background: #ff5959;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     width: 1.2rem;
     height: 1.2rem;
     line-height: 1.2rem;
@@ -81,14 +81,14 @@
 
 .info-arg{
     color: #adadad;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     line-height: 2.25rem;
 }
 
 .price p{
     float: left;
     color: #515151;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 }
 
 .info-price{
@@ -114,11 +114,12 @@
 }
 
 .info-name{
-    font-size: 1rem;
+    font-size: 1.2rem;
     float: left;
 }
 
 .info-detail{
+    font-size: 1.2rem;
     float: right;
     text-align: right;
 }
@@ -170,7 +171,7 @@
 }
 
 .text-state{
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 2rem;
     color: #8a8a8a;
 }
@@ -201,7 +202,7 @@
     -ms-border-radius: 1.5rem;
     -o-border-radius: 1.5rem;
     border-radius: 1.5rem;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: #fff;
     float: right;
 }

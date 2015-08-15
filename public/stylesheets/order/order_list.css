@@ -24,13 +24,13 @@
 .orde-num-info{
     float: left;
     position: relative;
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.3rem;
 }
 
 .orde-num-info .num{
     padding: 0 0 0 1rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.3rem;
     vertical-align: bottom;
 }
@@ -49,30 +49,33 @@
 .paid-item .orde-num-info:after{
     content: "已付款";
     position: absolute;
-    right: -4rem;
+    right: -5rem;
+    top: -0.2rem;
     background: #16cd9b;
     color: #fff;
-    padding: 0 0.25rem;
+    padding: 0.2rem 0.25rem;
 }
 
 /* 未付款 */
 .no-paid-item .orde-num-info:after{
     content: "未付款";
     position: absolute;
-    right: -4rem;
+    right: -5rem;
+    top: -0.2rem;
     background: #ff5959;
     color: #fff;
-    padding: 0 0.25rem;
+    padding: 0.2rem 0.25rem;
 }
 
 /* 交易成功 */
 .success-item .orde-num-info:after{
     content: "交易成功";
     position: absolute;
-    right: -5rem;
+    right: -6rem;
+    top: -0.2rem;
     background: #16cd9b;
     color: #fff;
-    padding: 0 0.25rem;
+    padding: 0.2rem 0.25rem;
 }
 
 .order-item-center{
@@ -112,7 +115,7 @@
 /* 信息部分样式 */
 
 .item-info p{
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     line-height: 1.3rem;
 }
 
@@ -147,6 +150,14 @@
     color: #adadad;
 }
 
+.info-detail-args p del{
+    line-height: 2rem;
+}
+
+.info-detail-args p:nth-of-type(1){
+    padding: 0.5rem 0;
+}
+
 p.special-icon{
     position: relative;
     padding: 0 0 0 1.25rem;
@@ -158,7 +169,7 @@ p.special-icon{
 p.special-icon:before{
     content: "特";
     background: #ff5959;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     width: 1.2rem;
     height: 1.2rem;
     line-height: 1.2rem;
@@ -175,12 +186,10 @@ p.special-icon:before{
 }
 
 /* 信息底部 */
-
 .order-item-bottom{
     padding: 0.5rem 1rem;
     overflow: hidden;
 }
-
 
 /* 按钮 */
 .order-btn{
