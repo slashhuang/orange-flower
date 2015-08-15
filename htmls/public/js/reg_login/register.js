@@ -28,7 +28,6 @@ define(["url_config","ajax_check","zepto"], function(config,check,$){
     var checkbox = document.getElementById("registerCheckbox");
     var $certButton = $("#sendCert");
     var $submitButton = $("#regSubmit");
-    console.log($submitButton)
     var inputStatus = {
         "phoneNumber": false,
         "certNumber": false,

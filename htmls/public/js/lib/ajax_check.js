@@ -8,21 +8,21 @@ define(["url_config","jquery","cookie"],function(config,$,cookie){
         alert("cookie token is "+token);
         if(!token){
             var setToken = {
-                type:"GET",
+                type:"POST",
                 async:false,
                 crossDomain:true,
                 url : prefuri+"/session/requestToken",
-                data:param,
-                dataType : "json",
+                data:"",
                 success : function(err,status,req){
+                    console.log(req);
                         token = req.getResponseHeader("x-auth-token");
                         $.cookie("x-auth-token", token);
-                        alert("set token as " + token)
+                        alert("success token as " + token)
                     },
                 error:function(xhr,status,error){
-                    alert("token settings failed");
+                    alert("requesting token failed")
                 }
-            }
+            };
             $.ajax(setToken);         //set token if not existed
         };
         var settings = {
@@ -41,9 +41,6 @@ define(["url_config","jquery","cookie"],function(config,$,cookie){
             },
             error:function(xhr,status,error){
                 console.log("it's an error");
-            },
-            complete:function(xhr,err) {
-                console.log("ajax finished")
             }
         };
         $.ajax(settings);           //common AJAX
