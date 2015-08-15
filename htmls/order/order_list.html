@@ -25,14 +25,14 @@
 <div class="order-list">
     <ul>
         <!-- 已付款-->
-        <li class="order-item paid-item">
+        <li class="order-item paid-item" id="123323255">
             <div class="order-item-top">
                 <p class="orde-num-info">订单号<span class="num">123323255</span></p>
                 <span class="arrow"></span>
             </div>
             <div class="order-item-center">
                 <div class="item-img">
-                    <img src="../../public/images/order/iphone.jpg">
+                    <img src="../public/images/order/iphone.jpg">
                 </div>
                 <div class="item-info">
                     <div class="info-details-name">
@@ -51,20 +51,20 @@
                 </div>
             </div>
             <div class="order-item-bottom">
-                <span class="order-btn confirm-btn">确认订单</span>
-                <span class="order-btn reback-btn">退换货品</span>
+                <span class="order-btn confirm-btn" data-num="123323255">确认订单</span>
+                <span class="order-btn reback-btn" data-num="123323255">退换货品</span>
             </div>
         </li>
 
         <!-- 未付款-->
-        <li class="order-item no-paid-item">
+        <li class="order-item no-paid-item" id="123323256">
             <div class="order-item-top">
                 <p class="orde-num-info">订单号<span class="num">123323255</span></p>
                 <span class="arrow"></span>
             </div>
             <div class="order-item-center">
                 <div class="item-img">
-                    <img src="../../public/images/order/iphone.jpg">
+                    <img src="../public/images/order/iphone.jpg">
                 </div>
                 <div class="item-info">
                     <div class="info-details-name">
@@ -83,20 +83,20 @@
                 </div>
             </div>
             <div class="order-item-bottom">
-                <span class="order-btn confirm-btn">确认订单</span>
-                <span class="order-btn cancel-btn">取消订单</span>
+                <span class="order-btn confirm-pay-btn" data-num="123323256">确认付款</span>
+                <span class="order-btn cancel-btn" data-num="123323256">取消订单</span>
             </div>
         </li>
 
         <!-- 交易成功-->
-        <li class="order-item success-item">
+        <li class="order-item success-item" id="123323257">
             <div class="order-item-top">
                 <p class="orde-num-info">订单号<span class="num">123323255</span></p>
                 <span class="arrow"></span>
             </div>
             <div class="order-item-center">
                 <div class="item-img">
-                    <img src="../../public/images/order/iphone.jpg">
+                    <img src="../public/images/order/iphone.jpg">
                 </div>
                 <div class="item-info">
                     <div class="info-details-name">
@@ -115,10 +115,14 @@
                 </div>
             </div>
             <div class="order-item-bottom">
-                <span class="order-btn delete-btn">删除订单</span>
+                <span class="order-btn delete-btn"  data-num="123323257">删除订单</span>
             </div>
         </li>
     </ul>
 </div>
+
+<div class="mask" id="delete-"></div>
+
+<script src="../public/js/require.js" data-main="../public/js/order/order_list"></script>
 </body>
 </html>
