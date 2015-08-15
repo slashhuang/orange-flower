@@ -1,0 +1,224 @@
+/*登录注册及主页头样式*/
+.header-back{
+    position: absolute;
+    top: 9px;
+    left:11px;
+    display:block;
+    width: 9px;
+    height: 18px;
+    background: url(../images/icon/icon_arrow_left.png);
+    background-size: 9px 18px;
+}
+.header-back-info{
+    font-size:14px;
+    left:25px;
+    top:10px;
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    color: #575757;
+}
+
+.header-function{
+    right:16px;
+    top:12px;
+    position: absolute;
+    font-size: 14px;
+    font-weight: normal;
+    color: #2d2d2d;
+    display: inline-block;
+}
+.arrow-right-select{
+    display:block;
+    float:right;
+    width: 9px;
+    height: 16px;
+    background: url(../images/icon/icon_arrow_right.png);
+    background-size: 9px 16px;
+}
+
+.of-header{
+    width: 100%;
+    font-size:18px;
+    padding: 9px 11px 9px 11px;
+    text-align: center;
+    position: relative;
+}
+.of-header.green{
+    background-color: #15c690;
+}
+.of-header.gray{
+    background-color: #dfdfdf;
+}
+.of-header-person{
+    display:inline-block;
+    position: absolute;
+    top:14px;
+    left:11px;
+    width: 22px;
+    height: 22px;
+    background: url(../images/icon/icon-person-white.png);
+    background-size: 22px 22px;
+}
+.of-header-search{
+    display:inline-block;
+    position: absolute;
+    top:14px;
+    right:11px;
+    width: 22px;
+    height: 22px;
+    background: url(../images/icon/icon-search-white.png);
+    background-size: 22px 22px;
+}
+.of-header-search-gray{
+    display:inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(../images/icon/icon-search-grey.png) no-repeat;
+    background-size: 18px 18px;
+    position: absolute;
+    top:10px;
+    right:11px;
+}
+/*插入列表空白*/
+.split-line{
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 10px;
+}
+.split-line1{
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 14px;
+}
+/*商品列表*/
+.item-sale-list{
+    width:100%;
+    padding:8px 2%;
+    background: #fff;
+    border-bottom:1px #e6e6e6 solid;
+}
+.item-list-img{
+    width:33%;
+    float:left;
+    text-align: center;
+    position: relative;
+}
+.item-discount-position{
+   position: absolute;
+    left: 50%;
+    top:-10px;
+}
+.item-discount-banner{
+    position: absolute;
+    right:11px;
+    width: 36px;
+    height:36px;
+    background-color:#ff1502;
+    -webkit-border-radius: 36px;
+    -moz-border-radius: 36px;
+    border-radius: 36px;
+    padding:1px;
+    color: #fff;
+
+}
+.item-discount-inner{
+    background:#fff;
+    width:34px;
+    height:34px;
+    -webkit-border-radius:34px ;
+    -moz-border-radius: 34px;
+    border-radius: 34px;
+    padding:1px;
+}
+.item-discount-inner1{
+    background:#ff1502;
+    width:32px;
+    height:32px;
+    -webkit-border-radius:32px ;
+    -moz-border-radius: 32px;
+    border-radius: 32px;
+    padding:3px;
+    font-size:10px;
+}
+/*列表信息*/
+.item-hot-list-detail{
+    float:left;
+    width:60%;
+}
+.item-hot-list-detail .item-new-sale{
+    float:right;
+    border:1px solid #15c690;
+    color:#15c690;
+    font-size:10px;
+    margin-right:3px;
+    padding:1px 1px 0 1px ;
+}
+.item-hot-list-detail .item-hot-sale{
+    float:right;
+    border:1px solid #ff1502;
+    color: #ff1502;
+    font-size:10px;
+    padding:1px 1px 0 1px ;
+}
+.item-hot-list-detail h1{
+    padding:3px 3px 0.6em 3px;
+    font-size:11px;
+    display: block;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    font-weight:500
+}
+.item-price{
+    font-size:10px;
+    color: #b0b0b0;
+}
+.total-price{
+    font-size:16px;
+    padding-bottom:3px;
+}
+.total-price i{
+    font-style: normal;
+    color: #ff1502;
+}
+.total-price h2{
+    font-style: normal;
+    font-size:12px;
+    display: inline;
+    font-weight:300
+}
+.total-price span{
+    font-size:10px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #000000;
+}
+/*按钮样式*/
+.of-button{
+    background-color: #16cd9b;
+    color: #fff;
+    text-align: center;
+}
+.of-button.disabled{
+    background-color: #a3a3a3;
+}
+.of-button.of-button-bar{
+    margin-left: 0;
+    width: 100%;
+    font-size: 14px;
+    padding:6px;
+    border-radius: 20px;
+}
+.of-check input{
+    font-size:10px;
+}
+/*背景防止滚动*/
+.bg-fixed{
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+

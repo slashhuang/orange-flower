@@ -1,8 +1,319 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/**
+*橘花第一版样式文件
+*/
+
+/**
+*头部
+*/
+.of-logo-icon{
+    height: 30px;
+    width:auto;
+}
+.swiper-pagination-bullet-active{
+    background-color: #939393 !important;
+}
+.swiper-pagination-bullet{
+    background-color: #fff !important;
 }
 
-a {
-  color: #00B7FF;
+/**
+*图标和小字的分类
+*/
+.of-icon-class-box{
+    margin-top:-5px ;
+    padding-bottom: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    border-top:#c1c1c1 1px solid;
+    border-bottom:#c1c1c1 1px solid;
+
+}
+
+.of-icon-class-item{
+    display: inline-block;
+    float: left;
+    width:25%;
+    text-align:center;
+    font-size:11px;
+    margin-top:10px ;
+}
+
+.of-icon-class-item a{
+    color: #888;
+    display: block;
+}
+
+.of-icon-class-item img{
+    display: block;
+    margin:auto;
+    width:40px;
+    height:40px;
+    margin-bottom: 8px;
+}
+
+/*限时特卖*/
+
+.of-special-sale{
+    background-color:#fff;
+    border-top:#c1c1c1 1px solid;
+    border-radius:1px;
+    overflow: hidden;
+}
+
+.of-special-sale-body{
+    background-color: #fff;
+    float: left;
+    width:33.33%;
+    padding-left:5%;
+    text-align: center;
+    border-right:1px solid #e5e5e5;
+    font-size: 10px;
+}
+.of-special-sale-body a{
+    color: #000;
+}
+.of-special-sale-body span{
+    display: block;
+    margin:auto;
+    padding:5px 10px 5px 0;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.of-hot-container{
+    display: block;
+    position:relative;
+    margin:5px 10px 5px 0;
+    overflow:hidden;
+}
+.of-hot-container img{
+    margin-top:5px;
+    text-align: center;
+}
+.of-special-sale-item{
+    position: absolute;
+    top:0;
+    left:50%;
+    z-index: 999;
+}
+.of-special-sale-banner{
+    position: absolute;
+    top:0;
+    right:11px;
+    z-index:99
+}
+.of-special-sale-banner p{
+    background: url("../images/icon/discount_flag.png") no-repeat;
+    background-size:cover ;
+    color:#fff;
+    font-size:10px;
+    padding:3px 1px 1px 1px;
+    text-align: center;
+}
+.of-special-sale-banner p i{
+   margin:0 auto;
+    font-style: normal;
+    display: block;
+    width: auto;
+    white-space: nowrap
+}
+.of-special-sale:last-child{
+    border-right: none;
+}
+
+/**
+*每个分类推荐的样式
+*/
+.of-class-recommand-box{
+    border:#c9c9c9 1px solid;
+    border-radius:1px;
+
+    overflow: hidden;
+    background-color:#fff;
+}
+
+.of-class-recommand-header{
+    background-color: #fff;
+    padding:8px;
+    font-size: 15px;
+    color: #2d2d2d;
+    /*border-left:2px solid #fb4551;*/
+}
+.of-class-recommand-header i{
+    display: inline-block;
+    height:14px;
+    width: 14px;
+    margin-right: 8px;
+    margin-top:4px;
+}
+
+.of-class-recommand-header a{
+    display: inline-block;
+    float: right;
+    margin-right:10px;
+    margin-top: 4px;
+    font-size: 12px;
+    text-decoration: none;
+    color: #2d2d2d;
+}
+
+.of-class-recommand-body{
+    background-color: #ffffff;
+    padding-bottom: 8px;
+}
+.of-class-recommand-body .swiper-wrapper:first-child{
+    margin-left:6px;
+}
+
+.of-class-recommand-item.swiper-slide{
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    background-color:#fff;
+    padding: 6px;
+    margin-left: 2px;
+    overflow: hidden;
+}
+.of-class-recommand-item a{
+    display: block;
+}
+.swiper-wrapper{
+    margin-top:24px;
+}
+.of-class-recommand-item img{
+    width:32px;
+}
+
+.of-class-recommand-item .of-name{
+    text-align: center;
+    font-family: monospace;
+    font-size: 9px;
+    font-weight: 700;
+    white-space:nowrap;
+    display: block;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    margin-top: 12px;
+    color: #2d2d2d;
+}
+
+.of-class-recommand-item .of-price{
+    font-size: 7px;
+    margin-top: 3px;
+    color: #2d2d2d;
+    font-weight:900;
+}
+.of-class-recommand-item .of-price span{
+    font-size: 11px;
+    color: #ff1702;
+}
+
+/**
+*广告栏位
+*/
+.of-ad{
+
+}
+.of-ad img{
+    width:100%;
+}
+.of-ad.of-bottom{
+    padding-bottom:60px;
+    background: #f6f6f6;
+}
+/**
+*底部样式
+*/
+.of-bottom-bar{
+    background-color: #ffffff;
+    border-top: 1px solid #dbdbdb;
+    position: fixed;
+    bottom: 0;
+    padding-top:6px;
+    padding-bottom:6px ;
+    overflow: hidden;
+    font-size: 10px;
+    color:#c8c8c8;
+    width: 100%;
+    z-index: 9999999;
+}
+
+.of-bottom-bar.hidden{
+    display: none;
+}
+
+.of-bottom-bar div{
+     float: left;
+     width: 20%;
+    text-align: center;
+ }
+.of-bottom-bar a{
+    display: block;
+    width: 100%;
+}
+.of-bottom-bar i{
+    width: 24px;
+    height: 24px;
+}
+
+.of-bottom-bar div.active{
+    color:#c8c8c8;
+}
+
+
+/*头部图片slider部分*/
+.swiper-img-size{
+    width:100%;
+    height:auto;
+}
+
+/*icon部分*/
+.of-icon-clock{
+    background: url(../images/icon/icon-clock.png) no-repeat center;
+    background-size: contain;
+}
+.of-icon-bottom{
+    display: block;
+    margin:auto;
+    background-size:contain ;
+    margin-bottom: 6px;
+}
+.of-icon-home{
+    background: url(../images/icon/icon-home.png) no-repeat center;
+    background-size:contain ;
+}
+.of-icon-home.active{
+    background: url(../images/icon/icon-house-h.png) no-repeat center;
+    background-size:contain ;
+}
+.of-icon-classify{
+    background: url(../images/icon/icon-classify.png) no-repeat center;
+    background-size:contain;
+}
+.of-icon-classify.active{
+    background: url(../images/icon/icon-classify-h.png) no-repeat center;
+    background-size:contain ;
+}
+.of-icon-hot{
+    background: url(../images/icon/icon-h.png) no-repeat center ;
+    background-size:contain ;
+}
+.of-icon-hot.active{
+    background: url(../images/icon/icon-h-h.png) no-repeat center ;
+    background-size:contain ;
+}
+.of-icon-person{
+    background: url(../images/icon/icon-person.png) no-repeat center ;
+    background-size:contain ;
+}
+.of-icon-person.active{
+    background: url(../images/icon/icon-person-h.png) no-repeat center;
+    background-size:contain ;
+}
+.of-icon-heart{
+    background: url(../images/icon/icon-heart.png) no-repeat center;
+    background-size:contain ;
+}
+.of-icon-heart.active{
+    background: url(../images/icon/icon-heart-h.png) no-repeat center ;
+    background-size:contain ;
 }

@@ -1,0 +1,16 @@
+
+.hot-sale-main{
+    background: #fff;
+}
+.sale-item-title{
+   padding:6px;
+    width:100%;
+    border-bottom:1px solid #e6e6e6;
+    font-size:12px;
+}
+.sale-sort-option{
+    width:33%;float:left;text-align:center;
+}
+.sale-sort-border{
+    border-right:1px #ccc solid;
+}
