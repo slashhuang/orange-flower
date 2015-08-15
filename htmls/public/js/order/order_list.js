@@ -6,16 +6,20 @@
 require.config({
     "baseUrl":"../public/js/lib",
     "paths":{
-        "zepto":"./zepto.min"
+        "zepto":"./zepto.min",
+        "sweetalert":"./sweetalert/dist/sweetalert.min.js"
     },
     "shim":{
         "zepto":{
             "exports":"$"
+        },
+        "sweetalert":{
+            "exports":"swAlert"
         }
     }
 });
 
-define(["zepto"],function($){
+define(["zepto","sweetalert"],function($,swAlert){
 
     var reBackBtn = $(".reback-btn"),               //  退换货品按钮
         cancelBtn = $(".cancel-btn"),               //  取消订单按钮
