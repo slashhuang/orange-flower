@@ -1,0 +1,193 @@
+/***
+    个人中心样式表
+    build by rwson @2015-08-14
+***/
+
+.body{
+    background: #f2f2f2;
+}
+
+.order-item{
+    border: 1px solid #e6e6e6;
+    border-left: none;
+    border-right: none;
+    margin: 0 0 1rem 0;
+}
+
+.order-item-top{
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid #e6e6e6;
+    color: #515151;
+    overflow: hidden;
+}
+
+.orde-num-info{
+    float: left;
+    position: relative;
+    font-size: 1rem;
+    line-height: 1.3rem;
+}
+
+.orde-num-info .num{
+    padding: 0 0 0 1rem;
+    font-size: 1rem;
+    line-height: 1.3rem;
+    vertical-align: bottom;
+}
+
+.arrow{
+    display: inline-block;
+    margin-top:0.3rem;
+    width: 0.7rem;
+    height: 1.3rem;
+    background: url(../../images/user_center/arrow_right.png) no-repeat;
+    background-size: 100%;
+    float: right;
+}
+
+/* 已付款 */
+.paid-item .orde-num-info:after{
+    content: "已付款";
+    position: absolute;
+    right: -4rem;
+    background: #16cd9b;
+    color: #fff;
+    padding: 0 0.25rem;
+}
+
+/* 未付款 */
+.no-paid-item .orde-num-info:after{
+    content: "未付款";
+    position: absolute;
+    right: -4rem;
+    background: #ff5959;
+    color: #fff;
+    padding: 0 0.25rem;
+}
+
+/* 交易成功 */
+.success-item .orde-num-info:after{
+    content: "交易成功";
+    position: absolute;
+    right: -5rem;
+    background: #16cd9b;
+    color: #fff;
+    padding: 0 0.25rem;
+}
+
+.order-item-center{
+    padding: 1rem;
+    border-bottom: 1px solid #e6e6e6;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 商品图片 */
+.item-img{
+    width: 4.3rem;
+    height: 4.3rem;
+    overflow: hidden;
+    border: 1px solid #e6e6e6;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+}
+
+.item-img img{
+    width: 4.3rem;
+    height: 4.3rem;
+}
+
+.item-info{
+    width: 29rem;
+    padding: 0 0 0 6rem;
+}
+
+.info-details-name,
+.info-detail-args,
+.info-detail-price{
+    clear: both;
+}
+
+/* 信息部分样式 */
+
+.item-info p{
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+}
+
+.info-details-name p:nth-of-type(1),
+.info-detail-args p:nth-of-type(1),
+.info-detail-price p:nth-of-type(1){
+    float: left;
+}
+
+.info-details-name p:nth-of-type(2),
+.info-detail-args p:nth-of-type(2){
+    float: right;
+}
+
+.info-details-name p{
+    font-size: 1.2rem;
+}
+
+.info-details-name p:nth-of-type(1){
+    width: 14rem;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.info-details-name p.special-icon{
+    width: 16rem;
+}
+
+.info-detail-args p,
+.info-detail-price p{
+    color: #adadad;
+}
+
+p.special-icon{
+    position: relative;
+    padding: 0 0 0 1.25rem;
+    line-height: 1.3rem;
+}
+
+/* 特字 */
+
+p.special-icon:before{
+    content: "特";
+    background: #ff5959;
+    font-size: 0.7rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+    -webkit-border-radius: 0.6rem;
+    -moz-border-radius: 0.6rem;
+    -ms-border-radius: 0.6rem;
+    -o-border-radius: 0.6rem;
+    border-radius: 0.6rem;
+    text-align: center;
+}
+
+/* 信息底部 */
+
+.order-item-bottom{
+    padding: 0.5rem 1rem;
+    overflow: hidden;
+}
+
+
+/* 按钮 */
+.order-btn{
+    padding: 0.5rem 0.75rem;
+    font-size: 1.1rem;
+    color: #515151;
+    border: 1px solid #e6e6e6;
+    float: right;
+    margin: 0 0 0 1rem;
+}
