@@ -7,7 +7,7 @@ define(function(){
     return {
             "checkPhoneNumber": "",//查询是否已经注册
             "sendSms": prefuri+"/user/getCode",//发送短信
-            //"checkCertNumber": "",//检查验证码
-             "submitLocation": prefuri+"/user/register",//提交地址
+             "submitLocation": prefuri+"/user/register",//注册信息提交地址
+             "userRegInfo":prefuri+"/user/complete",//完善信息提交地址
     }
 });

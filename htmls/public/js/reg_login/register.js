@@ -40,19 +40,6 @@ define(["url_config","ajax_check","zepto"], function(config,check,$){
         "password" : "",
         "code":""
     };
-    $submitButton.on({
-        "tap":function(){
-            console.log(checkIsAllOk());
-            if(checkIsAllOk()) {
-                console.log(regFormData);
-                check.regFormSubmit(regFormData,function(){
-                    window.location.href="register_info.html"
-                })
-            }
-        }
-    });
-
-    //将检测时机改为提交的时候
 
     //检测手机号
     phoneNumberInput.onchange = function(){
@@ -139,16 +126,18 @@ define(["url_config","ajax_check","zepto"], function(config,check,$){
             return false;
         }
     }
-    //检测是否密码都已经ok
-    function checkIsAllOk(){
-        for(var index in inputStatus) {
-            if (inputStatus.hasOwnProperty(index)) {
-                if (!inputStatus[index]) {
-                    return false;
-                }
+    //将检测时机改为提交的时候
+    $submitButton.on({
+        "tap":function(){
+            console.log(config.checkIsAllOk(inputStatus));
+            if(config.checkIsAllOk(inputStatus)) {
+                console.log(regFormData);
+                check.regFormSubmit(regFormData,function(){
+                    window.location.href="register_info.html"
+                })
             }
         }
-        return true;
-    }
+    });
+
 
 });

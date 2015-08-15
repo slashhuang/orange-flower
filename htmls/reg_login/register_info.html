@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 <!--author：yuji-->
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta charset="UTF-" />
+    <meta name="viewport" content="width=device-width, initial-scale=., maximum-scale=., user-scalable=">
     <link rel="stylesheet" href="../public/stylesheets/style.css">
     <link rel="stylesheet" href="../public/stylesheets/reset.css">
     <link rel="stylesheet" href="../public/stylesheets/common.css">
@@ -28,27 +28,78 @@
     <label>
         省份
         <span class="arrow-right-select"></span>
-        <select data-province="" id="userProvince"></select>
+        <select data-province="" id="userProvince">
+                <option value="省份">--省份--</option>
+                <option value="北京">北京</option>
+                <option value="天津">天津</option>
+                <option value="河北省">河北省</option>
+                <option value="山西省">山西省</option>
+                <option value="内蒙古自治区">内蒙古自治区</option>
+                <option value="辽宁省" >辽宁省</option>
+                <option value="吉林省">吉林省</option>
+                <option value="黑龙江省">黑龙江省</option>
+                <option value="上海" >上海</option>
+                <option value="江苏省">江苏省</option>
+                <option value="浙江省">浙江省</option>
+                <option value="安徽省">安徽省</option>
+                <option value="福建省">福建省</option>
+                <option value="江西省">江西省</option>
+                <option value="山东省">山东省</option>
+                <option value="河南省">河南省</option>
+                <option value="湖北省">湖北省</option>
+                <option value="湖南省">湖南省</option>
+                <option value="广东省">广东省</option>
+                <option value="广西壮族自治区">广西壮族自治区</option>
+                <option value="海南省">海南省</option>
+                <option value="重庆">重庆</option>
+                <option value="四川省">四川省</option>
+                <option value="贵州省">贵州省</option>
+                <option value="云南省">云南省</option>
+                <option value="西藏自治区">西藏自治区</option>
+                <option value="陕西省">陕西省</option>
+                <option value="甘肃省">甘肃省</option>
+                <option value="青海省">青海省</option>
+                <option value="宁夏回族自治区">宁夏回族自治区</option>
+                <option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+                <option value="台湾省">台湾省</option>
+                <option value="香港特别行政区">香港特别行政区</option>
+                <option value="澳门特别行政区">澳门特别行政区</option>
+                <option value="海外">海外</option></select>
     </label>
     <label>
         城市
         <span  class="arrow-right-select"></span>
-        <select data-city="" id="userCity"></select>
+        <select data-city="" id="userCity">
+            <option value="南京">南京</option></select>
+        </select>
     </label>
     <label>
         学校
         <span class="arrow-right-select"></span>
-        <select id="userUniversity"></select><!--学校部分还没有写上去-->
+        <select id="userUniversity" data-campus></select><!--学校部分还没有写上去-->
     </label>
     <label>
         校区
         <span class="arrow-right-select"></span>
-        <select id="userCampus"></select><!--校区部分还没有写上去-->
+        <select id="userCampus" data-campusRegion>
+
+        </select>
     </label>
     <label>
         年级
         <span class="arrow-right-select"></span>
-        <select id="userLevel"></select><!--校区部分还没有写上去-->
+        <select id="userLevel" data-campusLevel>
+            <option value="年级">--年级--</option>
+            <option value="大一">大一</option>
+            <option value="大二">大二</option>
+            <option value="大三">大三</option>
+            <option value="大四">大四</option>
+            <option value="研一">研一</option>
+            <option value="研二">研二</option>
+            <option value="研三">研三</option>
+            <option value="博一">博一</option>
+            <option value="博二">博二</option>
+        </select><!--校区部分还没有写上去-->
     </label>
     <label class=" no-border">
         <input class="of-button of-button-bar" id="regInfoSubmit" type="button"  value="下一步">
