@@ -72,3 +72,4 @@ bower_components/*
 *.jar
 *.war
 *.ear
+node_modules
