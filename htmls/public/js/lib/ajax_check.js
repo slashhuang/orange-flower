@@ -5,8 +5,26 @@
 define(["url_config","jquery","cookie"],function(config,$,cookie){
     function request(url,param, callback){
         var token = $.cookie("x-auth-token");
-        console.log($.cookie("x-auth-token"));
-        alert(token);
+        alert("token is "+token);
+        if(!token){
+            var checkToken = {
+                type:"GET",
+                async:false,
+                crossDomain:true,
+                url : prefuri+"/session/requestToken",
+                data:param,
+                dataType : "json",
+                success : function(err,status,req){
+                        token = req.getResponseHeader("x-auth-token");
+                        $.cookie("x-auth-token", token);
+                        alert("set token as " + token)
+                    },
+                error:function(xhr,status,error){
+                    alert("token settings failed");
+                }
+            }
+            $.ajax(checkToken);         //set token if not existed
+        };
         var settings = {
             type:"POST",
             async:false,
@@ -14,23 +32,23 @@ define(["url_config","jquery","cookie"],function(config,$,cookie){
             url : url,
             data:param,
             dataType : "json",
-            success : function(err,status,req){
-                if(callback) callback();
-                token = req.getResponseHeader("x-auth-token");
-                if(token != null && token != "")
-                    $.cookie("x-auth-token", token);
-                alert("fuck"+req.getResponseHeader("x-auth-token"))
-            },
-            error:function(xhr,status,error){
-                alert("here is an error");
-            },
             beforeSend: function(XMLHttpRequest) {
                 XMLHttpRequest.setRequestHeader("x-auth-token", token);
+            },
+            success : function(err,status,req){
+                if(callback) callback();
+                alert("success token" + token)
+            },
+            error:function(xhr,status,error){
+                alert("it's an error");
+            },
+            complete:function(xhr,err) {
+                alert("ajax finished")
             }
         };
-        console.log(settings);
-        $.ajax(settings);
+        $.ajax(settings);           //common AJAX
     }
+
 
     return{
         "checkPhoneNumber":function(phone) {
