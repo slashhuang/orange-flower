@@ -118,6 +118,7 @@ define(["url_config","ajax_check","zepto"], function(config,check,$){
             $certButton.off("tap",tapResponse);
             check.sendSms(phoneNumberInput.value,function(data){
                 alert("发送成功");
+                console.log(data)
                 $certButton.addClass("disabled");
                 showCountdown(10, tapResponse);
             })

@@ -5,7 +5,7 @@
 define(["url_config","jquery","cookie"],function(config,$,cookie){
     function request(url,param, callback){
         var token = $.cookie("x-auth-token");
-        alert("token is "+token);
+        alert("cookie token is "+token);
         if(!token){
             var setToken = {
                 type:"GET",
@@ -37,7 +37,7 @@ define(["url_config","jquery","cookie"],function(config,$,cookie){
             },
             success : function(err,status,req){
                 if(callback) callback();
-                alert("success token" + token)
+                alert("success token is" + token)
             },
             error:function(xhr,status,error){
                 alert("it's an error");
