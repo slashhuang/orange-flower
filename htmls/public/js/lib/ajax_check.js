@@ -37,13 +37,13 @@ define(["url_config","jquery","cookie"],function(config,$,cookie){
             },
             success : function(err,status,req){
                 if(callback) callback();
-                alert("success token is" + token)
+                console.log("success token is" + token)
             },
             error:function(xhr,status,error){
-                alert("it's an error");
+                console.log("it's an error");
             },
             complete:function(xhr,err) {
-                alert("ajax finished")
+                console.log("ajax finished")
             }
         };
         $.ajax(settings);           //common AJAX
