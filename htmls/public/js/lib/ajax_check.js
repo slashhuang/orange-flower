@@ -7,7 +7,7 @@ define(["url_config","jquery","cookie"],function(config,$,cookie){
         var token = $.cookie("x-auth-token");
         alert("token is "+token);
         if(!token){
-            var checkToken = {
+            var setToken = {
                 type:"GET",
                 async:false,
                 crossDomain:true,
@@ -23,7 +23,7 @@ define(["url_config","jquery","cookie"],function(config,$,cookie){
                     alert("token settings failed");
                 }
             }
-            $.ajax(checkToken);         //set token if not existed
+            $.ajax(setToken);         //set token if not existed
         };
         var settings = {
             type:"POST",
@@ -76,4 +76,4 @@ define(["url_config","jquery","cookie"],function(config,$,cookie){
             request(config.submitLocation,formData,callback)
         }
     }
-})
+});
