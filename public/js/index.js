@@ -23,7 +23,6 @@ require.config({
 });
 
 require(['util/swiper_','zepto'],function(swiper, $){
-    alert("loading success");
     swiper.picture();
     swiper.div();
 });
