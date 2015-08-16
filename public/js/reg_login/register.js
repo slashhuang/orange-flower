@@ -3,7 +3,7 @@
  */
 
 require.config({
-    baseUrl:"../public/js/lib",
+    baseUrl:"/js/lib",
     paths:{
         "zepto":"./zepto.min",
         "reg_login":"../reg_login",
@@ -133,7 +133,7 @@ define(["url_config","ajax_check","zepto"], function(config,check,$){
             if(config.checkIsAllOk(inputStatus)) {
                 console.log(regFormData);
                 check.regFormSubmit(regFormData,function(){
-                    window.location.href="register_info.html"
+                    window.location.href="/user/register_info"
                 })
             }
         }
