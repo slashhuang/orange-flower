@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/order/order_list.css">
+    <link rel="stylesheet" type="text/css" href="/js/lib/sweetalert/dist/sweetalert.css">
+    <!-- sweetalert样式文件-->
     <title>订单列表</title>
 </head>
 <body>
@@ -18,14 +20,14 @@
 <div class="of-header gray">
     <a class="header-back" href="javascript:history.back()"></a>
     我的订单
-    <a class="header-function" href="../index.ejs">首页</a>
+    <a class="header-function" href="../index.html">首页</a>
 </div>
 
 <!--订单-->
 <div class="order-list">
     <ul>
         <!-- 已付款-->
-        <li class="order-item paid-item">
+        <li class="order-item paid-item" id="123323255">
             <div class="order-item-top">
                 <p class="orde-num-info">订单号<span class="num">123323255</span></p>
                 <span class="arrow"></span>
@@ -51,13 +53,13 @@
                 </div>
             </div>
             <div class="order-item-bottom">
-                <span class="order-btn confirm-btn">确认订单</span>
-                <span class="order-btn reback-btn">退换货品</span>
+                <span class="order-btn confirm-btn" data-num="123323255">确认订单</span>
+                <span class="order-btn reback-btn" data-num="123323255">退换货品</span>
             </div>
         </li>
 
         <!-- 未付款-->
-        <li class="order-item no-paid-item">
+        <li class="order-item no-paid-item" id="123323256">
             <div class="order-item-top">
                 <p class="orde-num-info">订单号<span class="num">123323255</span></p>
                 <span class="arrow"></span>
@@ -83,13 +85,13 @@
                 </div>
             </div>
             <div class="order-item-bottom">
-                <span class="order-btn confirm-btn">确认订单</span>
-                <span class="order-btn cancel-btn">取消订单</span>
+                <span class="order-btn confirm-pay-btn" data-num="123323256">确认付款</span>
+                <span class="order-btn cancel-btn" data-num="123323256">取消订单</span>
             </div>
         </li>
 
         <!-- 交易成功-->
-        <li class="order-item success-item">
+        <li class="order-item success-item" id="123323257">
             <div class="order-item-top">
                 <p class="orde-num-info">订单号<span class="num">123323255</span></p>
                 <span class="arrow"></span>
@@ -115,10 +117,12 @@
                 </div>
             </div>
             <div class="order-item-bottom">
-                <span class="order-btn delete-btn">删除订单</span>
+                <span class="order-btn delete-btn"  data-num="123323257">删除订单</span>
             </div>
         </li>
     </ul>
 </div>
+
+<script src="/js/require.js" data-main="/js/order/order_list"></script>
 </body>
 </html>
