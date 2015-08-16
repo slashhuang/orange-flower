@@ -3,7 +3,7 @@
  */
 
 require.config({
-    baseUrl:"../public/js/lib",
+    baseUrl:"/js/lib",
     paths:{
         "zepto":"./zepto.min",
         "reg_login":"../reg_login",
@@ -13,12 +13,6 @@ require.config({
         "zepto":{
             "exports":"$"
         },
-        //"distpicker":{
-        //    deps: ['jquery',"distpicker.data"],
-        //    //Once loaded, use the global 'distpicker' as the
-        //    //module value.
-        //    exports: 'distpicker'
-        //},暂时先不用此插件
         "cookie":{
             deps: ['jquery'],
             exports: 'cookie'
@@ -87,7 +81,7 @@ require(["url_config","ajax_check","distpicker","jquery","zepto"], function (con
             if(config.checkIsAllOk(userInfoStatus)) {
                 console.log(userInfoData);
                 check.regFormSubmit(userInfoData,function(){
-                    window.location.href="register_info.html"
+                    window.location.href="register_info.ejs"
                 })
             }
         }

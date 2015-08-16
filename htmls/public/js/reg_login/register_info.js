@@ -87,7 +87,7 @@ require(["url_config","ajax_check","distpicker","jquery","zepto"], function (con
             if(config.checkIsAllOk(userInfoStatus)) {
                 console.log(userInfoData);
                 check.regFormSubmit(userInfoData,function(){
-                    window.location.href="register_info.html"
+                    window.location.href="register_info.ejs"
                 })
             }
         }

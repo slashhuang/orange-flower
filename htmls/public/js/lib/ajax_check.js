@@ -37,7 +37,7 @@ define(["url_config","jquery","cookie"],function(config,$,cookie){
             },
             success : function(err,status,req){
                 if(callback) callback();
-                console.log("success token is" + token)
+                console.lo56g("success token is" + token)
             },
             error:function(xhr,status,error){
                 console.log("it's an error");
