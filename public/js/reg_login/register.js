@@ -1,25 +1,33 @@
 /**
  * Created by slashhuang on 15/8/4.
  */
-
 require.config({
     baseUrl:"/js/lib",
     paths:{
         "zepto":"./zepto.min",
+        "util":"/js/lib/common_util",
+        "model":"../js_models",
+        "jquery":"./jquery",
+        "swiper":"./swiper",
         "reg_login":"../reg_login",
     },
     shim:{
         "zepto":{
             "exports":"$"
         },
+        "swiper":{
+            "deps":["zepto"],
+            "exports":"swiper"
+        },
         "cookie":{
             deps: ['jquery'],
             exports: 'cookie'
         }
     }
-})
+});
 
-define(["url_config","ajax_check","zepto"], function(config,check,$){
+
+define(["util/url_config","util/ajax_check","zepto"], function(config,check,$){
     var phoneNumberInput = document.getElementById("phoneNumber");
     var certNumberInput = document.getElementById("certNumber");
     var certButton = document.getElementById("sendCert");

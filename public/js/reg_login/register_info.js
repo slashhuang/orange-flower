@@ -6,22 +6,28 @@ require.config({
     baseUrl:"/js/lib",
     paths:{
         "zepto":"./zepto.min",
+        "util":"./common_util",
+        "model":"../js_models",
+        "jquery":"./jquery",
+        "swiper":"./swiper",
         "reg_login":"../reg_login",
-        "jquery":"./jquery"
     },
     shim:{
         "zepto":{
             "exports":"$"
         },
+        "swiper":{
+            "deps":["zepto"],
+            "exports":"swiper"
+        },
         "cookie":{
             deps: ['jquery'],
             exports: 'cookie'
         }
-
     }
-})
+});
 
-require(["url_config","ajax_check","zepto"], function (config,check,zepto) {
+require(["util/url_config","util/ajax_check","zepto"], function (config,check,zepto) {
     var $userName = $("#userNumber");
     var $userIdNum = $("#IDNumber");
     var $userProvince = $("#userProvince");

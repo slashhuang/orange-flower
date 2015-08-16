@@ -2,7 +2,7 @@
  * Created by yuji on 15/7/27.
  */
 
-define(["/js/lib/util/url_config","jquery","cookie"],function(config,$,cookie){
+define(["./url_config","jquery","cookie"],function(config,$,cookie){
     function request(url,param, callback){
         var token = $.cookie("x-auth-token");
         alert("cookie token is "+token);

@@ -1,6 +1,7 @@
 /**
  * Created by slashhuang on 2015/7/28.
  */
+
 require.config({
     baseUrl:"/js/lib",
     paths:{
@@ -9,6 +10,7 @@ require.config({
         "model":"../js_models",
         "jquery":"./jquery",
         "swiper":"./swiper",
+        "reg_login":"../reg_login",
     },
     shim:{
         "zepto":{
@@ -16,7 +18,11 @@ require.config({
         },
         "swiper":{
             "deps":["zepto"],
-            "exports":"Swiper"
+            "exports":"swiper"
+        },
+        "cookie":{
+            deps: ['jquery'],
+            exports: 'cookie'
         }
     }
 });
