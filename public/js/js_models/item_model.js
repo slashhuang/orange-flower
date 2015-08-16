@@ -5,8 +5,10 @@ require.config({
     baseUrl:"/js/lib",
     paths:{
         "zepto":"./zepto.min",
+        "util":"/js/lib/common_util",
+        "model":"../js_models",
+        "jquery":"./jquery",
         "swiper":"./swiper",
-        "model":"../js_models"
     },
     shim:{
         "zepto":{
@@ -17,7 +19,7 @@ require.config({
             "exports":"Swiper"
         }
     }
-})
-require(['model/item_detail',"swiper_"],function(itemDetail,swiper){
+});
+require(['model/item_detail',"util/swiper_"],function(itemDetail,swiper){
     swiper.picture();
 });

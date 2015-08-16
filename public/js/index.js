@@ -6,8 +6,10 @@ require.config({
     baseUrl:"/js/lib",
     paths:{
         "zepto":"./zepto.min",
-        "swiper":"./swiper",
-        "jquery":"./jquery"
+         "util":"/js/lib/common_util",
+        "model":"../js_models",
+        "jquery":"./jquery",
+        "swiper":"./swiper"
     },
     shim:{
         "zepto":{
@@ -17,20 +19,11 @@ require.config({
             "deps":["zepto"],
             "exports":"swiper"
         },
-        "handlebars":{
-            "deps":["jquery"],
-            "exports":"handlebars"
-        }
     }
 });
 
-require(['swiper_','zepto',"handlebars"],function(swiper, $,handlebars){
+require(['util/swiper_','zepto'],function(swiper, $){
+    alert("loading success");
     swiper.picture();
     swiper.div();
-
-
-    //$(".lazy").lazyload({
-    //    effect: "fadeIn",
-    //    vertical_only: true
-    //});
 });

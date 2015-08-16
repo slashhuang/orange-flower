@@ -21,11 +21,7 @@ require.config({
     }
 })
 
-require(["url_config","ajax_check","distpicker","jquery","zepto"], function (config,check,distpicker,$,zepto) {
-    //$('#regForm').distpicker({
-    //    province: '---- 所在省 ----',
-    //    city: '---- 所在市 ----'
-    //});
+require(["url_config","ajax_check","zepto"], function (config,check,zepto) {
     var $userName = $("#userNumber");
     var $userIdNum = $("#IDNumber");
     var $userProvince = $("#userProvince");
@@ -38,7 +34,7 @@ require(["url_config","ajax_check","distpicker","jquery","zepto"], function (con
     var userInfoStatus = {
         userName :false,
         userIdNum :false,
-        userProvince :false,
+        province :false,
         userCity : false,
         userUniversity : false,
         userCampus : false,
@@ -47,33 +43,33 @@ require(["url_config","ajax_check","distpicker","jquery","zepto"], function (con
     //搜集用户数据
     var userInfoData = {
         userName :"",
-        userIdNum :"",
-        userProvince :"",
-        userCity : "",
-        userUniversity : "",
-        userCampus : "",
-        userLevel : ""
+        idNo :"",
+        province :"",
+        city : "",
+        school : "",
+        campus : "",
+        level : ""
     };
     $userName.change(function(){
        userInfoData.userName = $userName.val();
     });
     $userIdNum.change(function(){
-        userInfoData.userIdNum = $userIdNum.val();
+        userInfoData.idNo = $userIdNum.val();
     });
     $userProvince.blur(function() {
-        userInfoData.userProvince = $userProvince.val();
+        userInfoData.province = $userProvince.val();
     });
     $userCity.blur(function() {
-        userInfoData.userCity = $userCity.val();
+        userInfoData.city = $userCity.val();
     });
     $userUniversity.blur(function(){
-        userInfoData.userUniversity = $userUniversity.val();
+        userInfoData.school = $userUniversity.val();
     });
     $userCampus.change(function(){
-        userInfoData.userCampus = $userCampus.val();
+        userInfoData.campus = $userCampus.val();
     });
     $userLevel.change(function(){
-        userInfoData.userLevel = $userLevel.val();
+        userInfoData.level = $userLevel.val();
     });
     $userInfoData.on({
         "tap":function(){

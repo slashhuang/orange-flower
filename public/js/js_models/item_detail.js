@@ -9,6 +9,16 @@ define(["zepto"], function($) {
         var $item_slider_bar = $("#itemSliderNav").children();
         var $itemChoice =$(".item-detail-option-list");//选项卡
         var $iframeChoice=$(".of-item-buy-installation");//iframe选项卡
+        //搜集商品页面数据
+        (function(){
+            var itemChooser = {
+                itemId:"",
+                color:"",
+                look:"",
+                percent:"",
+                month:"",
+            }
+        })();
         //页面基本设置以及选项卡悬浮效果
         (function(){
 
@@ -114,3 +124,4 @@ define(["zepto"], function($) {
             $tapiframe.tap(hideframe)
         })();
     });
+
