@@ -1,7 +1,7 @@
 /**
  * Created by slashhuang on 15/8/16.
  */
-define(['/js/lib/zepto.min'],function($){
+define([],function(){
     return{
         //检测手机号码
         "checkPhoneNumber":function(phone) {

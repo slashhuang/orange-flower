@@ -27,7 +27,7 @@ require.config({
     }
 });
 
-require(["util/url_config","util/ajax_check","zepto"], function (config,check,zepto) {
+require(["util/url_config","util/ajax_check","util/data_check","zepto"], function (config,check,dataCheck,$) {
     var $userName = $("#userNumber");
     var $userIdNum = $("#IDNumber");
     var $userProvince = $("#userProvince");
@@ -79,11 +79,10 @@ require(["util/url_config","util/ajax_check","zepto"], function (config,check,ze
     });
     $userInfoData.on({
         "tap":function(){
-            console.log(userInfoStatus);
-            if(config.checkIsAllOk(userInfoStatus)) {
-                console.log(userInfoData);
+            console.log(userInfoData);
+            if(dataCheck.checkIsAllOk(userInfoStatus)) {
                 check.regFormSubmit(userInfoData,function(){
-                    window.location.href="register_info.ejs"
+                    window.location.href="/user/center"
                 })
             }
         }

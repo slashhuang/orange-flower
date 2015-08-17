@@ -9,6 +9,17 @@ var bodyParser = require('body-parser');
 //创建APP实例
 var app = express();
 
+
+
+//var blog = express();
+//app.use('/blog',blog);
+//console.log(blog.path());
+
+
+
+
+
+
 //加载中间件解析
 app.use(logger('dev'));
 app.use(bodyParser.json());

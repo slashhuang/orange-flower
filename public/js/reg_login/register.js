@@ -27,7 +27,7 @@ require.config({
 });
 
 
-define(["util/url_config","util/ajax_check","zepto"], function(config,check,$){
+define(["util/url_config","util/ajax_check","util/data_check","zepto"], function(config,check,dataCheck,$){
     var phoneNumberInput = document.getElementById("phoneNumber");
     var certNumberInput = document.getElementById("certNumber");
     var certButton = document.getElementById("sendCert");
@@ -52,14 +52,14 @@ define(["util/url_config","util/ajax_check","zepto"], function(config,check,$){
     //检测手机号
     phoneNumberInput.onchange = function(){
         regFormData.telephone = phoneNumberInput.value;
-        if(check.checkPhoneNumber(phoneNumberInput.value)){
+        if(dataCheck.checkPhoneNumber(phoneNumberInput.value)){
             inputStatus.phoneNumber = true
         }
     };
     //检测手机验证码
     certNumberInput.onchange = function(){
         regFormData.code = certNumberInput.value;
-        if(check.checkCertNumber(certNumberInput.value)){
+        if(dataCheck.checkCertNumber(certNumberInput.value)){
             inputStatus.certNumber = true
         };
     };
@@ -137,11 +137,11 @@ define(["util/url_config","util/ajax_check","zepto"], function(config,check,$){
     //将检测时机改为提交的时候
     $submitButton.on({
         "tap":function(){
-            console.log(config.checkIsAllOk(inputStatus));
-            if(config.checkIsAllOk(inputStatus)) {
+            console.log(dataCheck.checkIsAllOk(inputStatus));
+            if(dataCheck.checkIsAllOk(inputStatus)) {
                 console.log(regFormData);
                 check.regFormSubmit(regFormData,function(){
-                    window.location.href="/user/register_info"
+                    window.location.href="/user/info"
                 })
             }
         }
