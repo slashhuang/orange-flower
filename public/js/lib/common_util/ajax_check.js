@@ -36,11 +36,10 @@ define(["./url_config","jquery","cookie"],function(config,$,cookie){
                 XMLHttpRequest.setRequestHeader("x-auth-token", token);
             },
             success : function(err,status,req){
-                if(callback) callback();
-                console.log("success token is" + token)
+                if(callback) callback.success(err,status,req);
             },
             error:function(xhr,status,error){
-                console.log("it's an error");
+                callback.fail(xhr,status,error);
             }
         };
         $.ajax(settings);           //common AJAX
@@ -57,6 +56,10 @@ define(["./url_config","jquery","cookie"],function(config,$,cookie){
         //AJAX提交用户完善信息
         "userInfoSubmit": function (regInfoData,callback) {
             request(config.userRegInfo,regInfoData,callback)
+        },
+        //AJAX登录
+        "userLogin":function(loginData,callback){
+            request(config.login,loginData,callback)
         }
     }
 });

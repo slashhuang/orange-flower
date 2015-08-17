@@ -73,3 +73,5 @@ bower_components/*
 *.war
 *.ear
 node_modules
+# test#
+test

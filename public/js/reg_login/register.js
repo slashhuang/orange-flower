@@ -10,6 +10,7 @@ require.config({
         "jquery":"./jquery",
         "swiper":"./swiper",
         "reg_login":"../reg_login",
+        "sweetalert": "./sweetalert.min"
     },
     shim:{
         "zepto":{
@@ -22,12 +23,15 @@ require.config({
         "cookie":{
             deps: ['jquery'],
             exports: 'cookie'
+        },
+        "sweetalert": {
+            exports : "sweet"
         }
     }
 });
 
 
-define(["util/url_config","util/ajax_check","util/data_check","zepto"], function(config,check,dataCheck,$){
+define(["util/url_config","util/ajax_check","util/data_check","zepto","sweetalert"], function(config,check,dataCheck,$,sweet){
     var phoneNumberInput = document.getElementById("phoneNumber");
     var certNumberInput = document.getElementById("certNumber");
     var certButton = document.getElementById("sendCert");
@@ -71,9 +75,12 @@ define(["util/url_config","util/ajax_check","util/data_check","zepto"], function
             return true;
         }
     };
-    //验证重复密码是否一致
+    //两次密码是否一致以及密码足够长度
     passwordRepeat.onblur = function(){
-        if(!checkPassword()){
+        if(password.value == passwordRepeat.value) {
+            inputStatus.passwordRepeat = true;
+        }
+        else{
             alert("密码未保持一致，请重新输入")
         }
     };
@@ -83,7 +90,7 @@ define(["util/url_config","util/ajax_check","util/data_check","zepto"], function
             inputStatus.checkbox = true;
             return true;
         }
-    }
+    };
     //显示倒计时
     function showCountdown(timeLeft, tapResponse){
         if(timeLeft > 0){
@@ -106,46 +113,57 @@ define(["util/url_config","util/ajax_check","util/data_check","zepto"], function
     //发送验证码
     (function(){
 
-        var tapResponse = function(){
-            certButton.setAttribute("disabled","disabled");
-
-            $certButton.off("tap",tapResponse);
-            check.sendSms(phoneNumberInput.value,function(data){
-                alert("发送成功");
-                console.log(data)
+        var callback = {
+            success : function(err,status,xhr){
                 $certButton.addClass("disabled");
                 showCountdown(10, tapResponse);
-            })
+            },
+            fail : function(xhr,status,error){
+                alert("发送失败，请检查手机号");
+            }
         };
+
+        var tapResponse = function(){
+            certButton.setAttribute("disabled","disabled");
+            $certButton.off("tap",tapResponse);
+            check.sendSms(phoneNumberInput.value,callback)
+        };
+
         $certButton.on({
             "tap" : tapResponse
         })
 
-    })();
 
-    //两次密码是否一致以及密码足够长度
-    function checkPassword(){
-        if(password.value == passwordRepeat.value)
-        {
-            inputStatus.passwordRepeat = true;
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+
     //将检测时机改为提交的时候
     $submitButton.on({
         "tap":function(){
-            console.log(dataCheck.checkIsAllOk(inputStatus));
+            var callback = {
+                success : function(err,status,xhr){
+                    sweet({
+                        title: "注册成功!",
+                        text: "点击转向登录页面",
+                        timer:1000,
+                        showConfirmButton: false
+                    },function(status){
+                        if(status) window.location.href="/user/login";
+                    });
+                },
+                fail : function(xhr,status,error){
+                    sweet({
+                        title: "注册失败!",
+                        text: "此用户已注册，请直接登录!",
+                        type:  "error"
+                    },function(status){
+                        window.location.href="/user/login"
+                    });
+                }
+            };
             if(dataCheck.checkIsAllOk(inputStatus)) {
                 console.log(regFormData);
-                check.regFormSubmit(regFormData,function(){
-                    window.location.href="/user/info"
-                })
+                check.regFormSubmit(regFormData,callback)
             }
         }
-    });
-
-
+        });
+    })();
 });
