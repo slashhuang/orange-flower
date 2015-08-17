@@ -29,11 +29,13 @@ var routes = require('./routes/index');//公有视图
 var users = require('./routes/users');//个人设置相关
 var sales = require("./routes/sales");//所有的商品页面
 var orders = require("./routes/orders");//所有订单页面
+var bill = require("./routes/bill");//账单路由
 //加载路由
 app.use('/', routes);
 app.use('/user', users);
 app.use('/sale', sales);
 app.use('/order', orders);
+app.use('/bill', bill);
 //错误处理器
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

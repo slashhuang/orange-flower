@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--
+    订单列表
+    build by rwson @2015-08-14
+-->
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable"><meta content="yes"name="apple-touch-fullscreen">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/common.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bill/bill.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/sweetalert.css">
+    <title>账单详情</title>
+</head>
+<body>
+<!--头部-->
+<div class="of-bill-bg">
+    <div class="of-header gray">
+        <a class="header-back" href="javascript:history.back()"></a>
+        8月账单
+    </div>
+    <!--还款金额-->
+    <div class="of-bill-Pay">
+        <div>本期金额(元)<b>逾</b></div>
+        <p class="clear-float">
+            <span>950.00</span>
+            <i id="payBillNOW" data-status="" class="nopaid">去还款</i>
+            <!--真实渲染的时候根据状态加载paid样式-->
+        </p>
+    </div>
+    <!--账单信息-->
+    <div class="of-bill-info">
+        <div class="clear-float">
+            <span>账单日</span>
+            <i>每月<em>05</em>日</i>
+        </div>
+        <div class="clear-float">
+            <span>到期还款日</span>
+            <i>每月<em>10</em>日</i>
+        </div>
+        <div class="clear-float">
+            <span>可用额度</span>
+            <i><em>6000.00</em></i>
+        </div>
+    </div>
+    <!--商品信息-->
+    <div class="of-bill-box">
+        <h>商品名称</h>
+        <div class="of-bill-item-info">
+            <dl class="of-bill-item-dl clear-float">
+                <dt>苹果(Apple)iPhone6 plus</dt>
+                <dd><i>950.00</i><b>(含服务费)</b></dd>
+            </dl>
+            <div class="of-bill-item-date">
+                <span>2015-9-9</span>
+                <i>09:18:25</i>
+            </div>
+            <dl class="of-bill-item-dl clear-float">
+                <dt>逾期费用</dt>
+                <dd><i>15.00</i></dd>
+            </dl>
+        </div>
+    </div>
+    <!--还款记录-->
+    <div class="of-bill-payback clear-float">
+        <span>还款记录</span>
+        <i></i>
+    </div>
+    <!--还款计划-->
+    <div class="of-bill-payback clear-float">
+        <span>还款记录</span>
+        <i></i>
+    </div>
+</div>
+
+<script src="/js/require.js" data-main="/js/bill/bill"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+.of-bill-bg{
+    height:100%;
+    width:100%;
+    background-color:#f0f0f0;
+    color: #484848;
+}
+.of-bill-box{
+    background-color: #fff;
+    padding:10px 10px 10px 12px;
+    border-bottom:1px #e9e9e9 solid;
+    margin-bottom:10px;
+}
+.of-bill-Pay{
+    background-color: #fff;
+    padding:10px 10px 10px 12px;
+    border-bottom:1px #e9e9e9 solid;
+}
+.of-bill-Pay div{
+    font-size:12px;
+}
+.of-bill-Pay b{
+    padding:1px;
+    background-color: #ff4f4f;
+    color:#fff;
+    font-size:10px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+.of-bill-Pay p{
+    margin-top:10px;
+}
+.of-bill-Pay p span{
+    color:#ff4f4f;
+    font-size:22px;
+    display: block;
+    float:left;
+}
+#payBillNOW.nopaid{
+    color:#fff;
+    font-size:12px;
+    padding:3px 15px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    display: block;
+    float:right;
+    background-color: #16cd9b;
+    text-align: center;
+}
+#payBillNOW.Paid{
+    color:#fff;
+    font-size:12px;
+    padding:3px 15px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    display: block;
+    float:right;
+    background-color: #9f9f9f;
+    text-align: center;
+}
+.of-bill-info{
+    padding:0 10px 12px 12px;
+    background:#fff;
+    border-bottom:1px #e9e9e9 solid;
+}
+.of-bill-info div {
+    padding-top: 12px;
+    font-size: 12px;
+}
+.of-bill-info div span {
+    float:left
+}
+.of-bill-info div i {
+    float:right
+}
+.of-bill-info div i em{
+    color:#ff4f4f;
+}
+.of-bill-item-info{
+    margin-top:10px;
+    padding:15px 10px;
+    background-color: #f0f0f0;
+}
+.of-bill-item-dl{
+    width:100%;
+    font-size:12px;
+}
+.of-bill-item-dl dt{
+    width:40%;
+    float:left;
+    height:16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.of-bill-item-dl dd{
+    width:50%;
+    float:right;
+    text-align: right;
+}
+.of-bill-item-dl dd i{
+    color:#ff4f4f;
+}
+.of-bill-item-date{
+    padding:0 0 8px 0 ;
+    color: #a3a3a3;
+    font-size:10px;
+}
+.of-bill-payback{
+    background: #fff;
+    padding:10px 20px 10px 10px;
+    border-bottom:1px #e9e9e9 solid;
+    font-size:13px;
+}
+.of-bill-payback i{
+    display: block;
+    float: right;
+    width: 9px;
+    height: 16px;
+    background: url(/images/icon/icon_arrow_right.png);
+    background-size: 9px 16px;
+}
+.of-bill-payback span{
+    float:left
+}
