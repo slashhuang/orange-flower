@@ -5,7 +5,6 @@ var router = express.Router();
 router.get('/center', function(req, res, next) {
   res.render('user/user_center', {});
 });
-
 router.get("/credit",function(req,res,next){
   res.render('user/user_credit',{})
 });
