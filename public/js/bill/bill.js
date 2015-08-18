@@ -36,15 +36,14 @@ require.config({
 
 define(["zepto","sweetalert","util/url_config"], function($,sweet,config){
     var payBillNOW = $("#payBillNOW");
-    //alert(window.screen.height)
-
     (function(){
         var setMinHeight = window.screen.height + "px";
-        document.getElementsByClassName("of-bill-bg")[0].style.height=setMinHeight;
-    })()
+        document.getElementsByClassName("of-bill-bg")[0].style.minHeight=setMinHeight;
+    })();
     payBillNOW.on({
         "tap":function(){
             window.location.href=""
         }
-    })
+    });
+
 });
