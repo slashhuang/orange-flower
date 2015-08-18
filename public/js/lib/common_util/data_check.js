@@ -33,6 +33,15 @@ define([],function(){
                 }
             }
             return true;
+        },
+        //密码至少6位
+        "pwdCheck":function(data){
+            if(data.length >5){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     }
 })

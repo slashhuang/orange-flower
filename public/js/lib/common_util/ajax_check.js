@@ -60,6 +60,10 @@ define(["./url_config","jquery","cookie"],function(config,$,cookie){
         //AJAX登录
         "userLogin":function(loginData,callback){
             request(config.login,loginData,callback)
+        },
+        //AJAX忘记密码
+        "forgetPWD":function(pwdData,callback){
+            request(config.forgetPWD,pwdData,callback)
         }
     }
 });

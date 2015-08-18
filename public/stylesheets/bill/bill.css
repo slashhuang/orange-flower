@@ -98,7 +98,6 @@
 .of-bill-item-dl dt{
     width:40%;
     float:left;
-    height:16px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

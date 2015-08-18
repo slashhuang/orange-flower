@@ -24,4 +24,7 @@ router.get("/info",function(req,res,next){
 router.get("/settings",function(req,res,next){
   res.render('user/reg_login/settings',{})
 });
+router.get("/forgetpwd",function(req,res,next){
+  res.render('user/reg_login/forget_pwd',{})
+});
 module.exports = router;
