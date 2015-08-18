@@ -116,6 +116,8 @@ define(["util/url_config","util/ajax_check","util/data_check","zepto","sweetaler
         var callback = {
             success : function(err,status,xhr){
                 $certButton.addClass("disabled");
+                certButton.setAttribute("disabled","disabled");
+                $certButton.off("tap",tapResponse);
                 showCountdown(10, tapResponse);
             },
             fail : function(xhr,status,error){
@@ -124,8 +126,6 @@ define(["util/url_config","util/ajax_check","util/data_check","zepto","sweetaler
         };
 
         var tapResponse = function(){
-            certButton.setAttribute("disabled","disabled");
-            $certButton.off("tap",tapResponse);
             check.sendSms(phoneNumberInput.value,callback)
         };
 
