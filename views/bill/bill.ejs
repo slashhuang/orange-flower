@@ -20,7 +20,7 @@
 <body>
 <!--头部-->
 <div class="of-bill-bg">
-    <div class="of-header gray">
+    <div id="billHeaderHeight" class="of-header gray">
         <a class="header-back" href="javascript:history.back()"></a>
         <span id="billMonth" class="of-bill-month">
             <i>8</i>月账单
@@ -78,6 +78,41 @@
     <div class="of-bill-payback clear-float">
         <span>还款记录</span>
         <i></i>
+    </div>
+</div>
+<!--月份遮罩层-->
+<div id="billMonthFilter">
+    <div class="of-bill-month-list">
+        <div class="of-bill-month-list-title bill-month-border">
+            <img src="/images/icon/icon_arrow_right.png">
+            <span>
+                <i>
+                    <%var y = new Date().getFullYear()%><%=y%>
+                    </i>年
+            </span>
+            <img src="/images/icon/icon_arrow_right.png"></div>
+        <ul class="of-bill-month-list-box bill-month-border clear-float">
+            <%for(var i=1;i<7;i++){%>
+            <li>
+                <%if(i==1){%>
+                <i class="active">
+                    <b><%- i%></b>
+                    月
+                </i>
+                <%} else{%>
+                <i>
+                    <b><%- i%></b>
+                    月
+                </i>
+                <%}%>
+            </li>
+            <%}%>
+            </ul>
+        <ul class="of-bill-month-list-box bill-month-border clear-float">
+            <% for(var i=7;i<13;i++){ %>
+            <li><i><%-i%>月</i></li>
+            <%}%>
+        </ul>
     </div>
 </div>
 
