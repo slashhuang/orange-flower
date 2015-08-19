@@ -49,5 +49,10 @@ router.get("/list",function(req,res,next){
     });
 });
 //  订单详情路由
+router.get("/info",function(req,res,next){
+    res.render('order/info',{
+        "title":"订单详情"
+    });
+});
 
 module.exports = router;

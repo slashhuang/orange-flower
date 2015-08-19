@@ -23,7 +23,8 @@
     <div id="billHeaderHeight" class="of-header gray">
         <a class="header-back" href="javascript:history.back()"></a>
         <span id="billMonth" class="of-bill-month">
-            <i>8</i>月账单
+            <% var month=new Date().getMonth()+1;%>
+            <i><%-month%></i>月账单
             <img src="/images/icon/triangle.png" width="12px">
             </span>
     </div>

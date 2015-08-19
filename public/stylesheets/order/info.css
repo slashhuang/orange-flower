@@ -1,0 +1,36 @@
+/***
+    订单提示信息样式表
+    build by rwson @2015-08-18
+***/
+
+.body{
+    background: #f2f2f2;
+}
+
+.order-tip{
+    text-align: center;
+    padding: 3.5rem 0 0 0;
+}
+
+.tip-text{
+    width: 30rem;
+    padding: 0 0 0 2.5rem;
+    background: url(../../images/order/logo-info.png) no-repeat 0 0;
+    background-size: 2.15rem 2.15rem;
+    height: 2.2rem;
+    font-size: 1.4rem;
+    line-height: 2.3rem;
+    color: #515151;
+    margin: 0 auto 1.5rem;
+}
+
+.count,
+.jump_link{
+    font-size: 1.1rem;
+    color: #737373;
+    margin: 0 auto 1.1rem;
+}
+
+a.jump_link{
+    color: #ff5959;
+}

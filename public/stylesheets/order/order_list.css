@@ -205,3 +205,19 @@ p.special-icon:before{
 .confirm-pay-btn{
     color: #16cd9b;
 }
+
+/* 空订单 */
+.order-list{
+    display: none;
+}
+
+.empty-order{
+    width: 18rem;
+    height: 10.7rem;
+    background: url(../../images/order/empty-order.png) no-repeat 0 0;
+    background-size: 18rem 10.7rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -5.35rem 0 0 -9rem;
+}
