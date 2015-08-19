@@ -46,7 +46,7 @@ define(["util/ajax_check","util/data_check","zepto","sweetalert"], function (AJA
                 success : function(err,status,xhr){
                     sweet({
                         title: "登出成功!",
-                        text: "请尽情在橘花分期购买吧!",
+                        text: "橘花欢迎您的光临!",
                         type:  "success"
                     },function(status){
                         if(status) window.location.href="/";
@@ -63,6 +63,11 @@ define(["util/ajax_check","util/data_check","zepto","sweetalert"], function (AJA
             var target = ele.target||ele.srcElement;
             switch(target.className){
                 case "cancel":
+                    settingFilter.animate({
+                        "display":"none",
+                    },100);
+                    break;
+                case "":
                     settingFilter.animate({
                         "display":"none",
                     },100);

@@ -16,5 +16,8 @@ router.get("/list",function(req,res,next){
 router.get("/detail",function(req,res,next){
     res.render('sale/item_detail',{})
 });
+router.get("/category",function(req,res,next){
+    res.render('sale/category',{})
+});
 
 module.exports = router;

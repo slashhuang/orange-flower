@@ -4,10 +4,10 @@
     top: 9px;
     left:11px;
     display:block;
-    width: 9px;
-    height: 18px;
+    width: 8px;
+    height: 16px;
     background: url(../images/icon/icon_arrow_left.png);
-    background-size: 9px 18px;
+    background-size: 8px 16px;
 }
 .header-back-info{
     font-size:14px;
@@ -33,7 +33,7 @@
     float:right;
     width: 9px;
     height: 16px;
-    background: url(../images/icon/icon_arrow_right.png);
+    background: url(../images/icon/icon_arrow_right.png) no-repeat;
     background-size: 9px 16px;
 }
 

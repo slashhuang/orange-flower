@@ -45,7 +45,6 @@ define(["./url_config","jquery","cookie"],function(config,$,cookie){
         //处理get请求
         if(callback.requestType){
             settings.type=callback.requestType;
-            console.log(settings)
         }
         $.ajax(settings);           //common AJAX
     }
