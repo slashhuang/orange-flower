@@ -13,6 +13,14 @@
     <title>设置</title>
 </head>
 <body class="settings">
+<div id="settingFilter" style="display: none">
+    <div class="of-login-bottom">
+        <p class="hint">感谢您对橘花的支持，欢迎下次光临^_^</p>
+        <p class="identified">退出登录</p>
+        <div class="split-line"></div>
+        <p class="cancel">取消</p>
+    </div>
+</div>
 <div class="of-header gray ">
     <a class="header-back" href="javascript:history.back()"></a>
     <a class="header-back-info" href="javascript:history.back()">我的</a>
@@ -26,7 +34,11 @@
 <div class="settings-list">检查更新 <a href="javascript:" class="arrow-right-select"></a></div>
 <div class="settings-list">清除缓存 <a href="javascript:" class="arrow-right-select"></a></div>
 <div class="settings-list">关于我们 <a href="javascript:" class="arrow-right-select"></a></div>
-<div class="of-button settings-button">登出账户</div>
+<div id="logoutButton"class="of-button settings-button">登出账户</div>
+
+
+
+
 </body>
-<script src="/js/require.js" data-main="/js/reg_login/register_info"></script>
+<script src="/js/require.js" data-main="/js/reg_login/settings"></script>
 </html>

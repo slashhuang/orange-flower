@@ -42,6 +42,11 @@ define(["./url_config","jquery","cookie"],function(config,$,cookie){
                 callback.fail(xhr,status,error);
             }
         };
+        //处理get请求
+        if(callback.requestType){
+            settings.type=callback.requestType;
+            console.log(settings)
+        }
         $.ajax(settings);           //common AJAX
     }
     return{
@@ -64,6 +69,10 @@ define(["./url_config","jquery","cookie"],function(config,$,cookie){
         //AJAX忘记密码
         "forgetPWD":function(pwdData,callback){
             request(config.forgetPWD,pwdData,callback)
+        },
+        //AJAX登出账户
+        "logout":function(data,callback){
+            request(config.logout,data,callback)
         }
     }
 });

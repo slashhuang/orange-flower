@@ -11,5 +11,6 @@ define(function(){
              "userRegInfo":prefuri+"/user/complete",//完善信息提交地址
             "login":prefuri+"/user/login",//登录地址
             "forgetPWD":prefuri + "",//重置密码
+            "logout":prefuri+"/user/logout"//登出账户
     }
 });
