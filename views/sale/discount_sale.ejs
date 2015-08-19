@@ -21,6 +21,7 @@
     <!--商品列表-->
     <%var itemList=[true,false,true]%>
     <%for(var i=0;i<itemList.length;i++){%>
+        <a href="/sale/detail">
         <div class="item-sale-list clear-float">
         <%var status=itemList[i];var itemState= status?"active":"soldout"%>
         <div class="split-line-item"></div>
@@ -67,6 +68,7 @@
             </div>
         </div>
     </div>
+        </a>
         <div class="split-line"></div>
     <%}%>
 </div>

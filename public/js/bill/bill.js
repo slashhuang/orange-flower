@@ -59,7 +59,8 @@ define(["zepto","sweetalert","util/url_config"], function($,sweet,config){
     });
     //点击月份显示数据
     var monthSelector = $(".of-bill-month-list-box").find("li");
-    var billHeaderHeight = $("#billHeaderHeight");//头部点击隐藏
+    var billHeaderHeight = $("#billHeaderHeight");
+    var monthBillTAP = $("#billMonth");//点击账单月份头部
     monthSelector.on({
         "tap":function(e){
             var target = e.target|| e.srcElement;
@@ -89,8 +90,8 @@ define(["zepto","sweetalert","util/url_config"], function($,sweet,config){
             }
         }
 
-    }
-    billHeaderHeight.on({
+    };
+    monthBillTAP.on({
         "tap": slider
     })
 
