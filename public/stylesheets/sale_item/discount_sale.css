@@ -42,7 +42,7 @@
     background-color: #ff8b03;
 }
 .discount-first-buy i:nth-of-type(2){
-    background-color: #ff1502;
+    background-color: #d20011;
 }
 .discount-first-buy{
     float:left
@@ -155,7 +155,11 @@
 }
 .item-price{
     font-size:10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.item-price i{
     color: #b0b0b0;
+    text-decoration: line-through;
 }
 .total-price{
     font-size:16px;
