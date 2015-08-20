@@ -1,70 +1,93 @@
-//加载中间件
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+'use strict';
 
-//创建APP实例
-var app = express();
+/* App Module */
 
-
-//加载中间件解析
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-
-//设置模版引擎
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-//设置静态资源路径
-app.use(favicon(path.join(__dirname+"/favicon.ico")));
-app.use(express.static(path.join(__dirname, 'public')));
-
-//路由文件
-var routes = require('./routes/index');//公有视图
-var users = require('./routes/users');//个人设置相关
-var sales = require("./routes/sales");//所有的商品页面
-var orders = require("./routes/orders");//所有订单页面
-var bill = require("./routes/bill");//账单路由
-//加载路由
-app.use('/', routes);
-app.use('/user', users);
-app.use('/sale', sales);
-app.use('/order', orders);
-app.use('/bill', bill);
-//错误处理器
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
-});
-
-
-module.exports = app;
+var orangeFlowerAPP = angular.module('orangeFlowerAPP', [
+  'ngRoute',
+  'indexControllers',
+    'saleController'
+]);
+//配置路由
+orangeFlowerAPP.config(['$routeProvider',
+  function($routeProvider) {
+      //主页部分路由
+      $routeProvider.when("/main",{
+          templateUrl: '/views/main.html',
+          controller: 'indexCtrl'
+      });
+      //用户部分路由
+      $routeProvider.
+        when("/user/settings",{
+            templateUrl: '/views/user/settings.html',
+            controller: 'userSettingsCtrl'
+        }).
+        when("/user/center",{
+              templateUrl: '/views/user/center.html',
+              controller: 'userCenterCtrl'
+          }).
+        when("/user/credit",{
+              templateUrl: '/views/user/credit.html',
+              controller: 'userCreditCtrl'
+          });
+      //登录注册部分
+      $routeProvider.
+          when("/register",{
+              templateUrl: '/views/reg_login/register.html',
+              controller: 'userRegisterCtrl'
+          }).
+          when("/login",{
+              templateUrl: '/views/reg_login/login.html',
+              controller: 'loginCtrl'
+          }).
+          when("/registerInfo",{
+             templateUrl: '/views/reg_login/info.html',
+            controller: 'userRegisterInfoCtrl'
+          }).
+          when("/forgetpwd",{
+              templateUrl: '/views/reg_login/forget_pwd.html',
+              controller: 'forgetPWDCtrl'
+          });
+      //订单部分路由
+      $routeProvider.
+          when('/order/detail/:ID', {
+          templateUrl: '/views/order/detail.html',
+          controller: 'orderDetailCtrl'
+          }).
+          when('/order/info', {
+              templateUrl: '/views/order/info.html',
+              controller: 'orderInfoCtrl'
+          }).
+          when('/order/list/ID', {
+              templateUrl: '/views/order/list.html',
+              controller: 'orderListCtrl'
+          });
+      //账单部分路由
+      $routeProvider.
+          when('/bill', {
+              templateUrl: '/views/bill/bill.html',
+              controller: ''
+          });
+      //默认状态下路由转向登录页面
+      $routeProvider.
+          otherwise({
+              redirectTo: '/main'
+          });
+      //商品部分路由
+      $routeProvider.
+          when('/sale/list', {
+              templateUrl: '/views/sale/list.html',
+              controller: 'saleList'
+          }).
+          when('/sale/discount', {
+              templateUrl: '/views/sale/discount.html',
+              controller: 'saleDiscount'
+          }).
+          when('/sale/category', {
+              templateUrl: '/views/sale/category.html',
+              controller: 'saleCategory'
+          }).
+          when('/sale/detail', {
+              templateUrl: '/views/sale/detail.html',
+              controller: 'saleDetail'
+          });
+  }]);

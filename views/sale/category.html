@@ -1,0 +1,70 @@
+
+<div class="of-header gray">
+    <a class="header-back" href="javascript:history.back()"></a>
+    分类
+    <a class="header-function" href="/">首页</a>
+</div>
+<!--商品排序方式-->
+
+<div class="of-category-input">
+    <input placeholder="搜索您需要的商品" type="text" maxlength="20">
+</div>
+<div class="of-category-main clear-float">
+    <div class="of-category-main-nav">
+        <ul class="of-category-list" ng-init="NavChooser='active'">
+          <!--偶数就是前面"active":"disable"-->
+            <li ng-repeat="(key,item) in category.saleNav" ng-if="" ng-class="NavChooser">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    <div class="of-category-main-wrapper">
+        <div class="of-category-main-poster">
+            <img src="/images/ad_banner/ad_banner.png">
+        </div>
+        <ul class="of-category-main-item">
+           <!--偶数添加"splitline"-->
+            <a href="#/sale/detail" ng-repeat="info in category.itemInfo">
+            <li ng-class-odd="'splitline'" ng-class-even="''">
+                <img ng-src="{{info.img}}">
+                <span>{{info.detail}}</span>
+                <span>每个ID限购一单</span>
+            </li>
+            </a>
+        </ul>
+    </div>
+
+</div>
+<!--底部导航栏-->
+<div class="of-bottom-bar" id="navigationBar">
+    <div>
+        <a href="#/">
+            <i class="of-icon-bottom of-icon-home active"></i>
+            首页
+        </a>
+    </div>
+    <div >
+        <a href="#/sale/category">
+            <i class="of-icon-bottom of-icon-classify "></i>
+            商品分类
+        </a>
+    </div>
+    <div >
+        <a href="#/sale/discount">
+            <i class="of-icon-bottom of-icon-hot"></i>
+            热卖
+        </a>
+    </div>
+    <div>
+        <a href="#/user/center">
+            <i class="of-icon-bottom of-icon-person"></i>
+            我的
+        </a>
+    </div>
+    <div >
+        <a href="">
+            <i class="of-icon-bottom of-icon-heart "></i>
+            帮助
+        </a>
+    </div>
+</div>
