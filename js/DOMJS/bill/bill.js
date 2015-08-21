@@ -7,7 +7,7 @@
 
 
 
-define(["zepto","sweetalert","util/url_config"], function($,sweet,config){
+define(["../../../bower_components/zepto/zepto","sweetalert","util/url_config"], function($,sweet,config){
     var payBillNOW = $("#payBillNOW");
     var billMonthFilter = $("#billMonthFilter");//账单月份遮罩层
     (function(){

@@ -27,7 +27,7 @@ require.config({
     }
 });
 
-require(["util/url_config","util/ajax_check","util/data_check","zepto"], function (config,check,dataCheck,$) {
+require(["util/url_config","util/ajax_check","util/data_check","../../../bower_components/zepto/zepto"], function (config,check,dataCheck,$) {
     var $userName = $("#userNumber");
     var $userIdNum = $("#IDNumber");
     var $userProvince = $("#userProvince");

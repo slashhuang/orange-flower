@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" ng-app="orangeFlowerAPP">
+<html lang="zh-CN">
 <!--author：yuji-->
 <head>
     <meta charset="UTF-8">
@@ -27,18 +27,12 @@
     <link rel="stylesheet" href="/stylesheets/order/list.css">
     <!--账单样式-->
     <link rel="stylesheet" href="/stylesheets/bill/bill.css">
-    <!--测试requirejs-->
-    <!--<script src="/js/require.js" data-main="/js/testMain.js"></script>-->
-
     <!--加载函数库-->
-    <script src="/js/lib/angular.min.js"></script>
-    <script src="/js/lib/angular-route.js"></script>
-    <script src="/js/lib/angular-touch.js"></script>
-    <!--加载路由主程序路口-->
-    <script src="/app.js"></script>
-    <!--加载不同模块的controller-->
-    <script src="/controller/index.js"></script>
-    <script src="/controller/sales.js"></script>
+    <script src="/js/require.js"></script>
+    <script src="/js/config/require_config.js"></script>
+    <script>
+        require(["app"])
+    </script>
     <title>橘花</title>
 </head>
 <body ng-view>

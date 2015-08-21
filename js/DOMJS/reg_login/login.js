@@ -29,7 +29,7 @@ require.config({
         }
     }
 });
-define(['zepto',"util/ajax_check","sweetalert"],function($,ajax,sweet){
+define(['../../../bower_components/zepto/zepto',"util/ajax_check","sweetalert"],function($,ajax,sweet){
     var loginButton = $("#loginSubmit");//登录按钮
     var loginPhoneNumber = $("#loginPhoneNumber");//获取手机号码
     var loginPassword = $("#loginPassword");//获取密码

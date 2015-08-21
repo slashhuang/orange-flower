@@ -31,7 +31,7 @@ require.config({
 });
 
 
-define(["util/url_config","util/ajax_check","util/data_check","zepto","sweetalert"], function(config,check,dataCheck,$,sweet){
+define(["util/url_config","util/ajax_check","util/data_check","../../../bower_components/zepto/zepto","sweetalert"], function(config,check,dataCheck,$,sweet){
     var phoneNumberInput = document.getElementById("phoneNumber");
     var certNumberInput = document.getElementById("certNumber");
     var certButton = document.getElementById("sendCert");

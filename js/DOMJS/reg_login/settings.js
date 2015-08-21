@@ -31,7 +31,7 @@ require.config({
     }
 });
 
-define(["util/ajax_check","util/data_check","zepto","sweetalert"], function (AJAX,dataCheck,$,sweet) {
+define(["util/ajax_check","util/data_check","../../../bower_components/zepto/zepto","sweetalert"], function (AJAX,dataCheck,$,sweet) {
     var settingFilter = $("#settingFilter");
     var logoutButton = $("#logoutButton");
     logoutButton.on({

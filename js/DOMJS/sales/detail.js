@@ -1,7 +1,7 @@
 /**
  * Created by slashhuang on 2015/7/28.
  */
-define(["zepto"], function($) {
+define(["../../../bower_components/zepto/zepto"], function($) {
         //全局变量
         var window_height=window.screen.height;
         var $item_slider_content = $(".item-slider-wrapper").eq(0);

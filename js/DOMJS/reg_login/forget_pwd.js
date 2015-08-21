@@ -29,7 +29,7 @@ require.config({
         }
     }
 });
-define(["zepto","util/data_check","util/ajax_check"],function($,check,AJAX){
+define(["../../../bower_components/zepto/zepto","util/data_check","util/ajax_check"],function($,check,AJAX){
     var telephone = $("#telephone");
     var certNum = $("#certNum");
     var certNumTap = $("#certNumTap");
