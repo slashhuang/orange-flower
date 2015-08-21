@@ -1,8 +1,4 @@
-/**
- * Created by slashhuang on 15/8/16.
- *
- * 订单路由
- */
+
 var express = require('express');
 var router = express.Router();
 

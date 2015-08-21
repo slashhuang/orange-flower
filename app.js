@@ -3,7 +3,7 @@
 /* App Module */
 
 var orangeFlowerAPP = angular.module('orangeFlowerAPP', [
-  'ngRoute','indexControllers','saleController'
+  'ngRoute','indexControllers','saleController','ngTouch'
 ]);
 //配置路由
 orangeFlowerAPP.config(['$routeProvider',
@@ -71,21 +71,4 @@ orangeFlowerAPP.config(['$routeProvider',
               redirectTo: '/main'
           });
       //商品部分路由
-      $routeProvider.
-          when('/sale/list', {
-              templateUrl: '/views/sale/list.html',
-              controller: 'saleListCtrl'
-          }).
-          when('/sale/discount', {
-              templateUrl: '/views/sale/discount.html',
-              controller: 'discountCtrl'
-          }).
-          when('/sale/category', {
-              templateUrl: '/views/sale/category.html',
-              controller: 'categoryCtrl'
-          }).
-          when('/sale/detail', {
-              templateUrl: '/views/sale/detail.html',
-              controller: 'detailCtrl'
-          });
   }]);

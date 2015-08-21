@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "homepage": "http://120.26.69.71",
   "authors": [
-    "slashhuang","rwson"
+    "slashhuang",
+    "rwson"
   ],
   "description": "Foreground of orangeflower",
   "keywords": [
@@ -24,10 +25,11 @@
     "swiper": "~3.1.0",
     "lazyload": "~3.2.1",
     "jquery": "~2.1.4",
-    "sweetalert":"*",
+    "sweetalert": "*",
     "angular": "1.4.x",
     "angular-mocks": "1.4.x",
-    "angular-route": "1.4.x"
+    "angular-route": "1.4.x",
+    "requirejs-domready": "latest",
+    "angular-touch": "~1.4.4"
   }
-
 }

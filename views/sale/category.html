@@ -2,18 +2,19 @@
 <div class="of-header gray">
     <a class="header-back" href="javascript:history.back()"></a>
     分类
-    <a class="header-function" href="/">首页</a>
+    <a class="header-function" href="#/main">首页</a>
 </div>
 <!--商品排序方式-->
 
 <div class="of-category-input">
-    <input placeholder="搜索您需要的商品" type="text" maxlength="20">
+    <input placeholder="搜索您需要的商品" type="text" maxlength="20" ng-model="itemQuery">
 </div>
 <div class="of-category-main clear-float">
     <div class="of-category-main-nav">
-        <ul class="of-category-list">
+        <ul class="of-category-list"ng-model="isActive" ng-init="isActive=true">
           <!--偶数就是前面"active":"disable"-->
-            <li ng-repeat="itemlist in category.saleNav" class="disable">
+            <li ng-repeat="itemlist in category.saleNav"
+                ng-touch="toggle()" ng-class="{true: 'active', false: 'disable'}[isActive]">
                 {{itemlist}}
             </li>
         </ul>
@@ -24,7 +25,7 @@
         </div>
         <ul class="of-category-main-item">
            <!--偶数添加"splitline"-->
-            <a href="#/sale/detail" ng-repeat="info in category.itemInfo">
+            <a href="#/sale/detail" ng-repeat="info in category.itemInfo | filter:itemQuery">
             <li ng-class-odd="'splitline'" ng-class-even="''">
                 <img ng-src="{{info.img}}">
                 <span>{{info.detail}}</span>
