@@ -11,10 +11,10 @@
 </div>
 <div class="of-category-main clear-float">
     <div class="of-category-main-nav">
-        <ul class="of-category-list" ng-init="NavChooser='active'">
+        <ul class="of-category-list">
           <!--偶数就是前面"active":"disable"-->
-            <li ng-repeat="(key,item) in category.saleNav" ng-if="" ng-class="NavChooser">
-                {{item}}
+            <li ng-repeat="itemlist in category.saleNav" class="disable">
+                {{itemlist}}
             </li>
         </ul>
     </div>

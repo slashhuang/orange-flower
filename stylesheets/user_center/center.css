@@ -172,7 +172,7 @@ h4,h6{
     line-height: 2rem;
 }
 
-.arrow{
+.list-item .arrow{
     display: inline-block;
     margin-top:0.3rem;
     width: 0.7rem;

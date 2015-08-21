@@ -6,7 +6,7 @@ require.config({
     paths:{
         "zepto":"./zepto.min",
         "util":"/js/lib/common_util",
-        "model":"../js_models",
+        "model":"../sales",
         "jquery":"./jquery",
         "swiper":"./swiper",
         "reg_login":"../reg_login",

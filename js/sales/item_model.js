@@ -1,13 +1,16 @@
+/**
+ * Created by slashhuang on 2015/7/28.
+ */
+
 require.config({
     baseUrl:"/js/lib",
     paths:{
         "zepto":"./zepto.min",
-         "util":"/js/lib/common_util",
+        "util":"/js/lib/common_util",
         "model":"../sales",
         "jquery":"./jquery",
         "swiper":"./swiper",
-        "angular":"./angular.min",
-        "angularRoute":"./angular-route"
+        "reg_login":"../reg_login",
     },
     shim:{
         "zepto":{
@@ -17,17 +20,12 @@ require.config({
             "deps":["zepto"],
             "exports":"swiper"
         },
-        "angular": {
-            "exports": "angular"
-        },
-        "angularRoute": {
-            "exports": "angularRoute"
-        },
+        "cookie":{
+            deps: ['jquery'],
+            exports: 'cookie'
+        }
     }
 });
-
-
-define(['util/swiper_','zepto'],function(swiper, $){
+require(['model/item_detail',"util/swiper_"],function(itemDetail,swiper){
     swiper.picture();
-    swiper.div();
 });

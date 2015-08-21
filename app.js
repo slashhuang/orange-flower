@@ -3,9 +3,7 @@
 /* App Module */
 
 var orangeFlowerAPP = angular.module('orangeFlowerAPP', [
-  'ngRoute',
-  'indexControllers',
-    'saleController'
+  'ngRoute','indexControllers','saleController'
 ]);
 //配置路由
 orangeFlowerAPP.config(['$routeProvider',
@@ -49,7 +47,7 @@ orangeFlowerAPP.config(['$routeProvider',
           });
       //订单部分路由
       $routeProvider.
-          when('/order/detail/:ID', {
+          when('/order/detail', {
           templateUrl: '/views/order/detail.html',
           controller: 'orderDetailCtrl'
           }).
@@ -57,7 +55,7 @@ orangeFlowerAPP.config(['$routeProvider',
               templateUrl: '/views/order/info.html',
               controller: 'orderInfoCtrl'
           }).
-          when('/order/list/ID', {
+          when('/order/list', {
               templateUrl: '/views/order/list.html',
               controller: 'orderListCtrl'
           });
@@ -76,18 +74,18 @@ orangeFlowerAPP.config(['$routeProvider',
       $routeProvider.
           when('/sale/list', {
               templateUrl: '/views/sale/list.html',
-              controller: 'saleList'
+              controller: 'saleListCtrl'
           }).
           when('/sale/discount', {
               templateUrl: '/views/sale/discount.html',
-              controller: 'saleDiscount'
+              controller: 'discountCtrl'
           }).
           when('/sale/category', {
               templateUrl: '/views/sale/category.html',
-              controller: 'saleCategory'
+              controller: 'categoryCtrl'
           }).
           when('/sale/detail', {
               templateUrl: '/views/sale/detail.html',
-              controller: 'saleDetail'
+              controller: 'detailCtrl'
           });
   }]);

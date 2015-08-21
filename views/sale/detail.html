@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>商品详情页面</title>
-    <link rel="stylesheet" href="/stylesheets/reset.css">
-    <link rel="stylesheet" href="/stylesheets/sale/detail.css">
-    <link rel="stylesheet" href="/stylesheets/common.css">
-    <link rel="stylesheet" href="/stylesheets/swiper.min.css">
+    <script src="/js/require.js" data-main="/js/sales/detail"></script>
 </head>
-<body class="">
+
+
+<!--暂时先不加载数据-->
+
+
 <div class="of-header gray">
     <a class="header-back" href="javascript:history.back()"></a>
     商品详情
@@ -44,14 +41,14 @@
 <div class="item-detail-option-wrapper">
     <dl class="item-detail-option-list">
         <dt>颜色:</dt>
-        <dd data-sale-item-color   style="border-color:#16cd9b">金色<i class="active"></i></dd>
-        <dd data-sale-item-color>白色<i class=""></i></dd>
-        <dd data-sale-item-color>黑色<i class=""></i></dd>
+        <dd style="border-color:#16cd9b">金色<i class="active"></i></dd>
+        <dd >白色<i class=""></i></dd>
+        <dd >黑色<i class=""></i></dd>
     </dl>
     <dl class="item-detail-option-list">
         <dt>选购类型:</dt>
-        <dd data-sale-item-look style="border-color:#16cd9b">公开版(16GB ROM)<i class="active"></i></dd>
-        <dd data-sale-item-look >公开版(16GB rom)<i class=""></i></dd>
+        <dd style="border-color:#16cd9b">公开版(16GB ROM)<i class="active"></i></dd>
+        <dd>公开版(16GB rom)<i class=""></i></dd>
     </dl>
 </div>
 <div class="split-line"></div>
@@ -152,25 +149,25 @@
     <div class="of-item-buy-installation">
         <h1 class="of-item-buy-installation-title">选择首付比例</h1>
         <ul class="of-item-buy-installation-percentage">
-            <li data-item-percent  style="border-color:#16cd9b">0首付<i class="active"></i></li>
-            <li data-item-percent >5%<i></i></li>
-            <li data-item-percent >10%<i></i></li>
-            <li data-item-percent>15%<i></i></li>
-            <li data-item-percent>20%<i></i></li>
-            <li data-item-percent>30%<i></i></li>
-            <li data-item-percent>40%<i></i></li>
-            <li data-item-percent>50%<i></i></li>
+            <li   style="border-color:#16cd9b">0首付<i class="active"></i></li>
+            <li>5%<i></i></li>
+            <li>10%<i></i></li>
+            <li>15%<i></i></li>
+            <li>20%<i></i></li>
+            <li>30%<i></i></li>
+            <li>40%<i></i></li>
+            <li>50%<i></i></li>
         </ul>
         <h1 class="of-item-buy-installation-title">选择分期月数</h1>
         <ul class="of-item-buy-installation-percentage">
             <li style="border-color:#16cd9b">0首付<i class="active"></i></li>
-            <li data-item-month >3个月<i></i></li>
-            <li data-item-month >6个月<i></i></li>
-            <li data-item-month >9个月<i></i></li>
-            <li data-item-month >12个月<i></i></li>
-            <li data-item-month >15个月<i></i></li>
-            <li data-item-month >18个月<i></i></li>
-            <li data-item-month >24个月<i></i></li>
+            <li>3个月<i></i></li>
+            <li>6个月<i></i></li>
+            <li>9个月<i></i></li>
+            <li>12个月<i></i></li>
+            <li>15个月<i></i></li>
+            <li>18个月<i></i></li>
+            <li>24个月<i></i></li>
         </ul>
         <div class="of-item-buy-installation-hint">*若您的毕业时间早于2017年12月11日请减少分期数</div>
         <dl class="of-item-buy-installation-list">
@@ -195,5 +192,4 @@
 <div class="of-item-buy-iframe" id="itemBuyIframe" style="opacity:0.5"></div>
 
     <script src="/js/require.js" data-main="/js/js_models/item_model.js"></script>
-</body>
 </html>

@@ -31,85 +31,17 @@
         </div>
     </div>
 <!--商品列表-->
-    <a href="/sale/detail">
-        <div class="item-sale-list clear-float">
+    <a href="#/sale/detail">
+        <div class="item-sale-list clear-float" ng-repeat="sale in saleList">
             <div class="item-list-img">
-                <img src="/images/mobile_demo.png"  width="35px"style="margin-right:5px;">
+                <img ng-src="{{sale.itemImg}}"  width="35px"style="margin-right:5px;">
             </div>
             <div class="item-hot-list-detail">
-                <h1>苹果（Apple）iPhone 6 (A1586)金色 16GB 每个ID限购一单</h1>
-                <p class="item-price">售价：￥4,788.00</p>
+                <h1>{{sale.itemInfo}}</h1>
+                <p class="item-price">售价：￥{{sale.itemPrice}}</p>
                 <div class="total-price">
-                    <i>￥220.94</i>
-                    <h2>×</h2><span>24期</span>
-                    <a href="" class="item-hot-sale">热卖</a>
-                    <a href="" class="item-new-sale">新品</a>
-                </div>
-            </div>
-        </div>
-    </a>
-    <a href="/sale/detail">
-        <div class="item-sale-list clear-float">
-            <div class="item-list-img">
-                <img src="/images/mobile_demo.png"  width="35px"style="margin-right:5px;">
-            </div>
-            <div class="item-hot-list-detail">
-                <h1>苹果（Apple）iPhone 6 (A1586)金色 16GB 每个ID限购一单</h1>
-                <p class="item-price">售价：￥4,788.00</p>
-                <div class="total-price">
-                    <i>￥220.94</i>
-                    <h2>×</h2><span>24期</span>
-                    <a href="" class="item-hot-sale">热卖</a>
-                    <a href="" class="item-new-sale">新品</a>
-                </div>
-            </div>
-        </div>
-    </a>
-    <a href="">
-        <div class="item-sale-list clear-float">
-            <div class="item-list-img">
-                <img src="/images/mobile_demo.png"  width="35px">
-            </div>
-            <div class="item-hot-list-detail">
-                <h1>苹果（Apple）iPhone 6 (A1586)金色 16GB 每个ID限购一单</h1>
-                <p class="item-price">售价：￥4,788.00</p>
-                <div class="total-price">
-                    <i>￥220.94</i>
-                    <h2>×</h2><span>24期</span>
-                    <a href="" class="item-hot-sale">热卖</a>
-                    <a href="" class="item-new-sale">新品</a>
-                </div>
-            </div>
-        </div>
-    </a>
-    <a href="">
-        <div class="item-sale-list clear-float">
-            <div class="item-list-img">
-                <img src="/images/mobile_demo.png"  width="35px"style="margin-right:5px;">
-            </div>
-            <div class="item-hot-list-detail">
-                <h1>苹果（Apple）iPhone 6 (A1586)金色 16GB 每个ID限购一单</h1>
-                <p class="item-price">售价：￥4,788.00</p>
-                <div class="total-price">
-                    <i>￥220.94</i>
-                    <h2>×</h2><span>24期</span>
-                    <a href="" class="item-hot-sale">热卖</a>
-                    <a href="" class="item-new-sale">新品</a>
-                </div>
-            </div>
-        </div>
-    </a>
-    <a href="">
-        <div class="item-sale-list clear-float">
-            <div class="item-list-img">
-                <img src="/images/mobile_demo.png"  width="35px" style="margin-right:5px;">
-            </div>
-            <div class="item-hot-list-detail">
-                <h1>苹果（Apple）iPhone 6 (A1586)金色 16GB 每个ID限购一单</h1>
-                <p class="item-price">售价：￥4,788.00</p>
-                <div class="total-price">
-                    <i>￥220.94</i>
-                    <h2>×</h2><span>24期</span>
+                    <i>￥{{sale.itemInstallation}}</i>
+                    <h2>×</h2><span>{{sale.itemCycle}}期</span>
                     <a href="" class="item-hot-sale">热卖</a>
                     <a href="" class="item-new-sale">新品</a>
                 </div>

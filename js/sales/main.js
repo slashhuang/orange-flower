@@ -1,4 +1,7 @@
 /**
+ * Created by slashhuang on 15/8/21.
+ */
+/**
  * Created by slashhuang on 2015/7/28.
  */
 
@@ -7,7 +10,7 @@ require.config({
     paths:{
         "zepto":"./zepto.min",
         "util":"/js/lib/common_util",
-        "model":"../js_models",
+        "model":"../sales",
         "jquery":"./jquery",
         "swiper":"./swiper",
         "reg_login":"../reg_login",

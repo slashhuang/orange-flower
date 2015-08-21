@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>商品详情页面</title>
-    <link rel="stylesheet" href="/stylesheets/reset.css">
-    <link rel="stylesheet" href="/stylesheets/common.css">
-    <link rel="stylesheet" href="/stylesheets/sale/discount.css">
-    <link rel="stylesheet" href="/stylesheets/swiper.min.css">
-    <title>手机特卖</title>
-</head>
-<body>
+
 <div class="of-header gray">
     <a class="header-back" href="javascript:history.back()"></a>
     限时特卖
@@ -18,59 +6,57 @@
 </div>
 <!--商品排序方式-->
 <div class="hot-sale-main">
-    <!--商品列表-->
-    <%var itemList=[true,false,true]%>
-    <%for(var i=0;i<itemList.length;i++){%>
-        <a href="/sale/detail">
-        <div class="item-sale-list clear-float">
-        <%var status=itemList[i];var itemState= status?"active":"soldout"%>
-        <div class="split-line-item"></div>
-        <div class="item-list-img">
-            <div class="item-discount-position">
-                <div class="item-discount-banner <%-itemState%>">
-                    <div class="item-discount-inner">
-                        <div class="item-discount-inner1 <%-itemState%>" >
-                            <% var ele=["<span>立减</span><span>800</span>","<i>罄</i>"]%>
-                            <%var detail=status?ele[0]:ele[1]%>
-                            <%-detail%>
+    <!--商品单元-->
+    <div ng-repeat="salelist in discountList ">
+        <a href="#/sale/detail">
+            <div class="item-sale-list clear-float">
+              <!--class状态有两个"active":"soldout"-->
+                <div class="split-line-item"></div>
+                <div class="item-list-img">
+                    <div class="item-discount-position">
+                        <div class="item-discount-banner active">
+                            <div class="item-discount-inner">
+                                <div class="item-discount-inner1 active" >
+                                    <span>立减</span>
+                                    <span>{{salelist.discount.firstTime}}</span>
+                                    <!--<i>罄</i>-->
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                </div>
-            </div>
-            <img src="/images/mobile_demo.png"  width="35px">
-            <div class="discount-item-timeLeft">
-                <p>仅剩<span>0</span>台</p>
-                <img src="/images/icon/icon-clock.png" width="8px;">1天15:18:30
-            </div>
-        </div>
-        <div class="item-hot-list-detail">
-            <h1>苹果（Apple）iPhone 6 (A1586)金色 16GB 每个ID限购一单</h1>
-            <p class="item-price">￥4,788.00&nbsp;&nbsp;&nbsp;<i>￥4688.00</i></p>
-            <div class="total-price">
-                <i>￥220.94</i>
-                <h2>×</h2><span>24期</span>
-                <a href="" class="item-hot-sale">热卖</a>
-                <a href="" class="item-new-sale">新品</a>
-            </div>
-            <div class="discount-item-detail clear-float">
-                <div class="discount-first-buy">
-                    <i>首</i>首单<span>立减300元</span>
-                    <div class="split-line-item1"></div>
-                    <i>减</i>首付20%<span>再减300元</span>
-                </div>
-                <a href="">
-                    <% var classChooser=status?"active":"disabled >"%>
-                    <% var buystatus=status?"我要抢 ":"已抢完 "%>
-                    <div class="discount-installment-buy <%-classChooser%>">
-                        <%-buystatus%><img src="/images/icon/button_arrow_right.png" width="5">
+                    <img src="/images/mobile_demo.png"  width="35px">
+                    <div class="discount-item-timeLeft">
+                        <p>仅剩<span>{{salelist.numLeft}}</span>台</p>
+                        <img src="/images/icon/icon-clock.png" width="8px;">1天15:18:30
                     </div>
-                </a>
+                </div>
+                <div class="item-hot-list-detail">
+                    <h1>{{salelist.itemInfo}}</h1>
+                    <p class="item-price">￥{{salelist.itemPrice}}&nbsp;&nbsp;&nbsp;<i>￥{{salelist.itemOldPrice}}</i></p>
+                    <div class="total-price">
+                        <i>￥{{salelist.itemInstallation}}</i>
+                        <h2>×</h2><span>{{salelist.itemCycle}}期</span>
+                        <a href="" class="item-hot-sale">热卖</a>
+                        <a href="" class="item-new-sale">新品</a>
+                    </div>
+                    <div class="discount-item-detail clear-float">
+                        <div class="discount-first-buy">
+                            <i>首</i>首单<span>立减{{salelist.discount.firstTime}}元</span>
+                            <div class="split-line-item1"></div>
+                            <i>减</i>首付{{salelist.discount.payOncePercent[0]}}%<span>再减{{salelist.discount.payOncePercent[1]}}元</span>
+                        </div>
+                        <a href="">
+                           <!--抢完与否对应的class"active":"disabled""我要抢 ":"已抢完 "-->
+                            <div class="discount-installment-buy <%-classChooser%>">
+                                我要抢<img src="/images/icon/button_arrow_right.png" width="5">
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
         </a>
         <div class="split-line"></div>
-    <%}%>
-</div>
-</body>
-</html>
+    </div>
+    </div>
+
