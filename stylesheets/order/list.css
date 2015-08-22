@@ -21,6 +21,12 @@
     overflow: hidden;
 }
 
+.order-item-top a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .orde-num-info{
     float: left;
     position: relative;
@@ -45,9 +51,9 @@
     float: right;
 }
 
-/* 已付款 */
-.paid-item .orde-num-info:after{
-    content: "已付款";
+/* 审核中 */
+.checking .orde-num-info:after{
+    content: "审核中";
     position: absolute;
     right: -5rem;
     top: -0.2rem;
@@ -56,13 +62,13 @@
     padding: 0.2rem 0.25rem;
 }
 
-/* 未付款 */
+/* 已发货 */
 .no-paid-item .orde-num-info:after{
-    content: "未付款";
+    content: "待支付";
     position: absolute;
     right: -5rem;
     top: -0.2rem;
-    background: #ff5959;
+    background: #16cd9b;
     color: #fff;
     padding: 0.2rem 0.25rem;
 }
@@ -77,6 +83,28 @@
     color: #fff;
     padding: 0.2rem 0.25rem;
 }
+
+/* 发货中 */
+.sending .orde-num-info:after{
+    content: "发货中";
+    position: absolute;
+    right: -5rem;
+    top: -0.2rem;
+    background: #16cd9b;
+    color: #fff;
+    padding: 0.2rem 0.25rem;
+}
+
+.back-charging .orde-num-info:after{
+    content: "退款审核中";
+    position: absolute;
+    right: -7.5rem;
+    top: -0.2rem;
+    background: #16cd9b;
+    color: #fff;
+    padding: 0.2rem 0.25rem;
+}
+
 
 .order-item-center{
     padding: 1rem;
@@ -204,4 +232,17 @@ p.special-icon:before{
 .confirm-btn,
 .confirm-pay-btn{
     color: #16cd9b;
+}
+
+/* 空订单 */
+
+.empty-order{
+    width: 18rem;
+    height: 10.7rem;
+    background: url(../../images/order/empty-order.png) no-repeat 0 0;
+    background-size: 18rem 10.7rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -5.35rem 0 0 -9rem;
 }
