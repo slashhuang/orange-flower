@@ -8,6 +8,7 @@ define([],function() {
         $scope.saleList=[];
         for(var i=0;i<10;i++){
             $scope.saleList[i]={
+                itemId:i+i,
                 itemInfo:"苹果（Apple）iPhone 6 (A1586)金色 16GB 每个ID限购一单",
                 itemImg:"/images/item_detail/iphone6.png",
                 itemPrice:"4788.00",

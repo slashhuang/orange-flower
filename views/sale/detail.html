@@ -1,11 +1,3 @@
-<html>
-<head>
-    <script src="/js/require.js" data-main="/js/sales/detail"></script>
-</head>
-
-
-<!--暂时先不加载数据-->
-
 
 <div class="of-header gray">
     <a class="header-back" href="javascript:history.back()"></a>
@@ -191,6 +183,6 @@
 </div>
 <!--背景遮罩层-->
 <div class="of-item-buy-iframe" id="itemBuyIframe" style="opacity:0.5"></div>
-
-    <script src="/js/require.js" data-main="/js/js_models/item_model.js"></script>
-</html>
+<script type="text/javascript-lazy">
+ require(['dom_sales/detail'],function(){})
+</script>

@@ -1,12 +1,9 @@
-/**
- * Created by yuji on 15/7/28.
- */
-define(['swiper','zepto'], function(swiper, $){
+
+define(['lib/swiper','zepto'], function(swiper, $){
     return {
         "picture":function(){
             (function(){
                 var mySwiper = new swiper ('.swiper-container', {
-                    // 如果需要分页器
                     pagination : '.swiper-pagination',
                     effect : 'fade',
                     loop : true,

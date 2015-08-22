@@ -8,7 +8,7 @@
 <div class="hot-sale-main">
     <!--商品单元-->
     <div ng-repeat="salelist in discountList ">
-        <a href="#/sale/detail">
+        <a href="#/sale/detail/{{salelist.itemID}}">
             <div class="item-sale-list clear-float">
               <!--class状态有两个"active":"soldout"-->
                 <div class="split-line-item"></div>
@@ -46,12 +46,10 @@
                             <div class="split-line-item1"></div>
                             <i>减</i>首付{{salelist.discount.payOncePercent[0]}}%<span>再减{{salelist.discount.payOncePercent[1]}}元</span>
                         </div>
-                        <a href="">
                            <!--抢完与否对应的class"active":"disabled""我要抢 ":"已抢完 "-->
                             <div class="discount-installment-buy <%-classChooser%>">
                                 我要抢<img src="/images/icon/button_arrow_right.png" width="5">
                             </div>
-                        </a>
                     </div>
                 </div>
             </div>

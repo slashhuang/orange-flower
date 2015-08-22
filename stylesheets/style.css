@@ -267,10 +267,6 @@
 }
 
 /*icon部分*/
-.of-icon-clock{
-    background: url(../images/icon/icon-clock.png) no-repeat center;
-    background-size: contain;
-}
 .of-icon-bottom{
     display: block;
     margin:auto;

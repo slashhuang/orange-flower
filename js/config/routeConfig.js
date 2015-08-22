@@ -4,7 +4,7 @@ define([], function () {
         //主页部分路由
         $routeProvider.when("/main",{
             templateUrl: '/views/main.html',
-            controller: ''
+            controller: 'mainCtrl'
         });
         //商品部分路由
         $routeProvider.
@@ -18,9 +18,9 @@ define([], function () {
             }).
             when('/sale/category', {
                 templateUrl: '/views/sale/category.html',
-                controller: 'categoryCtrl'
+                controller: 'categoryCtrl',
             }).
-            when('/sale/detail', {
+            when('/sale/detail/:detailId', {
                 templateUrl: '/views/sale/detail.html',
                 controller: 'detailCtrl'
             });
@@ -32,7 +32,7 @@ define([], function () {
             }).
             when("/user/center",{
                 templateUrl: '/views/user/center.html',
-                controller: 'userCenterCtrl'
+                controller: 'centerCtrl'
             }).
             when("/user/credit",{
                 templateUrl: '/views/user/credit.html',

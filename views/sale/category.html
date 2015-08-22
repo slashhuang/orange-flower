@@ -11,11 +11,10 @@
 </div>
 <div class="of-category-main clear-float">
     <div class="of-category-main-nav">
-        <ul class="of-category-list"ng-model="isActive" ng-init="isActive=true">
+        <ul id="categoryNav" class="of-category-list">
           <!--偶数就是前面"active":"disable"-->
-            <li ng-repeat="itemlist in category.saleNav"
-                ng-touch="toggle()" ng-class="{true: 'active', false: 'disable'}[isActive]">
-                {{itemlist}}
+            <li ng-repeat="itemlist in category.saleNav" class="disable" ng-model="itemlist.id" ng-click="AjaxHttp(itemlist.id)">
+                {{itemlist.value}}
             </li>
         </ul>
     </div>
@@ -25,13 +24,13 @@
         </div>
         <ul class="of-category-main-item">
            <!--偶数添加"splitline"-->
-            <a href="#/sale/detail" ng-repeat="info in category.itemInfo | filter:itemQuery">
-            <li ng-class-odd="'splitline'" ng-class-even="''">
+            <li ng-class-odd="'splitline'" ng-class-even="''" ng-repeat="info in category.itemInfo | filter:itemQuery">
+                <a href="#/sale/detail/hello">
                 <img ng-src="{{info.img}}">
                 <span>{{info.detail}}</span>
                 <span>每个ID限购一单</span>
+                </a>
             </li>
-            </a>
         </ul>
     </div>
 
@@ -69,3 +68,6 @@
         </a>
     </div>
 </div>
+<script type="text/javascript-lazy">
+ require(['dom_sales/category'],function(){})
+</script>

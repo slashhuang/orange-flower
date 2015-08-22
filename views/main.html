@@ -1,3 +1,4 @@
+
 <!--头部-->
 <div class="of-header green clear-float">
     <a class="of-header-person" href="#/user/login"></a>
@@ -62,52 +63,52 @@
 <div class="of-icon-class-box">
     <div class="of-icon-class-item">
         <a href="#/sale/list">
-            <img src="/images/icon/icon-mobile.png"/>
-            手机
+            <img src="/images/icon_main/iphone.png"/>
+            苹果手机
         </a>
     </div>
     <div class="of-icon-class-item">
         <a>
-            <img src="/images/icon/icon-computer.png"/>
-            电脑/平板
+            <img src="/images/icon_main/android.png"/>
+            安卓手机
         </a>
     </div>
     <div class="of-icon-class-item">
         <a>
-            <img src="/images/icon/icon-camera.png"/>
+            <img src="/images/icon_main/camera.png"/>
             摄影摄像
         </a>
     </div>
     <div class="of-icon-class-item">
         <a>
-            <img src="/images/icon/icon-headphone.png"/>
-            摄影摄像
+            <img src="/images/icon_main/brand_pc.png"/>
+            品牌电脑
         </a>
     </div>
 
     <div class="of-icon-class-item">
         <a>
-            <img src="/images/icon/icon-bag.png"/>
-            奢侈品
+            <img src="/images/icon_main/mobile_collection.png"/>
+            手机配件
         </a>
     </div>
     <div class="of-icon-class-item">
         <a>
-            <img src="/images/icon/icon-mouth.png"/>
-            美容护肤
+            <img src="/images/icon_main/laptop_pc.png"/>
+            平板电脑
         </a>
     </div>
     <div class="of-icon-class-item">
         <a>
-            <img src="/images/icon/icon-baskitball.png"/>
-            运动户外
+            <img src="/images/icon_main/digital.png"/>
+            潮流数码
 
         </a>
     </div>
     <div class="of-icon-class-item">
         <a>
-            <img src="/images/icon/icon-gift.png"/>
-            服饰鞋包
+            <img src="/images/icon_main/service.png"/>
+            充值缴费
         </a>
     </div>
 </div>
@@ -117,13 +118,13 @@
 <div class="of-special-sale">
     <!--header部分，包括类目名和更多的链接-->
     <div class="of-class-recommand-header">
-        <i class="of-icon-clock"></i> 限时特卖
+        限时特卖
         <a href="#/sale/discount">更多</a>
     </div>
     <!--图文简述-->
-    <div class="of-special-sale-body">
-        <a href="#/sale/list">
-            <span>iPhone6 A 1580</span>
+    <div class="of-special-sale-body" ng-repeat="discountItem in mainData.discount">
+        <a href="#/sale/detail/{{discountItem.id}}">
+            <span>{{discount.name}}</span>
             <div class="of-hot-container">
                 <div class="of-special-sale-item">
                     <div class="of-special-sale-banner">
@@ -133,43 +134,10 @@
                         </p>
                     </div>
                 </div>
-                <img src="/images/mobile_demo.png" width="32px">
+                <img src="{{discountItem.img}}" width="32px">
             </div>
         </a>
     </div>
-    <div class="of-special-sale-body">
-        <a href="#/sale/list">
-            <span>iPhone6 A 1580</span>
-            <div class="of-hot-container">
-                <div class="of-special-sale-item">
-                    <div class="of-special-sale-banner">
-                        <p>
-                            <i>直降</i>
-                            <i>800</i>
-                        </p>
-                    </div>
-                </div>
-                <img src="/images/mobile_demo.png" width="32px">
-            </div>
-        </a>
-    </div>
-    <div class="of-special-sale-body">
-        <a href="#">
-            <span>iPhone6 A 1580</span>
-            <div class="of-hot-container">
-                <div class="of-special-sale-item">
-                    <div class="of-special-sale-banner">
-                        <p>
-                            <i>直降</i>
-                            <i>800</i>
-                        </p>
-                    </div>
-                </div>
-                <img src="/images/mobile_demo.png" width="32px">
-            </div>
-        </a>
-    </div>
-
 </div>
 <div class="of-ad">
     <img class="lazy" src="/images/ad_banner/hot_banner.png">
@@ -178,161 +146,43 @@
 <!--图片型广告位-->
 <!--分割行-->
 <div class="split-line"></div>
-<!--每项类目推荐商品-->
-<div class="of-class-recommand-box">
-    <!--header部分，包括类目名和更多的链接-->
-    <div class="of-class-recommand-header">
-        <i class="of-icon-clock"></i>手机
-        <a href="#/sale/list">更多</a>
-    </div>
-    <div class="of-class-recommand-body">
-        <div class="swiper-wrapper">
-            <div class="of-class-recommand-item swiper-slide">
-                <a href="#">
-                    <img src="/images/mobile_demo.png" />
-                    <div class="of-name">
-                        MX5
-                    </div>
-                    <div class="of-price">
-                        <span>¥292.93</span>X24
-                    </div>
-                </a>
-            </div>
-            <div class="of-class-recommand-item swiper-slide">
-                <a href="#">
-                    <img src="/images/mobile_demo.png" />
-                    <div class="of-name">
-                        MX5
-                    </div>
-                    <div class="of-price">
-                        <span>¥292.93</span>X24
-                    </div>
-                </a>
-            </div>
-            <div class="of-class-recommand-item swiper-slide">
-                <a href="#">
-                    <img src="/images/mobile_demo.png" />
-                    <div class="of-name">
-                        MX5
-                    </div>
-                    <div class="of-price">
-                        <span>¥292.93</span>X24
-                    </div>
-                </a>
-            </div>
-            <div class="of-class-recommand-item swiper-slide">
-                <a href="#">
-                    <img src="/images/mobile_demo.png" />
-                    <div class="of-name">
-                        MX5
-                    </div>
-                    <div class="of-price">
-                        <span>¥292.93</span>X24
-                    </div>
-                </a>
-            </div>
-            <div class="of-class-recommand-item swiper-slide">
-                <a href="#">
-                    <img src="/images/mobile_demo.png" />
-                    <div class="of-name">
-                        MX5
-                    </div>
-                    <div class="of-price">
-                        <span>¥292.93</span>X24
-                    </div>
-                </a>
-            </div>
-
-            <div class="of-hack swiper-slide">
-
+<!--商品分类-->
+<div id="categoryList" >
+    <div class="of-class-recommand-box" ng-repeat="category_list in mainData.category">
+        <!--header部分，包括类目名和更多的链接-->
+        <div class="of-class-recommand-header" ng-model="category_list.item.id">
+            {{category_list.item.value}}
+            <a href="#/sale/list">更多</a>
+        </div>
+        <div class="of-class-recommand-body">
+            <div class="swiper-wrapper">
+                <div class="of-class-recommand-item swiper-slide" ng-repeat="list_detail in category_list.products track by $index">
+                    <a href="#/sale/list/{{list_detail.id}}">
+                        <img src="/images/mobile_demo.png" />
+                        <div class="of-name">
+                            {{list_detail.name}}
+                        </div>
+                        <div class="of-price">
+                            <span>¥ {{list_detail.price}}</span>X24
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
+        <!--图文简述-->
+        <div class="split-line"></div>
     </div>
-    <!--图文简述-->
 
 </div>
 
-
-<!--分割行-->
-<div class="split-line"></div>
-<!--分割行-->
-<div class="split-line"></div>
-<div class="of-class-recommand-box">
-    <!--header部分，包括类目名和更多的链接-->
-    <div class="of-class-recommand-header">
-        <i class="of-icon-clock"></i>智能设备
-        <a>更多</a>
-    </div>
-    <div class="of-class-recommand-body">
-        <div class="swiper-wrapper">
-            <div class="of-class-recommand-item swiper-slide">
-                <a href="#">
-                    <img src="/images/mobile_demo.png" />
-                    <div class="of-name">
-                        MX5
-                    </div>
-                    <div class="of-price">
-                        <span>¥292.93</span>X24
-                    </div>
-                </a>
-            </div>
-            <div class="of-class-recommand-item swiper-slide">
-                <a href="#">
-                    <img src="/images/mobile_demo.png" />
-                    <div class="of-name">
-                        MX5
-                    </div>
-                    <div class="of-price">
-                        <span>¥292.93</span>X24
-                    </div>
-                </a>
-            </div>
-            <div class="of-class-recommand-item swiper-slide">
-                <a href="#">
-                    <img src="/images/mobile_demo.png" />
-                    <div class="of-name">
-                        MX5
-                    </div>
-                    <div class="of-price">
-                        <span>¥292.93</span>x24
-                    </div>
-                </a>
-            </div>
-            <div class="of-class-recommand-item swiper-slide">
-                <a href="#">
-                    <img src="/images/mobile_demo.png" />
-                    <div class="of-name">
-                        MX5
-                    </div>
-                    <div class="of-price">
-                        <span>¥292.93</span>X24
-                    </div>
-                </a>
-            </div>
-            <div class="of-class-recommand-item swiper-slide">
-                <a href="#">
-                    <img src="/images/mobile_demo.png" />
-                    <div class="of-name">
-                        MX5
-                    </div>
-                    <div class="of-price">
-                        <span>¥292.93</span>X24
-                    </div>
-                </a>
-            </div>
-
-            <div class="of-hack swiper-slide">
-
-            </div>
-        </div>
-    </div>
-    <!--图文简述-->
-</div>
-
-<!--分割行-->
-<div class="split-line"></div>
 <div class="of-ad of-bottom">
     <img class="lazy" src="/images/ad_banner/ad_banner.png">
-    <!--分割行-->
 </div>
-<script src="/js/require.js" data-main="/js/routecfg.js"></script>
+
+
+
+<script type="text/javascript-lazy">
+ require(['util/swiper_'],function(swiper){
+   swiper.div()
+ })
+</script>

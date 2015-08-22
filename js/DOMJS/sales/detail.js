@@ -1,7 +1,11 @@
 /**
  * Created by slashhuang on 2015/7/28.
  */
-define(["../../../bower_components/zepto/zepto"], function($) {
+define(["zepto","util/swiper_"], function($,swiper) {
+    $(document).ready(function(){
+        swiper.picture();
+    });
+    //pagination没有加载成功
         //全局变量
         var window_height=window.screen.height;
         var $item_slider_content = $(".item-slider-wrapper").eq(0);

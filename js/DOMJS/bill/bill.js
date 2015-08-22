@@ -5,9 +5,7 @@
  * Created by slashhuang on 15/8/4.
  */
 
-
-
-define(["../../../bower_components/zepto/zepto","sweetalert","util/url_config"], function($,sweet,config){
+define(["zepto","util/url_config"], function($,config){
     var payBillNOW = $("#payBillNOW");
     var billMonthFilter = $("#billMonthFilter");//账单月份遮罩层
     (function(){
@@ -62,13 +60,8 @@ define(["../../../bower_components/zepto/zepto","sweetalert","util/url_config"],
                 break;
             }
         }
-
     };
     monthBillTAP.on({
         "tap": slider
     })
-
-
-
-
 });

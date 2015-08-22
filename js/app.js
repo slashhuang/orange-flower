@@ -1,8 +1,10 @@
 /**
  * Created by slashhuang on 15/8/21.
  */
-define(['angular','config/routeConfig','lib/angular-route','controller/sales/sales'],function(angular,routeConfig){
-    var app = angular.module('app',["ngRoute","salesModule"]);
+define(['loadScript','angular','config/routeConfig','lib/angular-route','controller/main','controller/sales/sales','controller/user/user'],
+        function(scriptsLoader,angular,routeConfig){
+            window.prefuri = "http://juhua-server.orange.com";
+    var app = angular.module('app',["ngRoute","mainModule","salesModule","ngLoadScript","userModule"]);
     //配置路由
     //console.log(app)
     app.config(routeConfig);
