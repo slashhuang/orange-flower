@@ -21,6 +21,9 @@ define([], function () {
                 controller: 'categoryCtrl',
             }).
             when('/sale/detail/:detailId', {
+                controller: 'categoryCtrl'
+            }).
+            when('/sale/detail', {
                 templateUrl: '/views/sale/detail.html',
                 controller: 'detailCtrl'
             });
@@ -32,7 +35,7 @@ define([], function () {
             }).
             when("/user/center",{
                 templateUrl: '/views/user/center.html',
-                controller: 'centerCtrl'
+                controller: 'centerCtrl',
             }).
             when("/user/credit",{
                 templateUrl: '/views/user/credit.html',
@@ -69,6 +72,10 @@ define([], function () {
             when('/order/list', {
                 templateUrl: '/views/order/list.html',
                 controller: 'orderListCtrl'
+            }).
+            when('/order/confirm',{
+                templateUrl: '/views/order/confirm.html',
+                controller: 'orderConfirmCtrl'
             });
         //账单部分路由
         $routeProvider.

@@ -6,8 +6,7 @@
 require.config({
     "baseUrl": "/js/lib",
     "paths": {
-        "zepto": "./zepto.min",
-        "sweetalert": "./sweetalert.min"
+        "zepto": "./zepto.min"
     },
     "shim": {
         "zepto": {
