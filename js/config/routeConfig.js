@@ -45,7 +45,7 @@ define([], function () {
         $routeProvider.
             when("/register",{
                 templateUrl: '/views/reg_login/register.html',
-                controller: 'userRegisterCtrl'
+                controller: 'registerCtrl'
             }).
             when("/login",{
                 templateUrl: '/views/reg_login/login.html',
@@ -53,7 +53,7 @@ define([], function () {
             }).
             when("/registerInfo",{
                 templateUrl: '/views/reg_login/info.html',
-                controller: 'userRegisterInfoCtrl'
+                controller: 'registerInfoCtrl'
             }).
             when("/forgetpwd",{
                 templateUrl: '/views/reg_login/forget_pwd.html',

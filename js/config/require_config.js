@@ -12,10 +12,10 @@ require.config({
         "swiper":"lib/swiper",
         "cookie":"lib/cookie",
         "dom_sales":"DOMJS/sales",
-        "dom_reglog":"DOMJS/sales",
         "dom_order":"DOMJS/order",
         "dom_bill":"DOMJS/bill/bill",
-        "dom_main":"DOMJS/dom_main"
+        "dom_main":"DOMJS/dom_main",
+        "dom_reglog":"DOMJS/reg_login"
     },
     shim:{
         "angular":{
