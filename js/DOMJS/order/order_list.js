@@ -19,7 +19,7 @@ require.config({
     }
 });
 
-define(["../../../bower_components/zepto/zepto", "sweetalert"], function ($, swAlert) {
+define(["../../../htmls/public/js/lib/zepto.min", "sweetalert"], function ($, swAlert) {
 
     var reBackBtn = $(".reback-btn"),               //  退换货品按钮
         cancelBtn = $(".cancel-btn"),               //  取消订单按钮

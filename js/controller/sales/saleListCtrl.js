@@ -1,9 +1,6 @@
 /**
  * Created by slashhuang on 15/8/21.
  */
-/**
- * Created by slashhuang on 15/8/21.
- */
 define([],function() {
     //定义商品分类controller
     function saleListCtrl($scope, $routeParams, $location, $http) {
@@ -22,4 +19,5 @@ define([],function() {
     }
 
     saleListCtrl.$inject = ['$scope', '$routeParams', '$location', '$http'];
+    return saleListCtrl;
 });

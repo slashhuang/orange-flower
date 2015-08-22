@@ -25,4 +25,5 @@ define([],function(){
             };
         };
     categoryCtrl.$inject=['$scope','$routeParams','$location','$http'];
+    return categoryCtrl;
 });

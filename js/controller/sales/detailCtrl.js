@@ -18,4 +18,5 @@ define([],function(){
         };
     };
     detailCtrl.$inject=['$scope','$routeParams','$location','$http'];
+    return detailCtrl
 });
