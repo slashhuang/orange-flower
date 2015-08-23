@@ -10,11 +10,11 @@
     <div class="left-info">
         <img class="avator" src="/images/user_center/my_head.png">
         <div class="name-mobile">
-            <h4 class="u-name">邵小盒</h4>
-            <h6 class="u-mobile">15996276407</h6>
+            <h4 class="u-name">{{centerData.userName}}</h4>
+            <h6 class="u-mobile">{{centerData.telNo}}</h6>
         </div>
     </div>
-    <a class="reg-btn" href="#/user/credit">立即认证</a>
+    <a ng-class="{true: 'reg-btn-disable', false: 'reg-btn-active'}[verifyActive()]" href="#/user/credit">立即认证</a>
 </div>
 
 <div class="split-line"></div>

@@ -4,15 +4,18 @@
 define([],function(){
     //定义商品分类controller
     function centerCtrl($scope,$routeParams,$location,$http){
-        var userCenterUrl = prefuri + "/user/load";
-        $scope.USERDATA = {};
+        var userCenterUrl = prefuri + "/user/load"
+        $scope.verifyActive =function(){
+
+        };
+        $scope.centerData = {};
         //页面载入请求
         $http({
             "method":"get",
             "url":userCenterUrl
         }).success(function(data){
-            console.log(data);
-            alert("测试用户中心成功")
+            $scope.centerData =data;
+            console.log(data)
         }).error(function(){
             alert("请求失败")
         });

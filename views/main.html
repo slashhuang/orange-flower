@@ -134,7 +134,7 @@
                         </p>
                     </div>
                 </div>
-                <img src="{{discount.img}}" width="32px">
+                <img src="" width="32px">
             </div>
         </a>
     </div>
@@ -152,15 +152,15 @@
         <!--header部分，包括类目名和更多的链接-->
         <div class="of-class-recommand-header" ng-model="category_list.item.id">
             {{category_list.item.value}}
-            <a href="#/sale/list">更多</a>
+            <a href="#/sale/list/{{category_list.item.value}}/{{category_list.item.id}}">更多</a>
         </div>
         <div class="of-class-recommand-body">
             <div class="swiper-wrapper">
                 <div class="of-class-recommand-item swiper-slide" ng-repeat="list_detail in category_list.products track by $index">
-                    <a href="#/sale/list/{{list_detail.id}}">
+                    <a href="#/sale/detail/{{category_list.item.value}}">
                         <img src="/images/mobile_demo.png" />
                         <div class="of-name">
-                            {{list_detail.name}}
+                            {{list_detail.title}}
                         </div>
                         <div class="of-price">
                             <span>¥ {{list_detail.price}}</span>X24
@@ -179,13 +179,8 @@
     <img class="lazy" src="/images/ad_banner/ad_banner.png">
 </div>
 
-<div ng-show="searchFrameStatus">
-
-
-</div>
-
 <script type="text/javascript-lazy">
- require(['util/swiper_'],function(swiper){
-   swiper.div()
- })
+ <!--require(['util/swiper_'],function(swiper){-->
+   <!--swiper.div()-->
+ <!--})-->
 </script>

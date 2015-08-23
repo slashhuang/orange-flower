@@ -4,14 +4,17 @@
 define([],function() {
     //定义商品分类controller
     function saleListCtrl($scope, $routeParams, $location, $http) {
-        $scope.title = $routeParams.listParam;//设定头部标题
+        console.log($routeParams);
+        $scope.title = $routeParams.listName;//设定头部标题
+        $scope.checkListId = $routeParams.listId;
         var saleListUrl = prefuri + "/product/query";
         //初始化http请求@TODO需要加入参数
         $http({
             "method":"post",
             "url":saleListUrl,
-            "data":{},
+            "data":{catId:$scope.checkListId},
         }).success(function(data){
+            console.log(data);
             $scope.saleList =data.content;//http请求加载数据
         }).error(function(){
         });

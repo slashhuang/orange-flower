@@ -158,6 +158,8 @@
 }
 
 .of-class-recommand-body{
+    width:100%;
+    height:auto;
     background-color: #ffffff;
     padding-bottom: 8px;
 }
@@ -166,12 +168,14 @@
 }
 
 .of-class-recommand-item.swiper-slide{
+    width:25%;
     text-align: center;
     border: 1px solid #e6e6e6;
     background-color:#fff;
     padding: 6px;
     margin-left: 2px;
-    overflow: hidden;
+    overflow-y:hidden;
+    overflow-x: scroll;
 }
 .of-class-recommand-item a{
     display: block;
