@@ -19,7 +19,7 @@ define([],function(){
             $scope.data = [];
         });
         //  请求数据
-        console.log($location)
+
         /**
          * 取消订单
          * @param id

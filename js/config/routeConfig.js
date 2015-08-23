@@ -81,6 +81,10 @@ define([], function () {
             when('/order/confirm',{
                 templateUrl: '/views/order/confirm.html',
                 controller: 'orderConfirmCtrl'
+            }).
+            when('/order/reason',{
+                templateUrl: '/views/order/reason.html',
+                controller: 'orderReasonCtrl'
             });
         //账单部分路由
         $routeProvider.
