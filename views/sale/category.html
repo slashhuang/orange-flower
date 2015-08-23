@@ -26,9 +26,9 @@
         <ul class="of-category-main-item">
            <!--偶数添加"splitline"-->
             <li ng-class-odd="'splitline'" ng-class-even="''" ng-repeat="info in category.itemInfo | filter:itemQuery">
-                <a href="#/sale/detail/hello">
+                <a href="#/sale/detail/{{info.id}}">
                 <img ng-src="{{info.img}}">
-                <span>{{info.detail}}</span>
+                <span>{{info.title}}</span>
                 <span>每个ID限购一单</span>
                 </a>
             </li>

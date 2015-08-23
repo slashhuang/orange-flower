@@ -5,7 +5,6 @@ define([],function(){
     //定义商品分类controller
     function categoryCtrl($scope,$routeParams,$location,$http){
         var categoryUrl = prefuri+"/dict/product_category"
-        //统一Ajax请求
         $scope.category={
             saleNav:[],
             itemInfo:[],
@@ -47,26 +46,26 @@ define([],function(){
         $scope.AjaxHttp = function(key){
             changeStyle();
             $scope.category.saleNav[findIndex(key)].isActive = true;
+            if(findIndex(key)+1== $scope.category.saleNav.length ){
+                //如果是最后一个nav, 去除下边框
+                var categoryNav = document.getElementById("categoryNav").children;
+                categoryNav[categoryNav.length-1].style.borderBottomWidth=0;
+            }
+            console.log(key);
             $http({
                 "method":"post",
                 "url":prefuri+"/product/query",
                 "data":{
                     "sortType": "DEFAULT",
-                    "keyword": "string",
-                    "catId": 1
+                    "catId": key
                 },
-            }).success(function(response, status, headers, config){
-                console.log("点击获取数据请求成功")
-            }).error(function(){
-
+            }).success(
+                function(response, status, headers, config){
+                $scope.category.itemInfo = response.content;
+                console.log(response)
+            }).error(
+                function(){
             });
-        };
-
-        for(var i=0;i<10;i++){
-            $scope.category.itemInfo[i]={
-                img:"/images/item_detail/iphone6.png",
-                detail:"苹果 iPhone6"
-            };
         };
 
     };

@@ -154,3 +154,16 @@
     left:12%;
     right:12%
 }
+.log-hint-style{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align:center;
+    background-color: rgba(80, 80, 80, 0.9);
+    color:#fff;
+    width:76%;
+    line-height: 60px;
+    height:60px;
+    font-size:16px;
+    margin:10%;
+}
