@@ -22,16 +22,16 @@
 <div class="of-bill-bg">
     <div id="billHeaderHeight" class="of-header gray">
         <a class="header-back" href="javascript:history.back()"></a>
-        <span id="billMonth" class="of-bill-month">
+        <span id="billMonth" class="of-bill-month" ng-click="toggleShow()">
             <i>{{month}}</i>月账单
             <img src="/images/icon/triangle.png" width="12px">
             </span>
     </div>
     <!--还款金额-->
     <div class="of-bill-Pay">
-        <div>本期金额(元)<b>逾</b></div>
+        <div>本期金额(元)<b ng-if="data.due">逾</b></div>
         <p class="clear-float">
-            <span>950.00</span>
+            <span>{{transferPrice(data.repayment)}}</span>
             <i id="payBillNOW" data-status="" class="nopaid">去还款</i>
             <!--真实渲染的时候根据状态加载paid样式-->
         </p>
@@ -40,24 +40,20 @@
     <div class="of-bill-info">
         <div class="clear-float">
             <span>账单日</span>
-            <i>每月<em>05</em>日</i>
+            <i>{{data.dueAt | date:"yyyy-MM-dd"}}</i>
         </div>
         <div class="clear-float">
             <span>到期还款日</span>
-            <i>每月<em>10</em>日</i>
-        </div>
-        <div class="clear-float">
-            <span>可用额度</span>
-            <i><em>6000.00</em></i>
+            <i>{{data.dueAt | date:"yyyy-MM-dd"}}</i>
         </div>
     </div>
     <!--商品信息-->
     <div class="of-bill-item-box">
         <h1>商品名称</h1>
-        <div class="of-bill-item-info">
+        <div class="of-bill-item-info" ng-repeat="item in data.productRepayments">
             <dl class="of-bill-item-dl clear-float">
-                <dt>苹果(Apple)iPhone6 plus</dt>
-                <dd><i>950.00</i><b>(含服务费)</b></dd>
+                <dt>{{item.name}}</dt>
+                <dd><i>{{transferPrice(item.repayment)}}</i><b>(含服务费)</b></dd>
             </dl>
             <div class="of-bill-item-date">
                 <span>2015-9-9</span>
@@ -65,113 +61,50 @@
             </div>
             <dl class="of-bill-item-dl clear-float">
                 <dt>逾期费用</dt>
-                <dd><i>15.00</i></dd>
+                <dd><i>{{transferPrice(item.dueRepayment)}}</i></dd>
             </dl>
         </div>
     </div>
     <!--还款记录-->
-    <div class="of-bill-payback clear-float">
+    <!--div class="of-bill-payback clear-float">
         <span>还款记录</span>
         <i></i>
-    </div>
+    </div-->
     <!--还款计划-->
     <div class="of-bill-payback clear-float">
-        <span>还款记录</span>
-        <i></i>
+        <a href="#/bill/plain">
+            <span>还款计划</span>
+            <i></i>
+        </a>
     </div>
 </div>
 <!--月份遮罩层-->
-<div id="billMonthFilter">
+<div id="billMonthFilter" ng-show="handle">
     <div class="of-bill-month-list">
         <div class="of-bill-month-list-title bill-month-border">
-            <img src="/images/icon/icon_arrow_right.png">
+            <img src="/images/icon/icon_arrow_right.png" ng-click="lastMonth()">
             <span>
                 <i>{{year}}</i>年
             </span>
-            <img src="/images/icon/icon_arrow_right.png"></div>
+            <img src="/images/icon/icon_arrow_right.png" ng-click="nextMonth()">
+        </div>
         <ul class="of-bill-month-list-box bill-month-border clear-float">
-            <li>
-                <i class="active">
-                    <b>1</b>
-                    月
-                </i>
-                </li>
-            <li>
-                <i class="">
-                    <b>2</b>
-                    月
-                </i>
-                </li>
-            <li>
-                <i class="">
-                    <b>3</b>
-                    月
-                </i>
-                </li>
-            <li>
-                <i class="">
-                    <b>4</b>
-                    月
-                </i>
-                </li>
-            <li>
-                <i class="">
-                    <b>5</b>
-                    月
-                </i>
-                </li>
-            <li>
-                <i class="">
-                    <b>6</b>
+            <li ng-repeat="item in [1,2,3,4,5,6]" ng-click="rendNewInfo(item)">
+                <i ng-class="active(item)">
+                    <b>{{item}}</b>
                     月
                 </i>
             </li>
-            </ul>
+        </ul>
         <ul class="of-bill-month-list-box bill-month-border clear-float">
-            <li>
-                <i class="active">
-                    <b>1</b>
-                    月
-                </i>
-            </li>
-            <li>
-                <i class="">
-                    <b>2</b>
-                    月
-                </i>
-            </li>
-            <li>
-                <i class="">
-                    <b>3</b>
-                    月
-                </i>
-            </li>
-            <li>
-                <i class="">
-                    <b>4</b>
-                    月
-                </i>
-            </li>
-            <li>
-                <i class="">
-                    <b>5</b>
-                    月
-                </i>
-            </li>
-            <li>
-                <i class="">
-                    <b>6</b>
+            <li ng-repeat="item in [7,8,9,10,11,12]" ng-click="rendNewInfo(item)">
+                <i ng-class="active(item)">
+                    <b>{{item}}</b>
                     月
                 </i>
             </li>
         </ul>
     </div>
 </div>
-
-<script src="/js/require.js" data-main="/js/bill/bill"></script>
-<script type="text/javascript-lazy">
- require(['dom_bill'])
-</script>
-
 </body>
 </html>
