@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--
+    还款计划
+    build by rwson @2015-08-22
+-->
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/common.css">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bill/plain.css">
+    <title>账单详情</title>
+</head>
+<body>
+<!--头部-->
+<div class="of-bill-bg">
+    <div id="billHeaderHeight" class="of-header gray">
+        <a class="header-back" href="javascript:history.back()"></a>
+        <span id="billMonth" class="of-bill-month">
+            还款计划
+        </span>
+    </div>
+    <div class="bill-tip">
+        <p class="bill-totals">总计{{data.month}}期</p>
+
+        <p class="bill-money">总金额￥{{transferPrice(data.totalRepayment)}}</p>
+    </div>
+    <div class="plain-list">
+        <ul class="bill-list-item">
+            <li class="item-each" ng-repeat="item in data.repayments">
+                <div>
+                    <p class="bill-num" ng-bind="$index + 1"></p>
+                    <p class="bill-riches">￥{{transferPrice(item.repayment)}}</p>
+                    <p class="bill-date">{{item.day | date:"yyyy-MM-dd"}}</p>
+                    <p class="bill-status" ng-class="backClass(item.repaid)">{{getState(item.repaid)}}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="/js/require.js" data-main="/js/bill/bill"></script>
+</body>
+</html>

@@ -10,7 +10,7 @@
     <div class="recive-info">
         <div class="recive-info-item">
             <p class="recive-info-left">姓名</p>
-            <p class="recive-info-right">{{data.userName}}</p>
+            <p class="recive-info-right">{{data.name}}</p>
         </div>
         <div class="recive-info-item">
             <p class="recive-info-left">手机号</p>
@@ -18,49 +18,51 @@
         </div>
         <div class="recive-info-item">
             <p class="recive-info-left">地址</p>
-            <p class="recive-info-right">南京市新模范马路创意中央63号</p>
+            <p class="recive-info-right">{{data.address}}</p>
         </div>
     </div>
 
     <!--商品信息-->
     <div class="product-info">
-        <div class="order-info-no-border">
-            <div class="order-img">
-                <img src="/images/order/iphone.jpg">
+        <a href="#/sale/detail/:detailId">
+            <div class="order-info-no-border">
+                <div class="order-img">
+                    <img src="/images/order/iphone.jpg">
+                </div>
+                <div class="order-info-detail">
+                    <p class="decrease-icon order-info-name">{{data.productName}}<em>￥{{transferPrice(data.payAmount)}}</em></p>
+                    <p class="info-arg">{{data.arg}}<del>￥{{transferPrice(data.salePrice)}}</del></p>
+                    <p class="info-arg">首付￥{{transferPrice(data.firstPay)}}  月供￥{{transferPrice(data.prePeriodsPay)}}×{{data.periods}}</p>
+                </div>
             </div>
-            <div class="order-info-detail">
-                <p class="decrease-icon order-info-name">{{data.orderLines[0].commodityName}}<em>￥{{data.orderLines[0].saleAmount/100}}</em></p>
-                <p class="info-arg">白色&nbsp;&nbsp;64GB<del>￥{{data.orderLines[0].saleAmount/100}}</del></p>
-                <p class="info-arg">首付￥0  月供￥186.53×24</p>
-            </div>
-        </div>
+        </a>
     </div>
 
     <!--付款信息-->
     <div class="pay-info">
         <div class="buy-num">
-            <span class="nums">数量 ：{{data.orderLines[0].saleVolume}}个</span><span>总金额：<em class="red-font">￥{{data.orderLines[0].salePrice/100}}</em></span>
+            <span class="nums">数量 ：{{data.saleVolume}}{{data.saleUnit}}</span><span>总金额：<em class="red-font">￥{{data.payAmount}}</em></span>
         </div>
         <div class="pay-info-area">
             <div class="first-pay-percent pay-item">
                 <p class="pay-left-info">首付比例</p>
-                <p class="pay-right-info"><em>￥{{data.orderLines[0].firstPay/100}}</em>&gt;</p>
+                <p class="pay-right-info"><em>￥{{transferPrice(data.firstPay)}}</em>&gt;</p>
             </div>
             <div class="pay-month pay-item">
                 <p class="pay-left-info">分期月数</p>
-                <p class="pay-right-info"><em>{{data.orderLines[0].periods}}个月</em>&gt;</p>
+                <p class="pay-right-info"><em>{{data.periods}}个月</em>&gt;</p>
             </div>
             <div class="month-num pay-item">
                 <p class="pay-left-info">月供</p>
-                <p class="pay-right-info"><em>￥{{data.orderLines[0].prePeriodsPay/100}}</em>（包含服务费¥21.1)</p>
+                <p class="pay-right-info"><em>￥{{transferPrice(data.prePeriodsPay)}}</em><span ng-show="data.service">（包含服务费¥{{transferPrice(data.service)}})</span></p>
             </div>
             <div class="first-pay pay-item">
                 <p class="pay-left-info">首付</p>
-                <p class="pay-right-info">￥{{data.orderLines[0].firstPay/100}}</p>
+                <p class="pay-right-info">￥{{transferPrice(data.firstPay)}}</p>
             </div>
             <div class="total pay-item">
                 <p class="pay-left-info">总价</p>
-                <p class="pay-right-info">￥{{data.orderLines[0].salePrice/100}}</p>
+                <p class="pay-right-info">￥{{transferPrice(data.payAmount)}}</p>
             </div>
         </div>
     </div>
@@ -68,6 +70,6 @@
     <!--确认按钮-->
     <div class="confirm-area">
         <p class="confirm-info">由于分期月数限制，暂不支持毕业时间为<span class="confirm-tip">2017年7月</span>之前的同学申请</p>
-        <em class="confirm-submit-btn" ng-click="confirmBuy(data.orderId)">提交订单</em>
+        <em class="confirm-submit-btn" ng-click="confirmBuy(data.orderId,data.firstPay)">提交订单</em>
     </div>
 </div>

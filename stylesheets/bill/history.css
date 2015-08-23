@@ -1,0 +1,24 @@
+.history-item-each{
+    background: #fff;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 1rem;
+    overflow: hidden;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    color: #515151;
+}
+
+.item-date{
+    float: left;
+}
+
+.item-date span{
+    font-size: 1.1rem;
+    color: #adadad;
+    padding: 0 0 0 1.5rem;
+}
+
+.item-money{
+    float: right;
+}
+

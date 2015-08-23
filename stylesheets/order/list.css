@@ -95,6 +95,17 @@
     padding: 0.2rem 0.25rem;
 }
 
+/* 审核失败 */
+.charging-failed .orde-num-info:after{
+    content: "审核失败";
+    position: absolute;
+    right: -6rem;
+    top: -0.2rem;
+    background: #16cd9b;
+    color: #fff;
+    padding: 0.2rem 0.25rem;
+}
+
 .back-charging .orde-num-info:after{
     content: "退款审核中";
     position: absolute;
@@ -105,6 +116,16 @@
     padding: 0.2rem 0.25rem;
 }
 
+/* 交易关闭 */
+.closed .orde-num-info:after{
+    content: "交易关闭";
+    position: absolute;
+    right: -6rem;
+    top: -0.2rem;
+    background: #16cd9b;
+    color: #fff;
+    padding: 0.2rem 0.25rem;
+}
 
 .order-item-center{
     padding: 1rem;

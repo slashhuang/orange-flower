@@ -10,40 +10,44 @@
     <div class="order-list" ng-show="data.length > 0">
         <ul>
             <!-- 审核中-->
-            <li class="order-item" id="123323255">
-                <div class="order-item-top checking">
-                    <a href="#/order/confirm?orderId=2015082017361234">
-                        <p class="orde-num-info">订单号<span class="num">123323255</span></p>
+            <li class="order-item" ng-repeat="item in data" id="123323255">
+                <div class="order-item-top" ng-class="rendClass(item.status)">
+                    <a href="#/order/confirm?orderId={{item.orderId}}">
+                        <p class="orde-num-info">订单号<span class="num">{{item.orderId}}</span></p>
                         <span class="arrow"></span>
                     </a>
                 </div>
                 <div class="order-item-center">
-                    <div class="item-img">
-                        <img src="/images/order/iphone.jpg">
-                    </div>
-                    <div class="item-info">
-                        <div class="info-details-name">
-                            <p class="special-icon">苹果&nbsp;（Apple)&nbsp;&nbsp;iPhone6 呵呵呵呵呵</p>
-                            <p>￥4，188.00</p>
+                    <a href="#/sale/detail/{{item.productId}}">
+                        <div class="item-img">
+                            <img src="{{item.img}}">
                         </div>
-                        <div class="info-detail-args">
-                            <p>白色&nbsp;&nbsp;&nbsp;64GB</p>
-                            <p>
-                                <del>￥4，988.00</del>
-                            </p>
+                        <div class="item-info">
+                            <div class="info-details-name">
+                                <p class="special-icon">{{item.productName}}</p>
+                                <p>￥{{transferPrice(item.realPayAmount)}}</p>
+                            </div>
+                            <div class="info-detail-args">
+                                <p>{{item.productName}}</p>
+                                <p>
+                                    <del>￥{{transferPrice(item.salePrice)}}</del>
+                                </p>
+                            </div>
+                            <div class="info-detail-price">
+                                <p>首付￥{{transferPrice(item.firstPay)}}&nbsp;&nbsp;月供￥{{transferPrice(item.prePeriodsPay)}}×{{item.periods}}</p>
+                            </div>
                         </div>
-                        <div class="info-detail-price">
-                            <p>首付￥0&nbsp;&nbsp;月供￥186.53×24</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="order-item-bottom">
-                    <span class="order-btn" ng-click="reBuy()">再次购买</span>
-                    <span class="order-btn" ng-click="cancelOrder()">取消订单</span>
+                    <span class="order-btn" ng-click="reBuy(item.orderId)">再次购买</span>
+                    <span class="order-btn" ng-if="showCancel(item.statusText)" ng-click="cancelOrder(item.orderId)">取消订单</span>
                 </div>
             </li>
 
+
             <!-- 待支付-->
+            <!--
             <li class="order-item" id="123323256">
                 <div class="order-item-top no-paid-item">
                     <a href="#/order/confirm?orderId=2015082017361234">
@@ -52,32 +56,36 @@
                     </a>
                 </div>
                 <div class="order-item-center">
-                    <div class="item-img">
-                        <img src="/images/order/iphone.jpg">
-                    </div>
-                    <div class="item-info">
-                        <div class="info-details-name">
-                            <p class="special-icon">苹果&nbsp;（Apple)&nbsp;&nbsp;iPhone6呵呵呵呵呵</p>
-                            <p>￥4，188.00</p>
+                    <a href="#/sale/detail/:detailId">
+                        <div class="item-img">
+                            <img src="/images/order/iphone.jpg">
                         </div>
-                        <div class="info-detail-args">
-                            <p>白色&nbsp;&nbsp;&nbsp;64GB</p>
-                            <p>
-                                <del>￥4，988.00</del>
-                            </p>
+                        <div class="item-info">
+                            <div class="info-details-name">
+                                <p class="special-icon">苹果&nbsp;（Apple)&nbsp;&nbsp;iPhone6呵呵呵呵呵</p>
+                                <p>￥4，188.00</p>
+                            </div>
+                            <div class="info-detail-args">
+                                <p>白色&nbsp;&nbsp;&nbsp;64GB</p>
+                                <p>
+                                    <del>￥4，988.00</del>
+                                </p>
+                            </div>
+                            <div class="info-detail-price">
+                                <p>首付￥0&nbsp;&nbsp;月供￥186.53×24</p>
+                            </div>
                         </div>
-                        <div class="info-detail-price">
-                            <p>首付￥0&nbsp;&nbsp;月供￥186.53×24</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="order-item-bottom">
                     <span class="order-btn" ng-click="reBuy()">再次购买</span>
                     <span class="order-btn" ng-click="cancelOrder()">取消订单</span>
                 </div>
             </li>
+            -->
 
             <!-- 交易成功-->
+            <!--
             <li class="order-item" id="123323257">
                 <div class="order-item-top success-item">
                     <a href="#/order/confirm?orderId=2015082017361234">
@@ -86,31 +94,35 @@
                     </a>
                 </div>
                 <div class="order-item-center">
-                    <div class="item-img">
-                        <img src="/images/order/iphone.jpg">
-                    </div>
-                    <div class="item-info">
-                        <div class="info-details-name">
-                            <p>苹果&nbsp;（Apple)&nbsp;&nbsp;iPhone6呵呵呵呵呵</p>
-                            <p>￥4，188.00</p>
+                    <a href="#/sale/detail/:detailId">
+                        <div class="item-img">
+                            <img src="/images/order/iphone.jpg">
                         </div>
-                        <div class="info-detail-args">
-                            <p>白色&nbsp;&nbsp;&nbsp;64GB</p>
-                            <p>
-                                <del>￥4，988.00</del>
-                            </p>
+                        <div class="item-info">
+                            <div class="info-details-name">
+                                <p class="special-icon">苹果&nbsp;（Apple)&nbsp;&nbsp;iPhone6呵呵呵呵呵</p>
+                                <p>￥4，188.00</p>
+                            </div>
+                            <div class="info-detail-args">
+                                <p>白色&nbsp;&nbsp;&nbsp;64GB</p>
+                                <p>
+                                    <del>￥4，988.00</del>
+                                </p>
+                            </div>
+                            <div class="info-detail-price">
+                                <p>首付￥0&nbsp;&nbsp;月供￥186.53×24</p>
+                            </div>
                         </div>
-                        <div class="info-detail-price">
-                            <p>首付￥0&nbsp;&nbsp;月供￥186.53×24</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="order-item-bottom">
                     <span class="order-btn" ng-click="reBuy()">再次购买</span>
                 </div>
             </li>
+            -->
 
             <!--发货中-->
+            <!--
             <li class="order-item" id="123323258">
                 <div class="order-item-top sending">
                     <a href="#/order/confirm?orderId=2015082017361234">
@@ -119,31 +131,35 @@
                     </a>
                 </div>
                 <div class="order-item-center">
-                    <div class="item-img">
-                        <img src="/images/order/iphone.jpg">
-                    </div>
-                    <div class="item-info">
-                        <div class="info-details-name">
-                            <p>苹果&nbsp;（Apple)&nbsp;&nbsp;iPhone6呵呵呵呵呵</p>
-                            <p>￥4，188.00</p>
+                    <a href="#/sale/detail/:detailId">
+                        <div class="item-img">
+                            <img src="/images/order/iphone.jpg">
                         </div>
-                        <div class="info-detail-args">
-                            <p>白色&nbsp;&nbsp;&nbsp;64GB</p>
-                            <p>
-                                <del>￥4，988.00</del>
-                            </p>
+                        <div class="item-info">
+                            <div class="info-details-name">
+                                <p class="special-icon">苹果&nbsp;（Apple)&nbsp;&nbsp;iPhone6呵呵呵呵呵</p>
+                                <p>￥4，188.00</p>
+                            </div>
+                            <div class="info-detail-args">
+                                <p>白色&nbsp;&nbsp;&nbsp;64GB</p>
+                                <p>
+                                    <del>￥4，988.00</del>
+                                </p>
+                            </div>
+                            <div class="info-detail-price">
+                                <p>首付￥0&nbsp;&nbsp;月供￥186.53×24</p>
+                            </div>
                         </div>
-                        <div class="info-detail-price">
-                            <p>首付￥0&nbsp;&nbsp;月供￥186.53×24</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="order-item-bottom">
                     <span class="order-btn" ng-click="reBuy()">再次购买</span>
                 </div>
             </li>
+            -->
 
             <!--退款审核中-->
+            <!--
             <li class="order-item" id="123323259">
                 <div class="order-item-top back-charging">
                     <a href="#/order/confirm?orderId=2015082017361234">
@@ -152,29 +168,32 @@
                     </a>
                 </div>
                 <div class="order-item-center">
-                    <div class="item-img">
-                        <img src="/images/order/iphone.jpg">
-                    </div>
-                    <div class="item-info">
-                        <div class="info-details-name">
-                            <p>苹果&nbsp;（Apple)&nbsp;&nbsp;iPhone6呵呵呵呵呵</p>
-                            <p>￥4，188.00</p>
+                    <a href="#/sale/detail/:detailId">
+                        <div class="item-img">
+                            <img src="/images/order/iphone.jpg">
                         </div>
-                        <div class="info-detail-args">
-                            <p>白色&nbsp;&nbsp;&nbsp;64GB</p>
-                            <p>
-                                <del>￥4，988.00</del>
-                            </p>
+                        <div class="item-info">
+                            <div class="info-details-name">
+                                <p class="special-icon">苹果&nbsp;（Apple)&nbsp;&nbsp;iPhone6呵呵呵呵呵</p>
+                                <p>￥4，188.00</p>
+                            </div>
+                            <div class="info-detail-args">
+                                <p>白色&nbsp;&nbsp;&nbsp;64GB</p>
+                                <p>
+                                    <del>￥4，988.00</del>
+                                </p>
+                            </div>
+                            <div class="info-detail-price">
+                                <p>首付￥0&nbsp;&nbsp;月供￥186.53×24</p>
+                            </div>
                         </div>
-                        <div class="info-detail-price">
-                            <p>首付￥0&nbsp;&nbsp;月供￥186.53×24</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="order-item-bottom">
                     <span class="order-btn" ng-click="reBuy()">再次购买</span>
                 </div>
             </li>
+            -->
         </ul>
     </div>
 </div>
