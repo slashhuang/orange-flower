@@ -32,6 +32,7 @@
     text-align:center;
     border-bottom:#e9e9e9 1px solid;
 }
+
 .of-category-list li.active{
     color:#16cd9b;
     background: #fff;
@@ -74,10 +75,14 @@
     width:32px;
 }
 .of-category-main-item li span{
+    overflow:hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     display: block;
     padding-top:3px;
+    width:80%;
+    margin-right:auto;
+    margin-left:auto;
 }
 .of-category-main-item li.splitline{
     margin-right:4%

@@ -4,7 +4,7 @@
 define([],function(){
     //定义商品分类controller
     function centerCtrl($scope,$routeParams,$location,$http){
-        var userCenterUrl = prefuri + "/user/load"
+        var userCenterUrl = prefuri + "/user";
         $scope.verifyActive =function(){
 
         };
