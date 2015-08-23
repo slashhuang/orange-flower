@@ -4,6 +4,7 @@
 define([],function(){
     //定义商品分类controller
     function categoryCtrl($scope,$routeParams,$location,$http){
+        var categoryUrl = prefuri+"/dict/product_category"
         //统一Ajax请求
         $scope.category={
             saleNav:[],
@@ -12,7 +13,7 @@ define([],function(){
         //页面载入请求
         $http({
             "method":"get",
-            "url":prefuri+"/dict/product_category"
+            "url":categoryUrl,
         }).success(function(data){
             console.log(data);
             console.log("getting category data succeed");

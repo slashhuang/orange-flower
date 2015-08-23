@@ -62,9 +62,7 @@ h4,h6{
     color: #9d9d9d;
 }
 
-.reg-btn,
-.reg-btn:visited,
-.reg-btn:active{
+.reg-btn-disable{
     float: right;
     padding: 0.5rem 1.5rem;
     background: #c7c7c7;
@@ -77,6 +75,20 @@ h4,h6{
     font-weight: 700;
     color: #fff!important;
 }
+.reg-btn-active{
+    float: right;
+    padding: 0.5rem 1.5rem;
+    background-color: #15c690
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+    border-radius: 2rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff!important;
+}
+
 
 /*个人资料*/
 .user-center-balance{

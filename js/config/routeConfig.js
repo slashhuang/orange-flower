@@ -8,7 +8,7 @@ define([], function () {
         });
         //商品部分路由
         $routeProvider.
-            when('/sale/list/:listParam', {
+            when('/sale/list/:listName/:listId', {
                 templateUrl: '/views/sale/list.html',
                 controller: 'saleListCtrl'
             }).
