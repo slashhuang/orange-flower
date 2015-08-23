@@ -9,7 +9,7 @@
 
 .recive-info{
     padding: 1rem;
-    min-height: 7.5rem;
+    overflow: hidden;
     background: #16cd9b;
 }
 

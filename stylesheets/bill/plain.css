@@ -1,0 +1,81 @@
+.bill-tip{
+    padding: 1rem;
+    overflow: hidden;
+    background: #515151;
+    font-size: 1.7rem;
+    line-height: 3.3rem;
+    color: #fff;
+}
+
+.bill-totals,
+.bill-money{
+    float: left;
+}
+
+.bill-money{
+    padding: 0 0 0 5.3rem;
+}
+
+.item-each{
+    padding: 1.5rem;
+    overflow: hidden;
+    background: #fff;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.item-each p{
+    float: left;
+    font-size: 1.4rem;
+    line-height: 2rem;
+}
+
+.bill-num{
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    text-align: center;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    border-radius: 1rem;
+    border: 1px solid #adadad;
+    color: #515151;
+}
+
+.bill-riches{
+    width: 18.5rem;
+    padding: 0 0 0 2.3rem;
+    color: #515151;
+}
+
+.bill-date{
+    padding: 0 1.5rem 0 0;
+}
+
+.item-each .bill-status{
+    color: #16cd9b;
+}
+
+.has-backed p{
+    color: #adadad;
+}
+
+.has-backed .bill-num{
+    border: none;
+}
+
+.has-backed .billed{
+    color: #adadad;
+}
+
+.selected{
+    background: #f2f2f2;
+}
+
+.selected .bill-num{
+    background: url(../../images/bill/btn-bill.png) no-repeat 0;
+    background-size: 2rem 2rem;
+    border: none;
+}

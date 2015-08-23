@@ -18,12 +18,12 @@ define([], function () {
             }).
             when('/sale/category', {
                 templateUrl: '/views/sale/category.html',
-                controller: 'categoryCtrl',
-            }).
-            when('/sale/detail/:detailId', {
                 controller: 'categoryCtrl'
             }).
             when('/sale/detail', {
+                controller: 'categoryCtrl'
+            }).
+            when('/sale/detail/:detailId', {
                 templateUrl: '/views/sale/detail.html',
                 controller: 'detailCtrl'
             });
@@ -35,7 +35,7 @@ define([], function () {
             }).
             when("/user/center",{
                 templateUrl: '/views/user/center.html',
-                controller: 'centerCtrl',
+                controller: 'centerCtrl'
             }).
             when("/user/credit",{
                 templateUrl: '/views/user/credit.html',
@@ -81,7 +81,11 @@ define([], function () {
         $routeProvider.
             when('/bill', {
                 templateUrl: '/views/bill/bill.html',
-                controller: ''
+                controller: 'billMainCtrl'
+            }).
+            when('/bill/plain', {
+                templateUrl: '/views/bill/plain.html',
+                controller: 'billPlainCtrl'
             });
         //默认状态下路由转向登录页面
         $routeProvider.
