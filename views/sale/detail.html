@@ -26,22 +26,21 @@
 <div class="split-line"></div>
 
 <div class="item-detail-intro">
-    <h1>苹果 (Apple) iPhone6 (A1586) 16GB</h1>
+    <h1>{{saleDetail.title}}</h1>
     <h1>每个ID限购一单</h1>
-    <span>￥<i>4188.00</i></span>
+    <span>￥<i>{{saleDetail.price}}</i></span>
 </div>
 <div class="item-detail-option-wrapper">
     <!--自定义命令区域-->
     <dl class="item-detail-option-list">
         <dt>颜色:</dt>
-        <dd style="border-color:#16cd9b">金色<i class="active"></i></dd>
-        <dd >白色<i class=""></i></dd>
-        <dd >黑色<i class=""></i></dd>
+        <!--第一个要加载默认样式style="border-color:#16cd9b" active-->
+        <dd ng-repeat="tags in saleDetail.tags">{{tags.attrs.color}}<i class="{{}}"></i></dd>
     </dl>
     <dl class="item-detail-option-list">
         <dt>选购类型:</dt>
-        <dd style="border-color:#16cd9b">公开版(16GB ROM)<i class="active"></i></dd>
-        <dd>公开版(16GB rom)<i class=""></i></dd>
+        <!--第一个要加载默认样式style="border-color:#16cd9b" active-->
+        <dd ng-repeat="tags in saleDetail.tags">{{tags.attrs.color}}<i class="{{}}"></i></dd>
     </dl>
 </div>
 <div class="split-line"></div>
@@ -62,69 +61,17 @@
             </div>
             <div class="item-slider-param">
                 <div class="split-line-fff"></div>
-                <table>
-                    <tr>
-                        <td>主体</td>
-                    </tr>
-                    <tr>
-                        <td>品牌</td>
-                        <td>苹果（Apple）</td>
-                    </tr>
-                    <tr>
-                        <td>型号</td>
-                        <td>iPhone 6 Plus A1524</td>
-                    </tr>
-                    <tr>
-                        <td>颜色</td>
-                        <td>金色</td>
-                    </tr>
-                    <tr>
-                        <td>上市年份</td>
-                        <td>2014年</td>
-                    </tr>
-                    <tr>
-                        <td>上市月份	</td>
-                        <td>9月</td>
-                    </tr>
-                    <tr>
-                        <td>输入方式</td>
-                        <td>触控</td>
-                    </tr>
-                    <tr>
-                        <td> 智能机</td>
-                        <td>是</td>
-                    </tr>
-                    <tr>
-                        <td>操作系统</td>
-                        <td>苹果（IOS</td>
-                    </tr>
-                    <tr>
-                        <td>操作系统版本</td>
-                        <td>IOS</td>
-                    </tr>
-                    <tr>
-                        <td>CPU品牌</td>
-                        <td>苹果</td>
-                    </tr>
-                </table>
+                {{saleDetail.specs}}
             </div>
             <div class="item-slider-param">
                 <div class="split-line-fff"></div>
-                <span>包装清单：</span>
-                <span>iPhone 6 Plus*1;</span>
-                <span>具有线控功能和麦克风的 Apple EarPods*1；</span>
-                <span>Lightning to USB 连接线*1；</span>
-                <span>Micro USB 转 Lightning接头；</span>
-                <span>USB 电源适配器*1；</span>
-                <span>保修卡*1</span>
-                <span>资料</span>
+                {{saleDetail.inventory}}
             </div>
         </div>
         </div>
     </div>
 <div class="of-bottom-button-wrapper">
     <div id="itemSaleButton" class="of-button item-sale-button" >立即分期</div>
-    <div id="itemSaleBuyNow" class="of-button item-sale-button" style="display: none" >立即购买</div>
 </div>
 <div id="itemMainFrame" class="of-tap-iframe">
     <div id="iframeTapCross" class="of-tap-iframe-cross"></div>
@@ -134,51 +81,32 @@
                 <img src="/images/item_detail/iphone6.png">
             </li>
             <li class="of-item-buy-info-right">
-                <h1>苹果 (Apple) iPhone6 (A1586) 16GB</h1>
-                <span>商品价格： ￥<i>4188.00</i></span>
+                <h1>{{saleDetail.title}}</h1>
+                <span>商品价格： ￥<i>{{saleDetail.price}}</i></span>
             </li>
         </ul>
     </div>
     <div class="of-item-buy-installation">
-        <h1 class="of-item-buy-installation-title">选择首付比例</h1>
-        <ul class="of-item-buy-installation-percentage">
-            <li   style="border-color:#16cd9b">0首付<i class="active"></i></li>
-            <li>5%<i></i></li>
-            <li>10%<i></i></li>
-            <li>15%<i></i></li>
-            <li>20%<i></i></li>
-            <li>30%<i></i></li>
-            <li>40%<i></i></li>
-            <li>50%<i></i></li>
-        </ul>
-        <h1 class="of-item-buy-installation-title">选择分期月数</h1>
-        <ul class="of-item-buy-installation-percentage">
-            <li style="border-color:#16cd9b">0首付<i class="active"></i></li>
-            <li>3个月<i></i></li>
-            <li>6个月<i></i></li>
-            <li>9个月<i></i></li>
-            <li>12个月<i></i></li>
-            <li>15个月<i></i></li>
-            <li>18个月<i></i></li>
-            <li>24个月<i></i></li>
-        </ul>
+        <div class="of-item-buy-installation-detail clear-float">
+            <h1>首付金额</h1>
+            <input placeholder="0" type="tel" maxlength="5" ng-model="firstTimePay" ng-init="firstTimePay=0">
+            <span>元</span>
+        </div>
+        <div class="of-item-buy-installation-detail clear-float">
+            <h1>分期月数</h1>
+            <select>
+                <option ng-repeat="month in hello" ng-model="installationMonth" ng-change="changeCompute()" value>{{}}个月</option>
+            </select>
+        </div>
         <div class="of-item-buy-installation-hint">*若您的毕业时间早于2017年12月11日请减少分期数</div>
-        <dl class="of-item-buy-installation-list">
-            <dt>每期：</dt>
-            <dd>
-                <i>￥</i>
-                <b>186.53</b>
-                <span>×</span>
-                <em>24</em>
-            </dd>
-        </dl>
-        <dl class="of-item-buy-installation-list">
-            <dt>首付：</dt>
-            <dd>
-                <i>￥</i>
-                <b>0</b>
-            </dd>
-        </dl>
+        <div class="of-item-buy-installation-list clear-float">
+            <div class="of-item-buy-installation-list-detail">
+                <h1>每期 </h1><i>￥</i><b>186.53</b><span>×</span><em>24</em>
+            </div>
+            <div class="of-item-buy-installation-button">
+                立即购买
+            </div>
+        </div>
     </div>
 </div>
 <!--背景遮罩层-->

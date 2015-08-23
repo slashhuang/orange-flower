@@ -8,6 +8,7 @@ body,p,ul,li,h1,h2,h3,h4,h5,h6,b,input,option,dl,dd,dt,i,em,b{
     font-size:100%;
     background: none;
     font-weight: normal;
+    outline:none
 }
 body {
     min-width: 320px;

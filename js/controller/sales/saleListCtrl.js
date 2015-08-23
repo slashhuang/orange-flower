@@ -4,7 +4,22 @@
 define([],function() {
     //定义商品分类controller
     function saleListCtrl($scope, $routeParams, $location, $http) {
-        //初始化变量完成
+        $scope.title = $routeParams.listParam;//设定头部标题
+        var saleListUrl = prefuri + "/product/query";
+        //初始化http请求@TODO需要加入参数
+        $http({
+            "method":"post",
+            "url":saleListUrl,
+            "data":{},
+        }).success(function(data){
+            $scope.saleList =data.content;//http请求加载数据
+        }).error(function(){
+        });
+        //设置排序
+        $scope.filterWay="";//默认排序
+        $scope.changeFilter= function(params){
+            $scope.filterWay = params;
+        };
         $scope.saleList=[];
         for(var i=0;i<10;i++){
             $scope.saleList[i]={

@@ -8,7 +8,7 @@ define([], function () {
         });
         //商品部分路由
         $routeProvider.
-            when('/sale/list', {
+            when('/sale/list/:listParam', {
                 templateUrl: '/views/sale/list.html',
                 controller: 'saleListCtrl'
             }).
@@ -21,9 +21,6 @@ define([], function () {
                 controller: 'categoryCtrl',
             }).
             when('/sale/detail/:detailId', {
-                controller: 'categoryCtrl'
-            }).
-            when('/sale/detail', {
                 templateUrl: '/views/sale/detail.html',
                 controller: 'detailCtrl'
             });
@@ -40,7 +37,15 @@ define([], function () {
             when("/user/credit",{
                 templateUrl: '/views/user/credit.html',
                 controller: 'userCreditCtrl'
-            });
+            }).
+            when("/user/setAccount",{
+                templateUrl: '/views/user/setAccount.html',
+                controller: 'setAccountCtrl'
+            }).
+            when("/user/modifypwd",{
+            templateUrl: '/views/user/modifyPWD.html',
+            controller: 'modifyPwdCtrl'
+        });;
         //登录注册部分
         $routeProvider.
             when("/register",{

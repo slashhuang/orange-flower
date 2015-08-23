@@ -28,6 +28,7 @@
 .of-register-button{
     border-radius:20px;
     padding:2px 10px;
+    float:right
 }
 
 label input{

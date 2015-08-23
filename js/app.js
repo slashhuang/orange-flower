@@ -8,7 +8,6 @@ define(['loadScript','angular','config/routeConfig','lib/angular-route',
     var app = angular.module('app',
         ["ngRoute","mainModule","salesModule","ngLoadScript","userModule","orderModule","reglogModule"]);
     //配置路由
-    //console.log(app)
     app.config(routeConfig);
     angular.bootstrap(document, ['app']);
 });

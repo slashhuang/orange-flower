@@ -4,26 +4,50 @@
 define([],function(){
     //定义商品分类controller
     function forgetPWDCtrl($scope,$routeParams,$location,$http){
-        //统一Ajax请求
+        var forgetpwdURL = prefuri + "/user/forgot/"
+        //收集数据并初始化
+        $scope.passwordStatus = false;
+        $scope.passwordHint = "";
+        $scope.showPwd =false;
         $scope.dataCollection={
             mobile:"",
             password:"",
             code:""
         };
-        //页面载入请求
-        $scope.AJAXhttp = function(){
-            var forgetDATA = $scope.dataCollection;
+        //点击触发下一步
+        $scope.checkNextMove = function(){
+            console.log()
             $http({
                 "method":"post",
-                "url":prefuri+"/user/forgot/"+forgetDATA.mobile+'/'+forgetDATA.code+'/'+forgetDATA.password
-            }).success(function(data){
-                console.log(data);
-                console.log("forgotpwd data succeed");
+                "url":forgetpwdURL+$scope.dataCollection.mobile+'/'+$scope.dataCollection.code+'/'+$scope.dataCollection.password,
+            }).success(function(response, status, headers, config){
+                alert("即将跳转到登录页面");
+                window.location.href="#/login"
             }).error(function(){
-                alert("请求失败")
+                console.log($scope.dataCollection);
+                alert("即将跳转到登录页面");
+                window.location.href="#/login"
             });
+        };
+        //校验密码是否一致
+        $scope.checkPassword = function(passwordRepeat,password){
+            if(passwordRepeat == password){
+                $scope.passwordHint="密码输入已保持一致"
+            }
+            else{
+                $scope.passwordHint="密码输入还味保持一致"
+            }
+        };
+        //显示密码设置页面
+        $scope.openPwd = function(){
+            $scope.showPwd =true;
+        }
+        $scope.closePwd = function(){
+            $scope.showPwd =false;
         }
     };
+
+
     forgetPWDCtrl.$inject=['$scope','$routeParams','$location','$http'];
 
     return forgetPWDCtrl;

@@ -183,15 +183,14 @@
     border-radius:30px;
 }
 .of-tap-iframe{
-    overflow: scroll;
     position:fixed;
     width:100%;
-    height:80%;
+    height:auto;
+    bottom:0;
     display: none;
     background:#fff;
-    padding-bottom:70px;
-    bottom:10px;
-    z-index:99
+    padding-bottom:10px;
+    z-index: 99;
 }
 .of-tap-iframe-cross{
     position: absolute;
@@ -260,58 +259,64 @@
     height:auto;
     background:#fff;
 }
-.of-item-buy-installation li{
-    display:inline-block;
-    margin:7px 3% 5px 0;
-    width:21%;
-    padding:5px 11px;
-    text-align: center;
-    border:1px solid;
-    border-color:#e9e9e9;
-    font-size:12px;
-    position:relative;
+
+.of-item-buy-installation-detail{
+    position: relative;
+    padding:10px;
+    color:#515151;
+    font-size:15px;
+    border-bottom: 1px solid #e9e9e9;
 }
-.of-item-buy-installation li i{
-    position:absolute;
-    right:0;
-    bottom:0;
-    width:12px;
-    height:10px;
+.of-item-buy-installation-detail h1{
+    float:left;
 }
-.of-item-buy-installation li i.active{
-    background:url("../../images/icon/icon-tick-active.png") no-repeat;
-    background-size: 12px 10px;
+.of-item-buy-installation-detail input{
+    width:20%;
+    text-align: right;
+    position: absolute;
+    right:30px;
+    top:10px;
 }
-.of-item-buy-installation-title{
-    font-size:14px;
-    color: #a3a3a3;
-    font-weight: normal;
+.of-item-buy-installation-detail span{
+    display:block;
+    float: right;
 }
+.of-item-buy-installation-detail select{
+    display:block;
+    float: right;
+    width:20%;
+}
+
+
 .of-item-buy-installation-percentage{
     margin-bottom:3px;
     font-size:0
 }
 .of-item-buy-installation-hint{
     font-size:12px;
-    color:#16cd9b;
+    color: #fe4f4f;
     margin-bottom:10px;
     margin-top:10px;
 }
 .of-item-buy-installation-list{
     display: block;
-    margin-top:3px;
-    font-size:0
+    margin-top:10px;
+    font-size:0;
 }
-.of-item-buy-installation-list dt{
-    color: #a3a3a3;
-    font-size:12px;
-    display: inline-block;
-    vertical-align: middle;
+.of-item-buy-installation-list-detail {
+    padding-top:10px;
+    float:left;
 }
-.of-item-buy-installation-list dd{
-    font-size:12px;
-    display: inline-block;
-    vertical-align: middle;
+
+.of-item-buy-installation-button{
+    float:right;
+    font-size:16px;
+    padding:10px 25px;
+    background-color: #16cd9b;
+    color:#fff;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
 }
 .of-item-buy-installation-list i{
     color:#000;

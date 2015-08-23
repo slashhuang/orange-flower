@@ -1,0 +1,15 @@
+<div class="of-header gray ">
+    <a class="header-back" href="javascript:history.back()"></a>
+    修改密码
+</div>
+
+<form class="modifyPWD-form">
+    <input ng-model="currentPWD" type="password" placeholder="请输入当前密码"/>
+    <input ng-model="newPWD" type="password" placeholder="请输入新的密码"/>
+    <input ng-model="repeatNewPWD" type="password" placeholder="再次输入新密码"/>
+</form>
+
+<div class="of-button of-button-bar" ng-click="modfifyRequest()">
+    完成</div>
+
+<div ng-show="hintStatus" ng-bind="submitHint" class="commonHint-style"></div>

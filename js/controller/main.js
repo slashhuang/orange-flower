@@ -15,16 +15,15 @@ define(['angular'],function(angular){
                     "url":prefuri+"/product/typedProducts"
                 }).success(function(data){
                     $scope.mainData.category =data;
+                    console.log(data)
                 }).error(function(){
                 });
                 $http({
                     "method":"post",
                     "url":prefuri+" "
                 }).success(function(data){
-                    console.log(data);
-                    $scope.mainData.discount =data;
+                    //$scope.mainData.discount =data;
                 }).error(function(){
                 });
-                console.log($scope.mainData.category)
             }]);
     });

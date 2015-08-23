@@ -17,12 +17,35 @@ define([],function(){
             console.log(data);
             console.log("getting category data succeed");
             $scope.category.saleNav =data.items;
+            for(var i=0;i<data.items.length;i++){
+                $scope.category.saleNav[i].isActive = false;
+                if(i==0){
+                    $scope.category.saleNav[i].isActive = true;
+                }
+            }
         }).error(function(){
             alert("请求失败")
         });
-
+        //恢复左侧导航栏默认点击样式
+         var changeStyle = function(){
+             for(var i=0;i< $scope.category.saleNav.length;i++){
+                 $scope.category.saleNav[i].isActive = false;
+             }
+         };
+        //寻找index
+        var findIndex = function(id){
+            var index = -1;
+            angular.forEach($scope.category.saleNav,function(item,key){
+                if(item.id === id){
+                    index = key;
+                }
+            });
+            return index;
+        };
         //点击触发请求
         $scope.AjaxHttp = function(key){
+            changeStyle();
+            $scope.category.saleNav[findIndex(key)].isActive = true;
             $http({
                 "method":"post",
                 "url":prefuri+"/product/query",

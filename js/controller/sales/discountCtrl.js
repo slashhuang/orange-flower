@@ -7,6 +7,7 @@
 define([],function() {
     //定义商品分类controller
     function detailCtrl($scope, $routeParams, $location, $http) {
+        alert("fuck")
         //初始化变量完成
         $scope.discountList = [];
         for (var i = 0; i < 10; i++) {

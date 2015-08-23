@@ -101,8 +101,8 @@
     background-color: #a3a3a3;
 }
 .of-button.of-button-bar{
-    margin-left: 0;
-    width: 100%;
+    margin:10px auto;
+    width:90%;
     font-size: 14px;
     padding:6px;
     border-radius: 20px;
@@ -118,5 +118,39 @@
     top: 0;
     z-index: 1000;
 }
+/*统一提示掩饰*/
+.commonHint-style{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-top:30px;
+    padding:10px 45px;
+    text-align:center;
+    background-color: #5b5b5b;
+    color:#fff;
+    width:70%;
+    margin-left:auto;
+    margin-right:auto;
+    line-height: 30px;
+    height:90px;
+    font-size:15px;
+}
+/*完善信息提示页面*/
 
-
+.info-hint-style{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding:20px 45px;
+    text-align:center;
+    background-color: rgba(80, 80, 80, 0.9);
+    color:#fff;
+    width:76%;
+    line-height: 40px;
+    height:120px;
+    font-size:16px;
+    position:fixed;
+    top:150px;
+    left:12%;
+    right:12%
+}
