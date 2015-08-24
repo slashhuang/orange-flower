@@ -16,9 +16,8 @@
                 <img src="/images/item_detail/huawei_3.jpg">
             </div>
     </div>
-        <!-- Add Pagination -->
-    <div class="swiper-pagination swiper-pagination-clickable pagination-style">
-            <span class="swiper-pagination-bullet item-detail-bullet-style"></span>
+    <div class="swiper-pagination pagination-style">
+            <span class="swiper-pagination-bullet"></span>
             <span class="swiper-pagination-bullet"></span>
             <span class="swiper-pagination-bullet"></span>
     </div>
@@ -28,42 +27,48 @@
 <div class="item-detail-intro">
     <h1>{{saleDetail.title}}</h1>
     <h1>每个ID限购一单</h1>
-    <span>￥<i>{{saleDetail.price}}</i></span>
+    <span>￥<i>{{transferPrice(saleDetail.price)}}</i></span>
 </div>
 <div class="item-detail-option-wrapper">
     <!--自定义命令区域-->
-    <dl class="item-detail-option-list">
+    <dl class="item-detail-option-list" ng-model="tapColor" ng-init="tapColor=0">
         <dt>颜色:</dt>
         <!--第一个要加载默认样式style="border-color:#16cd9b" active-->
-        <dd ng-repeat="tags in saleDetail.tags">{{tags.attrs.color}}<i class="{{}}"></i></dd>
+        <dd ng-repeat="tagColor in saleDetail.tags"
+            ng-class="activeSelect(tagColor,saleDetail.tags)"
+            ng-click="">
+            {{tagColor.attrs.color}}
+            <i ng-class="selectStyle(tagColor,saleDetail.tags)">
+            </i>
+        </dd>
     </dl>
     <dl class="item-detail-option-list">
         <dt>选购类型:</dt>
         <!--第一个要加载默认样式style="border-color:#16cd9b" active-->
-        <dd ng-repeat="tags in saleDetail.tags">{{tags.attrs.color}}<i class="{{}}"></i></dd>
+        <dd ng-repeat="" ng-click=""><i ng-class="selectStyle()"></i></dd>
     </dl>
 </div>
 <div class="split-line"></div>
 <div class="item-detail-list">
-    <h1 id="itemSliderNav" class="slider-active-fix-style">
-            <i>商品详情</i>
-            <i>规格参数</i>
-            <i>包装清单</i>
-        <div class="item-canvas"id="itemCanvasWrapper">
+    <h1 id="itemSliderNav" class="slider-active-fix-style" ng-model="tapIndex" ng-init="tapIndex=0">
+            <i ng-click="tapIndex=0">商品详情</i>
+            <i ng-click="tapIndex=1">规格参数</i>
+            <i ng-click="tapIndex=2">包装清单</i>
+        <div id="itemCanvasWrapper" ng-class="changeTrianlge(tapIndex)">
             <img src="/images/icon/slidetriangle.png" width="14" height="9">
         </div>
     </h1>
     <div class="item-slider-window">
         <div class="item-slider-wrapper">
-            <div class="item_detail_img">
+            <div class="item_detail_img" ng-show="tapIndex==0">
                 <img src="/images/item_detail/item_detail.png">
                 <img src="/images/item_detail/item_detail.png">
-            </div>
-            <div class="item-slider-param">
+            </div >
+            <div class="item-slider-param" ng-show="tapIndex==1">
                 <div class="split-line-fff"></div>
                 {{saleDetail.specs}}
             </div>
-            <div class="item-slider-param">
+            <div class="item-slider-param" ng-show="tapIndex==2">
                 <div class="split-line-fff"></div>
                 {{saleDetail.inventory}}
             </div>
@@ -71,10 +76,10 @@
         </div>
     </div>
 <div class="of-bottom-button-wrapper">
-    <div id="itemSaleButton" class="of-button item-sale-button" >立即分期</div>
+    <div id="itemSaleButton" class="of-button item-sale-button" ng-show="!showFrame" ng-click="activeShowFrame(showFrame)" >立即分期</div>
 </div>
-<div id="itemMainFrame" class="of-tap-iframe">
-    <div id="iframeTapCross" class="of-tap-iframe-cross"></div>
+<div id="itemMainFrame" class="of-tap-iframe" ng-show="showFrame">
+    <div id="iframeTapCross" class="of-tap-iframe-cross" ng-click="activeShowFrame(showFrame)"></div>
     <div class="of-item-buy-frame-info">
         <ul>
             <li class="of-item-buy-info-left">
@@ -82,26 +87,26 @@
             </li>
             <li class="of-item-buy-info-right">
                 <h1>{{saleDetail.title}}</h1>
-                <span>商品价格： ￥<i>{{saleDetail.price}}</i></span>
+                <span>商品价格： ￥<i>{{transferPrice(saleDetail.price)}}</i></span>
             </li>
         </ul>
     </div>
     <div class="of-item-buy-installation">
         <div class="of-item-buy-installation-detail clear-float">
             <h1>首付金额</h1>
-            <input placeholder="0" type="tel" maxlength="5" ng-model="firstTimePay" ng-init="firstTimePay=0">
+            <input type="tel" maxlength="5" ng-model="firstTimePay" ng-change="calculate(finalMonth,firstTimePay)">
             <span>元</span>
         </div>
         <div class="of-item-buy-installation-detail clear-float">
             <h1>分期月数</h1>
-            <select>
-                <option ng-repeat="month in hello" ng-model="installationMonth" ng-change="changeCompute()" value>{{}}个月</option>
+            <select ng-model="finalMonth" ng-change="calculate(finalMonth,firstTimePay)">
+                <option ng-repeat="month in monthSelector(saleDetail.minMonth,saleDetail.maxMonth)" value="{{month}}">{{month}}个月</option>
             </select>
         </div>
         <div class="of-item-buy-installation-hint">*若您的毕业时间早于2017年12月11日请减少分期数</div>
         <div class="of-item-buy-installation-list clear-float">
             <div class="of-item-buy-installation-list-detail">
-                <h1>每期 </h1><i>￥</i><b>186.53</b><span>×</span><em>24</em>
+                <h1>每期 </h1><i>￥</i><b ng-bind="calculateMoney"></b><span>×</span><em ng-bind="finalMonth"></em>
             </div>
             <div class="of-item-buy-installation-button">
                 立即购买
@@ -110,7 +115,10 @@
     </div>
 </div>
 <!--背景遮罩层-->
-<div class="of-item-buy-iframe" id="itemBuyIframe" style="opacity:0.5"></div>
+<div class="of-item-buy-iframe" id="itemBuyIframe" ng-show="showFrame" ng-click="activeShowFrame(showFrame)"></div>
 <script type="text/javascript-lazy">
- require(['dom_sales/detail'],function(){})
+ require(['util/swiper_'],function(swiper){
+   swiper.div();
+   swiper.picture();
+ })
 </script>

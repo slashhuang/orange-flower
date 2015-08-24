@@ -21,12 +21,10 @@ define([],function(){
                 "method":"post",
                 "url":forgetpwdURL+$scope.dataCollection.mobile+'/'+$scope.dataCollection.code+'/'+$scope.dataCollection.password,
             }).success(function(response, status, headers, config){
-                alert("即将跳转到登录页面");
-                window.location.href="#/login"
+                alert("忘记成功");
             }).error(function(){
                 console.log($scope.dataCollection);
-                alert("即将跳转到登录页面");
-                window.location.href="#/login"
+                alert("忘记失败");
             });
         };
         //校验密码是否一致
@@ -41,7 +39,7 @@ define([],function(){
         //显示密码设置页面
         $scope.openPwd = function(){
             $scope.showPwd =true;
-        }
+        };
         $scope.closePwd = function(){
             $scope.showPwd =false;
         }

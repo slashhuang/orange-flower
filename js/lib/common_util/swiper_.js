@@ -9,7 +9,6 @@ define(['lib/swiper','zepto'], function(swiper, $){
                     loop : true,
                     preloadImages:false,
                     autoplay : 2000,
-                    autoplayDisableOnInteraction : false,
                 })
             })();
         },

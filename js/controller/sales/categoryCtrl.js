@@ -4,34 +4,19 @@
 define([],function(){
     //定义商品分类controller
     function categoryCtrl($scope,$routeParams,$location,$http){
-        var categoryUrl = prefuri+"/dict/product_category"
-        $scope.category={
-            saleNav:[],
-            itemInfo:[],
+        //通用url
+        var categoryUrl = prefuri+"/dict/product_category";
+
+        //**** 通用函数
+        /**
+         * 价格转换器
+         * @param price
+         * @returns {string}
+         */
+        $scope.transferPrice = function(price){
+            return (price / 100).toFixed(2);
         };
-        //页面载入请求
-        $http({
-            "method":"get",
-            "url":categoryUrl,
-        }).success(function(data){
-            console.log(data);
-            console.log("getting category data succeed");
-            $scope.category.saleNav =data.items;
-            for(var i=0;i<data.items.length;i++){
-                $scope.category.saleNav[i].isActive = false;
-                if(i==0){
-                    $scope.category.saleNav[i].isActive = true;
-                }
-            }
-        }).error(function(){
-            alert("请求失败")
-        });
-        //恢复左侧导航栏默认点击样式
-         var changeStyle = function(){
-             for(var i=0;i< $scope.category.saleNav.length;i++){
-                 $scope.category.saleNav[i].isActive = false;
-             }
-         };
+
         //寻找index
         var findIndex = function(id){
             var index = -1;
@@ -42,16 +27,48 @@ define([],function(){
             });
             return index;
         };
-        //点击触发请求
-        $scope.AjaxHttp = function(key){
-            changeStyle();
-            $scope.category.saleNav[findIndex(key)].isActive = true;
-            if(findIndex(key)+1== $scope.category.saleNav.length ){
-                //如果是最后一个nav, 去除下边框
-                var categoryNav = document.getElementById("categoryNav").children;
-                categoryNav[categoryNav.length-1].style.borderBottomWidth=0;
+
+
+        //数据收集
+        $scope.category={
+            saleNav:[],
+            itemInfo:[],
+        };
+
+        //页面载入请求
+        $http({
+            "method":"get",
+            "url":categoryUrl,
+        }).success(function(data){
+            console.log(data);
+            $scope.category.saleNav =data.items;
+        }).error(function(){
+            alert("请求失败")
+        });
+
+
+        //分配左侧导航栏click函数变量,并初始化为0
+        $scope.watchClick = 0;
+
+
+        //页面样式函数
+        $scope.active = function(id){
+            var classType = ['active','disable',"last"];
+            if($scope.watchClick == findIndex(id)&& findIndex(id)== $scope.category.saleNav.length-1 ){
+                return classType[2]
             }
-            console.log(key);
+            else{
+                if($scope.watchClick == findIndex(id)){
+                    return classType[0]
+                }
+                else{
+                    return classType[1]
+                }
+            }
+        };
+
+        //统一http请求
+        var queryProduct = function(key){
             $http({
                 "method":"post",
                 "url":prefuri+"/product/query",
@@ -61,11 +78,18 @@ define([],function(){
                 },
             }).success(
                 function(response, status, headers, config){
-                $scope.category.itemInfo = response.content;
-                console.log(response)
-            }).error(
+                    $scope.category.itemInfo = response.content;
+                    console.log(response)
+                }).error(
                 function(){
-            });
+                });
+        }
+
+        //点击触发请求
+        $scope.AjaxHttp = function(key){
+            $scope.watchClick = findIndex(key);
+
+            queryProduct(key)
         };
 
     };
