@@ -32,20 +32,26 @@
 <div class="item-detail-option-wrapper">
     <!--自定义命令区域-->
     <dl class="item-detail-option-list" ng-model="tapColor" ng-init="tapColor=0">
-        <dt>颜色:</dt>
+        <dt>{{itemColors.name}}:</dt>
         <!--第一个要加载默认样式style="border-color:#16cd9b" active-->
-        <dd ng-repeat="tagColor in saleDetail.tags"
-            ng-class="activeSelect(tagColor,saleDetail.tags)"
-            ng-click="">
-            {{tagColor.attrs.color}}
-            <i ng-class="selectStyle(tagColor,saleDetail.tags)">
+        <dd ng-repeat="itemColor in itemColors.items"
+            ng-class="{true: 'active', false: ''}[itemColor.selected]"
+            ng-click="setSelectedColor(itemColor.id)">
+            {{itemColor.name}}
+            <i ng-class="{true: 'active', false: ''}[itemColor.selected]">
             </i>
         </dd>
     </dl>
     <dl class="item-detail-option-list">
-        <dt>选购类型:</dt>
+        <dt>{{itemShapes.name}}:</dt>
         <!--第一个要加载默认样式style="border-color:#16cd9b" active-->
-        <dd ng-repeat="" ng-click=""><i ng-class="selectStyle()"></i></dd>
+        <dd ng-repeat="itemShape in itemShapes.items"
+            ng-class="{true: 'active', false: ''}[itemShape.selected]"
+            ng-click="setSelectedShape(itemShape.id)">
+            {{itemShape.name}}
+            <i ng-class="{true: 'active', false: ''}[itemShape.selected]">
+            </i>
+        </dd>
     </dl>
 </div>
 <div class="split-line"></div>
