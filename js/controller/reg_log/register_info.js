@@ -7,6 +7,8 @@ define([],function(){
         var completeInfoURL = prefuri+"/user/complete";//完善信息url
         var gettingCityList = prefuri+"";//获取城市和大学列表
 
+        $scope.idTip = "";
+
         //额外信息组件
         $scope.hintStatus = false;
         $scope.infoHint = "";
@@ -42,13 +44,19 @@ define([],function(){
                 "url":gettingCityList,
                 "data":$scope.completeData,
             }).success(function(response, status, headers, config){
-                alert("点击获取列表数据请求成功")
             }).error(function(){
-                alert("点击获取列表数据失败")
             });
             //仅测试使用
             $scope.infoData.cityList=["nanjing","beijing","chongqing"];
         };
+
+        $scope.checkId = function(){
+            console.log($scope.completeData.idNo);
+            console.log(typeof $scope.completeData.idNo);
+            var bool = (/^[\d]{15}$/).test($scope.completeData.idNo) || (/^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$/g).test($scope.completeData.idNo);
+            $scope.idTip = bool ? "身份证格式正确" : "身份证格式错误";
+        };
+
         //点击触发下一步
         $scope.nextStep = function(){
             $http({
@@ -58,8 +66,6 @@ define([],function(){
             }).success(function(response, status, headers, config){
                 hintFUNC();
             }).error(function(){
-                console.log($scope.completeData);
-                alert("未能成功http");
                 hintFUNC();
             });
         };

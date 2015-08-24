@@ -4,16 +4,14 @@
 define([],function(){
     //定义商品分类controller
     function setAccountCtrl($scope,$routeParams,$location,$http){
-        var setAccountUrl= prefuri + "";
+        var setAccountUrl= prefuri + "/user/complete";
         //登出函数
         $scope.logout = function () {
             $http({
-                "method":"",
+                "method":"post",
                 "url":setAccountUrl
             }).success(function(data){
-                alert("接口成功");
             }).error(function(){
-                alert("接口调试失败")
             });
         };
         //重置头像@TODO

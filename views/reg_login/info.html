@@ -10,7 +10,7 @@
     </label>
     <label >
         身份证号
-        <input  id="IDNumber" type="tel" placeholder="请输入证件号" ng-model="completeData.idNo"/>
+        <input  id="IDNumber" type="tel" placeholder="请输入证件号" ng-model="completeData.idNo" ng-change="checkId()"/>
     </label>
     <label>
         省份
@@ -88,6 +88,9 @@
             <option value="博一">博一</option>
             <option value="博二">博二</option>
         </select><!--校区部分还没有写上去-->
+    </label>
+    <label ng-show="idTip.length > 0" class=" no-border">
+        {{idTip}}
     </label>
     <label class=" no-border">
         <div class="of-button of-button-bar" id="regInfoSubmit" ng-click="nextStep()">下一步</div>
