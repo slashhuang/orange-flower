@@ -18,7 +18,7 @@ define([], function () {
             }).
             when('/sale/category', {
                 templateUrl: '/views/sale/category.html',
-                controller: 'categoryCtrl',
+                controller: 'categoryCtrl'
             }).
             when('/sale/detail/:detailId', {
                 templateUrl: '/views/sale/detail.html',
@@ -45,7 +45,7 @@ define([], function () {
             when("/user/modifypwd",{
             templateUrl: '/views/user/modifyPWD.html',
             controller: 'modifyPwdCtrl'
-        });;
+        });
         //登录注册部分
         $routeProvider.
             when("/register",{
