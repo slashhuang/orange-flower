@@ -1,7 +1,7 @@
 /**
  * Created by slashhuang on 15/8/23.
  */
-define([],function(){
+define(["/js/lib/jquery.js","/js/lib/ajaxfileupload.js"],function($,ajaxFileUpload){
     //定义商品分类controller
     function userSettingsCtrl($scope,$routeParams,$location,$http){
         var logoutURL = prefuri + "/user/logout";
@@ -30,7 +30,7 @@ define([],function(){
             else{
                 $scope.logoutStatus=true;
             }
-        }
+        };
     }
     userSettingsCtrl.$inject=['$scope','$routeParams','$location','$http'];
     return userSettingsCtrl;

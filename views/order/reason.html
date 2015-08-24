@@ -1,0 +1,28 @@
+<!--头部-->
+<div class="of-header gray">
+    <a class="header-back" href="javascript:history.back();"></a>
+    取消原因
+</div>
+
+<!--成功通知-->
+<div class="cancel-tip">
+    <div class="cancel-tip-text">
+        <h4 class="tip-title">取消订单成功</h4>
+        <p class="tip-texts">订单已取消，请告诉我们取消的原因帮助我们改进,我们会做得更好，谢谢～</p>
+    </div>
+</div>
+
+<div class="split-line"></div>
+
+<!--原因列表-->
+<div class="reason-list">
+    <p class="list-tip">取消订单原因</p>
+    <ul class="reason-item">
+        <li class="reason-each" ng-class="checkedClass(item.checked)" ng-click="checkThis($index)" ng-repeat="item in data">
+            <p class="text-reason">{{item.text}}</p>
+        </li>
+    </ul>
+</div>
+
+<!--按钮-->
+<span class="sub-reason-btn">提交</span>

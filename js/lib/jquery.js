@@ -30,6 +30,10 @@
 				}
 				return factory( w );
 			};
+	}else  if(typeof define === "function" && define.amd){
+		define( [], function() {
+			return factory( global );
+		});
 	} else {
 		factory( global );
 	}
