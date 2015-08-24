@@ -34,7 +34,8 @@ define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
                         "payCode": "PAY_WEIXIN",
                         "tradeType": "TRADE_CONSUME",
                         "description": "消费"
-                    }
+                    },
+                    headers: {'Content-Type': 'application/json; charset=UTF-8'}
                 }).
                 success(function (res) {
                     wx.config({
