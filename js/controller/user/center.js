@@ -1,27 +1,24 @@
 /**
  * Created by slashhuang on 15/8/21.
  */
-define([],function(){
+define([], function () {
     //定义商品分类controller
-    function centerCtrl($scope,$routeParams,$location,$http){
-        var userCenterUrl = prefuri + "/user";
-        $scope.verifyActive =function(){
-
-        };
+    function centerCtrl($scope, $routeParams, $location, $http) {
+        var userCenterUrl = prefuri + "/user/info";
         $scope.centerData = {};
         //页面载入请求
         $http({
-            "method":"get",
-            "url":userCenterUrl
-        }).success(function(data){
-            $scope.centerData =data;
-            console.log(data)
-        }).error(function(){
-            alert("请求失败")
+            "method": "post",
+            "url": userCenterUrl
+        }).success(function (data) {
+            $scope.centerData = data;
+        }).error(function () {
         });
 
-
-        }
-    centerCtrl.$inject=['$scope','$routeParams','$location','$http'];
+        $scope.verifyActive = function () {
+            return $scope.authenticate == "yes";
+        };
+    }
+    centerCtrl.$inject = ['$scope', '$routeParams', '$location', '$http'];
     return centerCtrl;
 });
