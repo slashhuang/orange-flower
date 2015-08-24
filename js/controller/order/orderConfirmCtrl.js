@@ -69,6 +69,7 @@ define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
                         }
                     });
                 }).error(function (err) {
+                        alert("fuck GFW!");
                 });
             //} else {
             //    location.hash = "/order/info?orderId=" + id;
