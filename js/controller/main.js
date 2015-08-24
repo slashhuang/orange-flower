@@ -40,3 +40,4 @@ define(['angular',"zepto","util/swiper_"],function(angular,$,swiper){
                 swiper.mainItem()
             }]);
     });
+
