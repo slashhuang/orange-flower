@@ -6,10 +6,10 @@
  */
 define(["zepto","util/swiper_"], function($,swiper){
     //定义商品分类controller
-    function detailCtrl($scope,$routeParams,$location,$http){
+    function detailCtrl($scope,$routeParams,$location,$http,$timeout){
 
         //暂时混用javascript,设置悬浮样式
-        (function(){
+        var detailDomFunc = function(){
             console.log("require放在controller里面加载成功")
             var window_height=window.screen.height;
             var $item_slider_content = $(".item-slider-wrapper").eq(0);
@@ -39,9 +39,7 @@ define(["zepto","util/swiper_"], function($,swiper){
             //确保选项卡高度足够
             $item_slider_content.css("min-height",window_height);
             $item_slider_window.css("min-height",content_height);
-            swiper.picture();
-            swiper.mainItem()
-        })();
+        };
         //暂时混用javascript,设置悬浮样式
 
 
@@ -158,7 +156,11 @@ define(["zepto","util/swiper_"], function($,swiper){
         }).success(function(data){
             console.log(data);
             $scope.saleDetail = data;
-
+            $timeout(function(){
+                swiper.mainItem();
+                swiper.picture();
+                detailDomFunc()
+            },200);
             /***初始化自己设置的变量*/
             //选择商品标签及颜色
             $scope.itemColors = $scope.saleDetail.attrs[0];//颜色
@@ -187,6 +189,6 @@ define(["zepto","util/swiper_"], function($,swiper){
 
 
     };
-    detailCtrl.$inject=['$scope','$routeParams','$location','$http'];
+    detailCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout'];
     return detailCtrl
 });
