@@ -14,11 +14,15 @@
     <div class="plain-list">
         <ul class="bill-list-item">
             <li class="item-each" ng-repeat="item in data.repayments">
-                <div>
+                <div class="bill-info-detail clear-float">
+                    <div style="width:50%;float:left">
                     <p class="bill-num" ng-bind="$index + 1"></p>
                     <p class="bill-riches">￥{{transferPrice(item.repayment)}}</p>
+                        </div>
+                    <div style="width:50%;float:right">
                     <p class="bill-date">{{item.day | date:"yyyy-MM-dd"}}</p>
                     <p class="bill-status" ng-class="backClass(item.repaid)">{{getState(item.repaid)}}</p>
+                    </div>
                 </div>
             </li>
         </ul>
