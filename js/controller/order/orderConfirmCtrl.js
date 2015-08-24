@@ -24,6 +24,7 @@ define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
          */
         $scope.confirmBuy = function (id, firstPay) {
             //if (firstPay > 0) {
+                alert('fuck');
                 $http({
                     "method": "post",
                     "url": prefuri + "/pay/create/",
