@@ -13,19 +13,19 @@
     background-color: #939393 !important;
 }
 .swiper-pagination-bullet{
-    background-color: #fff !important;
+    background-color: #16cd9b !important;
 }
 
 /**
 *图标和小字的分类
 */
 .of-icon-class-box{
-    margin-top:-5px ;
-    padding-bottom: 8px;
+    margin-top:5px ;
+    padding-bottom:11px;
     overflow: hidden;
     background-color: #fff;
-    border-top:#c1c1c1 1px solid;
-    border-bottom:#c1c1c1 1px solid;
+    /*border-top:#e6e6e6 1px solid;*/
+    /*border-bottom:#e6e6e6 1px solid;*/
 
 }
 
@@ -34,11 +34,12 @@
     float: left;
     width:25%;
     text-align:center;
-    font-size:11px;
-    margin-top:10px ;
+    font-size:13px;
+    margin-top:4px ;
 }
 
 .of-icon-class-item a{
+    font-size:12px;
     color: #888;
     display: block;
 }
@@ -55,7 +56,7 @@
 
 .of-special-sale{
     background-color:#fff;
-    border-top:#c1c1c1 1px solid;
+    /*border-top:#e6e6e6 1px solid;*/
     border-radius:1px;
     overflow: hidden;
 }
@@ -125,7 +126,7 @@
 *每个分类推荐的样式
 */
 .of-class-recommand-box{
-    border:#c9c9c9 1px solid;
+    /*border:#c9c9c9 1px solid;*/
     border-radius:1px;
 
     overflow: hidden;
@@ -134,7 +135,7 @@
 
 .of-class-recommand-header{
     background-color: #fff;
-    padding:8px;
+    padding:10px 2px 4px 8px;
     font-size: 15px;
     color: #2d2d2d;
     /*border-left:2px solid #fb4551;*/
@@ -161,54 +162,55 @@
     width:100%;
     height:auto;
     background-color: #ffffff;
-    padding-bottom: 8px;
+    padding-bottom: 12px;
 }
 .of-class-recommand-body .swiper-wrapper:first-child{
     margin-left:6px;
 }
 
 .of-class-recommand-item.swiper-slide{
-    width:25%;
+    width:28%;
     text-align: center;
     border: 1px solid #e6e6e6;
     background-color:#fff;
-    padding: 6px;
+    padding: 4px;
     margin-left: 2px;
-    overflow-y:hidden;
-    overflow-x: scroll;
+    margin-right:6px;
+    overflow:hidden;
 }
 .of-class-recommand-item a{
     display: block;
 }
 .swiper-wrapper{
-    margin-top:24px;
+    margin-top:10px;
 }
 .of-class-recommand-item img{
-    width:32px;
+    width:45px;
 }
 
 .of-class-recommand-item .of-name{
     text-align: center;
     font-family: monospace;
-    font-size: 9px;
-    font-weight: 700;
+    font-size: 11px;
+    font-weight: normal;
     white-space:nowrap;
     display: block;
     overflow: hidden;
     text-overflow:ellipsis;
-    margin-top: 12px;
+    margin-top: 5px;
     color: #2d2d2d;
+    padding:0 10px;
 }
 
 .of-class-recommand-item .of-price{
-    font-size: 7px;
+    font-size: 9px;
     margin-top: 3px;
     color: #2d2d2d;
     font-weight:900;
 }
 .of-class-recommand-item .of-price span{
     font-size: 11px;
-    color: #ff1702;
+    color: #ff5959;
 }
 
 /**
@@ -229,13 +231,13 @@
 */
 .of-bottom-bar{
     background-color: #ffffff;
-    border-top: 1px solid #dbdbdb;
+    /*border-top: 1px solid #dbdbdb;*/
     position: fixed;
     bottom: 0;
     padding-top:6px;
     padding-bottom:6px ;
     overflow: hidden;
-    font-size: 10px;
+    font-size: 12px;
     color:#c8c8c8;
     width: 100%;
     z-index: 9999999;

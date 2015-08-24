@@ -39,7 +39,8 @@ define(["zepto","util/swiper_"], function($,swiper){
             //确保选项卡高度足够
             $item_slider_content.css("min-height",window_height);
             $item_slider_window.css("min-height",content_height);
-            swiper.picture()
+            swiper.picture();
+            swiper.mainItem()
         })();
         //暂时混用javascript,设置悬浮样式
 

@@ -11,7 +11,16 @@ define(['loadScript','angular','config/routeConfig','lib/angular-route',
             window.prefuri = "http://juhua-server.orange.com";
     var app = angular.module('app',
         ["ngRoute","mainModule","salesModule","ngLoadScript","userModule","orderModule","reglogModule","orderModule","billModule"]);
+        app.controller("BottomController",['$http','$location','$scope',function($http,$location,$scope){
 
+            $scope.activeIcon = function(){
+
+            };
+            //$scope.pageLight =
+            //if($location.$$url){
+            //
+            //}
+        }]);
     //配置路由
     app.config(routeConfig);
     angular.bootstrap(document, ['app']);

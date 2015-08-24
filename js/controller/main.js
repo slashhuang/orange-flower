@@ -1,7 +1,7 @@
 /**
  * Created by slashhuang on 15/8/22.
  */
-define(['angular'],function(angular){
+define(['angular',"util/swiper_"],function(angular,swiper){
         var mainModule = angular.module('mainModule',["ngRoute"]);
         mainModule.controller('mainCtrl', ['$scope', '$routeParams', '$http',
             function($scope, $routeParams, $http) {
@@ -55,6 +55,8 @@ define(['angular'],function(angular){
                     }
                     return "";
                 };
+                swiper.mainItem();
+                swiper.picture();
 
             }]);
     });

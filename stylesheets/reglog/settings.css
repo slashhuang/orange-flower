@@ -1,9 +1,9 @@
 .settings-list{
     padding:12px 10px;
-    text-indent:10px;
+    /*text-indent:10px;*/
     background-color: #fff;
-    font-size:14px;
-    border-bottom: 1px solid #e6e6e6;
+    font-size:16px;
+    border-top: 1px solid #e6e6e6;
 }
 .settings-button{
     margin:20px 10px 0 10px;

@@ -1,7 +1,6 @@
 
 <div class="of-header gray ">
     <a class="header-back" href="javascript:history.back()"></a>
-    <a class="header-back-info" href="javascript:history.back()">我的</a>
     信用认证
 </div>
 <div class="user-credit-limit" ng-model="verified" ng-init="verified=false">
@@ -10,7 +9,7 @@
     <h4>信用额度(元)</h4>
     <i>0.00</i>
 </div>
-<div class="user-credit-info" ng-show="!verified">完善信息即可获取6000元额度</div>
+<div class="user-credit-info" ng-show="!verified">完善信息即可获取<span>6000</span>元额度</div>
 <div style="margin-top:15px;" ng-show="verified">&nbsp;</div>
 <a href="#/registerInfo">
     <div class="of-button user-credit-button">立即完善</div>
