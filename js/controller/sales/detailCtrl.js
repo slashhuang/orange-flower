@@ -4,9 +4,46 @@
 /**
  * Created by slashhuang on 15/8/21.
  */
-define([],function(){
+define(["zepto","util/swiper_"], function($,swiper){
     //定义商品分类controller
     function detailCtrl($scope,$routeParams,$location,$http){
+
+        //暂时混用javascript,设置悬浮样式
+        (function(){
+            console.log("require放在controller里面加载成功")
+            var window_height=window.screen.height;
+            var $item_slider_content = $(".item-slider-wrapper").eq(0);
+            var $item_slider_window = $(".item-slider-window").eq(0);
+            var top_dist = document.getElementById("itemSliderNav").offsetTop;
+            var content_height = $item_slider_content.offset().height;
+            $(window).scroll(function() {
+                var scrollListener = function (ele) {
+                    if ($(window).scrollTop() > top_dist) {
+                        $(ele).css({
+                            "position": "fixed",
+                            "top": "0",
+                            "left": "0",
+                            "z-index":"999"
+                        }).addClass("slider-active-fix-style");
+                    }
+                    else{
+                        $(ele).css({
+                            "position": "",
+                            "top": "",
+                            "left": "",
+                            "z-index":""
+                        }).removeClass("slider-active-fix-style");
+                    }
+                }
+                scrollListener("#itemSliderNav")});
+            //确保选项卡高度足够
+            $item_slider_content.css("min-height",window_height);
+            $item_slider_window.css("min-height",content_height);
+            swiper.picture()
+        })();
+        //暂时混用javascript,设置悬浮样式
+
+
         //获取参数渲染页面
         var itemID= $routeParams.detailId;
 

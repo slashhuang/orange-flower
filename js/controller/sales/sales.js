@@ -6,4 +6,5 @@ define(['angular','./categoryCtrl','./detailCtrl','./discountCtrl','./saleListCt
         salesModule.controller('detailCtrl',detail);
         salesModule.controller('discountCtrl',discount);
         salesModule.controller('saleListCtrl',saleList);
+
 });
