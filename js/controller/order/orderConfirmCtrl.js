@@ -23,7 +23,7 @@ define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
          * @param firstPay
          */
         $scope.confirmBuy = function (id, firstPay) {
-            if (firstPay > 0) {
+            //if (firstPay > 0) {
                 $http({
                     "method": "post",
                     "url": prefuri + "/pay/create/",
@@ -69,9 +69,9 @@ define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
                     });
                 }).error(function (err) {
                 });
-            } else {
-                location.hash = "/order/info?orderId=" + id;
-            }
+            //} else {
+            //    location.hash = "/order/info?orderId=" + id;
+            //}
         };
 
         /**

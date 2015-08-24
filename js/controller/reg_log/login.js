@@ -34,7 +34,6 @@ define([],function(){
             }).success(function(data){
                 outLogin();
             }).error(function(){
-                alert("登录请求失败，1秒后转向首页");
             });
         }
     };

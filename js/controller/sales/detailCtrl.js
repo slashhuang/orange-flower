@@ -184,6 +184,10 @@ define(["zepto","util/swiper_"], function($,swiper){
         $scope.showFrame = false;
 
 
+        /**
+         * 立即购买
+         */
+        $scope.buyNow = function(){};
 
 
     };
