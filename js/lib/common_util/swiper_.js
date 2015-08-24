@@ -12,15 +12,13 @@ define(['lib/swiper','zepto'], function(swiper, $){
                 })
             })();
         },
-        "div":function(){
-            (function(){
-                var mySwiper = new swiper ('.of-class-recommand-body', {
-                    slidesPerView: 4,
-                    paginationClickable: true,
-                    spaceBetween: 7,
-                    freeMode: true
-                })
-            })();
+        "mainItem":function(){
+            var mySwiper = new swiper('.fuck-test',{
+                slidesPerView: 4,
+                paginationClickable: true,
+                spaceBetween: 7,
+                freeMode: true
+            })
         }
     }
 });

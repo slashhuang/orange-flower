@@ -61,56 +61,59 @@
 </div>
 <!--分类图标＋文字-->
 <div class="of-icon-class-box">
-    <div class="of-icon-class-item" ng-model="apple" ng-init="apple='苹果手机'">
-        <a href="#/sale/list/{{apple}}">
+
+    <div class="of-icon-class-item"  ng-repeat="category_list in mainData.category">
+        <a href="#/sale/list/{{category_list.item.value}}/{{category_list.item.id}}">
             <img src="/images/icon_main/iphone.png"/>
-            苹果手机
-        </a>
-    </div>
-    <div class="of-icon-class-item" ng-model="android" ng-init="android='安卓手机'">
-        <a href="#/sale/list/{{android}}">
-            <img src="/images/icon_main/android.png"/>
-            安卓手机
-        </a>
-    </div>
-    <div class="of-icon-class-item" ng-model="camera" ng-init="camera='摄影摄像'">
-        <a href="#/sale/list/{{camera}}">
-            <img src="/images/icon_main/camera.png"/>
-            摄影摄像
-        </a>
-    </div>
-    <div class="of-icon-class-item"  ng-model="branchPC" ng-init="branchPC='品牌电脑'">
-        <a hre="#/sale/list/{{branchPC}}">
-            <img src="/images/icon_main/brand_pc.png"/>
-            品牌电脑
+            {{category_list.item.value}}
         </a>
     </div>
 
-    <div class="of-icon-class-item"  ng-model="branchPC" ng-init="mobileCollection='手机配件'">
-        <a href="#/sale/list/{{mobileCollection}}">
-            <img src="/images/icon_main/mobile_collection.png"/>
-            手机配件
-        </a>
-    </div>
-    <div class="of-icon-class-item" ng-model="laptopPC" ng-init="laptopPC='平板电脑'">
-        <a href="#/sale/list/{{laptopPC}}">
-            <img src="/images/icon_main/laptop_pc.png"/>
-            平板电脑
-        </a>
-    </div>
-    <div class="of-icon-class-item"  ng-model="digits" ng-init="digits='潮流数码'">
-        <a href="#/sale/list/{{digits}}">
-            <img src="/images/icon_main/digital.png"/>
-            潮流数码
 
-        </a>
-    </div>
-    <div class="of-icon-class-item" ng-model="services" ng-init="services='充值缴费'">
-        <a href="#/sale/list/{{services}}">
-            <img src="/images/icon_main/service.png"/>
-            充值缴费
-        </a>
-    </div>
+    <!--<div class="of-icon-class-item" ng-model="android" ng-init="android='安卓手机'">-->
+        <!--<a href="#/sale/list/{{android}}">-->
+            <!--<img src="/images/icon_main/android.png"/>-->
+            <!--安卓手机-->
+        <!--</a>-->
+    <!--</div>-->
+    <!--<div class="of-icon-class-item" ng-model="camera" ng-init="camera='摄影摄像'">-->
+        <!--<a href="#/sale/list/{{camera}}">-->
+            <!--<img src="/images/icon_main/camera.png"/>-->
+            <!--摄影摄像-->
+        <!--</a>-->
+    <!--</div>-->
+    <!--<div class="of-icon-class-item"  ng-model="branchPC" ng-init="branchPC='品牌电脑'">-->
+        <!--<a hre="#/sale/list/{{branchPC}}">-->
+            <!--<img src="/images/icon_main/brand_pc.png"/>-->
+            <!--品牌电脑-->
+        <!--</a>-->
+    <!--</div>-->
+
+    <!--<div class="of-icon-class-item"  ng-model="branchPC" ng-init="mobileCollection='手机配件'">-->
+        <!--<a href="#/sale/list/{{mobileCollection}}/">-->
+            <!--<img src="/images/icon_main/mobile_collection.png"/>-->
+            <!--手机配件-->
+        <!--</a>-->
+    <!--</div>-->
+    <!--<div class="of-icon-class-item" ng-model="laptopPC" ng-init="laptopPC='平板电脑'">-->
+        <!--<a href="#/sale/list/{{laptopPC}}">-->
+            <!--<img src="/images/icon_main/laptop_pc.png"/>-->
+            <!--平板电脑-->
+        <!--</a>-->
+    <!--</div>-->
+    <!--<div class="of-icon-class-item"  ng-model="digits" ng-init="digits='潮流数码'">-->
+        <!--<a href="#/sale/list/{{digits}}">-->
+            <!--<img src="/images/icon_main/digital.png"/>-->
+            <!--潮流数码-->
+
+        <!--</a>-->
+    <!--</div>-->
+    <!--<div class="of-icon-class-item" ng-model="services" ng-init="services='充值缴费'">-->
+        <!--<a href="#/sale/list/{{services}}">-->
+            <!--<img src="/images/icon_main/service.png"/>-->
+            <!--充值缴费-->
+        <!--</a>-->
+    <!--</div>-->
 </div>
 <!--分割行-->
 <div class="split-line"></div>
@@ -154,7 +157,7 @@
             {{category_list.item.value}}
             <a href="#/sale/list/{{category_list.item.value}}/{{category_list.item.id}}">更多</a>
         </div>
-        <div class="of-class-recommand-body">
+        <div class="of-class-recommand-body fuck-test">
             <div class="swiper-wrapper">
                 <div class="of-class-recommand-item swiper-slide" ng-repeat="list_detail in category_list.products track by $index">
                     <a href="#/sale/detail/{{list_detail.id}}">
@@ -178,10 +181,3 @@
 <div class="of-ad of-bottom">
     <img class="lazy" src="/images/ad_banner/ad_banner.png">
 </div>
-
-<script type="text/javascript-lazy">
- require(['util/swiper_'],function(swiper){
-   swiper.div();
-   swiper.picture();
- })
-</script>
