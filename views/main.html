@@ -157,13 +157,13 @@
         <div class="of-class-recommand-body">
             <div class="swiper-wrapper">
                 <div class="of-class-recommand-item swiper-slide" ng-repeat="list_detail in category_list.products track by $index">
-                    <a href="#/sale/detail/{{category_list.item.value}}">
+                    <a href="#/sale/detail/{{list_detail.id}}">
                         <img src="/images/mobile_demo.png" />
                         <div class="of-name">
                             {{list_detail.title}}
                         </div>
                         <div class="of-price">
-                            <span>¥ {{list_detail.price}}</span>X24
+                            <span>¥ {{transferPrice(list_detail.price)}}</span>X24
                         </div>
                     </a>
                 </div>
@@ -180,7 +180,8 @@
 </div>
 
 <script type="text/javascript-lazy">
- <!--require(['util/swiper_'],function(swiper){-->
-   <!--swiper.div()-->
- <!--})-->
+ require(['util/swiper_'],function(swiper){
+   swiper.div();
+   swiper.picture();
+ })
 </script>

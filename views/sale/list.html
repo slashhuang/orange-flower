@@ -29,9 +29,9 @@
             </div>
             <div class="item-hot-list-detail">
                 <h1>{{sale.title}}</h1>
-                <p class="item-price">售价：￥{{sale.price}}</p>
+                <p class="item-price">售价：￥{{transferPrice(sale.price)}}</p>
                 <div class="total-price">
-                    <i>￥{{sale.pricePerMonth}}</i>
+                    <i>￥{{transferPrice(sale.pricePerMonth)}}</i>
                     <h2>×</h2><span>{{sale.month}}期</span>
                     <a href="" class="item-hot-sale">热卖</a>
                     <a href="" class="item-new-sale">新品</a>

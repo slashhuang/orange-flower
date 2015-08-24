@@ -13,8 +13,8 @@
     <div class="of-category-main-nav">
         <ul id="categoryNav" class="of-category-list">
           <!--偶数就是前面"active":"disable"-->
-            <li ng-repeat="itemlist in category.saleNav" ng-class="{true: 'active', false: 'disable'}[itemlist.isActive]"
-                 ng-model="itemlist.id" ng-click="AjaxHttp(itemlist.id)">
+            <li ng-repeat="itemlist in category.saleNav" ng-class="active(itemlist.id)"
+                 ng-click="AjaxHttp(itemlist.id)">
                 {{itemlist.value}}
             </li>
         </ul>
