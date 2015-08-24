@@ -132,24 +132,25 @@ define([],function(){
         function _rendData(data){
             var returnVal = [];
             angular.forEach(data,function(item,index){
-                returnVal.push({
-                    "orderId":item["orderId"],                                      //  订单id
-                    "img":item["orderLines"][0]["commodityIcon"],                   //  商品缩略图
-                    "arg":item["orderLines"][0]["commodityName"],                   //  商品参数
-                    "status":item["totalStatus"]["value"],                          //  订单状态
-                    "statusText":item["totalStatus"]["title"],                      //  状态文字说明
-                    "salePrice":item["orderLines"][0]["salePrice"],                 //  商品原价
-                    "realPayAmount":item["orderLines"][0]["realPayAmount"],         //  实际付款
-                    "prePeriodsPay":item["orderLines"][0]["prePeriodsPay"],         //  每期付款
-                    "periods":item["orderLines"][0]["periods"],                     //  分期期数
-                    "firstPay":item["orderLines"][0]["firstPay"],                   //  首付
-                    "productName":item["orderLines"][0]["commodityName"],           //  商品名称
-                    "productId":item["orderLines"][0]["sku"]["productId"]           //  商品id
-                });
+                if(item){
+                    returnVal.push({
+                        "orderId":item["orderId"],                                      //  订单id
+                        "img":item["orderLines"][0]["commodityIcon"],                   //  商品缩略图
+                        "arg":item["orderLines"][0]["sku"]["title"],                    //  商品参数
+                        "status":item["totalStatus"]["value"],                          //  订单状态
+                        "statusText":item["totalStatus"]["title"],                      //  状态文字说明
+                        "salePrice":item["orderLines"][0]["salePrice"],                 //  商品原价
+                        "realPayAmount":item["orderLines"][0]["realPayAmount"],         //  实际付款
+                        "prePeriodsPay":item["orderLines"][0]["prePeriodsPay"],         //  每期付款
+                        "periods":item["orderLines"][0]["periods"],                     //  分期期数
+                        "firstPay":item["orderLines"][0]["firstPay"],                   //  首付
+                        "productName":item["orderLines"][0]["commodityName"],           //  商品名称
+                        "productId":item["orderLines"][0]["sku"]["productId"]           //  商品id
+                    });
+                }
             });
             return returnVal;
         }
-
     };
     orderListCtrl.$inject=['$scope','$routeParams','$location','$http'];
     return orderListCtrl;

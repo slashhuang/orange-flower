@@ -3,6 +3,7 @@
  */
 define(function(){
     window.prefuri = "http://juhua-server.orange.com";
+    window.curTab = "main";
     window.localStorage.headerInfo ="";
     return {
             "checkPhoneNumber": "",//查询是否已经注册

@@ -8,7 +8,6 @@ define([],function() {
     //定义商品分类controller
     function detailCtrl($scope, $routeParams, $location, $http) {
 
-
         //通用函数
         /**
          * 价格转换器
@@ -36,9 +35,21 @@ define([],function() {
                 },
                 saleState: true,
                 timeCountDown: new Date().toLocaleString(),
-                numLeft: 0,
+                numLeft: 0
             };
         }
+
+        /**
+         * 根据hash区分是第几个tab
+         * @param cur
+         */
+        $scope.addActive = function(cur){
+            var hash = location.hash;
+            if(hash.indexOf(cur) > 0){
+                return "active";
+            }
+            return "";
+        };
     }
 
     detailCtrl.$inject = ['$scope','$routeParams', '$location', '$http'];

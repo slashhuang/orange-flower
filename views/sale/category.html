@@ -37,38 +37,4 @@
 
 </div>
 <!--底部导航栏-->
-<div class="of-bottom-bar" id="navigationBar">
-    <div>
-        <a href="#/">
-            <i class="of-icon-bottom of-icon-home active"></i>
-            首页
-        </a>
-    </div>
-    <div >
-        <a href="#/sale/category">
-            <i class="of-icon-bottom of-icon-classify "></i>
-            商品分类
-        </a>
-    </div>
-    <div >
-        <a href="#/sale/discount">
-            <i class="of-icon-bottom of-icon-hot"></i>
-            热卖
-        </a>
-    </div>
-    <div>
-        <a href="#/user/center">
-            <i class="of-icon-bottom of-icon-person"></i>
-            我的
-        </a>
-    </div>
-    <div >
-        <a href="">
-            <i class="of-icon-bottom of-icon-heart "></i>
-            帮助
-        </a>
-    </div>
-</div>
-<script type="text/javascript-lazy">
- <!--require(['dom_sales/category'],function(){})-->
-</script>
+<div ng-include="'/views/header_bottom/bottom.html'"></div>
