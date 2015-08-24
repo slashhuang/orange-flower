@@ -6,6 +6,17 @@ define([],function(){
     function categoryCtrl($scope,$routeParams,$location,$http){
         //通用url
         var categoryUrl = prefuri+"/dict/product_category";
+        /**
+         * 根据hash区分是第几个tab
+         * @param cur
+         */
+        $scope.addActive = function(cur){
+            var hash = location.hash;
+            if(hash.indexOf(cur) > 0){
+                return "active";
+            }
+            return "";
+        };
 
         //**** 通用函数
         /**
@@ -32,7 +43,7 @@ define([],function(){
         //数据收集
         $scope.category={
             saleNav:[],
-            itemInfo:[],
+            itemInfo:[]
         };
 
         //页面载入请求
@@ -40,10 +51,8 @@ define([],function(){
             "method":"get",
             "url":categoryUrl,
         }).success(function(data){
-            console.log(data);
             $scope.category.saleNav =data.items;
         }).error(function(){
-            alert("请求失败")
         });
 
 
@@ -75,11 +84,10 @@ define([],function(){
                 "data":{
                     "sortType": "DEFAULT",
                     "catId": key
-                },
+                }
             }).success(
                 function(response, status, headers, config){
                     $scope.category.itemInfo = response.content;
-                    console.log(response)
                 }).error(
                 function(){
                 });

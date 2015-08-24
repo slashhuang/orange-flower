@@ -36,6 +36,25 @@ define(['angular'],function(angular){
                 }).error(function(){
                 });
 
+                /**
+                 * 设定当前区分菜单项的便利
+                 * @param cur
+                 */
+                $scope.setCur = function(cur){
+                    curTab = cur;
+                };
+
+                /**
+                 * 根据hash区分是第几个tab
+                 * @param cur
+                 */
+                $scope.addActive = function(cur){
+                    var hash = location.hash;
+                    if(hash.indexOf(cur) > 0){
+                        return "active";
+                    }
+                    return "";
+                };
 
             }]);
     });
