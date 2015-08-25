@@ -42,7 +42,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js"], function (wx, $) {
                         "jsApiList": ["chooseWXPay"]
                     });
                     wx.chooseWXPay({
-                        "timestamp": res["timestamp"],
+                        "timestamp": res["timeStamp"],
                         "nonceStr": res["nonceStr"],
                         "package": res["wxPackage"],
                         "signType": res["signType"],
