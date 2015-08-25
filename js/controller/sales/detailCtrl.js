@@ -6,7 +6,6 @@
  */
 define(["zepto","util/swiper_"], function($,swiper){
     //定义商品分类controller
-    function detailCtrl($scope,$routeParams,$location,$http,$timeout){
     function detailCtrl($scope, $routeParams, $location, $http, $timeout) {
 
         //暂时混用javascript,设置悬浮样式
@@ -91,7 +90,7 @@ define(["zepto","util/swiper_"], function($,swiper){
         };
         /**
          *
-         * @param state
+         * @param stateÒ
          */
         $scope.activeShowFrame = function(state){
             if(state){
@@ -123,7 +122,14 @@ define(["zepto","util/swiper_"], function($,swiper){
          * @param firstTimePay
          */
         $scope.calculate =function(finalMonth,firstTimePay){
-            $scope.calculateMoney = (($scope.transferPrice($scope.saleDetail.price)-firstTimePay)/finalMonth).toFixed(2);
+            console.log(firstTimePay + "----" + finalMonth);
+            if((/^[+-]?\d+(\.\d+)?$/).test(firstTimePay)){
+                $scope.firstTimePay = firstTimePay;
+                $scope.calculateMoney = (($scope.transferPrice($scope.saleDetail.price)-firstTimePay)/finalMonth).toFixed(2);
+            }else{
+                $scope.firstTimePay = "";
+                $scope.calculateMoney = (($scope.transferPrice($scope.saleDetail.price)-0)/finalMonth).toFixed(2);
+            }
         };
         /**
          * 改变三角形style
@@ -179,6 +185,7 @@ define(["zepto","util/swiper_"], function($,swiper){
             // [选择价格月份]
             $scope.finalMonth = $scope.saleDetail.minMonth;
             $scope.firstTimePay = "0";
+            console.log(typeof $scope.salePrice.price);
             $scope.calculateMoney = $scope.transferPrice($scope.saleDetail.price);
 
 

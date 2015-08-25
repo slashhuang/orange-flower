@@ -2,9 +2,9 @@
  */
 define([],function(){
     //定义商品分类controller
-    function loginCtrl($scope,$routeParams,$location,$http,$timeout){
+    function loginCtrl($scope,$routeParams,$location,$http,$timeout) {
         //页面载入请求
-        var loginURL = prefuri+"/user/login/";
+        var loginURL = prefuri + "/user/login/";
 
 
         /**
@@ -21,85 +21,93 @@ define([],function(){
          * password.length>=6
          * @param password
          */
-        function checkPws(password){
-            if(password.length>5){
+        function checkPws(password) {
+            if (password.length > 5) {
                 return true
             }
         }
+
         /**
          * 在点击登录时判断是否合法
          * @param mobile
          */
-        $scope.checkMobile = function (mobile,password) {
+        $scope.checkMobile = function (mobile, password) {
             if (!_checkMobile(mobile)) {
-                $scope.checkVaildHint ="手机号格式不符!";
+                $scope.checkVaildHint = "手机号格式不符!";
                 return false;
-            } else{
-                if(!checkPws(password)){
-                    $scope.checkVaildHint ="密码至少6位!";
+            } else {
+                if (!checkPws(password)) {
+                    $scope.checkVaildHint = "密码至少6位!";
                     return false;
                 }
-                else{
+                else {
                     return true;
                 }
             }
         };
 
         //初始情况下不显示提示
-        $scope.loginStatus=false;
-        $scope.checkVaildHint ="";
+        $scope.loginStatus = false;
+        $scope.checkVaildHint = "";
 
         //点击登录按钮
-        $scope.userLogin =function(mobile,password){
-            if($scope.checkMobile(mobile,password)){
+        $scope.userLogin = function (mobile, password) {
+            if ($scope.checkMobile(mobile, password)) {
                 $http({
-                "method":"post",
-                "url":loginURL+mobile+'/'+password})
-                    .success(function(data){
-                        outLogin();})
-                    .error(function(){
+                    "method": "post",
+                    "url": loginURL + mobile + '/' + password
+                })
+                    .success(function (data) {
+                        outLogin();
+                    })
+                    .error(function () {
 
                     });
             }
         }
 
-        //组件
-        //跳出登录函数
-        var outLogin=function(){
-            var time = 2;
-            $scope.infoHint="登录成功"+time+"秒后转向首页";
-        //登录函数
-        var outLogin=function(txt){
-            var time = 4;
-            $scope.infoHint=txt+time+"秒后转向首页";
-            $scope.loginStatus = true;
-            var interval = setInterval(function(){
-                $scope.$apply(function(){
-                    time --;
-                    $scope.infoHint=txt+time+"秒后转向首页";
-                    if(time == 0){
-                        clearInterval(interval);
-                        location.hash = "#/main";
-                    }
-                });
-            },1000);
+        $scope.checkMobile = function(){
+
         };
 
-        //点击登录按钮
-        $scope.userLogin =function(loginName,password){
-            window.isLogin = true;
-            $http({
-                "method":"post",
-                "url":loginURL+loginName+'/'+password
-            }).success(function(data){
+        //组件
+        //跳出登录函数
+        var outLogin = function () {
+            var time = 2;
+            $scope.infoHint = "登录成功" + time + "秒后转向首页";
+            //登录函数
+            var outLogin = function (txt) {
+                var time = 4;
+                $scope.infoHint = txt + time + "秒后转向首页";
+                $scope.loginStatus = true;
+                var interval = setInterval(function () {
+                    $scope.$apply(function () {
+                        time--;
+                        $scope.infoHint = txt + time + "秒后转向首页";
+                        if (time == 0) {
+                            clearInterval(interval);
+                            location.hash = "#/main";
+                        }
+                    });
+                }, 1000);
+            };
+
+            //点击登录按钮
+            $scope.userLogin = function (loginName, password) {
                 window.isLogin = true;
-                //  登录成功
-                outLogin("登录成功");
-            }).error(function(){
-                window.isLogin = false;
-                outLogin("登录失败");
-            });
-        }
+                $http({
+                    "method": "post",
+                    "url": loginURL + loginName + '/' + password
+                }).success(function (data) {
+                    window.isLogin = true;
+                    //  登录成功
+                    outLogin("登录成功");
+                }).error(function () {
+                    window.isLogin = false;
+                    outLogin("登录失败");
+                });
+            }
+        };
     };
     loginCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout'];
 
