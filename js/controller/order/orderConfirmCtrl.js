@@ -1,4 +1,4 @@
-define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js"], function (wx, $) {
+define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "/js/lib/pingpp_pay.js"], function (wx, $, pay) {
     //定义确定购买orderConfirm
     function orderConfirmCtrl($scope, $routeParams, $location, $http) {
         //初始化变量完成
@@ -33,7 +33,25 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js"], function (wx, $) {
                 type: "post",
                 data: '{"orderId": "2015082017361235", "amount": 1, "payCode": "PAY_WEIXIN", "tradeType": "TRADE_CONSUME", "description": "消费"}',
                 success: function(res){
-                    wx.config({
+                    var charge = res["charge"];
+
+                    pay.createPayment(charge, function(result, error){
+                        if (result == "success") {
+                            // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的 wap 支付结果都是在 extra 中对应的 URL 跳转。
+                            alert("success");
+                        } else if (result == "fail") {
+                            var info = "";
+                            for(var i in error){
+                                info += i + "---" + error[i] + "\n";
+                            }
+                            alert(info);
+                            alert("发送错误！请重试！");
+                        } else if (result == "cancel") {
+                            alert("您取消了本次支付！");
+                        }
+                    });
+
+                    /*wx.config({
                         "debug": true,
                         "appId": res["appId"],
                         "timestamp": res["timestamp"],
@@ -68,7 +86,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js"], function (wx, $) {
                         cancel:function(){
                             alert("您取消了本次支付！");
                         }
-                    });
+                    });*/
                 }
             })
         };
