@@ -1,44 +1,45 @@
-<body>
-<div class="of-header gray">
-    <a class="header-back" href="#/main"></a>
-    分类
-    <a class="header-function" href="#/main">首页</a>
-</div>
-<!--商品排序方式-->
-
-<div class='of-category-input'>
-    <input placeholder="搜索您需要的商品" type="text" maxlength="20" ng-model="itemQuery">
-    <b ng-click="searchProduct(itemQuery)"></b>
-</div>
-
-
-<div class="of-category-main clear-float">
-    <div class="of-category-main-nav">
-        <ul id="categoryNav" class="of-category-list">
-            <!--偶数就是前面"active":"disable"-->
-            <li ng-repeat="itemlist in category.saleNav" ng-class="active(itemlist.id)"
-                ng-click="AjaxHttp(itemlist.id)">
-                {{itemlist.value}}
-            </li>
-        </ul>
+<div style="position:fixed;top:0;width:100%;">
+    <div class="of-header gray">
+        <a class="header-back" href="#/main"></a>
+        分类
+        <a class="header-function" href="#/main">首页</a>
     </div>
-    <div class="of-category-main-wrapper">
-        <div class="of-category-main-poster">
-            <img src="/images/ad_banner/ad_banner.png">
+    <!--商品排序方式-->
+
+    <div class='of-category-input'>
+        <input placeholder="搜索您需要的商品" type="text" maxlength="20" ng-model="itemQuery">
+        <b ng-click="searchProduct(itemQuery)"></b>
+    </div>
+
+
+    <div class="of-category-main clear-float">
+        <div class="of-category-main-nav" style="overflow:scroll">
+            <ul id="categoryNav" class="of-category-list">
+                <!--偶数就是前面"active":"disable"-->
+                <li ng-repeat="itemlist in category.saleNav" ng-class="active(itemlist.id)"
+                    ng-click="AjaxHttp(itemlist.id)">
+                    {{itemlist.value}}
+                </li>
+            </ul>
         </div>
-        <ul class="of-category-main-item">
-            <!--偶数添加"splitline"-->
-            <li ng-class-odd="'splitline'" ng-class-even="''" ng-repeat="info in category.itemInfo | filter:itemQuery">
-                <a href="#/sale/detail/{{info.id}}">
-                    <img ng-src="{{info.img}}">
-                    <span>{{info.title}}</span>
-                    <span>每个ID限购一单</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+        <div class="of-category-main-wrapper">
+            <div class="of-category-main-poster">
+                <img src="/images/ad_banner/ad_banner.png">
+            </div>
+            <ul class="of-category-main-item">
+                <!--偶数添加"splitline"-->
+                <li ng-class-odd="'splitline'" ng-class-even="''" ng-repeat="info in category.itemInfo | filter:itemQuery">
+                    <a href="#/sale/detail/{{info.id}}">
+                        <img ng-src="{{info.img}}">
+                        <span>{{info.title}}</span>
+                        <span>每个ID限购一单</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
+    </div>
 </div>
+
 <!--底部导航栏-->
 <div ng-include="'/views/header_bottom/bottom.html'"></div>
-</body>

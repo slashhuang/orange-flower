@@ -30,14 +30,14 @@
 .orde-num-info{
     float: left;
     position: relative;
-    font-size: 1.2rem;
-    line-height: 1.3rem;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
 }
 
 .orde-num-info .num{
     padding: 0 0 0 1rem;
-    font-size: 1.2rem;
-    line-height: 1.3rem;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
     vertical-align: bottom;
 }
 
@@ -136,8 +136,8 @@
 
 /* 商品图片 */
 .item-img{
-    width: 4.3rem;
-    height: 4.3rem;
+    width: 5.5rem;
+    height: 5.5rem;
     overflow: hidden;
     border: 1px solid #e6e6e6;
     position: absolute;
@@ -146,12 +146,12 @@
 }
 
 .item-img img{
-    width: 4.3rem;
-    height: 4.3rem;
+    width: 5.5rem;
+    height: 5.5rem;
 }
 
 .item-info{
-    width: 29rem;
+    width: 32rem;
     padding: 0 0 0 6rem;
 }
 
@@ -164,8 +164,8 @@
 /* 信息部分样式 */
 
 .item-info p{
-    font-size: 1.1rem;
-    line-height: 1.3rem;
+    font-size: 1.3rem;
+    line-height: 1.7rem;
 }
 
 .info-details-name p:nth-of-type(1),
@@ -180,7 +180,7 @@
 }
 
 .info-details-name p{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .info-details-name p:nth-of-type(1){
@@ -243,7 +243,7 @@ p.special-icon:before{
 /* 按钮 */
 .order-btn{
     padding: 0.5rem 0.75rem;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #515151;
     border: 1px solid #e6e6e6;
     float: right;

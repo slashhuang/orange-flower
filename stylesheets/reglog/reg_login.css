@@ -41,14 +41,16 @@
 }
 .of-register-button{
     border-radius:20px;
-    padding:2px 10px;
+    padding:6px 8px;
     float:right;
-    display:block
+    display:block;
+    font-size:12px;
 }
 .of-sms-button{
-    background:#5b5b5b;
+    background:#A9A9A9;
     color:#fff;
     font-size:12px;
+    padding:6px 5px;
 }
 
 label input{
@@ -88,7 +90,7 @@ input.checkbox-style{
 /*个人信息填写页面*/
 /*登陆页面*/
 .of-login-forget{
-    padding:0px 10px 7px 10px ;
+    padding:15px 10px 7px 10px ;
 }
 .of-login-forget span{
     display: block;

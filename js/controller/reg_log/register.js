@@ -55,7 +55,7 @@ define([],function(){
         /**
          * 点击切换checkbox样式
          */
-        $scope.checkbox = function(){
+        $scope.checkbox_register = function(){
             $scope.verified=!$scope.verified;
         };
         /**
@@ -118,6 +118,9 @@ define([],function(){
                 $timeout(function(){
                     alert("register succeed")
                 },1000)
+                //@TODO 跳转个人信息
+
+
             }).error(function(){
                alert('register failed')
             });

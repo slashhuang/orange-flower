@@ -1,13 +1,14 @@
 /*登录注册及主页头样式*/
 .header-back{
     position: absolute;
-    top: 9px;
+    top: 12px;
     left:11px;
     display:block;
     width: 40px;
     height: 20px;
     background: url(/images/icon/arrow_header.png) no-repeat 0 0 ;
     background-size: 10px 20px;
+
 }
 
 .header-back-info{
@@ -22,7 +23,7 @@
 
 .header-function{
     right:16px;
-    top:12px;
+    top:13px;
     position: absolute;
     font-size: 15px;
     font-weight: normal;
@@ -37,11 +38,22 @@
     background: url(../images/icon/icon_arrow_right.png) no-repeat 20px 0;
     background-size: 9px 16px;
 }
+.arrow-right-select-register{
+    display:block;
+    float:right;
+    width: 9px;
+    height: 16px;
+    background: url(../images/icon/icon_arrow_right.png) no-repeat 0 0;
+    background-size: 9px 16px;
+    margin-left: 0 !important;
+}
+
+
 
 .of-header{
     width: 100%;
     font-size:18px;
-    padding: 10px;
+    padding: 11px;
     text-align: center;
     position: relative;
 }

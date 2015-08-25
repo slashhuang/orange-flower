@@ -14,7 +14,7 @@
     </label>
     <label>
         省份
-        <span class="arrow-right-select"></span>
+        <span class="arrow-right-select-register"></span>
         <select id="userProvince" name="province" ng-model="completeData.province" ng-change="setData(completeData.province)">
                 <option value="beijing">北京</option>
                 <option value="天津">天津</option>
@@ -54,28 +54,28 @@
     </label>
     <label>
         城市
-        <span  class="arrow-right-select"></span>
+        <span  class="arrow-right-select-register"></span>
         <select id="userCity" ng-model="completeData.city">
             <option ng-repeat="option in infoData.cityList" value="">{{option}}</option>
         </select>
     </label>
     <label>
         学校
-        <span class="arrow-right-select"></span>
+        <span class="arrow-right-select-register"></span>
         <select id="userUniversity" ng-model="completeData.school">
             <option ng-repeat="option in infoData.school" value="">{{option}}</option>
         </select>
     </label>
     <label>
         校区
-        <span class="arrow-right-select"></span>
+        <span class="arrow-right-select-register"></span>
         <select id="userCampus" ng-model="completeData.campus">
             <option ng-repeat="option in infoData.campus" value="">{{option}}</option>
         </select>
     </label>
     <label>
         年级
-        <span class="arrow-right-select"></span>
+        <span class="arrow-right-select-register"></span>
         <select id="userLevel" ng-model="completeData.level">
             <option value="年级">--年级--</option>
             <option value="大一">大一</option>
@@ -96,5 +96,5 @@
         {{idTip}}
     </label>
 </form>
-<div class="of-button user-credit-button" ng-click="nextStep()" style="margin-top:10px;">下一步</div>
+<div class="of-button user-credit-button" ng-click="nextStep()" style="margin-top:10px;">完成</div>
 <div class="info-hint-style" ng-bind="infoHint" ng-show="hintStatus"></div>

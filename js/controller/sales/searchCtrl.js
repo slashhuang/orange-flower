@@ -16,9 +16,9 @@ define([],function() {
                 "data":{},
             }).success(function(data){
                 $scope.searchFinished = false
-                //alert("test succeed")
+
             }).error(function(){
-                alert("test")
+
             });
         };
 

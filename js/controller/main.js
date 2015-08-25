@@ -3,8 +3,8 @@
  */
 define(['angular',"util/swiper_"],function(angular,swiper){
         var mainModule = angular.module('mainModule',["ngRoute"]);
-        mainModule.controller('mainCtrl', ['$scope', '$routeParams', '$http','$timeout',
-            function($scope, $routeParams, $http,$timeout) {
+        mainModule.controller('mainCtrl', ['$scope', '$routeParams', '$http',
+            function($scope, $routeParams, $http) {
 
                 //首页数据请求地址
                 var mainUrl = prefuri+"/product/typedProducts";
