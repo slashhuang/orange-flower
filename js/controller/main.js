@@ -36,7 +36,7 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                     $timeout(function(){
                         swiper.mainItem();
                         swiper.picture()
-                    },500);
+                    },30);
                     //加载数据后再调用
 
                 }).error(function(){

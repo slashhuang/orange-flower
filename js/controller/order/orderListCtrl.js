@@ -136,7 +136,7 @@ define([],function(){
                     returnVal.push({
                         "orderId":item["orderId"],                                      //  订单id
                         "img":item["orderLines"][0]["commodityIcon"],                   //  商品缩略图
-                        "arg":item["orderLines"][0]["sku"]["title"],                    //  商品参数
+                        //"arg":item["orderLines"][0]["sku"]["title"],                    //  商品参数
                         "status":item["totalStatus"]["value"],                          //  订单状态
                         "statusText":item["totalStatus"]["title"],                      //  状态文字说明
                         "salePrice":item["orderLines"][0]["salePrice"],                 //  商品原价
@@ -145,7 +145,7 @@ define([],function(){
                         "periods":item["orderLines"][0]["periods"],                     //  分期期数
                         "firstPay":item["orderLines"][0]["firstPay"],                   //  首付
                         "productName":item["orderLines"][0]["commodityName"],           //  商品名称
-                        "productId":item["orderLines"][0]["sku"]["productId"]           //  商品id
+                        //"productId":item["orderLines"][0]["sku"]["productId"]           //  商品id
                     });
                 }
             });

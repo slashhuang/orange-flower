@@ -16,7 +16,7 @@
 .recive-info-item{
     clear: both;
     font-size: 1.5rem;
-    line-height: 3.3rem;
+    line-height: 2.3rem;
     color: #fff;
 }
 
@@ -45,11 +45,9 @@
 }
 
 .order-img{
+    float:left;
     width: 4.3rem;
     height: 4.3rem;
-    position: absolute;
-    left: 1rem;
-    top: 1rem;
     overflow: hidden;
     border: 1px solid #e6e6e6;
 }
@@ -153,6 +151,7 @@
 
 .month-num .pay-right-info em{
     font-size: 1.9rem;
+    vertical-align: middle;
 }
 
 .confirm-area{

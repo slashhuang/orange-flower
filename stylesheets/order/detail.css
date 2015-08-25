@@ -25,7 +25,7 @@
 }
 
 .order-info{
-    padding: 0 1rem;
+    padding: 1rem;
     border-bottom: 1px solid #e6e6e6;
     position: relative;
 }
@@ -42,9 +42,7 @@
 .order-img-detail{
     width: 5.5rem;
     height: 5.5rem;
-    position: absolute;
-    left: 1rem;
-    top: 1rem;
+   float:left;
     overflow: hidden;
     border: 1px solid #e6e6e6;
 }
@@ -125,6 +123,7 @@
 .info-name{
     font-size: 1.4rem;
     float: left;
+    color:#515151
 }
 
 .info-detail{
@@ -204,14 +203,15 @@
 .re-buy-btn:active,
 .re-buy-btn:visited,
 .re-buy-btn:hover{
-    padding: 0.95rem 1.85rem;
+    padding: 0 1.85rem;
+    line-height: 3rem;
     background: #15c690;
     -webkit-border-radius: 1.5rem;
     -moz-border-radius: 1.5rem;
     -ms-border-radius: 1.5rem;
     -o-border-radius: 1.5rem;
     border-radius: 1.5rem;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: #fff;
     float: right;
 }
