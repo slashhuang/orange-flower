@@ -80,7 +80,6 @@ define(["../../../bower_components/zepto/zepto","util/data_check","util/ajax_che
                 showCountdown(10);
             },
             fail : function(xhr,status,error){
-                alert("发送失败，请检查手机号");
                 certNumTap.off("tap",tapResponse);
                 showCountdown(10);
             }
@@ -107,7 +106,6 @@ define(["../../../bower_components/zepto/zepto","util/data_check","util/ajax_che
                 })
             },
             fail : function(xhr,status,error){
-                alert("oops,验证失败");
                 userCheckID.hide();
                 userNewPWD.css({
                     "display":"block"
@@ -130,11 +128,11 @@ define(["../../../bower_components/zepto/zepto","util/data_check","util/ajax_che
     var inputForm = {
         DATA:{
             pwd:"",
-            rePWD:"",
+            rePWD:""
         },
         STATUS:{
             pwd:false,
-            rePWD:false,
+            rePWD:false
         }
     };
     newPWD.change(function(){
@@ -157,7 +155,6 @@ define(["../../../bower_components/zepto/zepto","util/data_check","util/ajax_che
                 showCountdown(10);
             },
             fail : function(xhr,status,error){
-                alert("发送失败，请检查手机号");
                 certNumTap.off("tap",tapResponse);
                 showCountdown(10);
             }

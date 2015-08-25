@@ -3,8 +3,8 @@
  */
 define(['angular',"util/swiper_"],function(angular,swiper){
         var mainModule = angular.module('mainModule',["ngRoute"]);
-        mainModule.controller('mainCtrl', ['$scope', '$routeParams', '$http','$timeout',
-            function($scope, $routeParams, $http,$timeout) {
+        mainModule.controller('mainCtrl', ['$scope', '$routeParams', '$http',
+            function($scope, $routeParams, $http) {
 
                 //首页数据请求地址
                 var mainUrl = prefuri+"/product/typedProducts";
@@ -33,15 +33,16 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                 }).success(function(data){
                     console.log(data)
                     $scope.mainData.category =data;
-                    $timeout(function(){
-                        swiper.mainItem();
-                        swiper.picture()
-                    },500);
-                    //加载数据后再调用
-
                 }).error(function(){
                 });
 
+                /**
+                 * 设定当前区分菜单项的便利
+                 * @param cur
+                 */
+                $scope.setCur = function(cur){
+                    curTab = cur;
+                };
 
                 /**
                  * 根据hash区分是第几个tab
@@ -54,6 +55,8 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                     }
                     return "";
                 };
+                swiper.mainItem();
+                swiper.picture();
 
             }]);
     });
