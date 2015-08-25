@@ -1,4 +1,4 @@
-define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
+define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js"], function (wx, $) {
     //定义确定购买orderConfirm
     function orderConfirmCtrl($scope, $routeParams, $location, $http) {
         //初始化变量完成
@@ -27,7 +27,6 @@ define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
          * @param firstPay
          */
         $scope.confirmBuy = function (id, firstPay) {
-            //if (firstPay > 0) {
             $.ajax({
                 url: prefuri + "/pay/create/",
                 dataType: "json",
@@ -35,11 +34,11 @@ define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
                 data: '{"orderId": "2015082017361235", "amount": 1, "payCode": "PAY_WEIXIN", "tradeType": "TRADE_CONSUME", "description": "消费"}',
                 success: function(res){
                     wx.config({
-                        "debug": false,
+                        "debug": true,
                         "appId": res["appId"],
                         "timestamp": res["timeStamp"],
                         "nonceStr": res["nonceStr"],
-                        "signature": res["paySign"],
+                        "signature": res["signature"],
                         "jsApiList": ["chooseWXPay"]
                     });
                     wx.chooseWXPay({
@@ -52,10 +51,18 @@ define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
                             alert("支付成功!");
                             $http({
                                 "method": "post",
-                                "url": prefuri + "/pay/pay/" + res["paymentId"]
-                            }).success(function(res){}).error(function(){});
+                                "url": prefuri + "/pay/pay/",
+                                "params":{
+                                    "":res["paymentId"]
+                                }
+                            });
                         },
                         fail:function(err){
+                            var info = "";
+                            for(var i in err){
+                                info += i + "---" + err[i] + "\n";
+                            }
+                            alert(info);
                             alert("发送错误！请重试！");
                         },
                         cancel:function(){
