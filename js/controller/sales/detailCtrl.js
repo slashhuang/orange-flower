@@ -2,6 +2,7 @@
  * Created by slashhuang on 15/8/21.
  */
 
+
 define(["zepto","util/swiper_"], function($,swiper){
     //定义商品分类controller
     function detailCtrl($scope, $routeParams, $location, $http, $timeout) {
@@ -11,6 +12,7 @@ define(["zepto","util/swiper_"], function($,swiper){
             console.log("require放在controller里面加载成功");
             //滚动至顶部
             window.scrollTop = 0 ;
+
             var window_height=window.screen.height;
             var $item_slider_content = $(".item-slider-wrapper").eq(0);
             var $item_slider_window = $(".item-slider-window").eq(0);
@@ -35,11 +37,13 @@ define(["zepto","util/swiper_"], function($,swiper){
                         }).removeClass("slider-active-fix-style");
                     }
                 };
+
                 scrollListener("#itemSliderNav")});
             //确保选项卡高度足够
             $item_slider_content.css("min-height",window_height);
             $item_slider_window.css("min-height",content_height);
         };
+
         //暂时混用javascript,设置悬浮样式
 
 
@@ -168,6 +172,7 @@ define(["zepto","util/swiper_"], function($,swiper){
                 swiper.picture();
                 detailDomFunc();
             }, 200);
+
             /***初始化自己设置的变量*/
             //选择商品标签及颜色
             $scope.itemColors = $scope.saleDetail.attrs[0];//颜色
@@ -248,6 +253,7 @@ define(["zepto","util/swiper_"], function($,swiper){
                 location.hash = "/login";
             }
         };
+
 
     };
     detailCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout'];
