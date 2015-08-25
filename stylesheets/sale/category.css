@@ -32,7 +32,7 @@
    float:right;
     font-size: 15px;
     font-weight: normal;
-    color: #2d2d2d;
+    color: #2d2d2d!important;
     display: inline-block;
     padding-left:5px;
 }
@@ -62,8 +62,8 @@
 
 .of-category-input b{
     position: absolute;
-    right: 12px;
-    top:18px;
+    right: 5px;
+    top:16px;
     display:block;
     width: 40px;
     height: 20px;
@@ -71,8 +71,8 @@
     background-size: 18px 20px;
 }
 .of-category-input-active b{
-     right: 12px;
-     top:10px;
+     right: 8px;
+     top:8px;
      position: absolute;
      display:block;
      width: 20px;

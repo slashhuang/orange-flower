@@ -8,12 +8,12 @@
         <label>
             手机号 <input  id="telephone" name="telephone" placeholder="请输入手机号码" ng-model="dataCollection.mobile" ng-change="checkMobile(dataCollection.mobile)"/>
         </label>
-        <label>
+        <label style="line-height: 27px;">
             验证码
             <input  id="certNum" type="tel" name="code" placeholder="请输入验证码" ng-model="dataCollection.code"/>
-            <input class="of-button of-register-button" id="certNumTap" ng-click="getCode()" type="button" value="发送验证码"/>
+            <input class="of-button of-register-button" style="margin-left:0;" id="certNumTap" ng-click="getCode()" type="button" value="发送验证码"/>
         </label>
-        <label class="input-err" ng-show="telHint.length > 1">
+        <label class="input-err" ng-show="telHint.length > 1" style="border: none;padding-bottom: 0;">
             {{telHint}}
         </label>
         <label class=" no-border">
@@ -38,7 +38,7 @@
                    ng-model="passwordRepeat"
                    ng-change="checkPassword(passwordRepeat,dataCollection.password)" />
         </label>
-        <div ng-bind="passwordHint" style="margin-top:10px;"></div>
+        <div ng-bind="passwordHint" class="passwordHint"></div>
         <label class="no-border">
             <div class="of-button of-button-bar" id="newPWDdoneTAP"  ng-click="checkNextMove()">完成</div>
         </label>

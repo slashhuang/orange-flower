@@ -19,6 +19,9 @@ define([], function () {
 
         //点击触发下一步
         $scope.checkNextMove = function () {
+            if(!!$scope.passwordHint.length){
+                return false;
+            }
             //  验证不通过就直接不放行
             $http({
                 "method": "post",
