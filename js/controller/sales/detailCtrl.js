@@ -180,6 +180,7 @@ define(["zepto","util/swiper_"], function($,swiper){
 
 
         }).error(function(){
+            alert("获取数据失败")
         });
 
         //初始化数据

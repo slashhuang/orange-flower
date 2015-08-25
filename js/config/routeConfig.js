@@ -23,7 +23,12 @@ define([], function () {
             when('/sale/detail/:detailId', {
                 templateUrl: '/views/sale/detail.html',
                 controller: 'detailCtrl'
-            });
+            }).
+            when('/sale/search',{
+                templateUrl:"/views/sale/searchProduct.html",
+                controller:"searchCtrl"
+            })
+        ;
         //用户部分路由
         $routeProvider.
             when("/user/settings",{

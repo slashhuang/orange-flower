@@ -1,14 +1,17 @@
 
 <div class="of-header gray">
-    <a class="header-back" href="javascript:history.back()"></a>
+    <a class="header-back" href="#/main"></a>
     分类
     <a class="header-function" href="#/main">首页</a>
 </div>
 <!--商品排序方式-->
 
-<div class="of-category-input">
+<div class='of-category-input'>
     <input placeholder="搜索您需要的商品" type="text" maxlength="20" ng-model="itemQuery">
+    <b ng-click="searchProduct(itemQuery)"></b>
 </div>
+
+
 <div class="of-category-main clear-float">
     <div class="of-category-main-nav">
         <ul id="categoryNav" class="of-category-list">
