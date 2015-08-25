@@ -7,6 +7,7 @@
 define(["zepto","util/swiper_"], function($,swiper){
     //定义商品分类controller
     function detailCtrl($scope,$routeParams,$location,$http,$timeout){
+    function detailCtrl($scope, $routeParams, $location, $http, $timeout) {
 
         //暂时混用javascript,设置悬浮样式
         var detailDomFunc = function(){
@@ -158,11 +159,11 @@ define(["zepto","util/swiper_"], function($,swiper){
         }).success(function(data){
             console.log(data);
             $scope.saleDetail = data;
-            $timeout(function(){
+            $timeout(function () {
                 swiper.mainItem();
                 swiper.picture();
-                detailDomFunc()
-            },200);
+                detailDomFunc();
+            }, 200);
             /***初始化自己设置的变量*/
             //选择商品标签及颜色
             $scope.itemColors = $scope.saleDetail.attrs[0];//颜色
@@ -182,7 +183,6 @@ define(["zepto","util/swiper_"], function($,swiper){
 
 
         }).error(function(){
-            alert("获取数据失败")
         });
 
         //初始化数据
@@ -191,11 +191,60 @@ define(["zepto","util/swiper_"], function($,swiper){
 
         /**
          * 立即购买
+         * ->已经登录,发送请求创建订单跳转到确认订单页面
+         * ->未登录,跳转到登录页,让他登录
          */
-        $scope.buyNow = function(){};
+        $scope.buyNow = function () {
+            var data = $scope.saleDetail;
+            //  取得本商品的相关数据
 
+            isLogin = true;
+            if (isLogin) {
+                //  已经登录的情况,创建订单
+                $http({
+                    "url": prefuri + "/order/create",
+                    "method": "post",
+                    "params": {
+                        "orderType": "FORWARD",
+                        "sellerId": data["id"],
+                        "saleAmount": 1,
+                        "payAmount": data["price"],
+                        "realPayAmount": 2,
+                        "mobile": "string",
+                        "addressId": 2,
+                        "orderLineDtos": [
+                            {
+                                "orderType": "FORWARD",
+                                "sellerId": data["id"],
+                                "saleAmount": 1,
+                                "payAmount": 1,
+                                "realPayAmount": 6,
+                                "skuId": data["id"],
+                                "salePrice": data["price"],
+                                "saleVolume": "个",
+                                "saleUnit": "string",
+                                "periods": 3,
+                                "firstPay": 0,
+                                "prePeriodsPay": 2,
+                                "appType": "ANDROID",
+                                "clientRemark": "string",
+                                "commodityName": data["title"],
+                                "commodityIcon": "string",
+                                "commodityType": 1
+                            }
+                        ]
+                    }
+                }).success(function (res) {
+                    location.hash = "/order/confirm?orderId=" + 2015082017361234;
+                }).error(function (err) {
+                });
+            } else {
+                //  未登录的情况,跳转到登录页
+                location.hash = "/login";
+            }
+        };
 
     };
-    detailCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout'];
+    detailCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout'];
     return detailCtrl
 });

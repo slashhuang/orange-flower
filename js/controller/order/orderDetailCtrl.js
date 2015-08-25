@@ -9,71 +9,71 @@ define([], function () {
         //  从url里面获取orderId
 
             statusArr = [
-            {
-                "key": "TO_PAY",
-                "value": "待支付"
-            },
-            {
-                "key": "CHECKING",
-                "value": "审核中"
-            },
-            {
-                "key": "TO_SHIPPED",
-                "value": "待发货"
-            },
-            {
-                "key": "SHIPPED",
-                "value": "已发货"
-            },
-            {
-                "key": "TRADING_SUCCESS",
-                "value": "交易成功"
-            },
-            {
-                "key": "TRADING_CLOSED",
-                "value": "交易关闭"
-            },
-            {
-                "key": "EXCHANGE_CHECK",
-                "value": "换货审核"
-            },
-            {
-                "key": "RETURN_CHECK",
-                "value": "退货审核"
-            },
-            {
-                "key": "EXCHANGE_FAILED",
-                "value": "换货审核失败"
-            },
-            {
-                "key": "RETURN_FAILED",
-                "value": "退货审核失败"
-            },
-            {
-                "key": "EXCHANGE_SUCCESS",
-                "value": "换货审核成功"
-            },
-            {
-                "key": "RETURN_SUCCESS",
-                "value": "换货审核失败"
-            },
-            {
-                "key": "RETURNING",
-                "value": "退货中"
-            },
-            {
-                "key": "EXCHANGE",
-                "value": "换货中"
-            },
-            {
-                "key": "RETURNED",
-                "value": "已退货"
-            },
-            {
-                "key": "RECEIPTED",
-                "value": "已收货"
-            }
-        ];
+                {
+                    "key": "TO_PAY",
+                    "value": "待支付"
+                },
+                {
+                    "key": "CHECKING",
+                    "value": "审核中"
+                },
+                {
+                    "key": "TO_SHIPPED",
+                    "value": "待发货"
+                },
+                {
+                    "key": "SHIPPED",
+                    "value": "已发货"
+                },
+                {
+                    "key": "TRADING_SUCCESS",
+                    "value": "交易成功"
+                },
+                {
+                    "key": "TRADING_CLOSED",
+                    "value": "交易关闭"
+                },
+                {
+                    "key": "EXCHANGE_CHECK",
+                    "value": "换货审核"
+                },
+                {
+                    "key": "RETURN_CHECK",
+                    "value": "退货审核"
+                },
+                {
+                    "key": "EXCHANGE_FAILED",
+                    "value": "换货审核失败"
+                },
+                {
+                    "key": "RETURN_FAILED",
+                    "value": "退货审核失败"
+                },
+                {
+                    "key": "EXCHANGE_SUCCESS",
+                    "value": "换货审核成功"
+                },
+                {
+                    "key": "RETURN_SUCCESS",
+                    "value": "换货审核失败"
+                },
+                {
+                    "key": "RETURNING",
+                    "value": "退货中"
+                },
+                {
+                    "key": "EXCHANGE",
+                    "value": "换货中"
+                },
+                {
+                    "key": "RETURNED",
+                    "value": "已退货"
+                },
+                {
+                    "key": "RECEIPTED",
+                    "value": "已收货"
+                }
+            ];
 
         $http({
             "method": "get",
