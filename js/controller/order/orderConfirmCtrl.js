@@ -36,7 +36,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js"], function (wx, $) {
                     wx.config({
                         "debug": true,
                         "appId": res["appId"],
-                        "timestamp": res["timeStamp"],
+                        "timestamp": res["timestamp"],
                         "nonceStr": res["nonceStr"],
                         "signature": res["signature"],
                         "jsApiList": ["chooseWXPay"]
