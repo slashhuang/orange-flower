@@ -1,4 +1,4 @@
-define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "/js/lib/pingpp_pay.js", "/js/lib/debug.js"], function (wx, $, pay, debug) {
+define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], function (wx, $, debug, pay) {
     //定义确定购买orderConfirm
     function orderConfirmCtrl($scope, $routeParams, $location, $http) {
         //初始化变量完成
@@ -33,40 +33,20 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "/js/lib/pingpp_pay.js"
                 type: "post",
                 data: '{"orderId": "2015082017361235", "amount": 1, "payCode": "PAY_WEIXIN", "tradeType": "TRADE_CONSUME", "description": "消费"}',
                 success: function(res){
-                    var _res = "";
-                    for(var i in res){
-                        _res += i + "===" + res[i];
-                    }
-                    debug.log(_res);
-
                     var charge = res["charge"];
-
-                    var _charge = "";
-                    for(var i in charge){
-                        _charge += i + "===" + charge[i];
-                    }
-                    debug.log(_charge);
-
                     pay.createPayment(charge, function(result, error){
-                        var _result = "";
-                        for(var i in result){
-                            _result += i + "===" + result[i];
-                        }
-                        debug.log(_result);
-
-
                         if (result == "success") {
                             // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的 wap 支付结果都是在 extra 中对应的 URL 跳转。
-                            alert("success");
+                            debug.success("success");
                         } else if (result == "fail") {
                             var info = "";
                             for(var i in error){
                                 info += i + "---" + error[i] + "\n";
                             }
-                            alert(info);
-                            alert("发送错误！请重试！");
+                            debug.error(info);
+                            debug.error("发送错误！请重试！");
                         } else if (result == "cancel") {
-                            alert("您取消了本次支付！");
+                            debug.log("您取消了本次支付！");
                         }
                     });
 
