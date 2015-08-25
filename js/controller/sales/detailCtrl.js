@@ -186,7 +186,7 @@ define(["zepto","util/swiper_"], function($,swiper){
             // [选择价格月份]
             $scope.finalMonth = $scope.saleDetail.minMonth;
             $scope.firstTimePay = "0";
-            console.log(typeof $scope.salePrice.price);
+            //console.log(typeof $scope.salePrice.price);
             $scope.calculateMoney = $scope.transferPrice($scope.saleDetail.price);
 
 

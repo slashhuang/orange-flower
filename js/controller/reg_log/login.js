@@ -6,7 +6,6 @@ define([],function(){
         //页面载入请求
         var loginURL = prefuri + "/user/login/";
 
-
         /**
          * 检测手机号是否合法
          * @param mobile
@@ -50,34 +49,11 @@ define([],function(){
         $scope.loginStatus = false;
         $scope.checkVaildHint = "";
 
-        //点击登录按钮
-        $scope.userLogin = function (mobile, password) {
-            if ($scope.checkMobile(mobile, password)) {
-                $http({
-                    "method": "post",
-                    "url": loginURL + mobile + '/' + password
-                })
-                    .success(function (data) {
-                        outLogin();
-                    })
-                    .error(function () {
-
-                    });
-            }
-        }
-
-        $scope.checkMobile = function(){
-
-        };
-
         //组件
         //跳出登录函数
-        var outLogin = function () {
-            var time = 2;
-            $scope.infoHint = "登录成功" + time + "秒后转向首页";
             //登录函数
             var outLogin = function (txt) {
-                var time = 4;
+                var time = 2;
                 $scope.infoHint = txt + time + "秒后转向首页";
                 $scope.loginStatus = true;
                 var interval = setInterval(function () {
@@ -86,28 +62,34 @@ define([],function(){
                         $scope.infoHint = txt + time + "秒后转向首页";
                         if (time == 0) {
                             clearInterval(interval);
-                            location.hash = "#/main";
+                            switch(txt){
+                                case "登录成功":
+                                    location.hash = "#/main";
+                                    break;
+                                case "登录失败":
+                                    $scope.loginStatus = false;
+                            }
                         }
                     });
                 }, 1000);
             };
-
             //点击登录按钮
             $scope.userLogin = function (loginName, password) {
-                window.isLogin = true;
-                $http({
-                    "method": "post",
-                    "url": loginURL + loginName + '/' + password
-                }).success(function (data) {
+                if ($scope.checkMobile(loginName, password)){
                     window.isLogin = true;
-                    //  登录成功
-                    outLogin("登录成功");
-                }).error(function () {
-                    window.isLogin = false;
-                    outLogin("登录失败");
-                });
+                    $http({
+                        "method": "post",
+                        "url": loginURL + loginName + '/' + password
+                    }).success(function (data) {
+                        window.isLogin = true;
+                        //  登录成功
+                        outLogin("登录成功");
+                    }).error(function () {
+                        window.isLogin = false;
+                        outLogin("登录失败");
+                    });
+                }
             }
-        };
     };
     loginCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout'];
 

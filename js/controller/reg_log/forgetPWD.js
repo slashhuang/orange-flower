@@ -27,8 +27,9 @@ define([], function () {
                 "method": "post",
                 "url": forgetpwdURL + $scope.dataCollection.mobile + '/' + $scope.dataCollection.code + '/' + $scope.dataCollection.password,
             }).success(function (response, status, headers, config) {
+                console.log(response);
                 location.hash = "/login"
-            }).error(function () {
+            }).error(function (response, status, headers, config) {
                 console.log($scope.dataCollection);
                 location.hash = "/login"
             });

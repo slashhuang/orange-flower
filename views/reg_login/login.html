@@ -4,7 +4,7 @@
 </div>
 <form class="of-register-form" action="" method="post">
     <label>
-        手机号 <input  id="loginPhoneNumber" type="tel" placeholder="请输入手机号码" ng-model="loginName" ng-focus="checkVaildHint=''" ng-change="checkMobile()"/>
+        手机号 <input  id="loginPhoneNumber" type="tel" placeholder="请输入手机号码" ng-model="loginName" ng-focus="checkVaildHint=''"/>
     </label>
     <label>
         密码
@@ -13,7 +13,6 @@
 
 </form>
     <div class="loginHint">{{checkVaildHint}}</div>
-
     <div class=" no-border">
         <div class="of-button of-button-bar" id="loginSubmit" ng-click="userLogin(loginName,loginPassword)">登录</div>
     </div>

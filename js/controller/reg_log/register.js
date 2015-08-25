@@ -89,14 +89,17 @@ define([],function(){
          */
 
         $scope.sendsms=function(tel){
-            //$http({
-            //    "method":"post",
-            //    "url":""
-            //}).success(function(response, status, headers, config){
+            $http({
+                "method":"post",
+                "url":sendSmsUrl+"/"+tel
+            }).success(function(response, status, headers, config){
+                alert(response.message);
                 showCountDown();
-            //}).error(function(){
-            //    showCountDown(10);
-            //});
+            }).error(function(response, status, headers, config){
+                console.log(response);
+                alert(response.message)
+                //showCountDown();
+            });
         };
 
         /**
