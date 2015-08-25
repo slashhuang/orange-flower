@@ -10,7 +10,9 @@ define(["zepto","util/swiper_"], function($,swiper){
 
         //暂时混用javascript,设置悬浮样式
         var detailDomFunc = function(){
-            console.log("require放在controller里面加载成功")
+            console.log("require放在controller里面加载成功");
+            //滚动至顶部
+            window.scrollTop = 0 ;
             var window_height=window.screen.height;
             var $item_slider_content = $(".item-slider-wrapper").eq(0);
             var $item_slider_window = $(".item-slider-window").eq(0);
@@ -34,7 +36,7 @@ define(["zepto","util/swiper_"], function($,swiper){
                             "z-index":""
                         }).removeClass("slider-active-fix-style");
                     }
-                }
+                };
                 scrollListener("#itemSliderNav")});
             //确保选项卡高度足够
             $item_slider_content.css("min-height",window_height);
@@ -187,6 +189,10 @@ define(["zepto","util/swiper_"], function($,swiper){
         $scope.showFrame = false;
 
 
+        /**
+         * 立即购买
+         */
+        $scope.buyNow = function(){};
 
 
     };

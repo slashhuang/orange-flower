@@ -14,7 +14,7 @@ define(['lib/swiper','zepto'], function(swiper, $){
         },
         "mainItem":function(){
             var mySwiper = new swiper('.fuck-test',{
-                slidesPerView: 4,
+                slidesPerView: 3,
                 paginationClickable: true,
                 spaceBetween: 7,
                 freeMode: true

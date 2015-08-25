@@ -1,13 +1,13 @@
 /*登录注册及主页头样式*/
 .header-back{
     position: absolute;
-    top: 12px;
+    top: 9px;
     left:11px;
     display:block;
     width: 40px;
-    height: 18px;
+    height: 20px;
     background: url(/images/icon/arrow_header.png) no-repeat 0 0 ;
-    background-size: 9px 18px;
+    background-size: 10px 20px;
 }
 
 .header-back-info{
@@ -41,7 +41,7 @@
 .of-header{
     width: 100%;
     font-size:18px;
-    padding: 8px;
+    padding: 10px;
     text-align: center;
     position: relative;
 }
@@ -56,20 +56,20 @@
     position: absolute;
     top:11px;
     left:11px;
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     background: url(/images/icon/icon-person-white.png) no-repeat;
-    background-size: 24px 24px;
+    background-size: 26px 26px;
 }
 .of-header-search{
     display:inline-block;
     position: absolute;
     top:11px;
     right:11px;
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     background: url(../images/icon/icon-search-white.png);
-    background-size: 24px 24px;
+    background-size: 26px 26px;
 }
 .of-header-search-gray{
     display:inline-block;
@@ -162,9 +162,9 @@
     text-align:center;
     background-color: rgba(80, 80, 80, 0.9);
     color:#fff;
-    width:76%;
+    width:60%;
     line-height: 60px;
     height:60px;
     font-size:16px;
-    margin:10%;
+    margin:20%;
 }

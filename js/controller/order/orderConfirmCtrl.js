@@ -23,7 +23,8 @@ define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
          * @param firstPay
          */
         $scope.confirmBuy = function (id, firstPay) {
-            if (firstPay > 0) {
+            //if (firstPay > 0) {
+                alert('fuck');
                 $http({
                     "method": "post",
                     "url": prefuri + "/pay/create/",
@@ -33,7 +34,8 @@ define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
                         "payCode": "PAY_WEIXIN",
                         "tradeType": "TRADE_CONSUME",
                         "description": "消费"
-                    }
+                    },
+                    headers: {'Content-Type': 'application/json; charset=UTF-8'}
                 }).
                 success(function (res) {
                     wx.config({
@@ -68,10 +70,11 @@ define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
                         }
                     });
                 }).error(function (err) {
+                        alert("fuck GFW!");
                 });
-            } else {
-                location.hash = "/order/info?orderId=" + id;
-            }
+            //} else {
+            //    location.hash = "/order/info?orderId=" + id;
+            //}
         };
 
         /**

@@ -8,8 +8,7 @@ define(['angular', './center', "./settings", "./setAccount", "./modifyPwd", "./c
         userModule.controller('userCreditCtrl', credit);
 
         //  自定义事件指令value-change
-        userModule.directive("valueChange", function ($scope) {
-            $scope.uploaded = true;
+        userModule.directive("valueChange", function () {
             return {
                 "restrict": "ECAM",
                 "link": function (scope, iElements, iAttrs) {
