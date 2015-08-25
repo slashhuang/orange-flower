@@ -12,7 +12,7 @@ define([],function(){
         $scope.repeatNewPWD="";
         $scope.verifyNewPwd = function(){
             if($scope.newPWD== $scope.repeatNewPWD){
-                $scope.submitHint = "密码输入已经一致,卧槽你进入这个页面了"
+                $scope.submitHint = "密码输入已经一致"
             }
             else{
                 $scope.submitHint = "密码校验错误"
@@ -27,6 +27,8 @@ define([],function(){
                 "url":modifyPwdUrl
             }).success(function(data){
                 console.log("空接口成功");
+                $timeout(function(){location.hash = "#/user/center"},1000)
+
             }).error(function(){
                 console.log("接口调试失败")
             });

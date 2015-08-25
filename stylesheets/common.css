@@ -5,15 +5,15 @@
     left:11px;
     display:block;
     width: 40px;
-    height: 16px;
-    background: url(../images/icon/icon_arrow_left.png) no-repeat 0 0 ;
-    background-size: 8px 16px;
-
+    height: 20px;
+    background: url(/images/icon/arrow_header.png) no-repeat 0 0 ;
+    background-size: 10px 20px;
 }
+
 .header-back-info{
     font-size:14px;
     left:25px;
-    top:10px;
+    top:12px;
     display: inline-block;
     vertical-align: middle;
     position: absolute;
@@ -24,7 +24,7 @@
     right:16px;
     top:12px;
     position: absolute;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: normal;
     color: #2d2d2d;
     display: inline-block;
@@ -41,7 +41,7 @@
 .of-header{
     width: 100%;
     font-size:18px;
-    padding: 9px 11px 9px 11px;
+    padding: 10px;
     text-align: center;
     position: relative;
 }
@@ -54,22 +54,22 @@
 .of-header-person{
     display:inline-block;
     position: absolute;
-    top:14px;
+    top:11px;
     left:11px;
-    width: 22px;
-    height: 22px;
-    background: url(../images/icon/icon-person-white.png);
-    background-size: 22px 22px;
+    width: 26px;
+    height: 26px;
+    background: url(/images/icon/icon-person-white.png) no-repeat;
+    background-size: 26px 26px;
 }
 .of-header-search{
     display:inline-block;
     position: absolute;
-    top:14px;
+    top:11px;
     right:11px;
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
     background: url(../images/icon/icon-search-white.png);
-    background-size: 22px 22px;
+    background-size: 26px 26px;
 }
 .of-header-search-gray{
     display:inline-block;
@@ -162,9 +162,9 @@
     text-align:center;
     background-color: rgba(80, 80, 80, 0.9);
     color:#fff;
-    width:76%;
+    width:60%;
     line-height: 60px;
     height:60px;
     font-size:16px;
-    margin:10%;
+    margin:20%;
 }

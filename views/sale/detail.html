@@ -1,4 +1,6 @@
 
+
+<body>
 <div class="of-header gray">
     <a class="header-back" href="javascript:history.back()"></a>
     商品详情
@@ -7,19 +9,19 @@
 <div class="swiper-container img-slider">
     <div class="swiper-wrapper">
         `<div class="swiper-slide" style="width: 100%; text-align: center;">
-                <img src="/images/item_detail/iphone.jpg">
-            </div>
-            <div class="swiper-slide" style="width: 100%; text-align: center;">
-                <img src="/images/item_detail/huawei_2.jpg">
-            </div>
-            <div class="swiper-slide" style="width: 100%; text-align: center;">
-                <img src="/images/item_detail/huawei_3.jpg">
-            </div>
+        <img src="/images/item_detail/iphone.jpg">
+    </div>
+        <div class="swiper-slide" style="width: 100%; text-align: center;">
+            <img src="/images/item_detail/huawei_2.jpg">
+        </div>
+        <div class="swiper-slide" style="width: 100%; text-align: center;">
+            <img src="/images/item_detail/huawei_3.jpg">
+        </div>
     </div>
     <div class="swiper-pagination pagination-style">
-            <span class="swiper-pagination-bullet"></span>
-            <span class="swiper-pagination-bullet"></span>
-            <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
     </div>
 </div>
 <div class="split-line"></div>
@@ -57,9 +59,9 @@
 <div class="split-line"></div>
 <div class="item-detail-list">
     <h1 id="itemSliderNav" class="slider-active-fix-style" ng-model="tapIndex" ng-init="tapIndex=0">
-            <i ng-click="tapIndex=0">商品详情</i>
-            <i ng-click="tapIndex=1">规格参数</i>
-            <i ng-click="tapIndex=2">包装清单</i>
+        <i ng-click="tapIndex=0">商品详情</i>
+        <i ng-click="tapIndex=1">规格参数</i>
+        <i ng-click="tapIndex=2">包装清单</i>
         <div id="itemCanvasWrapper" ng-class="changeTrianlge(tapIndex)">
             <img src="/images/icon/slidetriangle.png" width="14" height="9">
         </div>
@@ -79,8 +81,8 @@
                 {{saleDetail.inventory}}
             </div>
         </div>
-        </div>
     </div>
+</div>
 <div class="of-bottom-button-wrapper">
     <div id="itemSaleButton" class="of-button item-sale-button" ng-show="!showFrame" ng-click="activeShowFrame(showFrame)" >立即分期</div>
 </div>
@@ -122,3 +124,5 @@
 </div>
 <!--背景遮罩层-->
 <div class="of-item-buy-iframe" id="itemBuyIframe" ng-show="showFrame" ng-click="activeShowFrame(showFrame)"></div>
+</body>
+
