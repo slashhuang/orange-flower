@@ -14,7 +14,7 @@ define(["/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"], function ($, ajaxFile
 
         //登出函数
         $scope.logout = function () {
-            time = 4;
+            time = 3;
             $http({
                 "method": "get",
                 "url": logoutURL

@@ -1,89 +1,93 @@
 
-<div class="of-header gray">
+
+<div ng-class="{true:'detail-show-frame-fixedbg',false:''}[showFrame]">
+    <div class="of-header gray">
     <a class="header-back" href="javascript:history.back()"></a>
     商品详情
     <a class="header-function" href="javascript:;">筛选</a>
-</div>
-<div class="swiper-container img-slider">
-    <div class="swiper-wrapper">
-        `<div class="swiper-slide" style="width: 100%; text-align: center;">
-                <img src="/images/item_detail/iphone.jpg">
-            </div>
+        </div>
+    <div class="swiper-container img-slider">
+        <div class="swiper-wrapper">
+            `<div class="swiper-slide" style="width: 100%; text-align: center;">
+            <img src="/images/item_detail/iphone.jpg">
+        </div>
             <div class="swiper-slide" style="width: 100%; text-align: center;">
                 <img src="/images/item_detail/huawei_2.jpg">
             </div>
             <div class="swiper-slide" style="width: 100%; text-align: center;">
                 <img src="/images/item_detail/huawei_3.jpg">
             </div>
+        </div>
+        <div class="swiper-pagination pagination-style">
+            <span class="swiper-pagination-bullet"></span>
+            <span class="swiper-pagination-bullet"></span>
+            <span class="swiper-pagination-bullet"></span>
+        </div>
     </div>
-    <div class="swiper-pagination pagination-style">
-            <span class="swiper-pagination-bullet"></span>
-            <span class="swiper-pagination-bullet"></span>
-            <span class="swiper-pagination-bullet"></span>
-    </div>
-</div>
-<div class="split-line"></div>
+    <div class="split-line"></div>
 
-<div class="item-detail-intro">
-    <h1>{{saleDetail.title}}</h1>
-    <h1>每个ID限购一单</h1>
-    <span>￥<i>{{transferPrice(saleDetail.price)}}</i></span>
-</div>
-<div class="item-detail-option-wrapper">
-    <!--自定义命令区域-->
-    <dl class="item-detail-option-list" ng-model="tapColor" ng-init="tapColor=0">
-        <dt>{{itemColors.name}}:</dt>
-        <!--第一个要加载默认样式style="border-color:#16cd9b" active-->
-        <dd ng-repeat="itemColor in itemColors.items"
-            ng-class="{true: 'active', false: ''}[itemColor.selected]"
-            ng-click="setSelectedColor(itemColor.id)">
-            {{itemColor.name}}
-            <i ng-class="{true: 'active', false: ''}[itemColor.selected]">
-            </i>
-        </dd>
-    </dl>
-    <dl class="item-detail-option-list">
-        <dt>{{itemShapes.name}}:</dt>
-        <!--第一个要加载默认样式style="border-color:#16cd9b" active-->
-        <dd ng-repeat="itemShape in itemShapes.items"
-            ng-class="{true: 'active', false: ''}[itemShape.selected]"
-            ng-click="setSelectedShape(itemShape.id)">
-            {{itemShape.name}}
-            <i ng-class="{true: 'active', false: ''}[itemShape.selected]">
-            </i>
-        </dd>
-    </dl>
-</div>
-<div class="split-line"></div>
-<div class="item-detail-list">
-    <h1 id="itemSliderNav" class="slider-active-fix-style" ng-model="tapIndex" ng-init="tapIndex=0">
+    <div class="item-detail-intro">
+        <h1>{{saleDetail.title}}</h1>
+        <h1>每个ID限购一单</h1>
+        <span>￥<i>{{transferPrice(saleDetail.price)}}</i></span>
+    </div>
+    <div class="item-detail-option-wrapper">
+        <!--自定义命令区域-->
+        <dl class="item-detail-option-list" ng-model="tapColor" ng-init="tapColor=0">
+            <dt>{{itemColors.name}}:</dt>
+            <!--第一个要加载默认样式style="border-color:#16cd9b" active-->
+            <dd ng-repeat="itemColor in itemColors.items"
+                ng-class="{true: 'active', false: ''}[itemColor.selected]"
+                ng-click="setSelectedColor(itemColor.id)">
+                {{itemColor.name}}
+                <i ng-class="{true: 'active', false: ''}[itemColor.selected]">
+                </i>
+            </dd>
+        </dl>
+        <dl class="item-detail-option-list">
+            <dt>{{itemShapes.name}}:</dt>
+            <!--第一个要加载默认样式style="border-color:#16cd9b" active-->
+            <dd ng-repeat="itemShape in itemShapes.items"
+                ng-class="{true: 'active', false: ''}[itemShape.selected]"
+                ng-click="setSelectedShape(itemShape.id)">
+                {{itemShape.name}}
+                <i ng-class="{true: 'active', false: ''}[itemShape.selected]">
+                </i>
+            </dd>
+        </dl>
+    </div>
+    <div class="split-line"></div>
+    <div class="item-detail-list">
+        <h1 id="itemSliderNav" class="slider-active-fix-style" ng-model="tapIndex" ng-init="tapIndex=0">
             <i ng-click="tapIndex=0">商品详情</i>
             <i ng-click="tapIndex=1">规格参数</i>
             <i ng-click="tapIndex=2">包装清单</i>
-        <div id="itemCanvasWrapper" ng-class="changeTrianlge(tapIndex)">
-            <img src="/images/icon/slidetriangle.png" width="14" height="9">
-        </div>
-    </h1>
-    <div class="item-slider-window">
-        <div class="item-slider-wrapper">
-            <div class="item_detail_img" ng-show="tapIndex==0">
-                <img src="/images/item_detail/item_detail.png">
-                <img src="/images/item_detail/item_detail.png">
-            </div >
-            <div class="item-slider-param" ng-show="tapIndex==1">
-                <div class="split-line-fff"></div>
-                {{saleDetail.specs}}
+            <div id="itemCanvasWrapper" ng-class="changeTrianlge(tapIndex)">
+                <img src="/images/icon/slidetriangle.png" width="14" height="9">
             </div>
-            <div class="item-slider-param" ng-show="tapIndex==2">
-                <div class="split-line-fff"></div>
-                {{saleDetail.inventory}}
+        </h1>
+        <div class="item-slider-window">
+            <div class="item-slider-wrapper">
+                <div class="item_detail_img" ng-show="tapIndex==0">
+                    <img src="/images/item_detail/item_detail.png">
+                    <img src="/images/item_detail/item_detail.png">
+                </div >
+                <div class="item-slider-param" ng-show="tapIndex==1">
+                    <div class="split-line-fff"></div>
+                    {{saleDetail.specs}}
+                </div>
+                <div class="item-slider-param" ng-show="tapIndex==2">
+                    <div class="split-line-fff"></div>
+                    {{saleDetail.inventory}}
+                </div>
             </div>
-        </div>
         </div>
     </div>
-<div class="of-bottom-button-wrapper">
-    <div id="itemSaleButton" class="of-button item-sale-button" ng-show="!showFrame" ng-click="activeShowFrame(showFrame)" >立即分期</div>
-</div>
+    <div class="of-bottom-button-wrapper">
+        <div id="itemSaleButton" class="of-button item-sale-button" ng-show="!showFrame" ng-click="activeShowFrame(showFrame)" >立即分期</div>
+    </div>
+
+    </div>
 <div id="itemMainFrame" class="of-tap-iframe" ng-show="showFrame">
     <div id="iframeTapCross" class="of-tap-iframe-cross" ng-click="activeShowFrame(showFrame)"></div>
     <div class="of-item-buy-frame-info">
@@ -122,3 +126,5 @@
 </div>
 <!--背景遮罩层-->
 <div class="of-item-buy-iframe" id="itemBuyIframe" ng-show="showFrame" ng-click="activeShowFrame(showFrame)"></div>
+</div>
+

@@ -14,7 +14,7 @@ define([],function(){
         $scope.infoHint = "";
         var hintFUNC = function(){//完善信息成功后输出提示并且跳转首页
             $scope.hintStatus =true;
-            $scope.infoHint = "您已经获取6000元额度，可以立即购物哦～";
+            $scope.infoHint = "您已经获取6000元额度，可以立即购物哦";
             $timeout(function(){
                 $scope.hintStatus = false;
                 window.location.href="#/main"

@@ -19,6 +19,8 @@
 .discount-item-timeLeft span{
     color: #ff1502;
     font-size:14px;
+    vertical-align: middle;
+    padding: 0 1px;
 }
 .discount-item-detail{
     padding-top: 8px;
@@ -147,11 +149,12 @@
 }
 .item-hot-list-detail h1{
     padding:3px 3px 0.6em 3px;
-    font-size:11px;
+    font-size:12px;
     display: block;
     text-overflow:ellipsis;
     overflow: hidden;
-    font-weight:500
+    font-weight:500;
+    /*white-space: nowrap;*/
 }
 .item-price{
     font-size:10px;

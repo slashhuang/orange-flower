@@ -3,7 +3,7 @@
     <div class="of-header gray">
         <a class="header-back" href="javascript:history.back();"></a>
         确认订单
-        <a class="header-function" href="/">首页</a>
+        <a class="header-function" href="#/main">首页</a>
     </div>
 
     <!--收件人信息-->
@@ -29,8 +29,8 @@
                 <div class="order-img">
                     <img src="/images/order/iphone.jpg">
                 </div>
-                <div class="order-info-detail">
-                    <p class="decrease-icon order-info-name">{{data.productName}}<em>￥{{transferPrice(data.payAmount)}}</em></p>
+                <div class="order-info-detail order-info-detail-confirm">
+                    <p class="decrease-icon order-info-name"><span class="product-name">{{data.productName}}</span><em>￥{{transferPrice(data.payAmount)}}</em></p>
                     <p class="info-arg">{{data.arg}}<del>￥{{transferPrice(data.salePrice)}}</del></p>
                     <p class="info-arg">首付￥{{transferPrice(data.firstPay)}}  月供￥{{transferPrice(data.prePeriodsPay)}}×{{data.periods}}</p>
                 </div>
@@ -40,13 +40,17 @@
 
     <!--付款信息-->
     <div class="pay-info">
-        <div class="buy-num">
-            <span class="nums">数量 ：{{data.saleVolume}}{{data.saleUnit}}</span><span>总金额：<em class="red-font">￥{{data.payAmount}}</em></span>
-        </div>
+        <!--<div class="buy-num">-->
+            <!--<span class="nums">数量 ：{{data.saleVolume}}{{data.saleUnit}}</span><span>总金额：<em class="red-font">￥{{data.payAmount}}</em></span>-->
+        <!--</div>-->
         <div class="pay-info-area">
-            <div class="first-pay-percent pay-item">
-                <p class="pay-left-info">首付比例</p>
-                <p class="pay-right-info"><em>￥{{transferPrice(data.firstPay)}}</em>&gt;</p>
+            <!--<div class="first-pay-percent pay-item">-->
+                <!--<p class="pay-left-info">首付比例</p>-->
+                <!--<p class="pay-right-info"><em>￥{{transferPrice(data.firstPay)}}</em>&gt;</p>-->
+            <!--</div>-->
+            <div class="first-pay pay-item">
+                <p class="pay-left-info">首付</p>
+                <p class="pay-right-info">￥{{transferPrice(data.firstPay)}}</p>
             </div>
             <div class="pay-month pay-item">
                 <p class="pay-left-info">分期月数</p>
@@ -55,10 +59,6 @@
             <div class="month-num pay-item">
                 <p class="pay-left-info">月供</p>
                 <p class="pay-right-info"><em>￥{{transferPrice(data.prePeriodsPay)}}</em><span ng-show="data.service">（包含服务费¥{{transferPrice(data.service)}})</span></p>
-            </div>
-            <div class="first-pay pay-item">
-                <p class="pay-left-info">首付</p>
-                <p class="pay-right-info">￥{{transferPrice(data.firstPay)}}</p>
             </div>
             <div class="total pay-item">
                 <p class="pay-left-info">总价</p>

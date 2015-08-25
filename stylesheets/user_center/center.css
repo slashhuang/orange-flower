@@ -185,13 +185,18 @@ h4,h6{
     line-height: 2rem;
 }
 
+.list-item a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .list-item .arrow{
     display: inline-block;
-    margin-top:0.3rem;
-    width: 0.7rem;
-    height: 1.3rem;
-    background: url(../../images/user_center/arrow_right.png) no-repeat;
-    background-size: 100%;
+    width:30px ;
+    height: 17px ;
+    background: url(../../images/user_center/arrow_right.png) no-repeat 20px 3px;
+    background-size: 8px 14px ;
     float: right;
 }
 
