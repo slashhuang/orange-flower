@@ -34,7 +34,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js"], function (wx, $) {
                 data: '{"orderId": "2015082017361235", "amount": 1, "payCode": "PAY_WEIXIN", "tradeType": "TRADE_CONSUME", "description": "消费"}',
                 success: function(res){
                     wx.config({
-                        "debug": false,
+                        "debug": true,
                         "appId": res["appId"],
                         "timestamp": res["timeStamp"],
                         "nonceStr": res["nonceStr"],
