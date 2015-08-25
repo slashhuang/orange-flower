@@ -3,81 +3,43 @@
     个人信息填写
 </div>
 
-
 <form class="of-register-form" id="regForm" action="" method="">
     <label>
-        姓名 <input  id="userNumber" type="text" class="modified" placeholder="请输入真实姓名" ng-model="completeData.userName" >
+        姓名 <input type="text" class="modified" placeholder="请输入真实姓名" ng-model="completeData.userName" >
     </label>
     <label >
         身份证号
-        <input  id="IDNumber" type="tel" placeholder="请输入证件号" ng-model="completeData.idNo" ng-change="checkId()"/>
+        <input  id="IDNumber" type="tel" placeholder="请输入证件号" ng-model="completeData.idNo"/>
     </label>
     <label>
         省份
         <span class="arrow-right-select-register"></span>
-        <select id="userProvince" name="province" ng-model="completeData.province" ng-change="setData(completeData.province)">
-                <option value="beijing">北京</option>
-                <option value="天津">天津</option>
-                <option value="河北省">河北省</option>
-                <option value="山西省">山西省</option>
-                <option value="内蒙古自治区">内蒙古自治区</option>
-                <option value="辽宁省" >辽宁省</option>
-                <option value="吉林省">吉林省</option>
-                <option value="黑龙江省">黑龙江省</option>
-                <option value="上海" >上海</option>
-                <option value="江苏省">江苏省</option>
-                <option value="浙江省">浙江省</option>
-                <option value="安徽省">安徽省</option>
-                <option value="福建省">福建省</option>
-                <option value="江西省">江西省</option>
-                <option value="山东省">山东省</option>
-                <option value="河南省">河南省</option>
-                <option value="湖北省">湖北省</option>
-                <option value="湖南省">湖南省</option>
-                <option value="广东省">广东省</option>
-                <option value="广西壮族自治区">广西壮族自治区</option>
-                <option value="海南省">海南省</option>
-                <option value="重庆">重庆</option>
-                <option value="四川省">四川省</option>
-                <option value="贵州省">贵州省</option>
-                <option value="云南省">云南省</option>
-                <option value="西藏自治区">西藏自治区</option>
-                <option value="陕西省">陕西省</option>
-                <option value="甘肃省">甘肃省</option>
-                <option value="青海省">青海省</option>
-                <option value="宁夏回族自治区">宁夏回族自治区</option>
-                <option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
-                <option value="台湾省">台湾省</option>
-                <option value="香港特别行政区">香港特别行政区</option>
-                <option value="澳门特别行政区">澳门特别行政区</option>
-                <option value="海外">海外</option></select>
+        <select id="userProvince" ng-model="selectedProvince" ng-change="setCity(selectedProvince)">
+            <option ng-repeat="option in completeData.province" value="{{option.value}}">{{option.value}}</option>
+            </select>
     </label>
     <label>
         城市
         <span  class="arrow-right-select-register"></span>
-        <select id="userCity" ng-model="completeData.city">
-            <option ng-repeat="option in infoData.cityList" value="">{{option}}</option>
+        <select id="userCity" ng-model="selectedCity"  ng-change="setSchool(selectedCity)">
+            <option ng-repeat="option in completeData.city" value="{{option.value}}">{{option.value}}</option>
         </select>
     </label>
     <label>
         学校
         <span class="arrow-right-select-register"></span>
-        <select id="userUniversity" ng-model="completeData.school">
-            <option ng-repeat="option in infoData.school" value="">{{option}}</option>
+        <select id="userUniversity" ng-model="selectedSchool">
+            <option ng-repeat="option in completeData.school" value="{{option.value}}">{{option.value}}</option>
         </select>
     </label>
     <label>
         校区
-        <span class="arrow-right-select-register"></span>
-        <select id="userCampus" ng-model="completeData.campus">
-            <option ng-repeat="option in infoData.campus" value="">{{option}}</option>
-        </select>
+        <input type="text" placeholder="请输入校区" ng-model="selectedCampus"/>
     </label>
     <label>
         年级
         <span class="arrow-right-select-register"></span>
-        <select id="userLevel" ng-model="completeData.level">
-            <option value="年级">--年级--</option>
+        <select id="userLevel" ng-model="selectedLevel">
             <option value="大一">大一</option>
             <option value="大二">大二</option>
             <option value="大三">大三</option>
@@ -90,11 +52,11 @@
         </select><!--校区部分还没有写上去-->
     </label>
     <label>
-        宿舍 <input  id="" type="text" placeholder="请填写您所在的宿舍楼号" ng-model="" >
-    </label>
-    <label ng-show="idTip.length > 0" class=" no-border">
-        {{idTip}}
+        宿舍 <input  id="" type="text" placeholder="请填写您所在的宿舍楼号" ng-model="selectedRoom" >
     </label>
 </form>
+<div ng-show="idTip.length > 0" class=" no-border">
+    {{idTip}}
+</div>
 <div class="of-button user-credit-button" ng-click="nextStep()" style="margin-top:10px;">完成</div>
 <div class="info-hint-style" ng-bind="infoHint" ng-show="hintStatus"></div>

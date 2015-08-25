@@ -19,9 +19,9 @@ define([], function () {
 
         //点击触发下一步
         $scope.checkNextMove = function () {
-            if(!!$scope.passwordHint.length){
+            if($scope.passwordHint!="密码输入一致"){
                 return false;
-            }
+            };
             //  验证不通过就直接不放行
             $http({
                 "method": "post",
@@ -31,7 +31,7 @@ define([], function () {
                 location.hash = "/login"
             }).error(function (response, status, headers, config) {
                 console.log($scope.dataCollection);
-                location.hash = "/login"
+                alert("修改密码失败")
             });
         };
 

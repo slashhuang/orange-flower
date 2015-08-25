@@ -80,23 +80,26 @@ define([],function(){
         var queryProduct = function(key){
             $http({
                 "method":"post",
-                "url":prefuri+"/product/query",
+                "url":prefuri+"/product/query/0",
                 "data":{
                     "sortType": "DEFAULT",
                     "catId": key
                 }
             }).success(
                 function(response, status, headers, config){
+                    console.log(response)
                     $scope.category.itemInfo = response.content;
+                    alert("fuck")
                 }).error(
-                function(){
+                function(res){
+                    console.log(res)
+                    //alert("fuck")
                 });
         }
 
         //点击触发请求
         $scope.AjaxHttp = function(key){
             $scope.watchClick = findIndex(key);
-
             queryProduct(key)
         };
 

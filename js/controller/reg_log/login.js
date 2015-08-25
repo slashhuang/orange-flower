@@ -51,7 +51,6 @@ define([],function(){
 
         //组件
         //跳出登录函数
-            //登录函数
             var outLogin = function (txt) {
                 var time = 2;
                 $scope.infoHint = txt + time + "秒后转向首页";
@@ -76,17 +75,21 @@ define([],function(){
             //点击登录按钮
             $scope.userLogin = function (loginName, password) {
                 if ($scope.checkMobile(loginName, password)){
-                    window.isLogin = true;
                     $http({
                         "method": "post",
                         "url": loginURL + loginName + '/' + password
                     }).success(function (data) {
+                        //接口存在问题，无论如何都能登录
+                        console.log(data)
                         window.isLogin = true;
-                        //  登录成功
                         outLogin("登录成功");
                     }).error(function () {
                         window.isLogin = false;
-                        outLogin("登录失败");
+                        $scope.infoHint = "密码错误";
+                        $scope.loginStatus = true;
+                            $timeout(function(){
+                            $scope.loginStatus = false;
+                        },1000)
                     });
                 }
             }
