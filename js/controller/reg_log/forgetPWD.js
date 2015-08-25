@@ -56,7 +56,7 @@ define([], function () {
                 if(!_checkMobile($scope.dataCollection.mobile)){
                     $scope.telHint = "手机号格式不符!";
                 }
-                return;
+                return false;
             }
             $scope.showPwd = true;
         };

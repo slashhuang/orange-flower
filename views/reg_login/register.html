@@ -19,7 +19,7 @@
 
         <label>
             密码
-            <input id="password" type="password" name="password" placeholder="请输入密码" ng-model="password">
+            <input id="password" type="password" name="password" placeholder="请输入6-16位数字或者字母" ng-model="password">
         </label>
 
         <label>
@@ -27,7 +27,8 @@
         </label>
 
        <label class="of-check no-border" ng-model="verified" ng-init="verified=false">
-           <input class="checkbox-style" id="registerCheckbox" type="checkbox" ng-click="checkbox(verified)">我已阅读并同意<a href="">《橘花协议》</a>
+           <input class="checkbox-style" id="registerCheckbox" type="checkbox" checked="checked"  ng-click="checkbox_register(!verified)">我已阅读并同意<a href="">《橘花协议》</a>
        </label>
     </form>
+
     <div class="of-button of-button-bar" id="regSubmit" ng-click="register(telephone,password,code)">注册</div>

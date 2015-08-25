@@ -23,6 +23,11 @@
     padding-bottom:2rem !important;
     background:inherit;
 }
+
+.detail-show-frame-fixedbg{
+    position: fixed;
+    top:0;width:100%;
+}
 .img-slider img{
     width:50%;
     text-align: center;

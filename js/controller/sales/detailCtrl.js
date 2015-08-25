@@ -1,9 +1,7 @@
 /**
  * Created by slashhuang on 15/8/21.
  */
-/**
- * Created by slashhuang on 15/8/21.
- */
+
 define(["zepto","util/swiper_"], function($,swiper){
     //定义商品分类controller
     function detailCtrl($scope, $routeParams, $location, $http, $timeout) {

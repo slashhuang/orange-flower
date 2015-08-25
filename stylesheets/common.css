@@ -37,6 +37,17 @@
     background: url(../images/icon/icon_arrow_right.png) no-repeat 20px 0;
     background-size: 9px 16px;
 }
+.arrow-right-select-register{
+    display:block;
+    float:right;
+    width: 9px;
+    height: 16px;
+    background: url(../images/icon/icon_arrow_right.png) no-repeat 0 0;
+    background-size: 9px 16px;
+    margin-left: 0 !important;
+}
+
+
 
 .of-header{
     width: 100%;

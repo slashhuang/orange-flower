@@ -47,6 +47,7 @@
     -moz-border-radius: 20px;
     border-radius: 20px;
     font-size:15px;
+    margin-top:3px;
 }
 
 .of-category-input input{
@@ -71,7 +72,7 @@
 }
 .of-category-input-active b{
      right: 12px;
-     top:8px;
+     top:10px;
      position: absolute;
      display:block;
      width: 20px;
