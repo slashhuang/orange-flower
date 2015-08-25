@@ -9,15 +9,15 @@ define([],function(){
         //初始情况下不显示提示
         $scope.loginStatus=false;
 
-        //跳出登录函数
-        var outLogin=function(){
+        //登录函数
+        var outLogin=function(txt){
             var time = 4;
-            $scope.infoHint="登录成功"+time+"秒后转向首页";
+            $scope.infoHint=txt+time+"秒后转向首页";
             $scope.loginStatus = true;
             var interval = setInterval(function(){
                 $scope.$apply(function(){
                     time --;
-                    $scope.infoHint="登录成功"+time+"秒后转向首页";
+                    $scope.infoHint=txt+time+"秒后转向首页";
                     if(time == 0){
                         clearInterval(interval);
                         location.hash = "#/main";
@@ -28,12 +28,17 @@ define([],function(){
 
         //点击登录按钮
         $scope.userLogin =function(loginName,password){
+            window.isLogin = true;
             $http({
                 "method":"post",
                 "url":loginURL+loginName+'/'+password
             }).success(function(data){
-                outLogin();
+                window.isLogin = true;
+                //  登录成功
+                outLogin("登录成功");
             }).error(function(){
+                window.isLogin = false;
+                outLogin("登录失败");
             });
         }
     };

@@ -8,7 +8,7 @@ define(['loadScript','angular','config/routeConfig','lib/angular-route',
             'controller/sales/sales','controller/user/user',
             'controller/reg_log/reglog', 'controller/order/order','controller/bill/bill'],
         function(scriptsLoader,angular,routeConfig){
-            window.prefuri = "http://juhua-server.orange.com";
+            window.prefuri = "http://api.orangezc.com";
             window.isLogin = false;
     var app = angular.module('app',
         ["ngRoute","mainModule","salesModule","ngLoadScript","userModule","orderModule","reglogModule","orderModule","billModule"]);

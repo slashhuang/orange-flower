@@ -2,7 +2,7 @@
  * Created by billin on 15/7/27.
  */
 define(function(){
-    window.prefuri = "http://juhua-server.orange.com";
+    window.prefuri = "http://api.orangezc.com";
     window.curTab = "main";
     window.localStorage.headerInfo ="";
     return {

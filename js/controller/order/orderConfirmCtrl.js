@@ -1,4 +1,4 @@
-define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
+define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js"], function (wx, $) {
     //定义确定购买orderConfirm
     function orderConfirmCtrl($scope, $routeParams, $location, $http) {
         //初始化变量完成
@@ -6,6 +6,10 @@ define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
         var orderId = $location.search()["orderId"],
         //  从url里面获取orderId
             tmpData = {};
+
+        $.ajaxSetup({
+            contentType : 'application/json'
+        });
 
         $http({
             "method": "get",
@@ -24,41 +28,32 @@ define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
          */
         $scope.confirmBuy = function (id, firstPay) {
             //if (firstPay > 0) {
-                $http({
-                    "method": "post",
-                    "url": prefuri + "/pay/create/",
-                    "params":{
-                        "orderId": "2015082017361234",
-                        "amount": 1,
-                        "payCode": "PAY_WEIXIN",
-                        "tradeType": "TRADE_CONSUME",
-                        "description": "消费"
-                    }
-                }).
-                success(function (res) {
+            $.ajax({
+                url: prefuri + "/pay/create/",
+                dataType: "json",
+                type: "post",
+                data: '{"orderId": "2015082017361235", "amount": 1, "payCode": "PAY_WEIXIN", "tradeType": "TRADE_CONSUME", "description": "消费"}',
+                success: function(res){
                     wx.config({
                         "debug": false,
                         "appId": res["appId"],
-                        "timestamp": res["timestamp"],
+                        "timestamp": res["timeStamp"],
                         "nonceStr": res["nonceStr"],
-                        "signature": res["signature"],
+                        "signature": res["paySign"],
                         "jsApiList": ["chooseWXPay"]
                     });
                     wx.chooseWXPay({
                         "timestamp": res["timestamp"],
                         "nonceStr": res["nonceStr"],
-                        "package": res["package"],
+                        "package": res["wxPackage"],
                         "signType": res["signType"],
                         "paySign": res["paySign"],
                         success: function (res) {
                             alert("支付成功!");
                             $http({
                                 "method": "post",
-                                "url": prefuri + "/pay/pay/",
-                                "params":{
-                                    "":res["paymentId"]
-                                }
-                            });
+                                "url": prefuri + "/pay/pay/" + res["paymentId"]
+                            }).success(function(res){}).error(function(){});
                         },
                         fail:function(err){
                             alert("发送错误！请重试！");
@@ -67,11 +62,8 @@ define(["/js/lib/jweixin-1.0.0.js"], function (wx) {
                             alert("您取消了本次支付！");
                         }
                     });
-                }).error(function (err) {
-                });
-            //} else {
-            //    location.hash = "/order/info?orderId=" + id;
-            //}
+                }
+            })
         };
 
         /**
