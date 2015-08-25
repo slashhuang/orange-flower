@@ -138,15 +138,15 @@
     -moz-border-radius: 5px;
     border-radius: 5px;
     margin-top:30px;
-    padding:10px 45px;
+    padding:10px 15px;
     text-align:center;
     background-color: #5b5b5b;
     color:#fff;
-    width:70%;
+    width:80%;
     margin-left:auto;
     margin-right:auto;
     line-height: 30px;
-    height:90px;
+    height:50px;
     font-size:15px;
 }
 /*完善信息提示页面*/

@@ -89,11 +89,9 @@ define([],function(){
                 function(response, status, headers, config){
                     console.log(response)
                     $scope.category.itemInfo = response.content;
-                    alert("fuck")
                 }).error(
                 function(res){
                     console.log(res)
-                    //alert("fuck")
                 });
         }
 
