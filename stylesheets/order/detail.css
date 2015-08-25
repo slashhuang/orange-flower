@@ -15,7 +15,7 @@
 
 .order-num,
 .create-time{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: #515151;
     float: left;
 }
@@ -25,19 +25,23 @@
 }
 
 .order-info{
-    padding: 1rem;
+    padding: 0 1rem;
     border-bottom: 1px solid #e6e6e6;
     position: relative;
 }
 
 .order-info-detail{
-    height: 4.4rem;
     padding: 0 0 0 6rem;
 }
 
-.order-img{
-    width: 4.3rem;
-    height: 4.3rem;
+.order-info-detail-detail{
+    overflow: hidden;
+    height: 7.5rem;
+}
+
+.order-img-detail{
+    width: 5.5rem;
+    height: 5.5rem;
     position: absolute;
     left: 1rem;
     top: 1rem;
@@ -45,9 +49,9 @@
     border: 1px solid #e6e6e6;
 }
 
-.order-img img{
-    width: 4.3rem;
-    height: 4.3rem;
+.order-img-detail img{
+    width: 5.5rem;
+    height: 5.5rem;
 }
 
 .order-info-name{
@@ -58,9 +62,14 @@
 .decrease-icon{
     position: relative;
     padding: 0 0 0 1.25rem;
+    width: 18rem;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
-.decrease-icon:before{
+.decrease-icon-detail:before{
     content: "减";
     background: #ff5959;
     font-size: 0.8rem;
@@ -69,7 +78,7 @@
     line-height: 1.2rem;
     position: absolute;
     left: 0;
-    top: 0;
+    top: 0.5rem;
     color: #fff;
     -webkit-border-radius: 0.6rem;
     -moz-border-radius: 0.6rem;
@@ -85,10 +94,10 @@
     line-height: 2.25rem;
 }
 
-.price p{
-    float: left;
+.order-info-detail .price p{
     color: #515151;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    float: left;
 }
 
 .info-price{
@@ -114,12 +123,12 @@
 }
 
 .info-name{
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     float: left;
 }
 
 .info-detail{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     float: right;
     text-align: right;
 }
@@ -141,7 +150,7 @@
 .state-bar{
     width: 100%;
     height: 4.75rem;
-    padding: 1.5rem 0 0 0;
+    padding: 1rem 0 0 0;
     position: relative;
 }
 
@@ -171,7 +180,7 @@
 }
 
 .text-state{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     line-height: 2rem;
     color: #8a8a8a;
 }

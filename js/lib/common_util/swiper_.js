@@ -8,7 +8,7 @@ define(['lib/swiper','zepto'], function(swiper, $){
                     effect : 'fade',
                     loop : true,
                     preloadImages:false,
-                    autoplay : 2000,
+                    autoplay : 2000
                 })
             })();
         },
