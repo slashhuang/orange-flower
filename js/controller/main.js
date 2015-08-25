@@ -33,9 +33,16 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                 }).success(function(data){
                     console.log(data)
                     $scope.mainData.category =data;
+                    $timeout(function(){
+                        swiper.mainItem();
+                        swiper.picture()
+                    },500);
+                    //加载数据后再调用
+
                 }).error(function(){
                 });
 
+<<<<<<< Temporary merge branch 1
                 /**
                  * 设定当前区分菜单项的便利
                  * @param cur
