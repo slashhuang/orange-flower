@@ -8,7 +8,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
             tmpData = {};
 
         $.ajaxSetup({
-            contentType : 'application/json'
+            contentType: 'application/json'
         });
 
         $http({
@@ -32,15 +32,19 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                 dataType: "json",
                 type: "post",
                 data: '{"orderId": "2015082017361235", "amount": 1, "payCode": "PAY_WEIXIN", "tradeType": "TRADE_CONSUME", "description": "消费"}',
-                success: function(res){
+                success: function (res) {
                     var charge = res["charge"];
-                    pay.createPayment(charge, function(result, error){
+                    pay.createPayment(charge, function (result, error) {
                         if (result == "success") {
                             // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的 wap 支付结果都是在 extra 中对应的 URL 跳转。
                             debug.success("success");
+                            $http({
+                                "method": "post",
+                                "url": prefuri + "/pay/pay/" + res["paymentId"]
+                            });
                         } else if (result == "fail") {
                             var info = "";
-                            for(var i in error){
+                            for (var i in error) {
                                 info += i + "---" + error[i] + "\n";
                             }
                             debug.error(info);
@@ -51,41 +55,41 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                     });
 
                     /*wx.config({
-                        "debug": true,
-                        "appId": res["appId"],
-                        "timestamp": res["timestamp"],
-                        "nonceStr": res["nonceStr"],
-                        "signature": res["signature"],
-                        "jsApiList": ["chooseWXPay"]
-                    });
-                    wx.chooseWXPay({
-                        "timestamp": res["timestamp"],
-                        "nonceStr": res["nonceStr"],
-                        "package": res["wxPackage"],
-                        "signType": res["signType"],
-                        "paySign": res["paySign"],
-                        success: function (res) {
-                            alert("支付成功!");
-                            $http({
-                                "method": "post",
-                                "url": prefuri + "/pay/pay/",
-                                "params":{
-                                    "":res["paymentId"]
-                                }
-                            });
-                        },
-                        fail:function(err){
-                            var info = "";
-                            for(var i in err){
-                                info += i + "---" + err[i] + "\n";
-                            }
-                            alert(info);
-                            alert("发送错误！请重试！");
-                        },
-                        cancel:function(){
-                            alert("您取消了本次支付！");
-                        }
-                    });*/
+                     "debug": true,
+                     "appId": res["appId"],
+                     "timestamp": res["timestamp"],
+                     "nonceStr": res["nonceStr"],
+                     "signature": res["signature"],
+                     "jsApiList": ["chooseWXPay"]
+                     });
+                     wx.chooseWXPay({
+                     "timestamp": res["timestamp"],
+                     "nonceStr": res["nonceStr"],
+                     "package": res["wxPackage"],
+                     "signType": res["signType"],
+                     "paySign": res["paySign"],
+                     success: function (res) {
+                     alert("支付成功!");
+                     $http({
+                     "method": "post",
+                     "url": prefuri + "/pay/pay/",
+                     "params":{
+                     "":res["paymentId"]
+                     }
+                     });
+                     },
+                     fail:function(err){
+                     var info = "";
+                     for(var i in err){
+                     info += i + "---" + err[i] + "\n";
+                     }
+                     alert(info);
+                     alert("发送错误！请重试！");
+                     },
+                     cancel:function(){
+                     alert("您取消了本次支付！");
+                     }
+                     });*/
                 }
             })
         };
