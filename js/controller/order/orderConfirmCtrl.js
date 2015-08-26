@@ -38,10 +38,18 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                         if (result == "success") {
                             // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的 wap 支付结果都是在 extra 中对应的 URL 跳转。
                             debug.success("success");
-                            $http({
+                            /*$http({
                                 "method": "post",
                                 "url": prefuri + "/pay/pay/" + res["paymentId"]
-                            });
+                            });*/
+                            $.ajax({
+                                url: prefuri + "/pay/pay/" + res["payId"],
+                                type: "post",
+                                dataType: "json",
+                                success: function(o){
+                                    debug.success("ok");
+                                }
+                            })
                         } else if (result == "fail") {
                             var info = "";
                             for (var i in error) {
