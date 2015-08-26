@@ -15,7 +15,9 @@ require.config({
         "dom_order":"DOMJS/order",
         "dom_bill":"DOMJS/bill/bill",
         "dom_main":"DOMJS/dom_main",
-        "dom_reglog":"DOMJS/reg_login"
+        "dom_reglog":"DOMJS/reg_login",
+        "debug": "lib/debug",
+        "pingpp":"lib/pingpp_pay"
     },
     shim:{
         "angular":{
@@ -35,5 +37,11 @@ require.config({
             "deps":["zepto"],
             "exports":"swiper"
         },
+        "debug":{
+            "exports": "debug"
+        },
+        "pingpp":{
+            "exports": "pingpp"
+        }
     }
 });

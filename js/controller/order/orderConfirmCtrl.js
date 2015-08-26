@@ -1,4 +1,4 @@
-define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js"], function (wx, $) {
+define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], function (wx, $, debug, pay) {
     //定义确定购买orderConfirm
     function orderConfirmCtrl($scope, $routeParams, $location, $http) {
         //初始化变量完成
@@ -8,7 +8,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js"], function (wx, $) {
             tmpData = {};
 
         $.ajaxSetup({
-            contentType : 'application/json'
+            contentType: 'application/json'
         });
 
         $http({
@@ -31,42 +31,21 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js"], function (wx, $) {
                 url: prefuri + "/pay/create/",
                 dataType: "json",
                 type: "post",
-                data: '{"orderId": "2015082017361235", "amount": 1, "payCode": "PAY_WEIXIN", "tradeType": "TRADE_CONSUME", "description": "消费"}',
-                success: function(res){
-                    wx.config({
-                        "debug": true,
-                        "appId": res["appId"],
-                        "timestamp": res["timestamp"],
-                        "nonceStr": res["nonceStr"],
-                        "signature": res["signature"],
-                        "jsApiList": ["chooseWXPay"]
-                    });
-                    wx.chooseWXPay({
-                        "timestamp": res["timestamp"],
-                        "nonceStr": res["nonceStr"],
-                        "package": res["wxPackage"],
-                        "signType": res["signType"],
-                        "paySign": res["paySign"],
-                        success: function (res) {
-                            alert("支付成功!");
-                            $http({
-                                "method": "post",
-                                "url": prefuri + "/pay/pay/",
-                                "params":{
-                                    "":res["paymentId"]
-                                }
-                            });
-                        },
-                        fail:function(err){
+                data: '{"orderId": "' + id + '", "amount": 1, "payCode": "PAY_WEIXIN", "tradeType": "TRADE_CONSUME", "description": "消费"}',
+                success: function (res) {
+                    var charge = res["charge"];
+                    pay.createPayment(charge, function (result, error) {
+                        if (result == "success") {
+                            debug.success("success");
+                        } else if (result == "fail") {
                             var info = "";
-                            for(var i in err){
-                                info += i + "---" + err[i] + "\n";
+                            for (var i in error) {
+                                info += i + "---" + error[i] + "\n";
                             }
-                            alert(info);
-                            alert("发送错误！请重试！");
-                        },
-                        cancel:function(){
-                            alert("您取消了本次支付！");
+                            debug.error(info);
+                            debug.error("发送错误！请重试！");
+                        } else if (result == "cancel") {
+                            debug.log("您取消了本次支付！");
                         }
                     });
                 }
