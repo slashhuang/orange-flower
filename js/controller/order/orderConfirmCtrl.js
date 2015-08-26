@@ -37,14 +37,6 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                     pay.createPayment(charge, function (result, error) {
                         if (result == "success") {
                             debug.success("success");
-                            $.ajax({
-                                url: prefuri + "/pay/pay/" + res["payId"],
-                                type: "post",
-                                dataType: "json",
-                                success: function (o) {
-                                    debug.success("ok");
-                                }
-                            })
                         } else if (result == "fail") {
                             var info = "";
                             for (var i in error) {
