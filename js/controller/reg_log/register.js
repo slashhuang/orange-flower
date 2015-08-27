@@ -83,8 +83,6 @@ define([], function () {
                     })
                 }, 1000)
             }
-
-
         };
         /**
          * 发送短信
@@ -122,26 +120,6 @@ define([], function () {
                 }).error(function () {
                     alert('register failed')
                 });
-            }
-        };
-
-        $scope.countTime = 0;
-        var showCountDown = function () {
-            //避免多次点击事件
-            if ($scope.countTime == 0) {
-                $scope.countTime = 10;
-                $scope.registerSmsHint = $scope.countTime + "秒后重发";
-                var state = setInterval(function () {
-                    $scope.$apply(function () {
-                        $scope.countTime--;
-                        $scope.registerSmsHint = $scope.countTime + "秒后重发";
-                        if ($scope.countTime <= 0) {
-                            $scope.registerSmsHint = "发送验证码";
-                            $scope.countTime = 0;
-                            clearInterval(state);
-                        }
-                    });
-                }, 1000);
             }
         };
     };
