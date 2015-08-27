@@ -50,6 +50,7 @@ define(["zepto","util/swiper_"], function($,swiper){
         //统一URL
         var detailUrl = prefuri + "/product/" + itemID;
 
+
         /*******通用函数
          *@param data 数组
          * @param id 查询参数
