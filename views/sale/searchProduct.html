@@ -10,8 +10,8 @@
     <a class="header-back-search" href="javascript:history.back()" ng-show="!searchFinished"></a>
     <a class="header-function-search" href="#/main" ng-show="!searchFinished">首页</a>
     <form ng-class="{true: 'of-category-input-active',false: 'of-category-input'}[!searchFinished]">
-        <input placeholder="搜索您需要的商品"  type="text" maxlength="20" ng-model="itemQuery" ng-focus="searchFinished=true">
-        <b src="/images/icon/search_main_icon.png" ng-click="searchProduct(itemQuery)"></b>
+        <input placeholder="搜索您需要的商品"  type="text" maxlength="20" ng-model="keyword" ng-focus="searchFinished=true">
+        <b src="/images/icon/search_main_icon.png" ng-click="searchProduct()"></b>
     </form>
 </div>
 

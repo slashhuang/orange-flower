@@ -7,8 +7,8 @@
     <!--商品排序方式-->
 
     <div class='of-category-input'>
-        <input placeholder="搜索您需要的商品" type="text" maxlength="20" ng-model="itemQuery">
-        <b ng-click="searchProduct(itemQuery)"></b>
+        <input placeholder="搜索您需要的商品" type="text" maxlength="20" ng-model="keyword">
+        <b ng-click="searchProduct(keyword)"></b>
     </div>
 
 
@@ -17,7 +17,7 @@
             <ul id="categoryNav" class="of-category-list">
                 <!--偶数就是前面"active":"disable"-->
                 <li ng-repeat="itemlist in category.saleNav" ng-class="active(itemlist.id)"
-                    ng-click="AjaxHttp(itemlist.id)">
+                    ng-click="searchProduct(itemlist.id)">
                     {{itemlist.value}}
                 </li>
             </ul>
@@ -28,7 +28,7 @@
             </div>
             <ul class="of-category-main-item">
                 <!--偶数添加"splitline"-->
-                <li ng-class-odd="'splitline'" ng-class-even="''" ng-repeat="info in category.itemInfo | filter:itemQuery">
+                <li ng-class-odd="'splitline'" ng-class-even="''" ng-repeat="info in category.itemInfo | filter:keyword">
                     <a href="#/sale/detail/{{info.id}}">
                         <img ng-src="{{info.img}}">
                         <span>{{info.title}}</span>

@@ -5,28 +5,37 @@ define([],function() {
     //定义商品分类controller
     function searchCtrl($scope, $routeParams, $location, $http) {
 
-        //初始化数据
-        $scope.searchFinished = true;
-
-        $scope.searchProduct = function(query){
-            console.log(query);
-            $http({
-                "method":"post",
-                "url":prefuri,
-                "data":{},
-            }).success(function(data){
-                $scope.searchFinished = false
-
-            }).error(function(){
-
-            });
-        };
-
-
-
 
         //设定url
         var saleListUrl = prefuri + "/product/query";
+
+        //初始化数据
+        $scope.searchFinished = true;
+
+        //初始化查询数据
+        $scope.pageId=0;
+        $scope.sortType="DEFAULT";
+        $scope.catId=0;
+        $scope.keyword="";
+
+        $scope.searchProduct = function(){
+            var DATAsettings = {
+                "sortType": $scope.sortType,
+                "catId":$scope.catId,
+                "keyword":$scope.keyword
+            };
+            //@TODO 数据下拉刷新
+            $http({
+                "method":"post",
+                "url":saleListUrl+"/"+ $scope.pageId,
+                "data":DATAsettings
+            }).success(function(data){
+                console.log(data);
+                $scope.searchFinished = false
+            }).error(function(){
+            });
+        };
+
 
         //通用函数
         /**
@@ -42,7 +51,11 @@ define([],function() {
         $http({
             "method":"post",
             "url":saleListUrl,
-            "data":{catId:$scope.checkListId},
+            "data":{
+                "sortType": "DEFAULT",
+                "catId": 0,
+                "keyword": "string"
+            },
         }).success(function(data){
             console.log(data);
             //$scope.saleList =data.content;

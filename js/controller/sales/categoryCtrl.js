@@ -77,14 +77,23 @@ define([],function(){
         };
 
         //统一http请求
+
+        //初始化查询数据
+        $scope.pageId=0;
+        $scope.sortType="DEFAULT";
+        $scope.catId=0;
+        $scope.keyword="";
+
         var queryProduct = function(key){
+            var DATAsettings = {
+                "sortType": $scope.sortType,
+                "catId":key,
+                "keyword":$scope.keyword
+            };
             $http({
                 "method":"post",
                 "url":prefuri+"/product/query/0",
-                "data":{
-                    "sortType": "DEFAULT",
-                    "catId": key
-                }
+                "data":DATAsettings
             }).success(
                 function(response, status, headers, config){
                     console.log(response)
@@ -96,7 +105,7 @@ define([],function(){
         }
 
         //点击触发请求
-        $scope.AjaxHttp = function(key){
+        $scope.searchProduct = function(key){
             $scope.watchClick = findIndex(key);
             queryProduct(key)
         };

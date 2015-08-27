@@ -137,7 +137,8 @@ define([],function(){
                    "data":data,
                }).success(function(response, status, headers, config){
                    hintFUNC();
-               }).error(function(){
+               }).error(function(res){
+                   console.log(res);
                    alert("程序员哥哥正在抢救服务器，请稍等")
                });
            }

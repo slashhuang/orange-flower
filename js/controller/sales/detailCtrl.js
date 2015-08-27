@@ -7,7 +7,6 @@ define(["zepto","util/swiper_"], function($,swiper){
 
         //暂时混用javascript,设置悬浮样式
         var detailDomFunc = function(){
-            console.log("require放在controller里面加载成功");
             //滚动至顶部
             window.scrollTop = 0 ;
 
