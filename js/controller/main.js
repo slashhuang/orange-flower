@@ -19,7 +19,6 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                     return (price / 100).toFixed(2);
                 };
 
-
                 //首页数据收集
                 $scope.mainData={
                     discount:[],
@@ -31,7 +30,7 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                     "method":"post",
                     "url":mainUrl
                 }).success(function(data){
-                    console.log(data)
+                    console.log(data);
                     $scope.mainData.category =data;
                     $timeout(function(){
                         swiper.mainItem();

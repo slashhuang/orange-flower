@@ -8,7 +8,7 @@
     </label>
     <label>
         密码
-        <input id="loginPassword" type="password" placeholder="请输入密码" style="margin-left:4rem;" ng-model="loginPassword" ng-focus="checkVaildHint=''"/>
+        <input type="password" placeholder="请输入密码" style="margin-left:4rem;" ng-model="loginPassword" ng-focus="checkVaildHint=''"/>
     </label>
 
 </form>
@@ -21,6 +21,6 @@
     <a href="#/forgetpwd"><span id="forgetPWD">忘记密码？</span></a>
 </div>
 
-<div class="log-hint-style" ng-bind="infoHint" ng-show="loginStatus"></div>
+<div class="log-hint-style" ng-bind="infoHint" ng-show="infoHint.length>0"></div>
 
 

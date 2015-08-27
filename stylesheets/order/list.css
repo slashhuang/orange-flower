@@ -259,11 +259,29 @@ p.special-icon:before{
 
 .empty-order{
     width: 18rem;
-    height: 10.7rem;
+    height: 14rem;
     background: url(../../images/order/empty-order.png) no-repeat 0 0;
     background-size: 18rem 10.7rem;
     position: absolute;
     left: 50%;
     top: 50%;
     margin: -5.35rem 0 0 -9rem;
+}
+.empty-sale{
+    width: 150px;
+    height: 150px;
+    background: url(/images/orchen.png) no-repeat 40px 0;
+    background-size: 75px 80px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -75px 0 0 -75px;
+}
+.empty-sale:after{
+   content:"橘鸡没有找到您想要的商品~";
+    display: block;
+    padding-top:100px;
+    color: rgba(122, 122, 122, 0.69);
+    text-align: center;
+    font-size:15px
 }

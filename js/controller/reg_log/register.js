@@ -12,6 +12,8 @@ define([], function () {
         $scope.repeatPassword = "";
         $scope.code = "";
 
+
+        $scope.submitHint="";
         $scope.registerSmsHint = "发送验证码";
 
         //通用函数
@@ -33,6 +35,9 @@ define([], function () {
             if (password.length > 5) {
                 return true
             }
+            else{
+                return false;
+            }
         }
 
         /**
@@ -41,25 +46,25 @@ define([], function () {
          */
 
         $scope.checkVaildHint = "";
-        $scope.checkMobile = function (mobile, password) {
-            if (!_checkMobile(mobile)) {
-                $scope.checkVaildHint = "手机号格式不符!";
-                return false;
-            } else {
-                if (!checkPws(password)) {
-                    $scope.checkVaildHint = "密码至少6位!";
+        $scope.checkMobile = function (mobile, password,verified) {
+            if(verified){
+                if (!_checkMobile(mobile)) {
+                    $scope.checkVaildHint = "手机号格式不符!";
                     return false;
-                }
-                else {
-                    return true;
+                } else {
+                    if (!checkPws(password)) {
+                        $scope.checkVaildHint = "密码至少6位!";
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
                 }
             }
-        };
-        /**
-         * 点击切换checkbox样式
-         */
-        $scope.checkbox_register = function () {
-            $scope.verified = !$scope.verified;
+            else{
+                $scope.checkVaildHint = "请勾选同意协议按钮～";
+            }
+
         };
         /**
          *
@@ -93,7 +98,7 @@ define([], function () {
                 "method":"post",
                 "url":sendSmsUrl+"/"+tel
             }).success(function(response, status, headers, config){
-                alert("短信已发送，请查收");
+                $scope.checkVaildHint = "短信已发送，请查收";
                 showCountDown();
             }).error(function(response, status, headers, config){
                 console.log(response);
@@ -107,20 +112,43 @@ define([], function () {
          * @param password
          * @param code
          */
-        $scope.register = function (telephone, password, code) {
-            if($scope.checkMobile(telephone, password)){
+        $scope.registerSubmit = function (telephone,password,code,verified) {
+            if($scope.checkMobile(telephone, password,verified)){
                 $http({
                     "method": "post",
                     "url": registerUrl+"?telephone="+telephone+"&password="+password+"&code="+code
                 }).success(function (response, status, headers, config) {
-                    alert("register succeed");
-                    $timeout(function () {
-                        alert("register succeed")
-                    }, 1000)
-                }).error(function () {
-                    alert('register failed')
+                    $scope.submitHint="注册成功！";
+                    hintFunc();
+                }).error(function (res) {
+                    $scope.submitHint=res.message;
+                    hintFunc()
                 });
             }
+        };
+
+        /**
+         * 检测密码输入是否正确
+         * @param passwordRepeat
+         * @param password
+         */
+        $scope.checkPassword = function ( password,passwordRepeat) {
+            if (password.length<5) {
+                $scope.checkVaildHint = "密码长度至少6位!";
+                return false;
+            } else if (!passwordRepeat.length) {
+                $scope.checkVaildHint = "确认密码不得为空!";
+            } else if (passwordRepeat == password && passwordRepeat) {
+                $scope.checkVaildHint = "密码输入一致";
+            } else {
+                $scope.checkVaildHint = "密码输入不一致";
+            }
+        };
+
+        var hintFunc =function(){
+            $timeout(function(){
+                $scope.submitHint=""
+            },2000)
         };
     };
     registerCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout'];

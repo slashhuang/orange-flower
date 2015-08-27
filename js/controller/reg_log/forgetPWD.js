@@ -3,19 +3,19 @@
  */
 define([], function () {
     //定义商品分类controller
-    function forgetPWDCtrl($scope, $routeParams, $location, $http) {
+    function forgetPWDCtrl($scope, $routeParams, $location, $http,$timeout) {
         var forgetpwdURL = prefuri + "/user/forgot/";
         //收集数据并初始化
         $scope.passwordStatus = false;
         $scope.telHint = "";
         $scope.passwordHint = "";
+        $scope.submitHint="";
         $scope.showPwd = false;
         $scope.telBool = false;
-        $scope.dataCollection = {
-            mobile: "",
-            password: "",
-            code: ""
-        };
+        
+        $scope.telephone="";
+        $scope.password="";
+        $scope.code="";
 
         //点击触发下一步
         $scope.checkNextMove = function () {
@@ -25,13 +25,15 @@ define([], function () {
             //  验证不通过就直接不放行
             $http({
                 "method": "post",
-                "url": forgetpwdURL + $scope.dataCollection.mobile + '/' + $scope.dataCollection.code + '/' + $scope.dataCollection.password,
+                "url": forgetpwdURL + $scope.telephone + '/' + $scope.code + '/' + $scope.password,
             }).success(function (response, status, headers, config) {
                 console.log(response);
-                location.hash = "/login"
+                $scope.submitHint = "修改密码成功，即将跳转登录页面";
+                $timeout(function(){
+                    location.hash = "/login";
+                },1000)
             }).error(function (response, status, headers, config) {
-                console.log($scope.dataCollection);
-                alert("修改密码失败")
+                alert(response.message);
             });
         };
 
@@ -41,8 +43,9 @@ define([], function () {
          * @param password
          */
         $scope.checkPassword = function (passwordRepeat, password) {
-            if (!password.length) {
-                $scope.passwordHint = "原密码不得为空!";
+            if (password.length<5) {
+                $scope.passwordHint = "密码长度至少6位!";
+                return false;
             } else if (!passwordRepeat.length) {
                 $scope.passwordHint = "确认密码不得为空!";
             } else if (passwordRepeat == password && passwordRepeat) {
@@ -56,9 +59,12 @@ define([], function () {
          * 显示密码输入
          */
         $scope.showPwdArea = function () {
-            if(!$scope.telBool){
-                if(!_checkMobile($scope.dataCollection.mobile)){
+            if(!$scope.telBool||($scope.code.length<3)){
+                if(!_checkMobile($scope.telephone)){
                     $scope.telHint = "手机号格式不符!";
+                }
+                else{
+                    $scope.telHint = "请输入正确的验证码!";
                 }
                 return false;
             }
@@ -89,17 +95,21 @@ define([], function () {
         /**
          * 获取验证码
          */
-        $scope.getCode = function () {
-            if (!_checkMobile($scope.dataCollection.mobile)) {
-                $scope.telHint = "手机号格式不符!";
-                $scope.telBool = false;
-            } else {
+        $scope.sendsms = function (tel) {
+            if (_checkMobile($scope.telephone)&&($scope.countTime==0)) {
                 $scope.telHint = "";
                 $http({
-                    "url": prefuri + "/user/getCode/" + $scope.dataCollection.mobile,
-                    "method": "post"
+                    "method": "post",
+                    "url": prefuri + "/user/getCode/" + tel,
                 }).success(function (res) {
-                    $scope.telHint = "短信已下发至您的手机,请查收!";
+                    console.log(res)
+                    if(res) {
+                        $scope.telHint = "短信已下发至您的手机,请查收!";
+                        showCountDown();
+                    }
+                    else{
+                        $scope.telHint = "发送失败"
+                    }
                 }).error(function (err) {
                 });
             }
@@ -114,9 +124,37 @@ define([], function () {
             var reg = /^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i;
             return reg.test(mobile);
         }
+        /**
+         *显示倒计时
+         * @paramjj
+         */
+        $scope.countTime = 0;
+        $scope.registerSmsHint = "发送验证码";
+        var showCountDown = function () {
+            //避免多次点击事件
+            if ($scope.countTime == 0) {
+                $scope.countTime = 10;
+                $scope.registerSmsHint = $scope.countTime + "秒后重发";
+                var state = setInterval(function () {
+                    $scope.$apply(function () {
+                        $scope.countTime--;
+                        $scope.registerSmsHint = $scope.countTime + "秒后重发";
+                        if ($scope.countTime <= 0) {
+                            $scope.registerSmsHint = "发送验证码";
+                            $scope.countTime = 0;
+                            clearInterval(state);
+                        }
+                    })
+                }, 1000)
+            }
+        };
+
+
+
+
     };
 
-    forgetPWDCtrl.$inject = ['$scope', '$routeParams', '$location', '$http'];
+    forgetPWDCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$timeout'];
 
     return forgetPWDCtrl;
 });
