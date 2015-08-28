@@ -2,9 +2,9 @@
  */
 define([],function(){
     //定义商品分类controller
-    function loginCtrl($scope,$routeParams,$location,$http,$timeout) {
+    function loginCtrl($scope,$routeParams,$location,$http,$timeout,$rootScope) {
         //页面载入请求
-        var loginURL = prefuri + "/user/login/";
+        var loginURL = $rootScope.prefuri + "/user/login/";
 
 
         //初始情况下不显示提示
@@ -96,7 +96,7 @@ define([],function(){
                 }
             }
     };
-    loginCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout'];
+    loginCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout','$rootScope'];
 
     return loginCtrl;
 });

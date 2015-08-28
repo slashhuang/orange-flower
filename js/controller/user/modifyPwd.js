@@ -3,8 +3,8 @@
  */
 define([], function () {
     //定义商品分类controller
-    function modifyPwdCtrl($scope, $routeParams, $location, $http, $timeout) {
-        var modifyPwdUrl = prefuri + "";
+    function modifyPwdCtrl($scope, $routeParams, $location, $http, $timeout,$rootScope) {
+        var modifyPwdUrl = $rootScope.prefuri + "";
         $scope.submitHint = "";//输入错误提示
         $scope.hintStatus = false;//初始情况下不显示提示
         //需要提交服务器的数据
@@ -52,6 +52,6 @@ define([], function () {
         }
     }
 
-    modifyPwdCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout'];
+    modifyPwdCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout','$rootScope'];
     return modifyPwdCtrl;
 });

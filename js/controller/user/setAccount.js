@@ -3,7 +3,7 @@
  */
 define([],function(){
     //定义商品分类controller
-    function setAccountCtrl($scope,$routeParams,$location,$http){
+    function setAccountCtrl($scope,$routeParams,$location,$http,$rootScope){
         var setAccountUrl= prefuri + "/user/complete";
         //登出函数
         $scope.logout = function () {
@@ -19,6 +19,6 @@ define([],function(){
 
         }
     }
-    setAccountCtrl.$inject=['$scope','$routeParams','$location','$http'];
+    setAccountCtrl.$inject=['$scope','$routeParams','$location','$http','$rootScope'];
     return setAccountCtrl;
 });

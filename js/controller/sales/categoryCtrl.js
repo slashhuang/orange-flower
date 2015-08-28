@@ -3,9 +3,9 @@
  */
 define([],function(){
     //定义商品分类controller
-    function categoryCtrl($scope,$routeParams,$location,$http){
+    function categoryCtrl($scope,$routeParams,$location,$http,$rootScope){
         //通用url
-        var categoryUrl = prefuri+"/dict/product_category";
+        var categoryUrl = $rootScope.prefuri+"/dict/product_category";
         /**
          * 根据hash区分是第几个tab
          * @param cur
@@ -111,7 +111,7 @@ define([],function(){
         };
 
     };
-    categoryCtrl.$inject=['$scope','$routeParams','$location','$http'];
+    categoryCtrl.$inject=['$scope','$routeParams','$location','$http','$rootScope'];
 
     return categoryCtrl;
 });

@@ -1,6 +1,6 @@
 define([], function () {
     //定义确定购买orderConfirm
-    function orderInfoCtrl($scope, $routeParams, $location, $http) {
+    function orderInfoCtrl($scope, $routeParams, $location, $http,$rootScope) {
         //初始化变量完成
 
         var orderId = $location.search()["orderId"];
@@ -20,6 +20,6 @@ define([], function () {
         },1000);
         //  脏检查
     };
-    orderInfoCtrl.$inject = ['$scope', '$routeParams', '$location', '$http'];
+    orderInfoCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$rootScope'];
     return orderInfoCtrl;
 });

@@ -25,7 +25,7 @@
         <div class="item-sale-list clear-float" ng-repeat="sale in saleList">
             <a href="#/sale/detail/{{sale.id}}">
             <div class="item-list-img">
-                <img ng-src="{{sale.itemImg}}" width="35px"style="margin-right:5px;">
+                <img ng-src="{{prefuri+sale.thumb.bigUrl}}" width="55px"style="margin-right:5px;">
             </div>
             <div class="item-hot-list-detail">
                 <h1>{{sale.title}}</h1>
@@ -33,8 +33,12 @@
                 <div class="total-price">
                     <i>￥{{transferPrice(sale.pricePerMonth)}}</i>
                     <h2>×</h2><span>{{sale.month}}期</span>
-                    <a href="" class="item-hot-sale">热卖</a>
-                    <a href="" class="item-new-sale">新品</a>
+                    <a href="" class="item-hot-sale"
+                       style="color:{{sale.tags[0].attrs.color}};
+                        border-color:{{sale.tags[0].attrs.color}}">{{sale.tags[0].value}}</a>
+                    <a href="" class="item-new-sale"
+                       style="color:{{sale.tags[1].attrs.color}};
+                        border-color:{{sale.tags[1].attrs.color}}">{{sale.tags[1].value}}</a>
                 </div>
             </div>
             </a>

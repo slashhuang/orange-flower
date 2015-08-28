@@ -6,7 +6,7 @@
  */
 define([],function() {
     //定义商品分类controller
-    function detailCtrl($scope, $routeParams, $location, $http) {
+    function detailCtrl($scope, $routeParams, $location, $http,$rootScope) {
 
         //通用函数
         /**
@@ -52,6 +52,6 @@ define([],function() {
         };
     }
 
-    detailCtrl.$inject = ['$scope','$routeParams', '$location', '$http'];
+    detailCtrl.$inject = ['$scope','$routeParams', '$location', '$http','$rootScope'];
     return detailCtrl
 });

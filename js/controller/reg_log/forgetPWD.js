@@ -3,8 +3,8 @@
  */
 define([], function () {
     //定义商品分类controller
-    function forgetPWDCtrl($scope, $routeParams, $location, $http,$timeout) {
-        var forgetpwdURL = prefuri + "/user/forgot/";
+    function forgetPWDCtrl($scope, $routeParams, $location, $http,$timeout,$rootScope) {
+        var forgetpwdURL = $rootScope.prefuri + "/user/forgot/";
         //收集数据并初始化
         $scope.passwordStatus = false;
         $scope.telHint = "";
@@ -154,7 +154,7 @@ define([], function () {
 
     };
 
-    forgetPWDCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$timeout'];
+    forgetPWDCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$timeout','$rootScope'];
 
     return forgetPWDCtrl;
 });

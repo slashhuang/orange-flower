@@ -9,16 +9,27 @@ define(['loadScript','angular','config/routeConfig','lib/angular-route',
             'controller/reg_log/reglog', 'controller/order/order','controller/bill/bill'],
         function(scriptsLoader,angular,routeConfig){
 
-            //window.prefuri = "http://juhua-server.orange.com/"
-           var prefuri = "http://api.orangezc.com";
-
+           //window.prefuri = "http://api.orangezc.com";
             window.isLogin = false;
     var app = angular.module('app',
         ["ngRoute","mainModule","salesModule","ngLoadScript","userModule","orderModule","reglogModule","orderModule","billModule"]);
-        app.controller("BottomController",['$http','$location','$scope',function($http,$location,$scope){
+
+
+         //定义全局变量
+        app.run(function($rootScope) {
+                    $rootScope.prefuri =  "http://api.orangezc.com";
+                }) ;
+
+
+
+
+
+
+        app.controller("BottomController",['$http','$location','$scope','$rootScope',function($http,$location,$scope,$rootScope){
+            console.log($scope)
+
         }]);
             //定义全局变量
-         app.constant('prefuri', "http://api.orangezc.com")
     //配置路由
     app.config(routeConfig);
     angular.bootstrap(document, ['app']);

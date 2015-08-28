@@ -3,8 +3,8 @@
  */
 define(["/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"], function ($, ajaxFileUpload) {
     //定义商品分类controller
-    function userSettingsCtrl($scope, $routeParams, $location, $http) {
-        var logoutURL = prefuri + "/user/logout";
+    function userSettingsCtrl($scope, $routeParams, $location, $http,$rootScope) {
+        var logoutURL = $rootScope.prefuri + "/user/logout";
         var time = 4;
 
         //初始化show状态
@@ -53,6 +53,6 @@ define(["/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"], function ($, ajaxFile
         };
     }
 
-    userSettingsCtrl.$inject = ['$scope', '$routeParams', '$location', '$http'];
+    userSettingsCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$rootScope'];
     return userSettingsCtrl;
 });

@@ -4,7 +4,7 @@
  */
 define([],function(){
     //定义商品分类orderList
-    function orderListCtrl($scope,$routeParams,$location,$http){
+    function orderListCtrl($scope,$routeParams,$location,$http,$rootScope){
         //初始化变量完成
 
         var uId = $location.search()["uId"];
@@ -152,6 +152,6 @@ define([],function(){
             return returnVal;
         }
     };
-    orderListCtrl.$inject=['$scope','$routeParams','$location','$http'];
+    orderListCtrl.$inject=['$scope','$routeParams','$location','$http','$rootScope'];
     return orderListCtrl;
 });

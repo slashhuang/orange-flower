@@ -3,12 +3,10 @@
  */
 define(['angular',"util/swiper_"],function(angular,swiper){
         var mainModule = angular.module('mainModule',["ngRoute"]);
-        mainModule.controller('mainCtrl', ['$scope', '$routeParams', '$http','$timeout',
-            function($scope, $routeParams, $http,$timeout) {
-
-
+        mainModule.controller('mainCtrl', ['$scope', '$routeParams', '$http','$timeout','$rootScope',
+            function($scope, $routeParams, $http,$timeout,$rootScope) {
                 //首页数据请求地址
-                var mainUrl = prefuri+"/product/typedProducts";
+                var mainUrl = $rootScope.prefuri+"/product/typedProducts";
 
                 //通用函数
                 /**
@@ -38,7 +36,6 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                         swiper.picture()
                     },30);
                     //加载数据后再调用
-
                 }).error(function(){
                 });
 

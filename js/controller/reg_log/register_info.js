@@ -3,10 +3,10 @@
  */
 define([],function(){
     //定义商品分类controller
-    function registerInfoCtrl($scope,$routeParams,$location,$http,$timeout){
+    function registerInfoCtrl($scope,$routeParams,$location,$http,$timeout,$rootScope){
 
-        var completeInfoURL = prefuri+"/user/complete";//完善信息url
-        var gettingDistrictList = prefuri+"/dict/items/";//获取城市和大学列表Url
+        var completeInfoURL = $rootScope.prefuri+"/user/complete";//完善信息url
+        var gettingDistrictList = $rootScope.prefuri+"/dict/items/";//获取城市和大学列表Url
 
         //页面载入请求
         $scope.completeData = {
@@ -157,7 +157,7 @@ define([],function(){
         };
 
     };
-    registerInfoCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout'];
+    registerInfoCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout','$rootScope'];
 
     return registerInfoCtrl;
 });

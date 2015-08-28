@@ -3,10 +3,10 @@
  */
 define([], function () {
     //定义商品分类controller
-    function registerCtrl($scope, $routeParams, $location, $http, $timeout) {
+    function registerCtrl($scope, $routeParams, $location, $http, $timeout,$rootScope) {
 
-        var sendSmsUrl = prefuri + "/user/getCode";//发送短信url
-        var registerUrl = prefuri + "/user/register";//提交注册信息
+        var sendSmsUrl = $rootScope.prefuri + "/user/getCode";//发送短信url
+        var registerUrl = $rootScope.prefuri + "/user/register";//提交注册信息
         $scope.telephone = "";
         $scope.password = "";
         $scope.repeatPassword = "";
@@ -151,7 +151,7 @@ define([], function () {
             },2000)
         };
     };
-    registerCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout'];
+    registerCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout','$rootScope'];
 
     return registerCtrl;
 });

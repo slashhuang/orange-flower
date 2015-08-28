@@ -3,11 +3,11 @@
  */
 define([],function() {
     //定义商品分类controller
-    function searchCtrl($scope, $routeParams, $location, $http) {
+    function searchCtrl($scope, $routeParams, $location, $http,$rootScope) {
 
 
         //设定url
-        var saleListUrl = prefuri + "/product/query";
+        var saleListUrl = $rootScope.prefuri + "/product/query";
 
         //初始化数据
         $scope.searchFinished = true;
@@ -64,6 +64,6 @@ define([],function() {
         
     }
 
-    searchCtrl.$inject = ['$scope', '$routeParams', '$location', '$http'];
+    searchCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$rootScope'];
     return searchCtrl;
 });

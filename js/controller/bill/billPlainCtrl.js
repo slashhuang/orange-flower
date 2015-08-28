@@ -1,11 +1,11 @@
 define([], function () {
     //还款历史
-    function billPlainCtrl($scope, $routeParams, $location, $http) {
+    function billPlainCtrl($scope, $routeParams, $location, $http,$rootScope) {
         //初始化变量完成
 
         $http({
             "method":"post",
-            "url":prefuri + "/repay/repayments"
+            "url":$rootScope.prefuri + "/repay/repayments"
         }).success(function(res){
             $scope.data = res;
         }).error(function(err){
@@ -67,6 +67,6 @@ define([], function () {
         }
 
     };
-    billPlainCtrl.$inject = ['$scope', '$routeParams', '$location', '$http'];
+    billPlainCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$rootScope'];
     return billPlainCtrl;
 });

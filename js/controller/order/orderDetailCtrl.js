@@ -3,7 +3,7 @@
  * build by rwson @2015-08-23
  */
 define([], function () {
-    function orderDetailCtrl($scope, $routeParams, $location, $http) {
+    function orderDetailCtrl($scope, $routeParams, $location, $http,$rootScope) {
 
         var orderId = $location.search()["orderId"],
         //  从url里面获取orderId
@@ -77,7 +77,7 @@ define([], function () {
 
         $http({
             "method": "get",
-            "url": prefuri + "/order/" + orderId
+            "url": $rootScope.prefuri + "/order/" + orderId
         }).success(function (res) {
             $scope.data = _rendData(res);
         }).error(function () {
@@ -164,6 +164,6 @@ define([], function () {
         }
     };
 
-    orderDetailCtrl.$inject = ['$scope', '$routeParams', '$location', '$http'];
+    orderDetailCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$rootScope'];
     return orderDetailCtrl;
 });

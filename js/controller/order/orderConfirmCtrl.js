@@ -1,6 +1,6 @@
 define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], function (wx, $, debug, pay) {
     //定义确定购买orderConfirm
-    function orderConfirmCtrl($scope, $routeParams, $location, $http) {
+    function orderConfirmCtrl($scope, $routeParams, $location, $http,$rootScope) {
         //初始化变量完成
 
         var orderId = $location.search()["orderId"],
@@ -13,7 +13,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
 
         $http({
             "method": "get",
-            "url": prefuri + "/order/" + orderId
+            "url": $rootScope.prefuri + "/order/" + orderId
         }).success(function (res) {
             $scope.data = _rendData(res);
             tmpData = res;
@@ -89,6 +89,6 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
             return returnObj;
         }
     };
-    orderConfirmCtrl.$inject = ['$scope', '$routeParams', '$location', '$http'];
+    orderConfirmCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$rootScope'];
     return orderConfirmCtrl;
 });

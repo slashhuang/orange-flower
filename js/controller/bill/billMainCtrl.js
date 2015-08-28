@@ -1,6 +1,6 @@
 define([], function () {
     //还款历史
-    function billMainCtrl($scope, $routeParams, $location, $http) {
+    function billMainCtrl($scope, $routeParams, $location, $http,$rootScope) {
         //初始化变量完成
 
         var date = new Date(),
@@ -15,7 +15,7 @@ define([], function () {
 
         $http({
             "method":"post",
-            "url": prefuri + "/repay/bill/{year}/{month}?month=" + $scope.month + "&year=" + $scope.year
+            "url": $rootScope.prefuri + "/repay/bill/{year}/{month}?month=" + $scope.month + "&year=" + $scope.year
         }).success(function(res){
             $scope.data = res;
         }).error(function(){
@@ -85,6 +85,6 @@ define([], function () {
         };
 
     };
-    billMainCtrl.$inject = ['$scope', '$routeParams', '$location', '$http'];
+    billMainCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$rootScope'];
     return billMainCtrl;
 });

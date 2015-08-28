@@ -3,7 +3,7 @@
  */
 define(["zepto","util/swiper_"], function($,swiper){
     //定义商品分类controller
-    function detailCtrl($scope, $routeParams, $location, $http, $timeout) {
+    function detailCtrl($scope, $routeParams, $location, $http, $timeout,$rootScope) {
 
         //暂时混用javascript,设置悬浮样式
         var detailDomFunc = function(){
@@ -48,7 +48,7 @@ define(["zepto","util/swiper_"], function($,swiper){
         var itemID = $routeParams.detailId;
 
         //统一URL
-        var detailUrl = prefuri + "/product/" + itemID;
+        var detailUrl = $rootScope.prefuri + "/product/" + itemID;
 
 
         /*******通用函数
@@ -210,7 +210,7 @@ define(["zepto","util/swiper_"], function($,swiper){
             if (isLogin) {
                 //  已经登录的情况,创建订单
                 $http({
-                    "url": prefuri + "/order/create",
+                    "url": $rootScope.prefuri + "/order/create",
                     "method": "post",
                     "params": {
                         "orderType": "FORWARD",
@@ -254,6 +254,6 @@ define(["zepto","util/swiper_"], function($,swiper){
 
 
     };
-    detailCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout'];
+    detailCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout','$rootScope'];
     return detailCtrl
 });
