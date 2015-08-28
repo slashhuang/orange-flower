@@ -2,10 +2,10 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
     //定义确定购买orderConfirm
     function orderConfirmCtrl($scope, $routeParams, $location, $http,$rootScope) {
         //初始化变量完成
-
         var orderId = $location.search()["orderId"],
         //  从url里面获取orderId
             tmpData = {};
+
 
         $.ajaxSetup({
             contentType: 'application/json'
@@ -27,8 +27,9 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
          * @param firstPay
          */
         $scope.confirmBuy = function (id, firstPay) {
+            alert(location.href)
             $.ajax({
-                url: prefuri + "/pay/create/",
+                url: $rootScope.prefuri + "/pay/create/",
                 dataType: "json",
                 type: "post",
                 data: '{"orderId": "' + id + '", "amount": 1, "payCode": "PAY_WEIXIN", "tradeType": "TRADE_CONSUME", "description": "消费"}',

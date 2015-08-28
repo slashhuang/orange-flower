@@ -2,13 +2,13 @@
 <div class="of-header gray" ng-show="searchFinished">
     <a class="header-back" href="javascript:history.back()"></a>
     搜索
-    <a class="header-function" href="#/main">首页</a>
+    <a class="header-function" href="/main">首页</a>
 </div>
 <!--商品排序方式-->
 
 <div ng-class="{true: 'of-search-header',false: ''}[!searchFinished]">
     <a class="header-back-search" href="javascript:history.back()" ng-show="!searchFinished"></a>
-    <a class="header-function-search" href="#/main" ng-show="!searchFinished">首页</a>
+    <a class="header-function-search" href="/main" ng-show="!searchFinished">首页</a>
     <form ng-class="{true: 'of-category-input-active',false: 'of-category-input'}[!searchFinished]">
         <input placeholder="搜索您需要的商品"  type="text" maxlength="20" ng-model="keyword" ng-focus="searchFinished=true">
         <b src="/images/icon/search_main_icon.png" ng-click="searchProduct()"></b>
@@ -36,7 +36,7 @@
     <!--商品列表-->
 
     <div class="item-sale-list clear-float">
-        <a href="#/sale/detail/11">
+        <a href="/sale/detail/11">
             <div class="item-list-img">
                 <img ng-src="/images/logo.png" width="35px"style="margin-right:5px;">
             </div>

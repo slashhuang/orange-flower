@@ -3,7 +3,7 @@
     <div class="of-header gray">
         <a class="header-back" href="javascript:history.back();"></a>
         我的订单
-        <a class="header-function" href="#/main" style="color: #5b5b5b">首页</a>
+        <a class="header-function" href="/main" style="color: #5b5b5b">首页</a>
     </div>
 
     <!--订单-->
@@ -12,13 +12,13 @@
             <!-- 审核中-->
             <li class="order-item" ng-repeat="item in data" id="123323255">
                 <div class="order-item-top" ng-class="rendClass(item.status)">
-                    <a href="#/order/confirm?orderId={{item.orderId}}">
+                    <a href="/order/confirm?orderId={{item.orderId}}">
                         <p class="orde-num-info">订单号<span class="num">{{item.orderId}}</span></p>
                         <span class="arrow"></span>
                     </a>
                 </div>
                 <div class="order-item-center">
-                    <a href="#/sale/detail/{{item.productId}}">
+                    <a href="/sale/detail/{{item.productId}}">
                         <div class="item-img">
                             <img src="{{item.img}}">
                         </div>
@@ -131,7 +131,7 @@
                     </a>
                 </div>
                 <div class="order-item-center">
-                    <a href="#/sale/detail/:detailId">
+                    <a href="/sale/detail/:detailId">
                         <div class="item-img">
                             <img src="/images/order/iphone.jpg">
                         </div>
@@ -162,13 +162,13 @@
             <!--
             <li class="order-item" id="123323259">
                 <div class="order-item-top back-charging">
-                    <a href="#/order/confirm?orderId=2015082017361234">
+                    <a href="/order/confirm?orderId=2015082017361234">
                         <p class="orde-num-info">订单号<span class="num">123323255</span></p>
                         <span class="arrow"></span>
                     </a>
                 </div>
                 <div class="order-item-center">
-                    <a href="#/sale/detail/:detailId">
+                    <a href="/sale/detail/:detailId">
                         <div class="item-img">
                             <img src="/images/order/iphone.jpg">
                         </div>
