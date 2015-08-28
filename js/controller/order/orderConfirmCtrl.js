@@ -33,8 +33,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                 type: "post",
                 data: '{"orderId": "' + id + '", "amount": 1, "payCode": "PAY_WEIXIN", "tradeType": "TRADE_CONSUME", "description": "消费"}',
                 success: function (res) {
-                    var charge = res["charge"];
-                    pay.createPayment(charge, function (result, error) {
+                    pay.createPayment(res, function (result, error) {
                         if (result == "success") {
                             debug.success("success");
                         } else if (result == "fail") {
