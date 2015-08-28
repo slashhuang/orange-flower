@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试支付</title>
+    <script type="application/javascript" src="../js/lib/jquery.js"/>
+    <script type="application/javascript" src="../js/lib/pingpp_pay.js"/>
+    <script type="application/javascript" src="../js/lib/debug.js"/>
+    <script type="application/javascript">
+        function testPay(){
+            $.ajax({
+                url: "http://api.orangezc.com/pay/create/",
+                dataType: "json",
+                type: "post",
+                data: '{"orderId": "2015082117331233", "amount": 1, "payCode": "PAY_WEIXIN", "tradeType": "TRADE_CONSUME", "description": "消费"}',
+                success: function (res) {
+                    var charge = res["charge"];
+                    pingpp.createPayment(charge, function (result, error) {
+                        if (result == "success") {
+                            debug.success("success");
+                        } else if (result == "fail") {
+                            var info = "";
+                            for (var i in error) {
+                                info += i + "---" + error[i] + "\n";
+                            }
+                            debug.error(info);
+                            debug.error("发送错误！请重试！");
+                        } else if (result == "cancel") {
+                            debug.log("您取消了本次支付！");
+                        }
+                    });
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="testPay()">测试支付</button>
+</body>
+</html>
