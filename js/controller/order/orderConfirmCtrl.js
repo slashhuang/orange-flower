@@ -28,7 +28,6 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
          * @param firstPay
          */
         $scope.confirmBuy = function (id, firstPay) {
-            alert(location.href)
             $.ajax({
                 url: $rootScope.prefuri + "/pay/create/",
                 dataType: "json",
@@ -51,15 +50,6 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                     });
                 }
             })
-        };
-
-        /**
-         * 转换商品价格为两位数字
-         * @param price
-         * @return {string}
-         */
-        $scope.transferPrice = function (price) {
-            return (price / 100).toFixed(2);
         };
 
         /**
