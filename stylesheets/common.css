@@ -55,11 +55,11 @@
     position: fixed;
     z-index: 99;
 }
-.mt-40{
-    margin-top: 40px!important;
+.h-40{
+    height: 40px;
 }
-.mt-52{
-    margin-top: 52px!important;
+.h-52{
+    height: 52px;
 }
 .of-header.green{
     background-color: #15c690;
