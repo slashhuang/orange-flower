@@ -29,10 +29,10 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
          */
         $scope.confirmBuy = function (id, firstPay) {
             $.ajax({
-                url: $rootScope.prefuri + "/pay/create/",
+                url: $rootScope.prefuri + "/pay/pay/",
                 dataType: "json",
                 type: "post",
-                data: '{"orderId": "' + id + '", "amount": 1, "payCode": "PAY_WEIXIN", "tradeType": "TRADE_CONSUME", "description": "消费"}',
+                data: '{"orderId": "' + id + '", "amount": 1, "payChannel": "WX_PUB", "tradeType": "TRADE_CONSUME", "description": "消费"}',
                 success: function (res) {
                     pay.createPayment(res, function (result, error) {
                         if (result == "success") {
@@ -46,6 +46,12 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                             debug.error("发送错误！请重试！");
                         } else if (result == "cancel") {
                             debug.log("您取消了本次支付！");
+                            $.ajax({
+                                url: $rootScope.prefuri + "/pay/cancel/",
+                                dataType: "json",
+                                type: 'post',
+                                data: '{"orderId": "' + id + '"'
+                            });
                         }
                     });
                 }
