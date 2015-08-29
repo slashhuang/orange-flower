@@ -1,4 +1,5 @@
 define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], function (wx, $, debug, pay) {
+
     //定义确定购买orderConfirm
     function orderConfirmCtrl($scope, $routeParams, $location, $http,$rootScope) {
         //初始化变量完成
