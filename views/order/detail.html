@@ -6,7 +6,7 @@
 </div>
 
 <!--订单详情-->
-<div class="order-main">
+<div class="order-main mt-40">
 
     <!-- 创建时间-->
     <div class="order-top">
@@ -22,11 +22,17 @@
             </div>
             <div class="order-info-detail order-info-detail-detail">
                 <p class="decrease-icon order-info-name">{{data.productName}}</p>
+
                 <p class="info-arg">{{data.arg}}</p>
+
                 <div class="price">
                     <p>商品价格</p>
+
                     <p class="info-price">￥<span class="price-red">{{transferPrice(data.payAmount)}}</span></p>
-                    <p class="info-del-price"><del>￥{{transferPrice(data.salePrice)}}</del></p>
+
+                    <p class="info-del-price">
+                        <del>￥{{transferPrice(data.salePrice)}}</del>
+                    </p>
                 </div>
             </div>
         </a>
@@ -36,55 +42,68 @@
     <div class="pay-detail">
         <div class="info-item first-pay">
             <p class="info-name">首付</p>
+
             <p class="info-detail">￥{{transferPrice(data.firstPay)}}</p>
         </div>
         <div class="info-item month-pay">
             <p class="info-name">月付</p>
+
             <p class="info-detail">￥{{transferPrice(data.prePeriodsPay)}}×{{data.periods}}</p>
         </div>
         <div class="info-item off-price" ng-show="data.off.length > 0">
             <p class="info-name">已优惠</p>
+
             <p class="info-detail"><span class="first-pay-off">首付20%</span>再减200</p>
         </div>
         <div class="info-item order-state">
             <p class="info-name">订单状态</p>
+
             <div class="state-bar">
                 <div class="state-item" ng-class="setClass(data.status,1)">
                     <i class="icon"></i>
+
                     <p class="text-state">审核中</p>
                 </div>
                 <div class="state-item" ng-class="setClass(data.status,2)">
                     <i class="icon"></i>
+
                     <p class="text-state">发货中</p>
                 </div>
                 <div class="state-item" ng-class="setClass(data.status,3)">
                     <i class="icon"></i>
+
                     <p class="text-state">已发货</p>
                 </div>
                 <div class="state-item" ng-class="setClass(data.status,4)">
                     <i class="icon"></i>
+
                     <p class="text-state">申请售后</p>
                 </div>
             </div>
         </div>
         <div class="info-item delivery-time" ng-show="data.sendTime.length > 0">
             <p class="info-name">发货时间</p>
+
             <p class="info-detail">{{data.sendTime}}</p>
         </div>
         <div class="info-item recive-person">
             <p class="info-name">收货人</p>
+
             <p class="info-detail">{{data.name}}</p>
         </div>
         <div class="info-item address">
             <p class="info-name">收货地址</p>
+
             <p class="info-detail">{{data.address}}</p>
         </div>
         <div class="info-item pay-method">
             <p class="info-name">支付方式</p>
+
             <p class="info-detail">{{data.payMethod}}</p>
         </div>
         <div class="info-item receipt-info">
             <p class="info-name">发票信息</p>
+
             <p class="info-detail">{{data.ticketInfo}}</p>
         </div>
     </div>

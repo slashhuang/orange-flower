@@ -3,25 +3,25 @@
     个人信息填写
 </div>
 
-<form class="of-register-form" id="regForm" action="" method="">
+<form class="of-register-form mt-40" id="regForm" action="" method="">
     <label>
-        姓名 <input type="text" class="modified" placeholder="请输入真实姓名" ng-model="completeData.userName" >
+        姓名 <input type="text" class="modified" placeholder="请输入真实姓名" ng-model="completeData.userName">
     </label>
-    <label >
+    <label>
         身份证号
-        <input  id="IDNumber" type="tel" placeholder="请输入证件号" ng-model="completeData.idNo"/>
+        <input id="IDNumber" type="tel" placeholder="请输入证件号" ng-model="completeData.idNo"/>
     </label>
     <label>
         省份
         <span class="arrow-right-select-register"></span>
         <select id="userProvince" ng-model="selectedProvince" ng-change="setCity(selectedProvince)">
             <option ng-repeat="option in completeData.province" value="{{option.value}}">{{option.value}}</option>
-            </select>
+        </select>
     </label>
     <label>
         城市
-        <span  class="arrow-right-select-register"></span>
-        <select id="userCity" ng-model="selectedCity"  ng-change="setSchool(selectedCity)">
+        <span class="arrow-right-select-register"></span>
+        <select id="userCity" ng-model="selectedCity" ng-change="setSchool(selectedCity)">
             <option ng-repeat="option in completeData.city" value="{{option.value}}">{{option.value}}</option>
         </select>
     </label>
@@ -52,7 +52,7 @@
         </select><!--校区部分还没有写上去-->
     </label>
     <label>
-        宿舍 <input  id="" type="text" placeholder="请填写您所在的宿舍楼号" ng-model="selectedRoom" >
+        宿舍 <input id="" type="text" placeholder="请填写您所在的宿舍楼号" ng-model="selectedRoom">
     </label>
 </form>
 <div ng-show="idTip.length > 0" class=" no-border">
