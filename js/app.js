@@ -32,20 +32,19 @@ define(['loadScript', 'angular', 'config/routeConfig', 'lib/angular-route',
                 return (price / 100).toFixed(2);
             };
 
+            /**
+             * 根据不同的url判断来追加不同的class样式
+             * @param status
+             * @returns {string}
+             */
+            $rootScope.addActive = function (status) {
+                return location.href.indexOf(status) > -1 ? "active" : "";
+            };
+
         });
 
 
         var loadEl = document.getElementsByClassName("refresh-mask")[0];
-
-        /**
-         * 根据不同的url判断来追加不同的class样式
-         * @param status
-         * @returns {string}
-         */
-        $scope.addActive = function (status) {
-            return location.href.indexOf(status) > -1 ? "active" : "";
-        };
-
 
         app.controller("BottomController", ['$http', '$location', '$scope', '$rootScope', function ($http, $location, $scope, $rootScope) {
             $scope.addActive = function (cur) {
