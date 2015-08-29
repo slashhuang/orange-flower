@@ -1,13 +1,13 @@
 /*登录注册及主页头样式*/
 .header-back{
     position: absolute;
-    top: 9px;
+    top: 13px;
     left:11px;
     display:block;
     width: 40px;
     height: 20px;
     background: url(/images/icon/arrow_header.png) no-repeat 0 0 ;
-    background-size: 10px 20px;
+    background-size: 10px 16px;
 
 }
 
@@ -47,15 +47,19 @@
     background-size: 9px 16px;
     margin-left: 0 !important;
 }
-
-
-
 .of-header{
     width: 100%;
     font-size:18px;
     padding: 11px;
     text-align: center;
-    position: relative;
+    position: fixed;
+    z-index: 99;
+}
+.mt-40{
+    margin-top: 40px!important;
+}
+.mt-52{
+    margin-top: 52px!important;
 }
 .of-header.green{
     background-color: #15c690;

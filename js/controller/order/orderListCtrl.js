@@ -12,7 +12,7 @@ define([],function(){
 
         $http({
             "method":"get",
-            "url":prefuri + "/order/list/" + uId
+            "url":$rootScope.prefuri + "/order/list/" + uId
         }).success(function(res){
             $scope.data = _rendData(res["content"]);
         }).error(function(){
@@ -28,7 +28,7 @@ define([],function(){
             var index = _findIndex($scope.data,id,'orderId');
             $http({
                 "method":"get",
-                "url":prefuri + "/order/cancel/" + id
+                "url":$rootScope.prefuri + "/order/cancel/" + id
             }).success(function(res){
                 if(res){
                     $scope.data.splice(index,1);

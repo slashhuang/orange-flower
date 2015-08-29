@@ -6,10 +6,10 @@
         <span id="billMonth" class="of-bill-month" ng-click="toggleShow()">
             <i>{{month}}</i>月账单
             <img src="/images/icon/triangle.png" width="12px">
-            </span>
+        </span>
     </div>
     <!--还款金额-->
-    <div class="of-bill-Pay">
+    <div class="of-bill-Pay mt-40">
         <div>本期金额(元)<b ng-if="data.due">逾</b></div>
         <p class="clear-float">
             <span>{{transferPrice(data.repayment)}}</span>
