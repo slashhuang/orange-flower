@@ -92,11 +92,11 @@ define([],function(){
             };
             $http({
                 "method":"post",
-                "url":prefuri+"/product/query/0",
+                "url":$rootScope.prefuri+"/product/query/0",
                 "data":DATAsettings
             }).success(
                 function(response, status, headers, config){
-                    console.log(response)
+                    console.log(response);
                     $scope.category.itemInfo = response.content;
                 }).error(
                 function(res){

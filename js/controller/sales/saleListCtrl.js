@@ -5,9 +5,6 @@ define([],function() {
     //定义商品分类controller
     function saleListCtrl($scope, $routeParams, $location, $http,$rootScope) {
 
-
-        console.log($routeParams);
-
         //设定路由参数
         $scope.title = $routeParams.listName;
 

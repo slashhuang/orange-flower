@@ -1,17 +1,18 @@
 
-<div class="of-header gray" ng-show="searchFinished">
+<div class="of-header gray" ng-show="searchWaiting">
     <a class="header-back" href="javascript:history.back()"></a>
     搜索
-    <a class="header-function" href="#/main">首页</a>
+    <a class="header-function" href="#/main" style="color: #2d2d2d;">首页</a>
 </div>
 <!--商品排序方式-->
 
-<div class="h-40"></div>
-<div ng-class="{true: 'of-search-header',false: ''}[!searchFinished]">
-    <a class="header-back-search" href="javascript:history.back()" ng-show="!searchFinished"></a>
-    <a class="header-function-search" href="#/main" ng-show="!searchFinished">首页</a>
-    <form ng-class="{true: 'of-category-input-active',false: 'of-category-input'}[!searchFinished]">
-        <input placeholder="搜索您需要的商品"  type="text" maxlength="20" ng-model="keyword" ng-focus="searchFinished=true">
+<div class="h-40" ng-show="searchWaiting"></div>
+<div ng-class="{true: 'of-search-header',false: ''}[!searchWaiting]">
+    <a class="header-back-search" href="javascript:history.back()" ng-show="!searchWaiting"></a>
+    <a class="header-function-search" href="#/main" ng-show="!searchWaiting">首页</a>
+    <form ng-class="{true: 'of-category-input-active',false: 'of-category-input'}[!searchWaiting]">
+        <input placeholder="搜索您需要的商品"  type="text" maxlength="20"
+               ng-model="keyword" ng-focus="searchWaiting=true;noDataDetection=false;">
         <b src="/images/icon/search_main_icon.png" ng-click="searchProduct()"></b>
     </form>
 </div>
@@ -19,7 +20,7 @@
 
 
 <!--商品排序方式-->
-<div class="hot-sale-main" ng-show="!searchFinished" >
+<div class="hot-sale-main" ng-show="!searchWaiting" >
     <div class="sale-item-title clear-float">
         <div class="sale-sort-option sale-sort-border"
              ng-model="default" ng-init="default='default'"ng-click="changeFilter(default)">
@@ -55,6 +56,6 @@
     </div>
 </div>
 
-<div class="empty-sale" ng-show="true">
+<div class="empty-sale" ng-show="noDataDetection">
 
 </div>

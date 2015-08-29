@@ -10,7 +10,11 @@ define([],function() {
         var saleListUrl = $rootScope.prefuri + "/product/query";
 
         //初始化数据
-        $scope.searchFinished = true;
+        $scope.searchWaiting = true;
+
+
+
+        $scope.noDataDetection = false;
 
         //初始化查询数据
         $scope.pageId=0;
@@ -18,20 +22,35 @@ define([],function() {
         $scope.catId=0;
         $scope.keyword="";
 
+
         $scope.searchProduct = function(){
+
             var DATAsettings = {
                 "sortType": $scope.sortType,
                 "catId":$scope.catId,
                 "keyword":$scope.keyword
             };
-            //@TODO 数据下拉刷新
+
+
+            console.log(DATAsettings)
+
             $http({
                 "method":"post",
                 "url":saleListUrl+"/"+ $scope.pageId,
                 "data":DATAsettings
             }).success(function(data){
+                alert("search success")
                 console.log(data);
-                $scope.searchFinished = false
+
+                if(data.content&&data.content.length){
+                    $scope.searchWaiting = false;
+                    $scope.noDataDetection = false
+                }
+                else{
+                    $scope.noDataDetection = true;
+                    $scope.searchWaiting = true;
+                }
+
             }).error(function(){
             });
         };

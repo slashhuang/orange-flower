@@ -31,7 +31,7 @@
                 <!--偶数添加"splitline"-->
                 <li ng-class-odd="'splitline'" ng-class-even="''" ng-repeat="info in category.itemInfo | filter:keyword">
                     <a href="#/sale/detail/{{info.id}}">
-                        <img ng-src="{{info.img}}">
+                        <img ng-src="{{prefuri+info.thumb.bigUrl}}">
                         <span>{{info.title}}</span>
                         <span>每个ID限购一单</span>
                     </a>

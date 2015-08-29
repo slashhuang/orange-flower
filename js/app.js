@@ -26,7 +26,14 @@ define(['loadScript','angular','config/routeConfig','lib/angular-route',
 
 
         app.controller("BottomController",['$http','$location','$scope','$rootScope',function($http,$location,$scope,$rootScope){
-            console.log($scope)
+            $scope.addActive = function(cur){
+                var hash = location.hash;
+                if(hash.indexOf(cur) > 0){
+                    return "active";
+                }
+                return "";
+            };
+            //console.log($scope)
 
         }]);
             //定义全局变量

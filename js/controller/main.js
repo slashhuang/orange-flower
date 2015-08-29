@@ -39,18 +39,5 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                 }).error(function(){
                 });
 
-                console.log("fuck");
-                /**
-                 * 根据hash区分是第几个tab
-                 * @param cur
-                 */
-                $scope.addActive = function(cur){
-                    var hash = location.hash;
-                    if(hash.indexOf(cur) > 0){
-                        return "active";
-                    }
-                    return "";
-                };
-
             }]);
     });

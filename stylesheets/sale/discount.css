@@ -78,11 +78,14 @@
     text-align: center;
     position: relative;
 }
+
 .item-discount-position{
     position: absolute;
     left: 50%;
     top:-10px;
 }
+
+
 /*显示限时特卖的状态*/
 .item-discount-banner{
     position: absolute;
@@ -113,6 +116,12 @@
     padding:5px;
     font-size:10px;
 }
+
+.item-discount-inner1 span{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .item-discount-inner1 i{
   font-size:18px;
 }
@@ -127,6 +136,12 @@
     -o-transform: rotate(160deg);
     transform: rotate(160deg);
 }
+
+
+
+
+
+
 /*列表信息*/
 .item-hot-list-detail{
     float:left;

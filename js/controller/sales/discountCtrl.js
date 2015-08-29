@@ -39,17 +39,6 @@ define([],function() {
             };
         }
 
-        /**
-         * 根据hash区分是第几个tab
-         * @param cur
-         */
-        $scope.addActive = function(cur){
-            var hash = location.hash;
-            if(hash.indexOf(cur) > 0){
-                return "active";
-            }
-            return "";
-        };
     }
 
     detailCtrl.$inject = ['$scope','$routeParams', '$location', '$http','$rootScope'];
