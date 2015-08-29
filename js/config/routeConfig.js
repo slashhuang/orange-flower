@@ -1,6 +1,6 @@
 
 define([], function () {
-    function routecfg($routeProvider,$locationProvider){
+    function routecfg($routeProvider,$locationProvider,$httpProvider){
         //主页部分路由
         $routeProvider.when("/main",{
             templateUrl: '/views/main.html',
@@ -108,11 +108,13 @@ define([], function () {
             });
         //商品部分路由
 
-        $locationProvider.html5Mode(true);
+        //$locationProvider.html5Mode(true);
+
+        $httpProvider.defaults.withCredentials = true;
     };
 
 
 
-    routecfg.$inject=['$routeProvider','$locationProvider'];
+    routecfg.$inject=['$routeProvider','$locationProvider','$httpProvider'];
     return routecfg;
 });

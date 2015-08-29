@@ -9,14 +9,6 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                 var mainUrl = $rootScope.prefuri+"/product/typedProducts";
 
                 //通用函数
-                /**
-                 * 价格转换器
-                 * @param price
-                 * @returns {string}
-                 */
-                $scope.transferPrice = function(price){
-                    return (price / 100).toFixed(2);
-                };
 
                 //首页数据收集
                 $scope.mainData={
@@ -37,8 +29,7 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                         swiper.picture()
                     },30);
                     //加载数据后再调用
-                }).error(function(){
-                });
+                }).error($rootScope.httpError);
 
             }]);
     });

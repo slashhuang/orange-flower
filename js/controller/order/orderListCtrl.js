@@ -91,15 +91,6 @@ define([],function(){
         };
 
         /**
-         * 转换商品价格为两位数字
-         * @param price
-         * @return {string}
-         */
-        $scope.transferPrice = function(price){
-            return (price / 100).toFixed(2);
-        };
-
-        /**
          * 根据具体的键值(有或没有)返回该元素在数组中的位置
          * @param data
          * @param id

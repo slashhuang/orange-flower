@@ -19,15 +19,6 @@ define([],function(){
         };
 
         //**** 通用函数
-        /**
-         * 价格转换器
-         * @param price
-         * @returns {string}
-         */
-        $scope.transferPrice = function(price){
-            return (price / 100).toFixed(2);
-        };
-
         //寻找index
         var findIndex = function(id){
             var index = -1;

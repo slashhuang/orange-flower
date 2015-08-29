@@ -90,9 +90,7 @@ define([],function(){
                                $scope.infoHint=""
                            },1000)
                        }
-                    }).error(function (res) {
-                        alert("未成功发送请求")
-                    });
+                    }).error($rootScope.httpError);
                 }
             }
     };

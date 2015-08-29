@@ -1,7 +1,7 @@
 /**
  * Created by slashhuang on 15/8/21.
  */
-define(['loadScript', 'angular', 'config/routeConfig', 'lib/angular-route',
+define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'lib/angular-route',
         'controller/main', 'controller/sales/sales',
         'controller/user/user', 'controller/order/order',
         'controller/reg_log/reglog', 'controller/main',
@@ -12,16 +12,23 @@ define(['loadScript', 'angular', 'config/routeConfig', 'lib/angular-route',
         //window.prefuri = "http://api.orangezc.com";
         window.isLogin = false;
         var app = angular.module('app',
-            ["ngRoute", "mainModule", "salesModule", "ngLoadScript", "userModule", "orderModule", "reglogModule", "orderModule", "billModule"]);
+            ["ngRoute", "ngCookies","mainModule", "salesModule", "ngLoadScript",
+              "userModule", "orderModule", "reglogModule", "orderModule", "billModule"]);
 
 
         //定义全局变量
         app.run(function ($rootScope) {
+
             $rootScope.prefuri = "http://api.orangezc.com";
             //  ajax请求前缀
 
             $rootScope.isLogin = false;
             //  判断是否登录成功
+
+            $rootScope.httpError = function(res){
+                alert(res.message)
+            };
+
 
             /**
              * 价格单位转换,从分转成元

@@ -100,7 +100,7 @@ define([], function () {
                 $scope.telHint = "";
                 $http({
                     "method": "post",
-                    "url": prefuri + "/user/getCode/" + tel,
+                    "url": $scope.prefuri + "/user/getCode/" + tel,
                 }).success(function (res) {
                     console.log(res)
                     if(res) {
@@ -110,8 +110,7 @@ define([], function () {
                     else{
                         $scope.telHint = "发送失败"
                     }
-                }).error(function (err) {
-                });
+                }).error($rootScope.httpError);
             }
         };
 

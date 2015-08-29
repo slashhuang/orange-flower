@@ -117,10 +117,10 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             console.log(firstTimePay + "----" + finalMonth);
             if ((/^[+-]?\d+(\.\d+)?$/).test(firstTimePay)) {
                 $scope.firstTimePay = firstTimePay;
-                $scope.calculateMoney = (($scope.transferPrice($scope.saleDetail.price) - firstTimePay) / finalMonth).toFixed(2);
+                $scope.calculateMoney = (($rootScope.transferPrice($scope.saleDetail.price) - firstTimePay) / finalMonth).toFixed(2);
             } else {
                 $scope.firstTimePay = "";
-                $scope.calculateMoney = (($scope.transferPrice($scope.saleDetail.price) - 0) / finalMonth).toFixed(2);
+                $scope.calculateMoney = (($rootScope.transferPrice($scope.saleDetail.price) - 0) / finalMonth).toFixed(2);
             }
         };
 
@@ -181,7 +181,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             $scope.finalMonth = $scope.saleDetail.minMonth;
             $scope.firstTimePay = "0";
             //console.log(typeof $scope.salePrice.price);
-            $scope.calculateMoney = $scope.transferPrice($scope.saleDetail.price);
+            $scope.calculateMoney = $rootScope.transferPrice($scope.saleDetail.price);
 
 
         }).error(function () {

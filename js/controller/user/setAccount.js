@@ -11,8 +11,7 @@ define([],function(){
                 "method":"post",
                 "url":setAccountUrl
             }).success(function(data){
-            }).error(function(){
-            });
+            }).error($rootScope.httpError);
         };
         //重置头像@TODO
         $scope.changeHead = function(){

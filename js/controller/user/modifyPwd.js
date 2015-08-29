@@ -40,9 +40,7 @@ define([], function () {
                     }).success(function (data) {
                         console.log("空接口成功");
                         location.hash = "#/user/center"
-                    }).error(function () {
-                        console.log("接口调试失败")
-                    });
+                    }).error($rootScope.httpError);
                 }
             }, 2000);
         };

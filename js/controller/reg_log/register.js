@@ -3,7 +3,12 @@
  */
 define([], function () {
     //定义商品分类controller
-    function registerCtrl($scope, $routeParams, $location, $http, $timeout,$rootScope) {
+    function registerCtrl($scope, $routeParams, $location, $http, $timeout,$rootScope,$cookies) {
+
+
+        var favoriteCookie = $cookies.myFavorite;
+        $cookies.myFavorite = 'oatmeal';
+        console.log($cookies);
 
         var sendSmsUrl = $rootScope.prefuri + "/user/getCode";//发送短信url
         var registerUrl = $rootScope.prefuri + "/user/register";//提交注册信息
@@ -89,22 +94,28 @@ define([], function () {
                 }, 1000)
             }
         };
+
+        //"withCredentials":true
+
         /**
          * 发送短信
          * @param tel
          */
         $scope.sendsms=function(tel){
+            //console.log($httpProvider)
+
             $http({
                 "method":"post",
-                "url":sendSmsUrl+"/"+tel
+                "url":sendSmsUrl+"/"+tel,
             }).success(function(response, status, headers, config){
                 console.log(arguments);
                 $scope.checkVaildHint = "短信已发送，请查收";
                 showCountDown();
             }).error(function(response, status, headers, config){
                 console.log(response);
-                alert(response.message)
             });
+
+
         };
 
         /**
@@ -117,7 +128,7 @@ define([], function () {
             if($scope.checkMobile(telephone, password,verified)){
                 $http({
                     "method": "post",
-                    "url": registerUrl+"?telephone="+telephone+"&password="+password+"&code="+code
+                    "url": registerUrl+"?telephone="+telephone+"&password="+password+"&code="+code,
                 }).success(function (response, status, headers, config) {
                     $scope.submitHint="注册成功！";
                     hintFunc();
@@ -152,7 +163,7 @@ define([], function () {
             },2000)
         };
     };
-    registerCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout','$rootScope'];
+    registerCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout','$rootScope','$cookies'];
 
     return registerCtrl;
 });
