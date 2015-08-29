@@ -98,6 +98,7 @@ define([], function () {
                 "method":"post",
                 "url":sendSmsUrl+"/"+tel
             }).success(function(response, status, headers, config){
+                console.log(arguments);
                 $scope.checkVaildHint = "短信已发送，请查收";
                 showCountDown();
             }).error(function(response, status, headers, config){

@@ -102,7 +102,7 @@ define([],function(){
                 function(res){
                     console.log(res)
                 });
-        }
+        };
 
         //点击触发请求
         $scope.searchProduct = function(key){

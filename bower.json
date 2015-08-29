@@ -30,6 +30,7 @@
     "angular-mocks": "1.4.x",
     "angular-route": "1.4.x",
     "requirejs-domready": "latest",
-    "angular-touch": "~1.4.4"
+    "angular-touch": "~1.4.4",
+    "angular-cookies": "~1.4.5"
   }
 }

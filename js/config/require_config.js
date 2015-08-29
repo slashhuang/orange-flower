@@ -26,6 +26,9 @@ require.config({
         "lib/angular-route": {
             deps: ["angular"]
         },
+        "lib/angular-cookies":{
+            deps:['angular']
+        },
         "cookie":{
             deps: ['jquery'],
             exports: 'cookie'

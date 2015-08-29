@@ -24,7 +24,6 @@ define(['loadScript','angular','config/routeConfig','lib/angular-route',
 
 
 
-
         app.controller("BottomController",['$http','$location','$scope','$rootScope',function($http,$location,$scope,$rootScope){
             $scope.addActive = function(cur){
                 var hash = location.hash;
