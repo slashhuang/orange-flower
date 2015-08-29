@@ -6,7 +6,7 @@
 *头部
 */
 .of-logo-icon{
-    height: 27px;
+    height: 29px;
     width:auto;
 }
 .swiper-pagination-bullet-active{
@@ -24,9 +24,6 @@
     padding-bottom:11px;
     overflow: hidden;
     background-color: #fff;
-    /*border-top:#e6e6e6 1px solid;*/
-    /*border-bottom:#e6e6e6 1px solid;*/
-
 }
 
 .of-icon-class-item{
@@ -240,7 +237,7 @@
     font-size: 12px;
     color:#c8c8c8;
     width: 100%;
-    z-index: 9999999;
+    z-index: 199;
 }
 
 .of-bottom-bar.hidden{
