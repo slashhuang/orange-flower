@@ -80,11 +80,11 @@ define([],function(){
                         "url": loginURL + loginName + '/' + password
                     }).success(function (data) {
                        if(data) {
-                           window.isLogin = true;
+                           $rootScope.isLogin = true;
                            outLogin("登录成功");
                        }
                         else{
-                           window.isLogin = false;
+                           $rootScope.isLogin = false;
                            $scope.infoHint = "密码错误";
                            $timeout(function(){
                                $scope.infoHint=""

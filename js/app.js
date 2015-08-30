@@ -9,8 +9,6 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
         'controller/reg_log/reglog', 'controller/order/order', 'controller/bill/bill'],
     function (scriptsLoader, angular, routeConfig) {
 
-        //window.prefuri = "http://api.orangezc.com";
-        window.isLogin = false;
         var app = angular.module('app',
             ["ngRoute", "ngCookies","mainModule", "salesModule", "ngLoadScript",
               "userModule", "orderModule", "reglogModule", "orderModule", "billModule"]);
@@ -26,7 +24,9 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
             //  判断是否登录成功
 
             $rootScope.httpError = function(res){
-                alert(res.message)
+                if(res&&res.message){
+                    alert(res.message)
+                }
             };
 
 
