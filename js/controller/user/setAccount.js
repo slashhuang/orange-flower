@@ -4,7 +4,7 @@
 define([],function(){
     //定义商品分类controller
     function setAccountCtrl($scope,$routeParams,$location,$http,$rootScope){
-        var setAccountUrl= prefuri + "/user/complete";
+        var setAccountUrl= $rootScope.prefuri + "/user/complete";
         //登出函数
         $scope.logout = function () {
             $http({

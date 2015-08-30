@@ -5,10 +5,13 @@ define([], function () {
     //定义商品分类controller
     function registerCtrl($scope, $routeParams, $location, $http, $timeout,$rootScope,$cookies) {
 
-
+        //测试cookie
         var favoriteCookie = $cookies.myFavorite;
         $cookies.myFavorite = 'oatmeal';
         console.log($cookies);
+
+
+
 
         var sendSmsUrl = $rootScope.prefuri + "/user/getCode";//发送短信url
         var registerUrl = $rootScope.prefuri + "/user/register";//提交注册信息
@@ -95,25 +98,26 @@ define([], function () {
             }
         };
 
-        //"withCredentials":true
-
         /**
          * 发送短信
          * @param tel
          */
         $scope.sendsms=function(tel){
-            //console.log($httpProvider)
 
-            $http({
-                "method":"post",
-                "url":sendSmsUrl+"/"+tel,
-            }).success(function(response, status, headers, config){
-                console.log(arguments);
-                $scope.checkVaildHint = "短信已发送，请查收";
-                showCountDown();
-            }).error(function(response, status, headers, config){
-                console.log(response);
-            });
+
+            if($scope.countTime==0){
+                $http({
+                    "method":"post",
+                    "url":sendSmsUrl+"/"+tel,
+                }).success(function(response, status, headers, config){
+                    console.log(arguments);
+                    $scope.checkVaildHint = "短信已发送，请查收";
+                    showCountDown();
+                }).error(function(response, status, headers, config){
+                    console.log(response);
+                });
+            }
+
 
 
         };
@@ -157,9 +161,13 @@ define([], function () {
             }
         };
 
-        var hintFunc =function(){
+        var hintFunc =function(res){
             $timeout(function(){
-                $scope.submitHint=""
+                $scope.submitHint="";
+                if(res=="注册成功"){
+                    $location.hash="/main";
+
+                };
             },2000)
         };
     };

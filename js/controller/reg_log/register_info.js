@@ -34,35 +34,28 @@ define([],function(){
                 url:gettingDistrictList+param
             }).success(function(response, status, headers, config){
                 $scope.completeData.province = response
-                console.log(response);
-            }).error(function(res){
-            });
+            }).error($rootScope.httpError);
         };
 
         $scope.setCity = function(val){
-            //console.log($scope.completeData.province)
-            var param = findId(val, $scope.completeData.province);
-            console.log(findId(val, $scope.completeData.province));
+            var param = val;
+
             $http({
                 method:"get",
                 url:gettingDistrictList+param
             }).success(function(response, status, headers, config){
                 $scope.completeData.city = response
-                console.log(response);
-            }).error(function(res){
-            });
+            }).error($rootScope.httpError);
         };
 
         $scope.setSchool = function(val){
-            var param = findId(val,$scope.completeData.city);
+            var param = val;
             $http({
                 method:"get",
                 url:gettingDistrictList+param
             }).success(function(response, status, headers, config){
                 $scope.completeData.school = response
-                console.log(response);
-            }).error(function(res){
-            });
+            }).error($rootScope.httpError);
         };
 
         //初始情况下
@@ -91,6 +84,9 @@ define([],function(){
             }
             return true;
         };
+
+
+        $scope.infoComplete = "false"
 
         /**
          *@param data 数组
@@ -122,25 +118,29 @@ define([],function(){
             var data = {
                 "idNo": $scope.completeData.idNo,
                 "province": $scope.selectedProvince,
-                "county": 0,
                 "city": $scope.selectedCity,
                 "school": $scope.selectedSchool,
                 "campus": $scope.selectedCampus,
                 "level": $scope.selectedLevel,
                 "userName": $scope.completeData.userName
             };
+            console.log(data);
             checkId($scope.completeData.idNo);
-           if( $scope.idStatus){
+            $scope.infoComplete = checkIsAllOk(data);
+
+           if( $scope.infoComplete){
+               console.log(data)
                $http({
                    "method":"post",
                    "url":completeInfoURL,
                    "data":data,
                }).success(function(response, status, headers, config){
+                   console.log(response)
                    hintFUNC();
-               }).error(function(res){
-                   console.log(res);
-                   alert("程序员哥哥正在抢救服务器，请稍等")
-               });
+               }).error($rootScope.httpError);
+           }
+            else{
+               $scope.idTip = "请填写所有字段";
            }
         };
 

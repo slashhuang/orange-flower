@@ -3,7 +3,7 @@
  */
 define(["/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"], function ($, ajaxFileUpload) {
     //定义商品分类controller
-    function userSettingsCtrl($scope, $routeParams, $location, $http,$rootScope) {
+    function userSettingsCtrl($scope, $routeParams, $location, $http,$rootScope,$timeout) {
         var logoutURL = $rootScope.prefuri + "/user/logout";
         var time = 4;
 
@@ -22,8 +22,12 @@ define(["/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"], function ($, ajaxFile
                 $scope.infoHint = "登出成功" + time + "秒后转向首页";
                 outLogin("登出成功");
             }).error(function () {
-                $scope.infoHint = "登出失败" + time + "秒后转向首页";
-                outLogin("登出失败");
+                $scope.infoHint = "登出失败";
+                $scope.logoutStatus = true;
+                $timeout(function () {
+                    $scope.infoHint="";
+                    $scope.logoutStatus = false;
+                },1500)
             });
         };
 
@@ -53,6 +57,6 @@ define(["/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"], function ($, ajaxFile
         };
     }
 
-    userSettingsCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$rootScope'];
+    userSettingsCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$rootScope','$timeout'];
     return userSettingsCtrl;
 });
