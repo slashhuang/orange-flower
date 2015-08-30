@@ -33,9 +33,7 @@ define([], function () {
                 $timeout(function(){
                     location.hash = "/login";
                 },1000)
-            }).error(function (response, status, headers, config) {
-                alert(response.message);
-            });
+            }).error($rootScope.httpError);
         };
 
         /**

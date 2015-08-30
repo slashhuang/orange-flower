@@ -4,7 +4,7 @@
 define([], function () {
     //定义商品分类controller
     function modifyPwdCtrl($scope, $routeParams, $location, $http, $timeout,$rootScope) {
-        var modifyPwdUrl = $rootScope.prefuri + "";
+        var modifyPwdUrl = $rootScope.prefuri + "/user/modifyPwd";
         $scope.submitHint = "";//输入错误提示
         $scope.hintStatus = false;//初始情况下不显示提示
         //需要提交服务器的数据
@@ -29,6 +29,7 @@ define([], function () {
         };
         //登出函数
         $scope.modfifyRequest = function () {
+
             $scope.verifyNewPwd();
             $scope.hintStatus = true;
             $timeout(function () {
@@ -36,7 +37,7 @@ define([], function () {
                 if( $scope.modifyState){
                     $http({
                         "method": "post",
-                        "url": modifyPwdUrl
+                        "url": modifyPwdUrl+"/"+$scope.currentPWD+"/"+$scope.newPWD
                     }).success(function (data) {
                         //console.log("空接口成功");
                         $scope.debugLog("空接口成功");
