@@ -50,7 +50,8 @@
 .of-header{
     width: 100%;
     font-size:18px;
-    padding: 11px;
+    /*padding: 11px;*/
+    padding: 9px 11px 8px 11px;
     text-align: center;
     position: fixed;
     z-index: 99;
@@ -61,11 +62,19 @@
 .h-52{
     height: 52px;
 }
+.h-20{
+    height: 15px!important;
+}
 .of-header.green{
     background-color: #15c690;
 }
 .of-header.gray{
     background-color: #dfdfdf;
+    padding: 11px;
+    /*font-family: STHeiti;*/
+    font-family: "华文黑体";
+    font-weight: 500;
+    color: #515151;
 }
 .of-header-person{
     display:inline-block;

@@ -77,18 +77,20 @@ define([],function(){
                 "data":DATAsettings
             }).success(
                 function(response, status, headers, config){
-                    console.log(response);
+                    //console.log(response);
+                    $scope.debugLog(response);
                     $scope.category.itemInfo = response.content;
                 }).error(
                 function(res){
-                    console.log(res)
+                    //console.log(res)
+                    $scope.debugLog(res);
                 });
         };
 
         //点击触发请求
         $scope.searchProduct = function(key){
             $scope.watchClick = findIndex(key);
-            queryProduct(key)
+            queryProduct(key);
         };
 
     };

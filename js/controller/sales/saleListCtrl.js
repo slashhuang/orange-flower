@@ -27,7 +27,8 @@ define([],function() {
                 "keyword":""
             }
         }).success(function(data){
-            console.log(data);
+            //console.log(data);
+            $scope.debugLog(data);
             $scope.saleList =data.content;
         }).error(function(){
         });

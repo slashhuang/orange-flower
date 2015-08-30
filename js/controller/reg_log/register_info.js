@@ -34,21 +34,25 @@ define([],function(){
                 url:gettingDistrictList+param
             }).success(function(response, status, headers, config){
                 $scope.completeData.province = response
-                console.log(response);
+                //console.log(response);
+                $scope.debugLog(response);
             }).error(function(res){
             });
         };
 
         $scope.setCity = function(val){
             //console.log($scope.completeData.province)
+            $scope.debugLog($scope.completeData.province);
             var param = findId(val, $scope.completeData.province);
-            console.log(findId(val, $scope.completeData.province));
+            //console.log(findId(val, $scope.completeData.province));
+            $scope.debugLog(findId(val, $scope.completeData.province));
             $http({
                 method:"get",
                 url:gettingDistrictList+param
             }).success(function(response, status, headers, config){
-                $scope.completeData.city = response
-                console.log(response);
+                $scope.completeData.city = response;
+                //console.log(response);
+                $scope.debugLog(response);
             }).error(function(res){
             });
         };
@@ -60,7 +64,8 @@ define([],function(){
                 url:gettingDistrictList+param
             }).success(function(response, status, headers, config){
                 $scope.completeData.school = response
-                console.log(response);
+                //console.log(response);
+                $scope.debugLog(response);
             }).error(function(res){
             });
         };
@@ -134,12 +139,12 @@ define([],function(){
                $http({
                    "method":"post",
                    "url":completeInfoURL,
-                   "data":data,
+                   "data":data
                }).success(function(response, status, headers, config){
                    hintFUNC();
                }).error(function(res){
-                   console.log(res);
-                   alert("程序员哥哥正在抢救服务器，请稍等")
+                   //console.log(res);
+                   $scope.debugLog("程序员哥哥正在抢救服务器，请稍等","alert");
                });
            }
         };

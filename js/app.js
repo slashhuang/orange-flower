@@ -20,6 +20,24 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
             $rootScope.prefuri = "http://api.orangezc.com";
             //  ajax请求前缀
 
+            $rootScope.debugFlat = true;
+            //  debug句柄
+
+            /**
+             * 根据debug句柄判断是否调用console.log或者alert
+             * @param info  输出的信息
+             * @param type  类型
+             */
+            $rootScope.debugLog = function(info,type){
+                if($rootScope.debugFlat){
+                    if(type == "alert"){
+                        alert(info);
+                    }else{
+                        console.log(info);
+                    }
+                }
+            };
+
             $rootScope.isLogin = false;
             //  判断是否登录成功
 

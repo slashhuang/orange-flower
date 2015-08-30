@@ -34,7 +34,7 @@
 
     <div class="of-icon-class-item"  ng-repeat="category_list in mainData.category">
         <a href="#/sale/list/{{category_list.item.value}}/{{category_list.item.id}}">
-            <img src="/images/icon_main/iphone.png"/>
+            <img src="/images/icon_main/{{getPic(category_list.item.value)}}.png"/>
             {{category_list.item.value}}
         </a>
     </div>

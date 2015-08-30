@@ -32,15 +32,17 @@ define([],function() {
             };
 
 
-            console.log(DATAsettings)
+            //console.log(DATAsettings)
+            $scope.debugLog(DATAsettings);
 
             $http({
                 "method":"post",
                 "url":saleListUrl+"/"+ $scope.pageId,
                 "data":DATAsettings
             }).success(function(data){
-                alert("search success")
-                console.log(data);
+                $scope.debugLog("search success","alert");
+                $scope.debugLog(data);
+                //console.log(data);
 
                 if(data.content&&data.content.length){
                     $scope.searchWaiting = false;
@@ -55,9 +57,6 @@ define([],function() {
             });
         };
 
-
-        //通用函数
-
         //初始化http请求@TODO需要加入参数
         $http({
             "method":"post",
@@ -68,7 +67,8 @@ define([],function() {
                 "keyword": "string"
             }
         }).success(function(data){
-            console.log(data);
+            //console.log(data);
+            $scope.debugLog(data);
         }).error(function(){
         });
         

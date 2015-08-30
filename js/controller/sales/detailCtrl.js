@@ -249,40 +249,6 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                         $rootScope.httpError(err);
                     }
                 });
-                /*$http({
-                 "url": ,
-                 "method": "post",
-                 "headers": {"Content-Type":"application/json"},
-                 "params": {
-                 "orderType": "FORWARD",                         //  订单类型
-                 "sellerId": 0,                         //  商家id
-                 "saleAmount": 1,                                //  销售总额
-                 "payAmount": data["price"],                     //  应付总额
-                 "realPayAmount": 2,                             //  实付总额
-                 "mobile": "string",                             //  用户电话
-                 "addressId": 2,                                 //  配送地址
-                 "orderLineDtos": [
-                 {
-                 "clientType":"WEIXIN",                  //  客户端类型
-                 "orderType": "FORWARD",                 //  订单类型
-                 "sellerId": 0,                 //  商家id
-                 "saleAmount": 1,                        //  销售额/退款额
-                 "payAmount": 1,                         //  应付金额
-                 "realPayAmount": 6,                     //  实付款/退款
-                 "skuId": data["id"],                 //  商品sku
-                 "salePrice": $scope.transferPrice(data["price"]),             //  销售单价
-                 "saleVolume": "个",                     //  销售数量
-                 "saleUnit": "string",                   //  销售单位
-                 "periods": data["finalMonth"],                           //  分期期数
-                 "firstPay": data["firstTimePay"],                          //  首付金额
-                 "prePeriodsPay": data["calculateMoney"]                     //  每期支付金额
-                 }
-                 ]
-                 }
-                 }).success(function (res) {
-                 location.hash = "/order/confirm?orderId=" + 2015082017361234;
-                 }).error(function (err) {
-                 });*/
             } else {
                 //  未登录的情况,跳转到登录页
                 location.hash = "/login";
@@ -310,6 +276,10 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                 $scope.itemShapes = $scope.saleDetail.attrs[1];//外形
             }).error(function (err) {
             });
+        }
+
+        $scope.setTapIndex = function(num){
+            $scope.tapIndex = num;
         }
 
     }
