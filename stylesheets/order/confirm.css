@@ -40,8 +40,12 @@
 
 .order-info-detail{
     height: 4.8rem;
-    padding: 0 0 0 6rem;
+    /*padding: 0 0 0 6rem;*/
     position: relative;
+}
+
+.order-info-detail-confirm{
+    padding: 0 0 0 6rem;
 }
 
 .order-img{
@@ -60,6 +64,10 @@
 .order-info-name{
     font-size: 1.4rem;
     color: #515151;
+}
+
+.confirm-name{
+    width: auto;
 }
 
 .order-info-name em{
@@ -94,6 +102,7 @@
     color: #adadad;
     font-size: 1.1rem;
     line-height: 1.75rem;
+    overflow: hidden;
 }
 
 .info-arg del{

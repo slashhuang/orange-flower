@@ -112,9 +112,8 @@ define([], function () {
 
         $httpProvider.defaults.withCredentials = true;
 
+        $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
     };
-
-
 
     routecfg.$inject=['$routeProvider','$locationProvider','$httpProvider'];
     return routecfg;
