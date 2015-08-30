@@ -72,11 +72,12 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
             var returnObj = {};
             returnObj = {
                 "name": data["userName"],                                        //  姓名
+                "id":data["id"],                                                //  商品单价
                 "mobile": data["mobile"],                                        //  手机号
                 "arg": data["orderLines"][0]["commodityName"],                   //  商品参数
                 "address": data["addressId"],                                    //  配送地址
                 "orderId": data["orderId"],                                      //  订单编号
-                "productName": data["orderLines"][0]["commodityName"],           //  商品名称
+                "productName": data["orderLines"][0]["sku"]["title"],           //  商品名称
                 "saleUnit": data["orderLines"][0]["saleUnit"],                   //  购买单价
                 "saleVolume": data["orderLines"][0]["saleVolume"],               //  购买个数
                 "service": "2000",                                               //  服务费

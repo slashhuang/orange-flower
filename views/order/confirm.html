@@ -25,13 +25,13 @@
 
     <!--商品信息-->
     <div class="product-info">
-        <a href="#/sale/detail/:detailId">
+        <a href="#/sale/detail/{{data.id}}">
             <div class="order-info-no-border">
                 <div class="order-img">
                     <img src="/images/order/iphone.jpg">
                 </div>
                 <div class="order-info-detail order-info-detail-confirm">
-                    <p class="decrease-icon order-info-name"><span class="product-name">{{data.productName}}</span><em>￥{{transferPrice(data.payAmount)}}</em></p>
+                    <p class="decrease-icon confirm-name order-info-name"><span class="product-name">{{data.productName}}</span><em>￥{{transferPrice(data.payAmount)}}</em></p>
                     <p class="info-arg">{{data.arg}}<del>￥{{transferPrice(data.salePrice)}}</del></p>
                     <p class="info-arg">首付￥{{transferPrice(data.firstPay)}}  月供￥{{transferPrice(data.prePeriodsPay)}}×{{data.periods}}</p>
                 </div>

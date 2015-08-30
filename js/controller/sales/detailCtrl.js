@@ -146,7 +146,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
          */
         $scope.setSelectedColor = function (id) {
             $scope.selectedColorId = id;
-            _reRend($scope.saleDetail.id,[$scope.selectedColorId,$scope.selectedShapeId]);
+            _reRend($scope.saleDetail.id, [$scope.selectedColorId, $scope.selectedShapeId]);
         };
 
         /**
@@ -155,7 +155,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
          */
         $scope.setSelectedShape = function (id) {
             $scope.selectedShapeId = id;
-            _reRend($scope.saleDetail.id,[$scope.selectedColorId,$scope.selectedShapeId]);
+            _reRend($scope.saleDetail.id, [$scope.selectedColorId, $scope.selectedShapeId]);
         };
 
         //初始化http请求+变量
@@ -163,7 +163,6 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             "method": "post",
             "url": detailUrl
         }).success(function (data) {
-            console.log(data);
             $scope.saleDetail = data;
             $timeout(function () {
                 swiper.mainItem();
@@ -209,43 +208,81 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             $rootScope.isLogin = true;
             if ($rootScope.isLogin) {
                 //  已经登录的情况,创建订单
-                if(!(info["firstTimePay"] >= $scope.transferPrice(info["minFirst"]) && info["firstTimePay"] <= $scope.transferPrice(info["maxFirst"]))){
-                    alert("首付必须在" + $scope.transferPrice(info["minFirst"]) + " 元~" + $scope.transferPrice(info["maxFirst"]) + "元之间!!!");
-                    return;
-                }
-                $http({
+                //if(!(info["firstTimePay"] >= $scope.transferPrice(info["minFirst"]) && info["firstTimePay"] <= $scope.transferPrice(info["maxFirst"]))){
+                //    alert("首付必须在" + $scope.transferPrice(info["minFirst"]) + " 元~" + $scope.transferPrice(info["maxFirst"]) + "元之间!!!");
+                //    return;
+                //}
+                var data = {
+                    "orderType": "FORWARD",                         //  订单类型
+                    "sellerId": 0,                         //  商家id
+                    "saleAmount": 1,                                //  销售总额
+                    "payAmount": data["price"],                     //  应付总额
+                    "realPayAmount": 2,                             //  实付总额
+                    "addressId": 2,                                 //  配送地址
+                    "orderLineDtos": [
+                        {
+                            "clientType": "WEIXIN",                  //  客户端类型
+                            "orderType": "FORWARD",                 //  订单类型
+                            "sellerId": 0,                 //  商家id
+                            "saleAmount": 1,                        //  销售额/退款额
+                            "payAmount": 1,                         //  应付金额
+                            "realPayAmount": 6,                     //  实付款/退款
+                            "skuId": data["id"],                 //  商品sku
+                            "salePrice": data["price"],             //  销售单价
+                            "saleVolume": 1,                     //  销售数量
+                            "saleUnit": "string",                   //  销售单位
+                            "periods": info["finalMonth"],                           //  分期期数
+                            "firstPay": info["firstTimePay"] * 100,                          //  首付金额
+                            "prePeriodsPay": info["calculateMoney"] * 100                   //  每期支付金额
+                        }
+                    ]
+                };
+                $.ajax({
+                    "type": "POST",
                     "url": $rootScope.prefuri + "/order/create",
-                    "method": "post",
-                    "params": {
-                        "orderType": "FORWARD",                         //  订单类型
-                        "sellerId": 0,                         //  商家id
-                        "saleAmount": 1,                                //  销售总额
-                        "payAmount": data["price"],                     //  应付总额
-                        "realPayAmount": 2,                             //  实付总额
-                        "mobile": "string",                             //  用户电话
-                        "addressId": 2,                                 //  配送地址
-                        "orderLineDtos": [
-                            {
-                                "clientType":"WEIXIN",                  //  客户端类型
-                                "orderType": "FORWARD",                 //  订单类型
-                                "sellerId": 0,                 //  商家id
-                                "saleAmount": 1,                        //  销售额/退款额
-                                "payAmount": 1,                         //  应付金额
-                                "realPayAmount": 6,                     //  实付款/退款
-                                "skuId": data["id"],                 //  商品sku
-                                "salePrice": $scope.transferPrice(data["price"]),             //  销售单价
-                                "saleVolume": "个",                     //  销售数量
-                                "saleUnit": "string",                   //  销售单位
-                                "periods": data["finalMonth"],                           //  分期期数
-                                "firstPay": data["firstTimePay"],                          //  首付金额
-                                "prePeriodsPay": data["calculateMoney"]                     //  每期支付金额
-                            }
-                        ]
+                    "data": JSON.stringify(data),
+                    "contentType": "application/json",
+                    success: function (data) {
+                        location.hash = "/order/confirm?orderId=" + data;
+                    },
+                    error: function(err){
+                        $rootScope.httpError(err);
                     }
-                }).success(function (res) {
-                    location.hash = "/order/confirm?orderId=" + 2015082017361234;
-                }).error(function (err) {
                 });
+                /*$http({
+                 "url": ,
+                 "method": "post",
+                 "headers": {"Content-Type":"application/json"},
+                 "params": {
+                 "orderType": "FORWARD",                         //  订单类型
+                 "sellerId": 0,                         //  商家id
+                 "saleAmount": 1,                                //  销售总额
+                 "payAmount": data["price"],                     //  应付总额
+                 "realPayAmount": 2,                             //  实付总额
+                 "mobile": "string",                             //  用户电话
+                 "addressId": 2,                                 //  配送地址
+                 "orderLineDtos": [
+                 {
+                 "clientType":"WEIXIN",                  //  客户端类型
+                 "orderType": "FORWARD",                 //  订单类型
+                 "sellerId": 0,                 //  商家id
+                 "saleAmount": 1,                        //  销售额/退款额
+                 "payAmount": 1,                         //  应付金额
+                 "realPayAmount": 6,                     //  实付款/退款
+                 "skuId": data["id"],                 //  商品sku
+                 "salePrice": $scope.transferPrice(data["price"]),             //  销售单价
+                 "saleVolume": "个",                     //  销售数量
+                 "saleUnit": "string",                   //  销售单位
+                 "periods": data["finalMonth"],                           //  分期期数
+                 "firstPay": data["firstTimePay"],                          //  首付金额
+                 "prePeriodsPay": data["calculateMoney"]                     //  每期支付金额
+                 }
+                 ]
+                 }
+                 }).success(function (res) {
+                 location.hash = "/order/confirm?orderId=" + 2015082017361234;
+                 }).error(function (err) {
+                 });*/
             } else {
                 //  未登录的情况,跳转到登录页
                 location.hash = "/login";
@@ -259,22 +296,24 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
          * @param datas
          * @private
          */
-        function _reRend(productId,datas){
+        function _reRend(productId, datas) {
             var str = "/";
-            angular.forEach(datas,function(item,index){
+            angular.forEach(datas, function (item, index) {
                 str += "-" + item;
             });
             $http({
-                "method":"post",
-                "url":$rootScope.prefuri + "/product/" + productId + str
-            }).success(function(res){
+                "method": "post",
+                "url": $rootScope.prefuri + "/product/" + productId + str
+            }).success(function (res) {
                 $scope.saleDetail = res;
                 $scope.itemColors = $scope.saleDetail.attrs[0];//颜色
                 $scope.itemShapes = $scope.saleDetail.attrs[1];//外形
-            }).error(function(err){});
+            }).error(function (err) {
+            });
         }
 
     }
+
     detailCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout', '$rootScope'];
     return detailCtrl;
 });
