@@ -22,7 +22,7 @@ require.config({
         },
         "angularRoute": {
             "exports": "angularRoute"
-        },
+        }
     }
 });
 

@@ -18,16 +18,6 @@ define([],function(){
             return "";
         };
 
-        //**** 通用函数
-        /**
-         * 价格转换器
-         * @param price
-         * @returns {string}
-         */
-        $scope.transferPrice = function(price){
-            return (price / 100).toFixed(2);
-        };
-
         //寻找index
         var findIndex = function(id){
             var index = -1;
@@ -49,7 +39,7 @@ define([],function(){
         //页面载入请求
         $http({
             "method":"get",
-            "url":categoryUrl,
+            "url":categoryUrl
         }).success(function(data){
             $scope.category.saleNav =data.items;
         }).error(function(){

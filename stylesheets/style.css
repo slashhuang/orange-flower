@@ -280,7 +280,7 @@
     background: url(../images/icon/icon-home.png) no-repeat center;
     background-size:contain ;
 }
-.of-icon-home.active{
+.of-icon-home-on{
     background: url(../images/icon/icon-house-h.png) no-repeat center;
     background-size:contain ;
 }
@@ -288,7 +288,7 @@
     background: url(../images/icon/icon-classify.png) no-repeat center;
     background-size:contain;
 }
-.of-icon-classify.active{
+.of-icon-classify-on{
     background: url(../images/icon/icon-classify-h.png) no-repeat center;
     background-size:contain ;
 }
@@ -296,7 +296,7 @@
     background: url(../images/icon/icon-h.png) no-repeat center ;
     background-size:contain ;
 }
-.of-icon-hot.active{
+.of-icon-hot-on{
     background: url(../images/icon/icon-h-h.png) no-repeat center ;
     background-size:contain ;
 }
@@ -304,7 +304,7 @@
     background: url(../images/icon/icon-person.png) no-repeat center ;
     background-size:contain ;
 }
-.of-icon-person.active{
+.of-icon-person-on{
     background: url(../images/icon/icon-person-h.png) no-repeat center;
     background-size:contain ;
 }
@@ -312,7 +312,28 @@
     background: url(../images/icon/icon-heart.png) no-repeat center;
     background-size:contain ;
 }
-.of-icon-heart.active{
+.of-icon-heart-on{
     background: url(../images/icon/icon-heart-h.png) no-repeat center ;
     background-size:contain ;
+}
+.of-icon-home-on,
+.of-icon-classify-on,
+.of-icon-hot-on,
+.of-icon-person-on,
+.of-icon-heart-on{
+    display: none;
+}
+.active .of-icon-home,
+.active .of-icon-classify,
+.active .of-icon-hot,
+.active .of-icon-person,
+.active .of-icon-heart{
+    display: none;
+}
+.active .of-icon-home-on,
+.active .of-icon-classify-on,
+.active .of-icon-hot-on,
+.active .of-icon-person-on,
+.active .of-icon-heart-on{
+    display: block;
 }

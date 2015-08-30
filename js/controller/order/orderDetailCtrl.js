@@ -93,15 +93,6 @@ define([], function () {
         };
 
         /**
-         * 转换商品价格为两位数字
-         * @param price
-         * @return {string}
-         */
-        $scope.transferPrice = function (price) {
-            return (price / 100).toFixed(2);
-        };
-
-        /**
          * 根据两个值是否相同返回class名
          * @param val1
          * @param index

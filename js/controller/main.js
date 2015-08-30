@@ -8,16 +8,6 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                 //首页数据请求地址
                 var mainUrl = $rootScope.prefuri+"/product/typedProducts";
 
-                //通用函数
-                /**
-                 * 价格转换器
-                 * @param price
-                 * @returns {string}
-                 */
-                $scope.transferPrice = function(price){
-                    return (price / 100).toFixed(2);
-                };
-
                 //首页数据收集
                 $scope.mainData={
                     discount:[],

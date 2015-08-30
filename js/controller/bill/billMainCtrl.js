@@ -57,15 +57,6 @@ define([], function () {
         };
 
         /**
-         * 将价格转换成两位有效数字
-         * @param price
-         * @returns {string}
-         */
-        $scope.transferPrice = function(price){
-            return (price / 100).toFixed(2);
-        };
-
-        /**
          * 操作隐藏和显示
          */
         $scope.toggleShow = function(){

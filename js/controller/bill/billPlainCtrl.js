@@ -26,15 +26,6 @@ define([], function () {
         };
 
         /**
-         * 转换商品价格为两位数字
-         * @param price
-         * @return {string}
-         */
-        $scope.transferPrice = function(price){
-            return (price / 100).toFixed(2);
-        };
-
-        /**
          * 返回已还或待还
          * @param billed
          */

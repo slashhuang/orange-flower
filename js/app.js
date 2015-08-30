@@ -8,9 +8,6 @@ define(['loadScript', 'angular', 'config/routeConfig', 'lib/angular-route',
         'controller/sales/sales', 'controller/user/user',
         'controller/reg_log/reglog', 'controller/order/order', 'controller/bill/bill'],
     function (scriptsLoader, angular, routeConfig) {
-
-        //window.prefuri = "http://api.orangezc.com";
-        window.isLogin = false;
         var app = angular.module('app',
             ["ngRoute", "mainModule", "salesModule", "ngLoadScript", "userModule", "orderModule", "reglogModule", "orderModule", "billModule"]);
 
@@ -29,7 +26,7 @@ define(['loadScript', 'angular', 'config/routeConfig', 'lib/angular-route',
              * @returns {string}
              */
             $rootScope.transferPrice = function (price) {
-                return (price / 100).toFixed(2);
+                return parseFloat((parseInt(price) / 100).toFixed(2));
             };
 
             /**

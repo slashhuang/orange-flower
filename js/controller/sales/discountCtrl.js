@@ -8,16 +8,6 @@ define([],function() {
     //定义商品分类controller
     function detailCtrl($scope, $routeParams, $location, $http,$rootScope) {
 
-        //通用函数
-        /**
-         * 价格转换器
-         * @param price
-         * @returns {string}
-         */
-        $scope.transferPrice = function(price){
-            return (price / 100).toFixed(2);
-        };
-
         //初始化变量完成
         $scope.discountList = [];
         for (var i = 0; i < 10; i++) {

@@ -55,17 +55,6 @@ define([],function() {
             });
         };
 
-
-        //通用函数
-        /**
-         * 价格转换器
-         * @param price
-         * @returns {string}
-         */
-        $scope.transferPrice = function(price){
-            return (price / 100).toFixed(2);
-        };
-
         //初始化http请求@TODO需要加入参数
         $http({
             "method":"post",
@@ -74,7 +63,7 @@ define([],function() {
                 "sortType": "DEFAULT",
                 "catId": 0,
                 "keyword": "string"
-            },
+            }
         }).success(function(data){
             console.log(data);
             //$scope.saleList =data.content;

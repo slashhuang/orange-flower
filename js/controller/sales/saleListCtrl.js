@@ -15,17 +15,6 @@ define([],function() {
         //设定url
         var saleListUrl = $rootScope.prefuri + "/product/query";
 
-        //通用函数
-        /**
-         * 价格转换器
-         * @param price
-         * @returns {string}
-         */
-        $scope.transferPrice = function(price){
-            return (price / 100).toFixed(2);
-        };
-
-
         //初始化http请求@TODO需要加入参数
         $http({
             "method":"post",
@@ -34,7 +23,7 @@ define([],function() {
                 "sortType": $scope.sortType,
                 "catId":$scope.catId,
                 "keyword":""
-            },
+            }
         }).success(function(data){
             console.log(data);
             $scope.saleList =data.content;
