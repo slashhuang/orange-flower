@@ -25,7 +25,6 @@ define([], function () {
             return className;
         };
 
-
         /**
          * 返回已还或待还
          * @param billed

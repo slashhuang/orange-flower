@@ -36,7 +36,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
              * @returns {string}
              */
             $rootScope.transferPrice = function (price) {
-                return (price / 100).toFixed(2);
+                return parseFloat((parseInt(price) / 100).toFixed(2));
             };
 
             /**

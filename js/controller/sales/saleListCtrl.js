@@ -25,7 +25,7 @@ define([],function() {
                 "sortType": $scope.sortType,
                 "catId":$scope.catId,
                 "keyword":""
-            },
+            }
         }).success(function(data){
             console.log(data);
             $scope.saleList =data.content;

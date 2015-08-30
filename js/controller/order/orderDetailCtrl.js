@@ -91,8 +91,6 @@ define([], function () {
         $scope.reBuy = function (id) {
             location.hash = "/sale/detail/" + id;
         };
-
-
         /**
          * 根据两个值是否相同返回class名
          * @param val1

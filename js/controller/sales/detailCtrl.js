@@ -33,7 +33,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                             "z-index": ""
                         }).removeClass("slider-active-fix-style");
                     }
-                }
+                };
                 scrollListener("#itemSliderNav")
             });
             //确保选项卡高度足够
@@ -91,7 +91,6 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             else {
                 $scope.showFrame = true;
             }
-            //document.getElementsByTagName("body")[0].style.position = fixed;
         };
         /**
          *
@@ -103,18 +102,17 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
         $scope.monthSelector = function (min, max) {
             var monthArray = [];
             for (var i = min - 1; i < max; i++) {
-                monthArray[i] = min + i;
+                monthArray[i] = parseInt(min) + parseInt(i);
             }
             return monthArray;
         };
 
         /**
-         * 计算月份公式
+         * 检测输入和计算月付
          * @param finalMonth
          * @param firstTimePay
          */
         $scope.calculate = function (finalMonth, firstTimePay) {
-            console.log(firstTimePay + "----" + finalMonth);
             if ((/^[+-]?\d+(\.\d+)?$/).test(firstTimePay)) {
                 $scope.firstTimePay = firstTimePay;
                 $scope.calculateMoney = (($rootScope.transferPrice($scope.saleDetail.price) - firstTimePay) / finalMonth).toFixed(2);
@@ -143,16 +141,23 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
         };
 
         /**
-         *设置选中的颜色
-         * @param tags
+         * 设置选中的颜色
+         * @param id
          */
-        //TODO 这边先不用写动作，直接请求数据后渲染
         $scope.setSelectedColor = function (id) {
             $scope.selectedColorId = id;
+            _reRend($scope.saleDetail.id,[$scope.selectedColorId,$scope.selectedShapeId]);
         };
+
+        /**
+         * 设置选中的形状
+         * @param id
+         */
         $scope.setSelectedShape = function (id) {
             $scope.selectedShapeId = id;
+            _reRend($scope.saleDetail.id,[$scope.selectedColorId,$scope.selectedShapeId]);
         };
+
         //初始化http请求+变量
         $http({
             "method": "post",
@@ -175,11 +180,11 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             $scope.selectedColorId = findColorIndex($scope.itemColors.items);
             $scope.selectedShapeId = findColorIndex($scope.itemShapes.items);
 
-            console.log('color=' + $scope.selectedColorId + 'shape' + $scope.selectedShapeId);
-
             // [选择价格月份]
             $scope.finalMonth = $scope.saleDetail.minMonth;
-            $scope.firstTimePay = "0";
+            $scope.firstTimePay = "0";//    首付
+            $scope.maxFirst = $scope.transferPrice(data["maxPay"]);
+            $scope.minFirst = $scope.transferPrice(data["minPay"]);
             //console.log(typeof $scope.salePrice.price);
             $scope.calculateMoney = $rootScope.transferPrice($scope.saleDetail.price);
 
@@ -196,18 +201,24 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
          * ->未登录,跳转到登录页,让他登录
          */
         $scope.buyNow = function () {
-            var data = $scope.saleDetail;
+            var data = $scope.saleDetail,
+                info = $scope;
             //  取得本商品的相关数据
+
 
             $rootScope.isLogin = true;
             if ($rootScope.isLogin) {
                 //  已经登录的情况,创建订单
+                if(!(info["firstTimePay"] >= $scope.transferPrice(info["minFirst"]) && info["firstTimePay"] <= $scope.transferPrice(info["maxFirst"]))){
+                    alert("首付必须在" + $scope.transferPrice(info["minFirst"]) + " 元~" + $scope.transferPrice(info["maxFirst"]) + "元之间!!!");
+                    return;
+                }
                 $http({
                     "url": $rootScope.prefuri + "/order/create",
                     "method": "post",
                     "params": {
                         "orderType": "FORWARD",                         //  订单类型
-                        "sellerId": data["id"],                         //  商家id
+                        "sellerId": 0,                         //  商家id
                         "saleAmount": 1,                                //  销售总额
                         "payAmount": data["price"],                     //  应付总额
                         "realPayAmount": 2,                             //  实付总额
@@ -217,21 +228,17 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                             {
                                 "clientType":"WEIXIN",                  //  客户端类型
                                 "orderType": "FORWARD",                 //  订单类型
-                                "sellerId": data["id"],                 //  商家id
+                                "sellerId": 0,                 //  商家id
                                 "saleAmount": 1,                        //  销售额/退款额
                                 "payAmount": 1,                         //  应付金额
                                 "realPayAmount": 6,                     //  实付款/退款
-                                "skuId": data["skuId"],                 //  商品sku
-                                "salePrice": data["price"],             //  销售单价
+                                "skuId": data["id"],                 //  商品sku
+                                "salePrice": $scope.transferPrice(data["price"]),             //  销售单价
                                 "saleVolume": "个",                     //  销售数量
                                 "saleUnit": "string",                   //  销售单位
-                                "periods": 3,                           //  分期期数
-                                "firstPay": 0,                          //  首付金额
-                                "prePeriodsPay": 2,                     //  每期支付金额
-                                "clientRemark": "string",               //  客户备注
-                                "commodityName": data["title"],         //  商品名称
-                                "commodityIcon": "string",              //  商品图标
-                                "commodityType": 1                      //  商品类型
+                                "periods": data["finalMonth"],                           //  分期期数
+                                "firstPay": data["firstTimePay"],                          //  首付金额
+                                "prePeriodsPay": data["calculateMoney"]                     //  每期支付金额
                             }
                         ]
                     }
@@ -249,19 +256,25 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
         /**
          * 根据商品id等信息重新发送信息
          * @param productId
-         * @param itemId
+         * @param datas
          * @private
          */
-        function _reRend(productId,itemId){
+        function _reRend(productId,datas){
+            var str = "/";
+            angular.forEach(datas,function(item,index){
+                str += "-" + item;
+            });
             $http({
                 "method":"post",
-                "url":$rootScope + "/product/" + productId + itemId
+                "url":$rootScope.prefuri + "/product/" + productId + str
             }).success(function(res){
-                $scope.data = res;
+                $scope.saleDetail = res;
+                $scope.itemColors = $scope.saleDetail.attrs[0];//颜色
+                $scope.itemShapes = $scope.saleDetail.attrs[1];//外形
             }).error(function(err){});
         }
 
-    };
+    }
     detailCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout', '$rootScope'];
-    return detailCtrl
+    return detailCtrl;
 });

@@ -58,7 +58,6 @@ define([],function() {
 
         //通用函数
 
-
         //初始化http请求@TODO需要加入参数
         $http({
             "method":"post",
@@ -67,7 +66,7 @@ define([],function() {
                 "sortType": "DEFAULT",
                 "catId": 0,
                 "keyword": "string"
-            },
+            }
         }).success(function(data){
             console.log(data);
         }).error(function(){

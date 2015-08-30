@@ -111,6 +111,7 @@ define([], function () {
         //$locationProvider.html5Mode(true);
 
         $httpProvider.defaults.withCredentials = true;
+
     };
 
 

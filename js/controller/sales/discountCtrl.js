@@ -9,7 +9,6 @@ define([],function() {
     function detailCtrl($scope, $routeParams, $location, $http,$rootScope) {
 
         //通用函数
-
         //初始化变量完成
         $scope.discountList = [];
         for (var i = 0; i < 10; i++) {
