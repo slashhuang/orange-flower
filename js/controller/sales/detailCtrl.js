@@ -163,6 +163,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             "method": "post",
             "url": detailUrl
         }).success(function (data) {
+            console.log(data);
             $scope.saleDetail = data;
             $timeout(function () {
                 swiper.mainItem();
@@ -175,7 +176,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
 
             $scope.itemColors = $scope.saleDetail.attrs[0];//颜色
             $scope.itemShapes = $scope.saleDetail.attrs[1];//外形
-
+            $scope.detailImages = $scope.saleDetail.pictures;
 
             ///@TODO直接请求数据，不用自己写动作
             $scope.selectedColorId = findColorIndex($scope.itemColors.items);

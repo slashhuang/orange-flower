@@ -23,15 +23,15 @@
         </div>
 
         <div class="swiper-wrapper">
-            <div class="swiper-slide" style="width: 100%; text-align: center;">
-                <img src="/images/item_detail/iphone.jpg">
+            <div class="swiper-slide" style="width: 100%; text-align: center;" ng-repeat="imgs in detailImages">
+                <img ng-src="{{prefuri + imgs.bigUrl}}">
                 </div>
-            <div class="swiper-slide" style="width: 100%; text-align: center;">
-                <img src="/images/item_detail/huawei_2.jpg">
-                </div>
-            <div class="swiper-slide" style="width: 100%; text-align: center;">
-                <img src="/images/item_detail/huawei_3.jpg">
-                </div>
+            <!--<div class="swiper-slide" style="width: 100%; text-align: center;">-->
+                <!--<img src="/images/item_detail/huawei_2.jpg">-->
+                <!--</div>-->
+            <!--<div class="swiper-slide" style="width: 100%; text-align: center;">-->
+                <!--<img src="/images/item_detail/huawei_3.jpg">-->
+                <!--</div>-->
         </div>
         <div class="swiper-pagination pagination-style">
             <span class="swiper-pagination-bullet"></span>
