@@ -113,10 +113,10 @@ define([],function(){
                 "campus": $scope.selectedCampus,
                 "level": $scope.selectedLevel,
                 "userName": $scope.completeData.userName,
-                "Room":$scope.selectedRoom,
+                "Room":$scope.selectedRoom
             };
 
-            $scope.debugLog(checkInfoEveryting(data))
+            $scope.debugLog(checkInfoEveryting(data));
            if(checkInfoEveryting(data)){
                $http({
                    "method":"post",
@@ -136,7 +136,8 @@ define([],function(){
             $scope.infoHint = "您已经获取6000元额度，可以立即购物哦";
             $timeout(function(){
                 $scope.hintStatus = false;
-                window.location.href="#/main"
+                //window.location.href="#/main"
+                location.hash="#/main"
             },2500);
         };
 

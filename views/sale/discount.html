@@ -34,18 +34,24 @@
                 </div>
                 <div class="item-hot-list-detail">
                     <h1>{{salelist.itemInfo |  cut:true:40:' ...'}}</h1>
-                    <p class="item-price">￥{{transferPrice(salelist.itemPrice)}}&nbsp;&nbsp;&nbsp;<i>￥{{transferPrice(salelist.itemOldPrice)}}</i></p>
+                    <p class="item-price color-51">￥{{transferPrice(salelist.itemPrice)}}&nbsp;&nbsp;&nbsp;<i>￥{{transferPrice(salelist.itemOldPrice)}}</i></p>
                     <div class="total-price">
                         <i>￥{{salelist.itemInstallation}}</i>
-                        <h2>×</h2><span>{{salelist.itemCycle}}期</span>
+                        <h2 class="color-51">×</h2><span class="color-51">{{salelist.itemCycle}}期</span>
                         <a href="" class="item-hot-sale">热卖</a>
                         <a href="" class="item-new-sale">新品</a>
                     </div>
                     <div class="discount-item-detail clear-float">
                         <div class="discount-first-buy">
-                            <i>首</i>首单<span>立减{{salelist.discount.firstTime}}元</span>
+                            <div class="index-icons">
+                                <i>首</i>
+                                <span class="line-contents">首单<span>立减{{salelist.discount.firstTime}}元</span></span>
+                            </div>
                             <div class="split-line-item1"></div>
-                            <i>减</i>首付{{salelist.discount.payOncePercent[0]}}%<span>再减{{salelist.discount.payOncePercent[1]}}元</span>
+                            <div class="decrease-icons">
+                                <i>减</i>
+                                <span class="line-contents">首付{{salelist.discount.payOncePercent[0]}}%<span>再减{{salelist.discount.payOncePercent[1]}}元</span></span>
+                            </div>
                         </div>
                            <!--抢完与否对应的class"active":"disabled""我要抢 ":"已抢完 "-->
                             <div class="discount-installment-buy <%-classChooser%>">
