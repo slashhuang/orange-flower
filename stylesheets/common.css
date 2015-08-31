@@ -215,4 +215,10 @@
     display: inline-block;
     width: 80px;
     margin-left: 0!important;
+    color: #515151;
+}
+
+.common-hint-tips{
+    color: #515151!important;
+    font-size: 14px!important;
 }

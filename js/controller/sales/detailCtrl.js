@@ -171,6 +171,8 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             }, 200);
 
             /***初始化自己设置的变量*/
+            $scope.firstTimePay = "0";//    首付
+
             $scope.itemColors = $scope.saleDetail.attrs[0];//颜色
             $scope.itemShapes = $scope.saleDetail.attrs[1];//外形
 
@@ -181,7 +183,6 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
 
             // [选择价格月份]
             $scope.finalMonth = $scope.saleDetail.minMonth;
-            $scope.firstTimePay = "0";//    首付
             $scope.maxFirst = $scope.transferPrice(data["maxPay"]);
             $scope.minFirst = $scope.transferPrice(data["minPay"]);
             //console.log(typeof $scope.salePrice.price);

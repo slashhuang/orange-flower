@@ -59,6 +59,10 @@
     padding:6px 5px;
 }
 
+#password{
+    width: 210px;
+}
+
 label input{
     -webkit-appearance : none ;
     border: none;
@@ -82,7 +86,7 @@ label input{
 }
 .of-register-form label span{
     margin-left: 24px;
-    color: #afafaf;
+    /*color: #afafaf;*/
 }
 label.no-border{
     border-bottom: none;

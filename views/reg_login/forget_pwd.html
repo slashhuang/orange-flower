@@ -6,18 +6,19 @@
     <div class="h-40"></div>
     <form class="of-register-form" id="registerForm" name="validateForm" action="" method="post">
         <label>
-            手机号 <input id="telephone" name="telephone" placeholder="请输入手机号码"
+            <span class="common-input-left">手机号</span>
+            <input id="telephone" name="telephone" placeholder="请输入手机号码"
                        ng-model="telephone" ng-change="checkMobile(telephone)" ng-focus="telHint=''"/>
         </label>
         <label>
-            验证码
+            <span class="common-input-left">验证码</span>
             <input id="certNum" type="tel" name="code" placeholder="请输入验证码" ng-model="code"/>
             <b ng-class="{true:'of-button of-register-button',false:'of-sms-button of-register-button'}[countTime<=0]"
                id="certCode" ng-click="sendsms(telephone)">
                 {{registerSmsHint}}
             </b>
         </label>
-        <label class="hint-tips input-err" ng-show="telHint.length > 1" style="border: none;padding-bottom: 0;">
+        <label class="hint-tips input-err common-hint-tips" ng-show="telHint.length > 1" style="border: none;padding-bottom: 0;">
             {{telHint}}
         </label>
     </form>

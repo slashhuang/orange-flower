@@ -10,11 +10,11 @@
     </label>
     <label>
         <span class="common-input-left">密码</span>
-        <input type="password" placeholder="请输入密码" style="margin-left:4rem;" ng-model="loginPassword" ng-focus="checkVaildHint=''"/>
+        <input type="password" placeholder="请输入密码" ng-model="loginPassword" ng-focus="checkVaildHint=''"/>
     </label>
 
 </form>
-    <div class="loginHint">{{checkVaildHint}}</div>
+    <div class="loginHint common-hint-tips">{{checkVaildHint}}</div>
     <div class=" no-border">
         <div class="of-button of-button-bar" style="margin-top: 30px;" id="loginSubmit" ng-click="userLogin(loginName,loginPassword)">登录</div>
     </div>
