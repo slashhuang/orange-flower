@@ -26,6 +26,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
         app.run(function ($rootScope) {
 
             $rootScope.prefuri = "http://api.orangezc.com";
+            //$rootScope.prefuri = "http://192.168.1.124";
             //  ajax请求前缀
 
             $rootScope.debugFlat = true;
@@ -52,6 +53,13 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
             $rootScope.httpError = function(res){
                 if(res&&res.message){
                     alert(res.message)
+                };
+                if(res&&res.code){
+                    switch (res.code){
+                        case 10000:
+                            $location.hash="/main";
+                            break;//用户未登录
+                    }
                 }
             };
 

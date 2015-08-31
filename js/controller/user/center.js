@@ -27,8 +27,7 @@ define([], function () {
         }).success(function (data) {
             $scope.debugLog(data);
             $scope.centerData = data;
-        }).error(function () {
-        });
+        }).error($scope.httpError);
 
 
     }

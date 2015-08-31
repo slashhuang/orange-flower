@@ -83,7 +83,7 @@ define([], function () {
         var showCountDown = function () {
             //避免多次点击事件
             if ($scope.countTime == 0) {
-                $scope.countTime = 10;
+                $scope.countTime = 60;
                 $scope.registerSmsHint = $scope.countTime + "秒后重发";
                 var state = setInterval(function () {
                     $scope.$apply(function () {
@@ -104,24 +104,25 @@ define([], function () {
          * @param tel
          */
         $scope.sendsms=function(tel){
+            if ($scope.countTime == 0) {
+                if(_checkMobile(tel)){
+                    $http({
+                        "method":"post",
+                        "url":sendSmsUrl+"/"+tel
+                    }).success(function(response, status, headers, config){
+                        //console.log(arguments);
+                        $scope.debugLog(arguments);
+                        $scope.checkVaildHint = "短信已发送，请查收";
+                        showCountDown();
+                    }).error(function(response, status, headers, config){
+                        //console.log(response);
+                        $scope.debugLog(response);
+                    });
+                }
 
-            if(_checkMobile(tel)){
-                $http({
-                    "method":"post",
-                    "url":sendSmsUrl+"/"+tel
-                }).success(function(response, status, headers, config){
-                    //console.log(arguments);
-                    $scope.debugLog(arguments);
-                    $scope.checkVaildHint = "短信已发送，请查收";
-                    showCountDown();
-                }).error(function(response, status, headers, config){
-                    //console.log(response);
-                    $scope.debugLog(response);
-                });
             }
-            else{
 
-            }
+
 
         };
 
@@ -138,13 +139,14 @@ define([], function () {
                     "url": registerUrl+"?telephone="+telephone+"&password="+password+"&code="+code,
                 }).success(function (response, status, headers, config) {
                     $scope.submitHint="注册成功！";
-                    hintFunc();
-                }).error(function (res) {
                     var callback = function(){
-                        $location.url("/login");
+                        $location.url("/registerInfo");
                     };
-                    $scope.submitHint=res.message;
                     hintFunc(callback);
+                }).error(function (res) {
+
+                    $scope.submitHint=res.message;
+                    hintFunc();
                 });
             }
         };
@@ -172,7 +174,7 @@ define([], function () {
                 if(callback){
                     callback()
                 }
-                $scope.submitHint=""
+                $scope.submitHint="";
             },2000)
         };
     };

@@ -101,7 +101,6 @@ define([], function () {
                     "method": "post",
                     "url": $scope.prefuri + "/user/getCode/" + tel
                 }).success(function (res) {
-                    //console.log(res)
                     $scope.debugLog(res);
                     if(res) {
                         $scope.telHint = "短信已下发至您的手机,请查收!";
