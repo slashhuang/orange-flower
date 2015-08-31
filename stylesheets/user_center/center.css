@@ -28,7 +28,7 @@ h4,h6{
 /*头部样式*/
 
 .user-center-info{
-    padding: 1rem 5%;
+    padding: 1.5rem 5%;
     background: #fff;
     border-bottom: 1px solid #e6e6e6;
 }
@@ -64,20 +64,19 @@ h4,h6{
 
 .reg-btn-disable{
     float: right;
-    padding: 0.5rem 1.5rem;
+    padding: 0.7rem 1.5rem;
     background: #c7c7c7;
     -webkit-border-radius: 2rem;
     -moz-border-radius: 2rem;
     -ms-border-radius: 2rem;
     -o-border-radius: 2rem;
     border-radius: 2rem;
-    font-size: 1.3rem;
-    font-weight: 700;
+    font-size: 1.6rem;
     color: #fff!important;
 }
 .reg-btn-active{
     float: right;
-    margin-top:12px;
+    margin-top:10px;
     padding: 0.7rem 1.5rem;
     background-color: #15c690;
     -webkit-border-radius: 2rem;
@@ -85,8 +84,7 @@ h4,h6{
     -ms-border-radius: 2rem;
     -o-border-radius: 2rem;
     border-radius: 2rem;
-    font-size: 1.3rem;
-    font-weight: 700;
+    font-size: 1.6rem;
     color: #fff!important;
 }
 
@@ -195,6 +193,7 @@ h4,h6{
     display: inline-block;
     width:30px ;
     height: 17px ;
+    margin: 0;
     background: url(../../images/user_center/arrow_right.png) no-repeat 20px 3px;
     background-size: 8px 14px ;
     float: right;
@@ -226,4 +225,17 @@ h4,h6{
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+}
+
+.modifyPWD-form input::-webkit-input-placeholder {
+    font-size:16px;
+}
+.modifyPWD-form input:-moz-placeholder {
+    font-size:16px;
+}
+.modifyPWD-form input::-moz-placeholder {
+    font-size:16px;
+}
+.modifyPWD-form input:-ms-input-placeholder {
+    font-size:16px;
 }

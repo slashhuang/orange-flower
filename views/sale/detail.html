@@ -124,9 +124,13 @@
         </div>
         <div class="of-item-buy-installation-detail clear-float">
             <h1>分期月数</h1>
-            <select ng-model="finalMonth" ng-change="calculate(finalMonth,firstTimePay)">
-                <option ng-repeat="month in monthSelector(saleDetail.minMonth,saleDetail.maxMonth)" value="{{month}}">{{month}}个月</option>
-            </select>
+            <div class="select-area">
+                <div class="hide-select">
+                    <select ng-model="finalMonth" ng-change="calculate(finalMonth,firstTimePay)">
+                        <option ng-repeat="month in monthSelector(saleDetail.minMonth,saleDetail.maxMonth)" value="{{month}}">{{month}}个月</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <div class="of-item-buy-installation-hint">若您的毕业时间早于2017年12月11日请减少分期数</div>
         <div class="of-item-buy-installation-list clear-float">

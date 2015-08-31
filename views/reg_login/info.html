@@ -12,7 +12,7 @@
         </label>
         <label>
             身份证号
-            <input  type="tel" placeholder="请输入证件号" ng-model="completeData.idNo" ng-focus="idTip=''"/>
+            <input  type="tel" placeholder="请输入证件号" style="display: inline-block;height: 21px;line-height: 14px;font-size: 16px;" ng-model="completeData.idNo" ng-focus="idTip=''"/>
         </label>
         <label>
             省份
@@ -37,7 +37,7 @@
         </label>
         <label>
             校区
-            <input type="text" placeholder="请输入校区" ng-model="selectedCampus" ng-focus="idTip=''"/>
+            <input type="text" placeholder="请输入校区" ng-model="selectedCampus" class="modified" ng-focus="idTip=''"/>
         </label>
         <label>
             年级
@@ -55,13 +55,13 @@
             </select><!--校区部分还没有写上去-->
         </label>
         <label>
-            宿舍 <input type="text" placeholder="请填写您所在的宿舍楼号" ng-model="selectedRoom" ng-focus="idTip=''">
+            宿舍 <input type="text" placeholder="请填写宿舍楼号" style="display: inline-block;width: 70%;" class="modified" ng-model="selectedRoom" ng-focus="idTip=''">
         </label>
     </form>
     <div ng-show="idTip.length > 0" class=" no-border">
         {{idTip}}
     </div>
-    <div class="of-button user-credit-button" ng-click="nextStep()" style="margin-top:10px;">完成</div>
+    <div class="of-button user-credit-button" ng-click="nextStep()" style="margin-top:30px;">完成</div>
 </div>
 
 

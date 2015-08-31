@@ -1,13 +1,14 @@
 /*登录注册及主页头样式*/
 .header-back{
     position: absolute;
-    top: 13px;
+    top: 14px;
     left:11px;
     display:block;
     width: 40px;
     height: 20px;
-    background: url(/images/icon/arrow_header.png) no-repeat 0 0 ;
-    background-size: 10px 16px;
+    /*background: url(/images/icon/arrow_header.png) no-repeat 0 0 ;*/
+    background: url(/images/icon/arrow.png) no-repeat 0 0 ;
+    background-size: 20px 20px;
 
 }
 
@@ -23,7 +24,8 @@
 
 .header-function{
     right:16px;
-    top:13px;
+    /*top:13px;*/
+    top:17px;
     position: absolute;
     font-size: 15px;
     font-weight: normal;
@@ -35,16 +37,19 @@
     float:right;
     width: 30px;
     height: 16px;
-    background: url(../images/icon/icon_arrow_right.png) no-repeat 20px 0;
-    background-size: 9px 16px;
+    /*background: url(../images/icon/icon_arrow_right.png) no-repeat 20px 0;*/
+    background: url(../images/user_center/arrow_right.png) no-repeat 20px 2px;
+    /*background-size: 9px 16px;*/
+    background-size: 8px 14px;
 }
 .arrow-right-select-register{
     display:block;
     float:right;
     width: 9px;
-    height: 16px;
-    background: url(../images/icon/icon_arrow_right.png) no-repeat 0 0;
-    background-size: 9px 16px;
+    height: 18px;
+    /*background: url(../images/icon/icon_arrow_right.png) no-repeat 0 0;*/
+    background: url(../images/user_center/arrow_right.png) no-repeat 0 4px;
+    background-size: 8px 14px;
     margin-left: 0 !important;
 }
 .of-header{
@@ -57,7 +62,7 @@
     z-index: 99;
 }
 .h-40{
-    height: 40px;
+    height: 49px;
 }
 .h-52{
     height: 52px;
@@ -70,7 +75,7 @@
 }
 .of-header.gray{
     background-color: #dfdfdf;
-    padding: 11px;
+    padding: 15px 11px;
     /*font-family: STHeiti;*/
     font-family: "华文黑体";
     font-weight: 500;
@@ -103,7 +108,7 @@
     background: url(../images/icon/icon-search-grey.png) no-repeat;
     background-size: 18px 18px;
     position: absolute;
-    top:10px;
+    top:16px;
     right:11px;
 }
 /*插入列表空白*/
@@ -131,7 +136,7 @@
     width:90%;
     font-size: 16px;
     line-height: 16px;
-    padding:10px;
+    padding:12px 10px;
     border-radius: 20px;
 }
 .of-check input{
@@ -195,16 +200,17 @@
     margin:20%;
 }
 
-.loading-mask{
+.btn-family{
+    font-family: "华文黑体";
+}
+.hint-tips{
+    font-size: 14px!important;
+}
+.whole-link{
+    display: inline-block;
     width: 100%;
-    height: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    background: #fff;
-    z-index: 999;
 }
 
-.loading-chicken{
-
+.common-input-left{
+    width: ;
 }

@@ -23,10 +23,11 @@
 
     <div class="h-40"></div>
     <div class="split-line h-20"></div>
-    <div class="settings-list">账号设置<a href="#/user/setAccount" class="arrow-right-select"></a></div>
+    <div class="settings-list"><a href="#/user/setAccount" class="whole-link">账号设置 <em class="arrow-right-select"></em></a></div>
 
 
-    <div class="settings-list" style="border-bottom: 1px solid #e6e6e6;">关于我们 <a href="javascript:" class="arrow-right-select"></a></div>
+    <div class="settings-list"><a href="javascript:" class="whole-link">关于我们  <em class="arrow-right-select"></em></a></div>
+    <div class="settings-list" style="border-bottom: 1px solid #e6e6e6;"><a href="javascript:" class="whole-link">邀请码  <em class="arrow-right-select"></em></a></div>
 
     <div class="split-line h-20"></div>
 
@@ -34,4 +35,13 @@
          ng-click="changeLogoutStatus(logoutStatus)">退出登录</div>
 
     <div class="log-hint-style" ng-show="infoHint.length > 0">{{infoHint}}</div>
+    <div class="invited-mask">
+        <div class="invited-area">
+            <input type="text" placeholder="请输入邀请码" name="invite-code" class="invite-code">
+            <div class="invited-btns">
+                <a class="invited-btn-item" href="javascript:;">取消</a>
+                <a class="invited-btn-item" href="javascript:;">保存</a>
+            </div>
+        </div>
+    </div>
 </div>

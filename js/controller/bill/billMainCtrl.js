@@ -29,7 +29,7 @@ define([], function () {
             $scope.month = month;
             $http({
                 "method":"post",
-                "url": prefuri + "/repay/bill/{year}/{month}?month=" + $scope.month + "&year=" + $scope.year
+                "url": $rootScope.prefuri + "/repay/bill/{year}/{month}?month=" + $scope.month + "&year=" + $scope.year
             }).success(function(res){
                 $scope.data = res;
                 $scope.handle = false;
@@ -38,22 +38,24 @@ define([], function () {
         };
 
         /**
-         * 下月按钮
+         * 下年按钮
          */
         $scope.nextMonth = function(){
-            $scope.month ++;
-            if($scope.month > 12){
-                $scope.month = 1;
-                $scope.year ++;
-            }
+            //$scope.month ++;
+            //if($scope.month > 12){
+            //    $scope.month = 1;
+            //    $scope.year ++;
+            //}
+            $scope.year ++;
         };
 
         $scope.lastMonth = function(){
-            $scope.month --;
-            if($scope.month < 1){
-                $scope.month = 12;
-                $scope.year --;
-            }
+            //$scope.month --;
+            //if($scope.month < 1){
+            //    $scope.month = 12;
+            //    $scope.year --;
+            //}
+            $scope.year --;
         };
 
         /**

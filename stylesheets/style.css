@@ -255,13 +255,13 @@
     width: 100%;
 }
 .of-bottom-bar i{
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
 }
 .of-bottom-bar i.of-icon-hot,
 .of-bottom-bar i.of-icon-hot-on{
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     margin-top: -2px;
 }
 

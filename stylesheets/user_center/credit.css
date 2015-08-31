@@ -26,15 +26,15 @@
 .user-credit-info{
     text-align: center;
     margin:18px 0 8px 0;
-    font-size:14px;
+    font-size:16px;
     color: #515151;
 }
 .user-credit-info span{
     color:#ff5959
 }
 .user-credit-button{
-    padding:10px;
-    margin:0 10px;
-    font-size:16px;
+    padding:11px 10px;
+    margin:30px 10px 0;
+    font-size:18px;
     border-radius: 30px;
 }

@@ -15,7 +15,7 @@
             <h6 class="u-mobile">{{centerData.telNo}}</h6>
         </div>
     </div>
-    <a ng-class="{true: 'reg-btn-active', false:'reg-btn-disable' }[verifyActive(centerData.authenticate.value)]" href="#/user/credit">立即认证</a>
+    <a ng-class="{true: 'reg-btn-disable', false: 'reg-btn-active'}[verifyActive()]" class="btn-family" href="#/user/credit">立即认证</a>
 </div>
 
 <div class="split-line h-20"></div>
@@ -38,33 +38,35 @@
 <div class="user-center-btn-list">
     <ul>
         <li class="list-item">
-            <a href="#/order/list">
+            <a href="#/order/list" class="whole-link">
                 <b class="list-item-link" >我的订单</b>
 
                 <em class="arrow"></em>
             </a>
         </li>
         <li class="list-item">
-            <a href="#/bill">
+            <a href="#/bill" class="whole-link">
                 <b class="list-item-link" >我的账单</b>
                 <em class="arrow"></em>
             </a>
         </li>
         <li class="list-item">
-            <a href="javascript:;">
+            <a href="javascript:;" class="whole-link">
                 <b class="list-item-link">客服热线</b>
                 <em class="arrow"></em>
             </a>
         </li>
         <li class="list-item">
-            <a href="#/user/modifypwd">
+            <a href="#/user/modifypwd" class="whole-link">
                 <b class="list-item-link">修改密码</b>
                 <em class="arrow"></em>
             </a>
         </li>
         <li class="list-item">
-            <b class="list-item-link">使用帮助</b>
-            <a class="arrow"  href="javascript:;"></a>
+            <a href="javascript:;" class="whole-link">
+                <b class="list-item-link">使用帮助</b>
+                <em class="arrow"></em>
+            </a>
         </li>
     </ul>
 </div>
