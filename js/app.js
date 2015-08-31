@@ -12,6 +12,14 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
         var app = angular.module('app',
             ["ngRoute", "ngCookies","mainModule", "salesModule", "ngLoadScript",
               "userModule", "orderModule", "reglogModule", "orderModule", "billModule"]);
+        //定义服务
+        app.filter('trustHtml', ['$sce',function ($sce) {
+
+            return function (input) {
+
+                return $sce.trustAsHtml(input);
+
+            }}]);
 
 
         //定义全局变量
