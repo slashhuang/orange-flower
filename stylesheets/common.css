@@ -103,12 +103,12 @@
 }
 .of-header-search-gray{
     display:inline-block;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     background: url(../images/icon/icon-search-grey.png) no-repeat;
-    background-size: 18px 18px;
+    background-size: 20px 20px;
     position: absolute;
-    top:16px;
+    top:15px;
     right:11px;
 }
 /*插入列表空白*/
@@ -221,4 +221,8 @@
 .common-hint-tips{
     color: #515151!important;
     font-size: 14px!important;
+}
+
+.color-51{
+    color: #515151!important;
 }
