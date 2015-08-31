@@ -19,7 +19,7 @@
 
     <label>
         <span class="common-input-left">密码</span>
-        <input id="password" type="password" name="password" placeholder="请输入6-16位数字或者字母" ng-model="password">
+        <input id="password" type="password" name="password" placeholder="请输入6-16位数字或字母" ng-model="password">
     </label>
 
     <label>
@@ -37,7 +37,7 @@
         我已阅读并同意<a href="">《橘花协议》</a>
     </label>
 </form>
-<div style="margin-left:10px;">{{checkVaildHint}}</div>
+<div style="margin-left:10px;" class="common-hint-tips">{{checkVaildHint}}</div>
 
 <div class="of-button of-button-bar" id="regSubmit" style="margin: 18px auto 10px;" ng-click="registerSubmit(telephone,password,code,verified)">注册</div>
 
