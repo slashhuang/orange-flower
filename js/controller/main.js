@@ -21,15 +21,51 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                     "method":"post",
                     "url":mainUrl
                 }).success(function(data){
-                    console.log(data)
-
                     $scope.mainData.category =data;
                     $timeout(function(){
                         swiper.mainItem();
-                        swiper.picture()
+                        swiper.picture();
                     },30);
                     //加载数据后再调用
                 }).error($rootScope.httpError);
+
+                /**
+                 * 根据不同的名字返回不同的图片名字
+                 * @param name
+                 */
+                $scope.getPic = function(name){
+                    var srcPri = "";
+                    switch (name){
+                        case "苹果手机":
+                            srcPri = "iphone";
+                            break;
+                        case "摄影摄像":
+                            srcPri = "camera";
+                            break;
+                        case "充值缴费":
+                            srcPri = "service";
+                            break;
+                        case "手机配件":
+                            srcPri = "mobile_collection";
+                            break;
+                        case "品牌电脑":
+                            srcPri = "brand_pc";
+                            break;
+                        case "平板电脑":
+                            srcPri = "laptop_pc";
+                            break;
+                        case "安卓手机":
+                            srcPri = "android";
+                            break;
+                        case "数码潮流":
+                            srcPri = "digital";
+                            break;
+                        default :
+                            srcPri = "iphone";
+                            break;
+                    }
+                    return srcPri;
+                };
 
             }]);
     });

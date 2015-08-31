@@ -47,12 +47,6 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                                 debug.error("发送错误！请重试！");
                             } else if (result == "cancel") {
                                 debug.log("您取消了本次支付！");
-                                $.ajax({
-                                    url: $rootScope.prefuri + "/pay/cancel/",
-                                    dataType: "json",
-                                    type: 'post',
-                                    data: '{"orderId": "' + id + '"'
-                                });
                             }
                         });
                     }

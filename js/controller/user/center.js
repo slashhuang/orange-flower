@@ -11,8 +11,9 @@ define([], function () {
             "method": "post",
             "url": userCenterUrl
         }).success(function (data) {
+            //console.log(data)
+            $scope.debugLog(data);
             $scope.centerData = data;
-            console.log(data)
         }).error(function () {
         });
 

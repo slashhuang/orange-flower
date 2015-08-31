@@ -27,7 +27,8 @@ define([], function () {
                 "method": "post",
                 "url": forgetpwdURL + $scope.telephone + '/' + $scope.code + '/' + $scope.password,
             }).success(function (response, status, headers, config) {
-                console.log(response);
+                //console.log(response);
+                $scope.debugLog(response);
                 $scope.submitHint = "修改密码成功，即将跳转登录页面";
                 $timeout(function(){
                     location.hash = "/login";
@@ -98,9 +99,10 @@ define([], function () {
                 $scope.telHint = "";
                 $http({
                     "method": "post",
-                    "url": $scope.prefuri + "/user/getCode/" + tel,
+                    "url": $scope.prefuri + "/user/getCode/" + tel
                 }).success(function (res) {
-                    console.log(res)
+                    //console.log(res)
+                    $scope.debugLog(res);
                     if(res) {
                         $scope.telHint = "短信已下发至您的手机,请查收!";
                         showCountDown();

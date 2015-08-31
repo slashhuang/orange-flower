@@ -5,13 +5,11 @@ define([], function () {
     //定义商品分类controller
     function registerCtrl($scope, $routeParams, $location, $http, $timeout,$rootScope,$cookies) {
 
-        //测试cookie
+
         var favoriteCookie = $cookies.myFavorite;
         $cookies.myFavorite = 'oatmeal';
-        console.log($cookies);
-
-
-
+        //console.log($cookies);
+        $scope.debugLog($cookies);
 
         var sendSmsUrl = $rootScope.prefuri + "/user/getCode";//发送短信url
         var registerUrl = $rootScope.prefuri + "/user/register";//提交注册信息
@@ -98,26 +96,28 @@ define([], function () {
             }
         };
 
+        //"withCredentials":true
+
         /**
          * 发送短信
          * @param tel
          */
         $scope.sendsms=function(tel){
+            //console.log($httpProvider)
+            $scope.debugLog($httpProvider);
 
-
-            if($scope.countTime==0){
-                $http({
-                    "method":"post",
-                    "url":sendSmsUrl+"/"+tel,
-                }).success(function(response, status, headers, config){
-                    console.log(arguments);
-                    $scope.checkVaildHint = "短信已发送，请查收";
-                    showCountDown();
-                }).error(function(response, status, headers, config){
-                    console.log(response);
-                });
-            }
-
+            $http({
+                "method":"post",
+                "url":sendSmsUrl+"/"+tel
+            }).success(function(response, status, headers, config){
+                //console.log(arguments);
+                $scope.debugLog(arguments);
+                $scope.checkVaildHint = "短信已发送，请查收";
+                showCountDown();
+            }).error(function(response, status, headers, config){
+                //console.log(response);
+                $scope.debugLog(response);
+            });
 
 
         };
@@ -161,13 +161,9 @@ define([], function () {
             }
         };
 
-        var hintFunc =function(res){
+        var hintFunc =function(){
             $timeout(function(){
-                $scope.submitHint="";
-                if(res=="注册成功"){
-                    $location.hash="/main";
-
-                };
+                $scope.submitHint=""
             },2000)
         };
     };

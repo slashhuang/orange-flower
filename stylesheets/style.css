@@ -6,7 +6,7 @@
 *头部
 */
 .of-logo-icon{
-    height: 29px;
+    height: 32px;
     width:auto;
 }
 .swiper-pagination-bullet-active{
@@ -132,7 +132,8 @@
 
 .of-class-recommand-header{
     background-color: #fff;
-    padding:10px 2px 4px 8px;
+    /*padding:10px 2px 4px 8px;*/
+    padding:12px 2px 10px 8px;
     font-size: 15px;
     color: #2d2d2d;
     /*border-left:2px solid #fb4551;*/
@@ -170,7 +171,7 @@
     text-align: center;
     border: 1px solid #e6e6e6;
     background-color:#fff;
-    padding: 4px;
+    padding: 10px 0;
     margin-left: 2px;
     margin-right:6px;
     overflow:hidden;
@@ -182,7 +183,7 @@
     margin-top:10px;
 }
 .of-class-recommand-item img{
-    width:40px;
+    width:70px;
 }
 
 .of-class-recommand-item .of-name{
@@ -196,7 +197,7 @@
     text-overflow:ellipsis;
     margin-top: 5px;
     color: #2d2d2d;
-    padding:0 10px;
+    padding:0 5px;
 }
 
 .of-class-recommand-item .of-price{
@@ -254,8 +255,14 @@
     width: 100%;
 }
 .of-bottom-bar i{
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
+}
+.of-bottom-bar i.of-icon-hot,
+.of-bottom-bar i.of-icon-hot-on{
+    width: 30px;
+    height: 30px;
+    margin-top: -2px;
 }
 
 .of-bottom-bar div.active{

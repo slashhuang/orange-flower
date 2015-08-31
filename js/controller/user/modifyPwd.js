@@ -39,7 +39,8 @@ define([], function () {
                         "method": "post",
                         "url": modifyPwdUrl+"/"+$scope.currentPWD+"/"+$scope.newPWD
                     }).success(function (data) {
-                        console.log("空接口成功");
+                        //console.log("空接口成功");
+                        $scope.debugLog("空接口成功");
                         location.hash = "#/user/center"
                     }).error($rootScope.httpError);
                 }

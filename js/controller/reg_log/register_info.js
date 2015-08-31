@@ -34,28 +34,40 @@ define([],function(){
                 url:gettingDistrictList+param
             }).success(function(response, status, headers, config){
                 $scope.completeData.province = response
-            }).error($rootScope.httpError);
+                //console.log(response);
+                $scope.debugLog(response);
+            }).error(function(res){
+            });
         };
 
         $scope.setCity = function(val){
-            var param = val;
-
+            //console.log($scope.completeData.province)
+            $scope.debugLog($scope.completeData.province);
+            var param = findId(val, $scope.completeData.province);
+            //console.log(findId(val, $scope.completeData.province));
+            $scope.debugLog(findId(val, $scope.completeData.province));
             $http({
                 method:"get",
                 url:gettingDistrictList+param
             }).success(function(response, status, headers, config){
-                $scope.completeData.city = response
-            }).error($rootScope.httpError);
+                $scope.completeData.city = response;
+                //console.log(response);
+                $scope.debugLog(response);
+            }).error(function(res){
+            });
         };
 
         $scope.setSchool = function(val){
-            var param = val;
+            var param = findId(val,$scope.completeData.city);
             $http({
                 method:"get",
                 url:gettingDistrictList+param
             }).success(function(response, status, headers, config){
                 $scope.completeData.school = response
-            }).error($rootScope.httpError);
+                //console.log(response);
+                $scope.debugLog(response);
+            }).error(function(res){
+            });
         };
 
         //初始情况下
@@ -84,9 +96,6 @@ define([],function(){
             }
             return true;
         };
-
-
-        $scope.infoComplete = "false"
 
         /**
          *@param data 数组
@@ -118,29 +127,25 @@ define([],function(){
             var data = {
                 "idNo": $scope.completeData.idNo,
                 "province": $scope.selectedProvince,
+                "county": 0,
                 "city": $scope.selectedCity,
                 "school": $scope.selectedSchool,
                 "campus": $scope.selectedCampus,
                 "level": $scope.selectedLevel,
                 "userName": $scope.completeData.userName
             };
-            console.log(data);
             checkId($scope.completeData.idNo);
-            $scope.infoComplete = checkIsAllOk(data);
-
-           if( $scope.infoComplete){
-               console.log(data)
+           if( $scope.idStatus){
                $http({
                    "method":"post",
                    "url":completeInfoURL,
-                   "data":data,
+                   "data":data
                }).success(function(response, status, headers, config){
-                   console.log(response)
                    hintFUNC();
-               }).error($rootScope.httpError);
-           }
-            else{
-               $scope.idTip = "请填写所有字段";
+               }).error(function(res){
+                   //console.log(res);
+                   $scope.debugLog("程序员哥哥正在抢救服务器，请稍等","alert");
+               });
            }
         };
 
