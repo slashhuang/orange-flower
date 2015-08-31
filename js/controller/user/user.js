@@ -8,22 +8,24 @@ define(['angular', './center', "./settings", "./setAccount", "./modifyPwd", "./c
         userModule.controller('userCreditCtrl', credit);
 
         //  自定义事件指令value-change
-        userModule.directive("valueChange", function () {
+        userModule.directive("valueChange", ['$rootScope',function ($rootScope) {
             return {
                 "restrict": "ECAM",
                 "link": function (scope, iElements, iAttrs) {
                     iElements.on("change", function () {
                         var curEle = $(iElements);
                         $.ajaxFileUpload({
-                            "url": prefuri + "/file/upload?space=product",
+                            "url": $rootScope.prefuri + "/file/upload?space=product",
                             "fileElementId": curEle.attr("id"),
                             "success": function (data,status) {
+                                alert("fuck")
                             },
                             error: function (data,status,e) {
+                                alert("failed")
                             }
                         });
                     });
                 }
             };
-        });
+        }]);
     });

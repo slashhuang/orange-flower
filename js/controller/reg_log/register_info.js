@@ -7,7 +7,6 @@ define([],function(){
 
         var completeInfoURL = $rootScope.prefuri+"/user/complete";//完善信息url
         var gettingDistrictList = $rootScope.prefuri+"/dict/items/";//获取城市和大学列表Url
-
         //页面载入请求
         $scope.completeData = {
             "idNo": "",
@@ -21,7 +20,6 @@ define([],function(){
         };
         $scope.idTip = "";
         $scope.hintStatus = false;
-        $scope.idStatus = false;
 
         /**
          * /设置省份/城市/大学
@@ -41,11 +39,7 @@ define([],function(){
         };
 
         $scope.setCity = function(val){
-            //console.log($scope.completeData.province)
-            $scope.debugLog($scope.completeData.province);
-            var param = findId(val, $scope.completeData.province);
-            //console.log(findId(val, $scope.completeData.province));
-            $scope.debugLog(findId(val, $scope.completeData.province));
+            var param = val;
             $http({
                 method:"get",
                 url:gettingDistrictList+param
@@ -58,7 +52,7 @@ define([],function(){
         };
 
         $scope.setSchool = function(val){
-            var param = findId(val,$scope.completeData.city);
+            var param = val;
             $http({
                 method:"get",
                 url:gettingDistrictList+param
@@ -78,8 +72,8 @@ define([],function(){
          */
         var checkId = function(data){
             var bool = (/^[\d]{15}$/).test(data) || (/^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$/g).test(data);
-            $scope.idTip = bool ? "身份证格式正确" : "身份证格式错误";
-            $scope.idStatus =bool;
+            $scope.idTip = bool ? "" : "身份证格式错误";
+            return bool;
         };
         /**
          * 检测对象中的所有数据都存在
@@ -98,20 +92,6 @@ define([],function(){
         };
 
         /**
-         *@param data 数组
-         * @param id 查询参数
-         * @returns {number}
-         */
-        var findId = function (val, data) {
-            var index =""
-            angular.forEach(data, function (item, key) {
-                if (item.value === val) {
-                    index = item.id;
-                }
-            } )
-            return index;
-        };
-        /**
          *点击触发下一步
          */
         var checkInfoEveryting = function(data){
@@ -119,6 +99,7 @@ define([],function(){
                 return true;
             }
             else{
+                $scope.idTip="请填写所有字段"
                 return false
             }
         };
@@ -127,25 +108,23 @@ define([],function(){
             var data = {
                 "idNo": $scope.completeData.idNo,
                 "province": $scope.selectedProvince,
-                "county": 0,
                 "city": $scope.selectedCity,
                 "school": $scope.selectedSchool,
                 "campus": $scope.selectedCampus,
                 "level": $scope.selectedLevel,
-                "userName": $scope.completeData.userName
+                "userName": $scope.completeData.userName,
+                "Room":$scope.selectedRoom,
             };
-            checkId($scope.completeData.idNo);
-           if( $scope.idStatus){
+
+            $scope.debugLog(checkInfoEveryting(data))
+           if(checkInfoEveryting(data)){
                $http({
                    "method":"post",
                    "url":completeInfoURL,
                    "data":data
                }).success(function(response, status, headers, config){
                    hintFUNC();
-               }).error(function(res){
-                   //console.log(res);
-                   $scope.debugLog("程序员哥哥正在抢救服务器，请稍等","alert");
-               });
+               }).error($scope.httpError);
            }
         };
 

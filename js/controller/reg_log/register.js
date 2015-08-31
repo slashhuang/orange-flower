@@ -104,7 +104,7 @@ define([], function () {
          */
         $scope.sendsms=function(tel){
             //console.log($httpProvider)
-            $scope.debugLog($httpProvider);
+            //$scope.debugLog($httpProvider);
 
             $http({
                 "method":"post",
@@ -137,8 +137,11 @@ define([], function () {
                     $scope.submitHint="注册成功！";
                     hintFunc();
                 }).error(function (res) {
+                    var callback = function(){
+                        $location.url("/login");
+                    };
                     $scope.submitHint=res.message;
-                    hintFunc()
+                    hintFunc(callback);
                 });
             }
         };
@@ -161,8 +164,11 @@ define([], function () {
             }
         };
 
-        var hintFunc =function(){
+        var hintFunc =function(callback){
             $timeout(function(){
+                if(callback){
+                    callback()
+                }
                 $scope.submitHint=""
             },2000)
         };
