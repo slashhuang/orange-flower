@@ -18,25 +18,31 @@ define([],function() {
         //通用函数
 
         //初始化http请求@TODO需要加入参数
-        $http({
-            "method":"post",
-            "url":saleListUrl+"/"+0,
-            "data":{
-                "sortType": $scope.sortType,
-                "catId":$scope.catId,
-                "keyword":""
-            }
-        }).success(function(data){
-            //console.log(data);
-            $scope.debugLog(data);
-            $scope.saleList =data.content;
-        }).error(function(){
-        });
 
-        //设置排序
-        $scope.filterWay="";
-        $scope.changeFilter= function(params){
-            $scope.filterWay = params;
+        var render_data = function(){
+            $http({
+                "method":"post",
+                "url":saleListUrl+"/"+0,
+                "data":{
+                    "sortType": $scope.sortType,
+                    "catId":$scope.catId,
+                    "keyword":""
+                }
+            }).success(function(data){
+                //console.log(data);
+                $scope.debugLog(data);
+                $scope.saleList =data.content;
+            }).error(function(){
+            });
+        };
+        //初始化数据
+
+        render_data();
+
+
+        $scope.sortData = function(sortType){
+            $scope.sortType=sortType;
+            render_data();
         };
     }
 

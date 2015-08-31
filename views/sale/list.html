@@ -9,16 +9,13 @@
 <div class="h-40"></div>
 <div class="hot-sale-main">
     <div class="sale-item-title clear-float">
-        <div class="sale-sort-option sale-sort-border"
-             ng-model="default" ng-init="default='default'"ng-click="changeFilter(default)">
+        <div class="sale-sort-option sale-sort-border" ng-click="sortData('DEFAULT')">
             默认排序
         </div>
-        <div class="sale-sort-option sale-sort-border"
-             ng-model="saleOrder" ng-init="saleOrder='sale'"ng-click="changeFilter(saleOrder)">
+        <div class="sale-sort-option sale-sort-border" ng-click="sortData('SALE')">
             销量排序
         </div>
-        <div class="sale-sort-option "
-             ng-model="priceOrder" ng-init="priceOrder='price'"ng-click="changeFilter(priceOrder)">
+        <div class="sale-sort-option" ng-click="sortData('PRICE')">
             价格
         </div>
     </div>

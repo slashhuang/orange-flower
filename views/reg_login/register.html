@@ -6,7 +6,7 @@
 <form class="of-register-form" id="registerForm" action="" method="post">
     <label>
         <span class="common-input-left">手机号</span>
-        <input id="phoneNumber" type="tel" name="telephone" placeholder="请输入手机号码" ng-model="telephone">
+        <input id="phoneNumber" type="tel" name="telephone" placeholder="请输入手机号码" ng-model="telephone" ng-focus="checkVaildHint=''">
     </label>
     <label>
         <span class="common-input-left">验证码</span>
@@ -19,7 +19,7 @@
 
     <label>
         <span class="common-input-left">密码</span>
-        <input id="password" type="password" name="password" placeholder="请输入6-16位数字或者字母" ng-model="password">
+        <input id="password" type="password" name="password" placeholder="请输入6-16位数字或字母" ng-model="password">
     </label>
 
     <label>

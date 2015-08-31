@@ -30,6 +30,9 @@ define([], function () {
          */
         function _checkMobile(mobile) {
             var reg = /^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i;
+            if(!reg.test(mobile)){
+                $scope.checkVaildHint = "手机号格式不符!";
+            }
             return reg.test(mobile);
         }
 
@@ -96,29 +99,29 @@ define([], function () {
             }
         };
 
-        //"withCredentials":true
-
         /**
          * 发送短信
          * @param tel
          */
         $scope.sendsms=function(tel){
-            //console.log($httpProvider)
-            //$scope.debugLog($httpProvider);
 
-            $http({
-                "method":"post",
-                "url":sendSmsUrl+"/"+tel
-            }).success(function(response, status, headers, config){
-                //console.log(arguments);
-                $scope.debugLog(arguments);
-                $scope.checkVaildHint = "短信已发送，请查收";
-                showCountDown();
-            }).error(function(response, status, headers, config){
-                //console.log(response);
-                $scope.debugLog(response);
-            });
+            if(_checkMobile(tel)){
+                $http({
+                    "method":"post",
+                    "url":sendSmsUrl+"/"+tel
+                }).success(function(response, status, headers, config){
+                    //console.log(arguments);
+                    $scope.debugLog(arguments);
+                    $scope.checkVaildHint = "短信已发送，请查收";
+                    showCountDown();
+                }).error(function(response, status, headers, config){
+                    //console.log(response);
+                    $scope.debugLog(response);
+                });
+            }
+            else{
 
+            }
 
         };
 
