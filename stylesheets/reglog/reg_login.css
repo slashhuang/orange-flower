@@ -66,10 +66,6 @@ label input{
     outline: none;
     line-height: 18px;
 }
-#password{
-    margin-left: 67px;
-    width: 60%;
-}
 .of-register-form label select{
     float: right;
     border: none;

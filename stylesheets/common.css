@@ -212,5 +212,7 @@
 }
 
 .common-input-left{
-    width: ;
+    display: inline-block;
+    width: 80px;
+    margin-left: 0!important;
 }
