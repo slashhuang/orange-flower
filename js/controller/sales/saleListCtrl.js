@@ -82,7 +82,7 @@ define(['iscroll','zepto'],function(iscroll,$) {
                     x: touch.pageX,
                     y: touch.pageY
                 };
-                deltaY = endPosition.y - startPosition.y;
+                deltaY = startPosition.y-endPosition.y;
 
                 if(deltaY>30&&deltaY<50){
                     refreshHint.innerHTML="释放加载数据";
