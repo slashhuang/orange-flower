@@ -15,7 +15,7 @@
         <div class="sale-sort-option sale-sort-border" ng-click="sortData('SALE')">
             销量排序
         </div>
-        <div class="sale-sort-option" ng-click="sortData('PRICE')">
+        <div class="sale-sort-option" ng-click="sortData('PRICE',desc)">
             价格
         </div>
     </div>
@@ -27,18 +27,20 @@
                 <img ng-src="{{prefuri+sale.thumb.bigUrl}}" width="55px"style="margin-right:5px;">
             </div>
             <div class="item-hot-list-detail">
-                <h1>{{sale.title}}</h1>
+                <h1>{{sale.title |cut:true:40:' ...'}}</h1>
                 <p class="item-price">售价：￥{{transferPrice(sale.price)}}</p>
                 <div class="total-price">
                     <i>￥{{transferPrice(sale.pricePerMonth)}}</i>
                     <h2>×</h2><span>{{sale.month}}期</span>
-                    <a href="" class="item-hot-sale" style="color:{{sale.tags[0].attrs.color}};
-                        border-color:{{sale.tags[0].attrs.color}}">{{sale.tags[0].value}}</a>
-                    <a href="" class="item-new-sale" style="color:{{sale.tags[1].attrs.color}};
-                        border-color:{{sale.tags[1].attrs.color}}">{{sale.tags[1].value}}</a>
+
+                    <a href="" class="item-hot-sale" ng-repeat="tagAttr in sale.tags"
+                        style="color:{{tagAttr.attrs.color}};
+                        border-color:{{tagAttr.attrs.color}}">{{tagAttr.value}}</a>
                 </div>
             </div>
             </a>
         </div>
 </div>
+
+<div></div>
 

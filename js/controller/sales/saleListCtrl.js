@@ -12,6 +12,7 @@ define([],function() {
         $scope.catId = $routeParams.listId;
         $scope.sortType = "DEFAULT";
         $scope.keyword = "";
+        $scope.desc =true;
         //设定url
         var saleListUrl = $rootScope.prefuri + "/product/query";
 
@@ -22,11 +23,12 @@ define([],function() {
         var render_data = function(){
             $http({
                 "method":"post",
-                "url":saleListUrl+"/"+0,
+                "url":saleListUrl+"/"+1,
                 "data":{
                     "sortType": $scope.sortType,
                     "catId":$scope.catId,
-                    "keyword":""
+                    "keyword":"",
+                    "desc": $scope.desc
                 }
             }).success(function(data){
                 //console.log(data);
@@ -40,8 +42,10 @@ define([],function() {
         render_data();
 
 
-        $scope.sortData = function(sortType){
+        $scope.sortData = function(sortType,bool){
+            bool=!bool
             $scope.sortType=sortType;
+            $scope.desc=bool;
             render_data();
         };
     }
