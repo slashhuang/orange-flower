@@ -21,6 +21,7 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                     "method":"post",
                     "url":mainUrl
                 }).success(function(data){
+
                     $scope.mainData.category =data;
                     $timeout(function(){
                         swiper.mainItem();

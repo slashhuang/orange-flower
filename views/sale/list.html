@@ -6,41 +6,52 @@
     <a class="header-function" href="/main">首页</a>
 </div>
 <!--商品排序方式-->
-<div class="h-40"></div>
-<div class="hot-sale-main">
-    <div class="sale-item-title clear-float">
-        <div class="sale-sort-option sale-sort-border" ng-click="sortData('DEFAULT')">
-            默认排序
-        </div>
-        <div class="sale-sort-option sale-sort-border" ng-click="sortData('SALE')">
-            销量排序
-        </div>
-        <div class="sale-sort-option" ng-click="sortData('PRICE',desc)">
-            价格
-        </div>
+<div class="sale-list-bar clear-float">
+    <div class="sale-sort-option sale-sort-border" ng-click="sortData('DEFAULT')">
+        默认排序
     </div>
-<!--商品列表-->
-
-        <div class="item-sale-list clear-float" ng-repeat="sale in saleList">
-            <a href="#/sale/detail/{{sale.id}}">
-            <div class="item-list-img">
-                <img ng-src="{{prefuri+sale.thumb.bigUrl}}" width="55px"style="margin-right:5px;">
-            </div>
-            <div class="item-hot-list-detail">
-                <h1>{{sale.title |cut:true:40:' ...'}}</h1>
-                <p class="item-price">售价：￥{{transferPrice(sale.price)}}</p>
-                <div class="total-price">
-                    <i>￥{{transferPrice(sale.pricePerMonth)}}</i>
-                    <h2>×</h2><span>{{sale.month}}期</span>
-
-                    <a href="" class="item-hot-sale" ng-repeat="tagAttr in sale.tags"
-                        style="color:{{tagAttr.attrs.color}};
-                        border-color:{{tagAttr.attrs.color}}">{{tagAttr.value}}</a>
-                </div>
-            </div>
-            </a>
-        </div>
+    <div class="sale-sort-option sale-sort-border" ng-click="sortData('SALE')">
+        销量排序
+    </div>
+    <div class="sale-sort-option" ng-click="sortData('PRICE',desc)">
+        价格
+    </div>
 </div>
 
-<div></div>
+
+<div class="h-80"></div>
+<!--商品列表-->
+<div class="hot-sale-main">
+    <div id="scroller" style="width:100%">
+        <div style="width:100%;height:30px;background:yellow">fuck refresh</div>
+        <ul>
+            <li class="item-sale-list clear-float" ng-repeat="sale in saleList" >
+                <a href="#/sale/detail/{{sale.id}}">
+                    <div class="item-list-img">
+                        <img ng-src="{{prefuri+sale.thumb.bigUrl}}" width="55px"style="margin-right:5px;">
+                    </div>
+                    <div class="item-hot-list-detail">
+                        <h1>{{sale.title |cut:true:40:' ...'}}</h1>
+                        <p class="item-price">售价：￥{{transferPrice(sale.price)}}</p>
+                        <div class="total-price">
+                            <i>￥{{transferPrice(sale.pricePerMonth)}}</i>
+                            <h2>×</h2><span>{{sale.month}}期</span>
+
+                            <a href="" class="item-hot-sale" ng-repeat="tagAttr in sale.tags"
+                               style="color:{{tagAttr.attrs.color}};
+                        border-color:{{tagAttr.attrs.color}}">{{tagAttr.value}}</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div style="width:100%;height:100px;background:#f6f6f6" id="refreshButton">
+            <div style="background: url('/images/of_refresh.gif') no-repeat center;background-size:30px 30px;width:100%;height:40px;"><div>
+            <span id="refreshHint"></span>
+        </div>
+    </div>
+</div>
+
+
+
 

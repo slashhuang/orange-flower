@@ -1,6 +1,13 @@
 
 .hot-sale-main{
-    background: #fff;
+    background: #dfdfdf;
+    position: absolute;
+    z-index: 1;
+    top: 45px;
+    bottom: 100px;
+    left: 0;
+    width: 100%;
+    overflow: scroll;
 }
 .sale-item-title{
    padding:6px;
@@ -8,6 +15,24 @@
     border-bottom:1px solid #e6e6e6;
     font-size:12px;
 }
+
+
+/*设置fix属性*/
+.sale-list-bar{
+    position:fixed;
+    top:47px;
+    width:100%;
+    border-bottom:1px solid #e6e6e6;
+    font-size:12px;
+    z-index:100;
+    background:#fff;
+    height:30px;
+    line-height:30px;
+}
+.h-80{
+    width:100%;height:80px;
+}
+
 .sale-sort-option{
     width:33%;float:left;text-align:center;
 }

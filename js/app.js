@@ -26,7 +26,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
         app.run(function ($rootScope) {
 
             $rootScope.prefuri = "http://api.orangezc.com";
-            //$rootScope.prefuri = "http://192.168.1.124";
+
             //  ajax请求前缀
 
             $rootScope.debugFlat = true;

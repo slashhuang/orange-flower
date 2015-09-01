@@ -85,7 +85,8 @@
     width:100%;
     padding:8px 2% 13px;
     background: #fff;
-    /*border-bottom:1px #e6e6e6 solid;*/
+    border-bottom:1px #e6e6e6 solid;
+    /*height:50px;*/
 }
 .item-list-img{
     width:33%;
