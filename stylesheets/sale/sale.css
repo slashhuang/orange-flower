@@ -1,6 +1,6 @@
 
 .hot-sale-main{
-    background: #dfdfdf;
+    background: #fff;
     position: absolute;
     z-index: 1;
     top: 45px;
@@ -38,4 +38,23 @@
 }
 .sale-sort-border{
     border-right:1px #ccc solid;
+}
+
+.sale-list-refreshHint{
+    position: absolute;top:0;left:0;width:inherit;
+    background-color:#fff;
+    text-align: center;
+    vertical-align: bottom;
+}
+.sale-list-refreshImg{
+    width:100%;height:60px;
+    background: url('/images/orchen.gif') no-repeat center;
+    background-size:contain;
+    position: absolute;top:0;left:0
+}
+.sale-list-refreshField{
+    width:100%;
+    height:80px;
+    background:#fff;
+    position:relative
 }

@@ -32,8 +32,9 @@ define(['iscroll','zepto'],function(iscroll,$) {
                     "desc": $scope.desc
                 }
             }).success(function(data){
+                console.log(data);
                 $scope.saleList = $scope.saleList.concat(data.content);
-                if(callback){
+                if(callback(data)){
                     callback()
                 }
             }).error(function(){
@@ -42,10 +43,6 @@ define(['iscroll','zepto'],function(iscroll,$) {
                 }
             });
         };
-        //初始化数据
-
-        render_data();
-
 
         $scope.sortData = function(sortType,bool){
             bool=!bool;
@@ -54,21 +51,42 @@ define(['iscroll','zepto'],function(iscroll,$) {
             render_data();
         };
 
-
-
-        //ng-click="refresh()
-        $scope.refresh = function(){
+        $scope.refresh = function(callback){
             $scope.pageId+=1;
-            render_data()
+            render_data(callback)
         };
+        /**
+         * 配置刷新加载
+         * @type {Element}
+         */
+        var dragButton = document.getElementById("refreshButton");
+        var refreshHint = document.getElementById("refreshHint");
+        var refreshImg = document.getElementById("refreshImg");
+        var callback = function (dd) {
+            dragButton.style.marginTop=0;
+            refreshImg.style.top=0;
+            refreshHint.innerHTML="努力加载中";
+            $timeout(function(){
+                switch(dd.last){
+                    case true:
+                        refreshHint.innerHTML="已是最后一页";
+                        break;
+                    case false:
+                        refreshHint.innerHTML="上拉刷新";
+                        break;
+                }
+            },500)
+        };
+        //初始化数据
 
+
+
+        render_data(callback);
+        /**
+         * 避免全局变量污染
+         */
         (function () {
-            var dragButton = document.getElementById("refreshButton");
-            var refreshHint = document.getElementById("refreshHint");
             var startPosition, endPosition, deltaY;
-            var callback = function () {
-                dragButton.style.marginTop=0;
-            };
             dragButton.addEventListener('touchstart', function (e) {
                 var touch = e.touches[0];
                 startPosition = {
@@ -84,20 +102,22 @@ define(['iscroll','zepto'],function(iscroll,$) {
                 };
                 deltaY = startPosition.y-endPosition.y;
 
-                if(deltaY>30&&deltaY<50){
+                if(deltaY>60&&deltaY<80){
                     refreshHint.innerHTML="释放加载数据";
                     dragButton.style.marginTop=deltaY+'px';
+                    refreshImg.style.top=-deltaY+'px'
                 }
-                if(deltaY>10&&deltaY<30){
-                    refreshHint.innerHTML="下拉刷新";
+                if(deltaY>10&&deltaY<60){
+                    refreshHint.innerHTML="上拉刷新";
                     dragButton.style.marginTop=deltaY+'px';
+                    refreshImg.style.top=-deltaY+'px'
                 }
 
             });
             dragButton.addEventListener('touchend',function (e) {
                 console.log(e);
                 var touch = e.touches[0];
-                if(deltaY>=30){
+                if(deltaY>=60){
                     console.log("proceeding callback");
                     $scope.refresh(callback)
                 }
@@ -106,23 +126,6 @@ define(['iscroll','zepto'],function(iscroll,$) {
                 }
             });
         })();
-
-        //$scope.x=0;
-
-        //$("#refreshButton").on({
-        //    "touchstart":function(e){
-        //        console.log(e.touches);
-        //        dragButton.style.marginTop=0;
-        //    },
-        //    "touchmove":function(e){
-        //    },
-        //    "touchend":function(e){
-        //        console.log(e.touches);
-        //    }
-        //
-        //})
-
-
     }
 
     saleListCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$rootScope','$timeout'];

@@ -26,8 +26,17 @@ define([], function () {
             "url": userCenterUrl
         }).success(function (data) {
             $scope.debugLog(data);
-            $scope.centerData = data;
-        }).error($scope.httpError);
+            if(data){
+                $scope.centerData = data;
+            }
+            else{
+                alert('fucking not login')
+            }
+
+        }).error(
+            function(){
+                alert("fucking error")
+            });
 
 
     }
