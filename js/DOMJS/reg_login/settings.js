@@ -49,7 +49,7 @@ define(["util/ajax_check","util/data_check","../../../bower_components/zepto/zep
                         text: "橘花欢迎您的光临!",
                         type:  "success"
                     },function(status){
-                        if(status) window.location.href="/";
+                        if(status) window.location.hash="/";
                     });
                 },
                 fail : function(xhr,status,error){

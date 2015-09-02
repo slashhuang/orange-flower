@@ -82,7 +82,7 @@ require(["util/url_config","util/ajax_check","util/data_check","../../../bower_c
             console.log(userInfoData);
             if(dataCheck.checkIsAllOk(userInfoStatus)) {
                 check.regFormSubmit(userInfoData,function(){
-                    window.location.href="/user/center"
+                    window.location.hash="/user/center"
                 })
             }
         }
