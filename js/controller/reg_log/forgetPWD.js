@@ -31,7 +31,7 @@ define([], function () {
                 $scope.debugLog(response);
                 $scope.submitHint = "修改密码成功，即将跳转登录页面";
                 $timeout(function(){
-                    location.hash = "/login";
+                    location.href = "/login";
                 },1000)
             }).error($rootScope.httpError);
         };

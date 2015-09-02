@@ -40,7 +40,7 @@ define(["/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"], function ($, ajaxFile
                     $scope.infoHint = txt + time + "秒后转向首页";
                     if (time == 0) {
                         clearInterval(interval);
-                        location.hash = "#/main";
+                        location.href = "/main";
                     }
                 });
             }, 1000);

@@ -75,7 +75,7 @@ define([],function(){
          * @param id
          */
         $scope.reBuy = function(id){
-            location.hash = "/sale/detail/" + id;
+            location.href = "/sale/detail/" + id;
         };
 
         /**

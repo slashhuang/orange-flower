@@ -65,25 +65,12 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
             };
 
 
-            //$rootScope.httpError = function(res){
-            //    if(res&&res.message){
-            //        alert(res.message);
-            //    };
-            //    if(res&&res.code){
-            //        switch (res.code){
-            //            case '10000':
-            //                $rootScope.isLogin = false;
-            //                break;//用户未登录
-            //            default :
-            //               break;
-            //        }
-            //    }
-            //};
 
             $rootScope.httpError = function(res){
                 var errorHandler={};
                 if(res&&res.message){
                     $rootScope.ErrorMessage = res.message;
+                    alert(res.message);
                 };
                 if(res&&res.code){
                     switch (res.code){

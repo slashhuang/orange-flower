@@ -136,8 +136,7 @@ define([],function(){
             $scope.infoHint = "您已经获取6000元额度，可以立即购物哦";
             $timeout(function(){
                 $scope.hintStatus = false;
-                //window.location.href="#/main"
-                location.hash="#/main"
+                location.href="/main"
             },2500);
         };
 

@@ -89,7 +89,7 @@ define([], function () {
          * @param id
          */
         $scope.reBuy = function (id) {
-            location.hash = "/sale/detail/" + id;
+            location.href = "/sale/detail/" + id;
         };
         /**
          * 根据两个值是否相同返回class名

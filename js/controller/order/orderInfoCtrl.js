@@ -6,7 +6,7 @@ define([], function () {
         var orderId = $location.search()["orderId"];
         //  从url里面获取orderId
 
-        $scope.url = "#/order/detail?orderId=" + orderId;
+        $scope.url = "/order/detail?orderId=" + orderId;
         $scope.countTime = 3;
 
         var interval = setInterval(function(){
@@ -14,7 +14,7 @@ define([], function () {
                 $scope.countTime --;
                 if($scope.countTime == 0){
                     clearInterval(interval);
-                    location.hash = "/order/detail?orderId=" + orderId;
+                    location.href = "/order/detail?orderId=" + orderId;
                 }
             });
         },1000);
