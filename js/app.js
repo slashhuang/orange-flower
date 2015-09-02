@@ -23,17 +23,17 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
 
 
         //定义全局变量
-        app.run(['$rootScope','$location',function ($rootScope,$location) {
+        app.run(['$rootScope','$location','$timeout',function ($rootScope,$location,$timeout) {
 
             $rootScope.prefuri = "http://api.orangezc.com";
 
-            //  ajax请求前缀
-
+            /**
+             * 全局处理errorMessage
+             * @type {string}
+             */
+            $rootScope.ErrorMessage="";
             $rootScope.debugFlat = true;
-            //  debug句柄
-
-            $rootScope.isLogin = false;
-
+            $rootScope.isLogin = true;
             /**
              * 根据debug句柄判断是否调用console.log或者alert
              * @param info  输出的信息
@@ -64,18 +64,43 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                 }
             };
 
+
+            //$rootScope.httpError = function(res){
+            //    if(res&&res.message){
+            //        alert(res.message);
+            //    };
+            //    if(res&&res.code){
+            //        switch (res.code){
+            //            case '10000':
+            //                $rootScope.isLogin = false;
+            //                break;//用户未登录
+            //            default :
+            //               break;
+            //        }
+            //    }
+            //};
+
             $rootScope.httpError = function(res){
-                console.log(res)
+                var errorHandler={};
                 if(res&&res.message){
-                    alert(res.message)
+                    $rootScope.ErrorMessage = res.message;
                 };
                 if(res&&res.code){
                     switch (res.code){
                         case '10000':
-                            location.href='#/login';
+                            $rootScope.isLogin = false;
+                            errorHandler.loginAction =
+                                $timeout(function () {
+                                    location.href='#/login';
+                                },2000);
                             break;//用户未登录
+                        default :
+                            errorHandler.loginAction= function () {
+                                return false;
+                            }
                     }
                 }
+                return errorHandler.loginAction;
             };
 
             /**

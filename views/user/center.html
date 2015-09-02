@@ -82,6 +82,6 @@
 
 </div>
 
-<div class="info-hint-style" ng-show="!isLogin">
-    程序员哥哥友情提醒:登录后才可以进个人中心哦～
+<div class="info-hint-style" ng-show="ErrorMessage.length>0">
+    {{ErrorMessage}}
 </div>

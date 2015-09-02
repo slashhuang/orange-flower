@@ -75,7 +75,7 @@ define([],function(){
             //点击登录按钮
             $scope.userLogin = function (loginName, password) {
                 if ($scope.checkLoginData(loginName, password)){
-                    $http({
+                   var XHRrequest= $http({
                         "method": "post",
                         "url": loginURL + loginName + '/' + password
                     }).success(function (data) {
@@ -90,7 +90,11 @@ define([],function(){
                                $scope.infoHint=""
                            },1000)
                        }
-                    }).error($rootScope.httpError);
+                    });
+                    XHRrequest.error(function(res){
+                        $scope.infoHint = res.message;
+                        $timeout(function(){$scope.infoHint = ""},1500)
+                    })
                 }
             }
     };

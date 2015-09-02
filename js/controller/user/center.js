@@ -3,9 +3,11 @@
  */
 define([], function () {
     //定义商品分类controller
-    function centerCtrl($scope, $routeParams, $location, $http,$rootScope) {
+    function centerCtrl($scope, $routeParams, $location, $http,$rootScope,$timeout) {
         var userCenterUrl = $rootScope.prefuri + "/user/info";
         $scope.centerData = {};
+
+
         /**
          * 处理HTTP请求
          */
@@ -33,6 +35,6 @@ define([], function () {
         }
 
     }
-    centerCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$rootScope'];
+    centerCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$rootScope','$timeout'];
     return centerCtrl;
 });
