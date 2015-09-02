@@ -131,7 +131,7 @@ define([],function(){
                         "status":item["totalStatus"]["value"],                          //  订单状态
                         "statusText":item["totalStatus"]["title"],                      //  状态文字说明
                         "salePrice":item["orderLines"][0]["salePrice"],                 //  商品原价
-                        "realPayAmount":item["orderLines"][0]["realPayAmount"],         //  实际付款
+                        "realPayAmount":item["orderLines"][0]["salePrice"],         //  实际付款
                         "prePeriodsPay":item["orderLines"][0]["prePeriodsPay"],         //  每期付款
                         "periods":item["orderLines"][0]["periods"],                     //  分期期数
                         "firstPay":item["orderLines"][0]["firstPay"],                   //  首付
