@@ -126,14 +126,17 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
 
         app.controller("BottomController", ['$http', '$location', '$scope', '$rootScope', function ($http, $location, $scope, $rootScope) {
             $scope.addActive = function (cur) {
-                var hash = location.hash;
+
+                /**
+                 * change location.hash to location.href
+                 * @type {string}
+                 */
+                var hash = location.href;
                 if (hash.indexOf(cur) > 0) {
                     return "active";
                 }
                 return "";
             };
-            //console.log($scope)
-
         }]);
         //定义全局变量
         //配置路由
