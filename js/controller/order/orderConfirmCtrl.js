@@ -29,28 +29,34 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
          */
         $scope.confirmBuy = function (id, firstPay) {
             if(firstPay && firstPay > 0){
-                $.ajax({
+                var data = {
+                    "orderId": id,
+                    "amount": firstPay,
+                    "payChannel": "WX_PUB",
+                    "tradeType": "TRADE_CONSUME",
+                    "description": "消费"
+                }
+
+                $http({
+                    "method": "post",
                     url: $rootScope.prefuri + "/pay/pay/",
-                    dataType: "json",
-                    type: "post",
-                    data: '{"orderId": "' + id + '", "amount": 1, "payChannel": "WX_PUB", "tradeType": "TRADE_CONSUME", "description": "消费"}',
-                    success: function (res) {
-                        pay.createPayment(res, function (result, error) {
-                            if (result == "success") {
-                                debug.success("success");
-                            } else if (result == "fail") {
-                                var info = "";
-                                for (var i in error) {
-                                    info += i + "---" + error[i] + "\n";
-                                }
-                                debug.error(info);
-                                debug.error("发送错误！请重试！");
-                            } else if (result == "cancel") {
-                                debug.log("您取消了本次支付！");
+                    "data": data,
+                }).success(function (res) {
+                    pay.createPayment(res, function (result, error) {
+                        if (result == "success") {
+                            debug.success("success");
+                        } else if (result == "fail") {
+                            var info = "";
+                            for (var i in error) {
+                                info += i + "---" + error[i] + "\n";
                             }
-                        });
-                    }
-                })
+                            debug.error(info);
+                            debug.error("发送错误！请重试！");
+                        } else if (result == "cancel") {
+                            debug.log("您取消了本次支付！");
+                        }
+                    });
+                }).error($rootScope.httpError);
             }else{
                 location.hash = "/order/info?orderId=" + id;
             }

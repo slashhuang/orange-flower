@@ -1,7 +1,7 @@
 /**
  * Created by slashhuang on 15/8/21.
  */
-define(['iscroll','zepto'],function(iscroll,$) {
+define(['zepto'],function($) {
     //定义商品分类controller
     function saleListCtrl($scope, $routeParams, $location, $http,$rootScope,$timeout) {
 
@@ -29,7 +29,7 @@ define(['iscroll','zepto'],function(iscroll,$) {
                 "data":{
                     "sortType": $scope.sortType,
                     "catId":$scope.catId,
-                    "keyword":"",
+                    "keyword":$scope.keyword ,
                     "desc": $scope.desc
                 }
             }).success(function(data){

@@ -216,41 +216,26 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                 //}
                 var data = {
                     "orderType": "FORWARD",                         //  订单类型
-                    "sellerId": 0,                         //  商家id
-                    "saleAmount": 1,                                //  销售总额
-                    "payAmount": data["price"],                     //  应付总额
-                    "realPayAmount": 2,                             //  实付总额
-                    "addressId": 2,                                 //  配送地址
                     "orderLineDtos": [
                         {
-                            "clientType": "WEIXIN",                  //  客户端类型
                             "orderType": "FORWARD",                 //  订单类型
-                            "sellerId": 0,                 //  商家id
-                            "saleAmount": 1,                        //  销售额/退款额
-                            "payAmount": 1,                         //  应付金额
                             "realPayAmount": 6,                     //  实付款/退款
                             "skuId": data["id"],                 //  商品sku
-                            "salePrice": data["price"],             //  销售单价
                             "saleVolume": 1,                     //  销售数量
-                            "saleUnit": "string",                   //  销售单位
                             "periods": info["finalMonth"],                           //  分期期数
                             "firstPay": info["firstTimePay"] * 100,                          //  首付金额
-                            "prePeriodsPay": info["calculateMoney"] * 100                   //  每期支付金额
+                            "clientRemark": ""                   //  每期支付金额
                         }
                     ]
                 };
-                $.ajax({
-                    "type": "POST",
+
+                $http({
+                    "method": "post",
                     "url": $rootScope.prefuri + "/order/create",
-                    "data": JSON.stringify(data),
-                    "contentType": "application/json",
-                    success: function (data) {
-                        location.hash = "/order/confirm?orderId=" + data;
-                    },
-                    error: function(err){
-                        $rootScope.httpError(err);
-                    }
-                });
+                    "data": data,
+                }).success(function (res) {
+                    location.hash = "/order/confirm?orderId=" + data;
+                }).error($rootScope.httpError);
             } else {
                 //  未登录的情况,跳转到登录页
                 location.hash = "/login";

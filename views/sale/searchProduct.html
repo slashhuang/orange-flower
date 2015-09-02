@@ -1,61 +1,76 @@
+ <div ng-show="nosearch">
+     <div class="of-header gray">
+         <a class="header-back" href="javascript:history.back()"></a>
+         搜索
+         <a class="header-function" href="/main">首页</a>
+     </div>
+     <div class="h-40"></div>
+     <div>
+         <form class='of-category-input'>
+             <input placeholder="搜索您需要的商品"  type="text" maxlength="20"
+                    ng-model="keyword" ng-focus="noDataDetection=false;">
+             <b src="/images/icon/search_main_icon.png" ng-click="searchProductFUnc(keyword)"></b>
+         </form>
+     </div>
+ </div>
 
-<div class="of-header gray" ng-show="searchWaiting">
-    <a class="header-back" href="javascript:history.back()"></a>
-    搜索
-    <a class="header-function" href="/main" style="color: #2d2d2d;">首页</a>
-</div>
-<!--商品排序方式-->
-
-<div class="h-40" ng-show="searchWaiting"></div>
-<div ng-class="{true: 'of-search-header',false: ''}[!searchWaiting]">
-    <a class="header-back-search" href="javascript:history.back()" ng-show="!searchWaiting"></a>
-    <a class="header-function-search" href="/main" ng-show="!searchWaiting">首页</a>
-    <form ng-class="{true: 'of-category-input-active',false: 'of-category-input'}[!searchWaiting]">
-        <input placeholder="搜索您需要的商品"  type="text" maxlength="20"
-               ng-model="keyword" ng-focus="searchWaiting=true;noDataDetection=false;">
-        <b src="/images/icon/search_main_icon.png" ng-click="searchProduct()"></b>
-    </form>
-</div>
-
-
-
-<!--商品排序方式-->
-<div class="hot-sale-main" ng-show="!searchWaiting" >
-    <div class="sale-item-title clear-float">
-        <div class="sale-sort-option sale-sort-border"
-             ng-model="default" ng-init="default='default'"ng-click="changeFilter(default)">
+ <!--bug有点多，写不动了-->
+ <div ng-show="!nosearch" ng-controller="saleListCtrl">
+     <div style="position:fixed;top:0;height:45px;width:100%;z-index: 10;background: #fff">
+         <a class="header-back" href="javascript:history.back()"></a>
+         <form class='of-category-input' style="width:80%;margin-left:auto;margin-right:auto">
+             <input placeholder="搜索您需要的商品"  type="text" maxlength="20"
+                    ng-model="keyword1">
+             <b src="/images/icon/search_main_icon.png" ng-click="searchProductFUnc(keyword1)"></b>
+         </form>
+         <a class="header-function" href="/main">首页</a>
+     </div>
+    <!--商品排序方式-->
+    <div class="sale-list-bar clear-float">
+        <div class="sale-sort-option sale-sort-border" ng-click="sortData('DEFAULT')">
             默认排序
         </div>
-        <div class="sale-sort-option sale-sort-border"
-             ng-model="saleOrder" ng-init="saleOrder='sale'"ng-click="changeFilter(saleOrder)">
+        <div class="sale-sort-option sale-sort-border" ng-click="sortData('SALE')">
             销量排序
         </div>
-        <div class="sale-sort-option "
-             ng-model="priceOrder" ng-init="priceOrder='price'"ng-click="changeFilter(priceOrder)">
+        <div class="sale-sort-option" ng-click="sortData('PRICE',desc)">
             价格
         </div>
     </div>
     <!--商品列表-->
+    <div class="hot-sale-main-list">
+        <div id="scroller" style="width:100%">
+            <ul>
+                <li class="item-sale-list clear-float" ng-repeat="sale in saleList" >
+                    <a href="/sale/detail/{{sale.id}}">
+                        <div class="item-list-img">
+                            <img ng-src="{{prefuri+sale.thumb.bigUrl}}" width="55px"style="margin-right:5px;">
+                        </div>
+                        <div class="item-hot-list-detail">
+                            <h1>{{sale.title |cut:true:40:' ...'}}</h1>
+                            <p class="item-price">售价：￥{{transferPrice(sale.price)}}</p>
+                            <div class="total-price">
+                                <i>￥{{transferPrice(sale.pricePerMonth)}}</i>
+                                <h2>×</h2><span>{{sale.month}}期</span>
 
-    <div class="item-sale-list clear-float">
-        <a href="/sale/detail/11">
-            <div class="item-list-img">
-                <img ng-src="/images/logo.png" width="35px"style="margin-right:5px;">
+                                <a href="" class="item-hot-sale" ng-repeat="tagAttr in sale.tags"
+                                   style="color:{{tagAttr.attrs.color}};
+                        border-color:{{tagAttr.attrs.color}}">{{tagAttr.value}}</a>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="h-20"></div>
+            <div  id="refreshButton" class="sale-list-refreshField">
+                <div class='sale-list-refreshImg' id="refreshImg"></div>
+                <div id="refreshHint" class='sale-list-refreshHint'>努力加载中</div>
             </div>
-            <div class="item-hot-list-detail">
-                <h1>test</h1>
-                <p class="item-price">售价：￥100.00</p>
-                <div class="total-price">
-                    <i>￥12</i>
-                    <h2>×</h2><span>12期</span>
-                    <a href="" class="item-hot-sale">热卖</a>
-                    <a href="" class="item-new-sale">新品</a>
-                </div>
-            </div>
-        </a>
+        </div>
     </div>
-</div>
-
-<div class="empty-sale" ng-show="noDataDetection">
 
 </div>
+
+
+
+<div class="empty-sale" ng-show="noDataDetection"></div>

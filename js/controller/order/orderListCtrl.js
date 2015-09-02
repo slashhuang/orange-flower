@@ -12,7 +12,7 @@ define([],function(){
 
         $http({
             "method":"get",
-            "url":$rootScope.prefuri + "/order/list/" + uId
+            "url":$rootScope.prefuri + "/order/list"
         }).success(function(res){
             $scope.data = _rendData(res["content"]);
         }).error(function(){
