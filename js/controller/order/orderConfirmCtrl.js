@@ -22,44 +22,73 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
             $scope.data = {};
         });
 
+
+
+        $scope.confirmState =function(id){
+            var state= "";
+            switch(id){
+                case "TO_PAY":
+                    state = "立即支付";
+                    break;
+                case "RECEIPTED":
+                    state = "确认收货";
+                    break;
+                default:
+                    state = "";
+            }
+            return state;
+        };
+
         /**
          * 提交订单
          * @param id
          * @param firstPay
          */
-        $scope.confirmBuy = function (id, firstPay) {
-            if(firstPay && firstPay > 0){
-                var data = {
-                    "orderId": id,
-                    "amount": firstPay,
-                    "payChannel": "WX_PUB",
-                    "tradeType": "TRADE_CONSUME",
-                    "description": "消费"
-                }
+        $scope.confirmBuy = function (id, firstPay,status) {
 
-                $http({
-                    "method": "post",
-                    url: $rootScope.prefuri + "/pay/pay/",
-                    "data": data,
-                }).success(function (res) {
-                    pay.createPayment(res, function (result, error) {
-                        if (result == "success") {
-                            debug.success("success");
-                        } else if (result == "fail") {
-                            var info = "";
-                            for (var i in error) {
-                                info += i + "---" + error[i] + "\n";
+            if(status=="TO_PAY"){
+                if(firstPay && firstPay > 0){
+                    var data = {
+                        "orderId": id,
+                        "amount": firstPay,
+                        "payChannel": "WX_PUB",
+                        "tradeType": "TRADE_CONSUME",
+                        "description": "消费"
+                    }
+
+                    $http({
+                        "method": "post",
+                        url: $rootScope.prefuri + "/pay/pay/",
+                        "data": data,
+                    }).success(function (res) {
+                        pay.createPayment(res, function (result, error) {
+                            if (result == "success") {
+                                debug.success("success");
+                            } else if (result == "fail") {
+                                var info = "";
+                                for (var i in error) {
+                                    info += i + "---" + error[i] + "\n";
+                                }
+                                debug.error(info);
+                                debug.error("发送错误！请重试！");
+                            } else if (result == "cancel") {
+                                debug.log("您取消了本次支付！");
                             }
-                            debug.error(info);
-                            debug.error("发送错误！请重试！");
-                        } else if (result == "cancel") {
-                            debug.log("您取消了本次支付！");
-                        }
-                    });
-                }).error($rootScope.httpError);
-            }else{
-                location.href = "/order/info?orderId=" + id;
+                        });
+                    }).error($rootScope.httpError);
+                }else{
+                    location.href = "/order/info?orderId=" + id;
+                }
             }
+            else if(status=="RECEIPTED"){
+                $http({
+                    "method": "get",
+                    url: $rootScope.prefuri + "/order/confirm/"+id
+                }).success(function () {
+                    window.history.go(-1);
+                }).error($rootScope.httpError);
+            }
+
         };
 
         /**

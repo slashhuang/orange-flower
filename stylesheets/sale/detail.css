@@ -386,7 +386,7 @@
 }
 .select-area{
     width: 68px;
-    height: 17px;
+    height: 24px;
     background: url(../../images/item_detail/arrow-down.png) no-repeat right 6px;
     background-size: 14px 7px;
     overflow: hidden;

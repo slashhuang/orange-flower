@@ -202,13 +202,9 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
          * ->未登录,跳转到登录页,让他登录
          */
         $scope.buyNow = function () {
-            var data = $scope.saleDetail,
+            var dataSubmit = $scope.saleDetail,
                 info = $scope;
-            //  取得本商品的相关数据
 
-
-            $rootScope.isLogin = true;
-            if ($rootScope.isLogin) {
                 //  已经登录的情况,创建订单
                 //if(!(info["firstTimePay"] >= $scope.transferPrice(info["minFirst"]) && info["firstTimePay"] <= $scope.transferPrice(info["maxFirst"]))){
                 //    alert("首付必须在" + $scope.transferPrice(info["minFirst"]) + " 元~" + $scope.transferPrice(info["maxFirst"]) + "元之间!!!");
@@ -220,7 +216,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                         {
                             "orderType": "FORWARD",                 //  订单类型
                             "realPayAmount": 6,                     //  实付款/退款
-                            "skuId": data["id"],                 //  商品sku
+                            "skuId": dataSubmit["id"],                 //  商品sku
                             "saleVolume": 1,                     //  销售数量
                             "periods": info["finalMonth"],                           //  分期期数
                             "firstPay": info["firstTimePay"] * 100,                          //  首付金额
@@ -234,12 +230,8 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                     "url": $rootScope.prefuri + "/order/create",
                     "data": data,
                 }).success(function (res) {
-                    location.href = "/order/confirm?orderId=" + data;
+                    location.href = "/order/confirm?orderId=" + res;
                 }).error($rootScope.httpError);
-            } else {
-                //  未登录的情况,跳转到登录页
-                location.href = "/login";
-            }
         };
 
 
