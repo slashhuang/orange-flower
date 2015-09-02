@@ -78,7 +78,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                             $rootScope.isLogin = false;
                             errorHandler.loginAction =
                                 $timeout(function () {
-                                    location.href='#/login';
+                                    location.href='/login';
                                 },2000);
                             break;//用户未登录
                         default :
