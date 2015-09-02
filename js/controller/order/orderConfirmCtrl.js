@@ -58,7 +58,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                     });
                 }).error($rootScope.httpError);
             }else{
-                location.hash = "/order/info?orderId=" + id;
+                location.href = "/order/info?orderId=" + id;
             }
         };
 

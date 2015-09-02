@@ -89,7 +89,7 @@ define([], function () {
          * @param id
          */
         $scope.reBuy = function (id) {
-            location.hash = "/sale/detail/" + id;
+            location.href = "/sale/detail/" + id;
         };
         /**
          * 根据两个值是否相同返回class名
@@ -135,7 +135,7 @@ define([], function () {
                 "off": "",                                                       //  优惠信息
                 "status": data["totalStatus"]["value"],                          //  订单状态
                 "sendTime": "",                                                  //  发货时间
-                "address": data["addressId"],                                    //  配送地址
+                "address": data["userAddress"]["address"],                                    //  配送地址
                 "payMethod": "微信支付",                                          //  支付方式
                 "ticketInfo": "个人",                                             //  发票信息
                 "orderId": data["orderId"],                                      //  订单编号

@@ -137,7 +137,7 @@ define([],function(){
             $timeout(function(){
                 $scope.hintStatus = false;
                 //window.location.href="#/main"
-                location.hash="/main"
+                location.href="/main"
             },2500);
         };
 

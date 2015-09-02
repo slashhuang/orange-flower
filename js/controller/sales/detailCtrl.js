@@ -234,11 +234,11 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                     "url": $rootScope.prefuri + "/order/create",
                     "data": data,
                 }).success(function (res) {
-                    location.hash = "/order/confirm?orderId=" + data;
+                    location.href = "/order/confirm?orderId=" + data;
                 }).error($rootScope.httpError);
             } else {
                 //  未登录的情况,跳转到登录页
-                location.hash = "/login";
+                location.href = "/login";
             }
         };
 
