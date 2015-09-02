@@ -41,7 +41,7 @@ define([], function () {
                     }).success(function (data) {
                         //console.log("空接口成功");
                         $scope.debugLog("空接口成功");
-                        location.href = "/user/center"
+                        location.hash = "/user/center"
                     }).error($rootScope.httpError);
                 }
             }, 2000);

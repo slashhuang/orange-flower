@@ -96,7 +96,7 @@ PingppSDK.prototype = {
     }
     var credential = charge['credential'][channel];
     if (channel == channels.upmp_wap) {  // 调起银联支付控件，客户端需要安装银联支付控件才能调起
-      location.href = cfg.UPMP_WAP_URL + credential['paydata'];
+      location.hash = cfg.UPMP_WAP_URL + credential['paydata'];
     } else if (channel == channels.upacp_wap) {
       form_submit(cfg.UPACP_WAP_URL, 'post', credential);
     } else if (channel == channels.alipay_wap) {  // 调起支付宝手机网页支付
@@ -112,7 +112,7 @@ PingppSDK.prototype = {
         this._innerCallback("fail", this._error("invalid_credential", "missing_field:url"));
         return;
       }
-      location.href = credential['url'] + '?' + stringify_data(credential, channel);
+      location.hash = credential['url'] + '?' + stringify_data(credential, channel);
     } else if (channel == channels.yeepay_wap) {
       var fields = ["merchantaccount", "encryptkey", "data"];
       for(var k in fields){
@@ -122,9 +122,9 @@ PingppSDK.prototype = {
         }
       }
       if (hasOwn.call(credential, "mode") && credential["mode"] == "test") {
-        location.href = cfg.YEEPAY_WAP_TEST_URL + '?' + stringify_data(credential, channel, true);
+        location.hash = cfg.YEEPAY_WAP_TEST_URL + '?' + stringify_data(credential, channel, true);
       } else {
-        location.href = cfg.YEEPAY_WAP_URL + '?' + stringify_data(credential, channel, true);
+        location.hash = cfg.YEEPAY_WAP_URL + '?' + stringify_data(credential, channel, true);
       }
     } else if (channel == channels.wx_pub) {
       var fields = ["appId", "timeStamp", "nonceStr", "package", "signType", "paySign"];
@@ -268,7 +268,7 @@ PingppSDK.prototype = {
       if (hasOwn.call(charge, 'extra')) {
         params['extra'] = encodeURIComponent(JSON.stringify(charge['extra']));
       }
-      location.href = cfg.PINGPP_MOCK_URL+'?'+stringify_data(params);
+      location.hash = cfg.PINGPP_MOCK_URL+'?'+stringify_data(params);
     }
   }
 };

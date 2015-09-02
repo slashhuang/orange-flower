@@ -30,7 +30,7 @@ define([], function () {
          */
         $scope.centerJump = function(bool){
             if(!bool){
-                location.href="/user/credit"
+                location.hash="/user/credit"
             }
         }
 
