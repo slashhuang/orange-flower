@@ -239,15 +239,18 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                         }
                     ]
                 };
-
-                $http({
-                    "method": "post",
+                $.ajax({
+                    "type": "POST",
                     "url": $rootScope.prefuri + "/order/create",
-                    "data": data
-                }).success(function (data) {
-                    location.hash = "/order/confirm?orderId=" + data;
-                }).error($rootScope.httpError);
-
+                    "data": JSON.stringify(data),
+                    "contentType": "application/json",
+                    success: function (data) {
+                        location.hash = "/order/confirm?orderId=" + data;
+                    },
+                    error: function(err){
+                        $rootScope.httpError(err);
+                    }
+                });
             } else {
                 //  未登录的情况,跳转到登录页
                 location.hash = "/login";

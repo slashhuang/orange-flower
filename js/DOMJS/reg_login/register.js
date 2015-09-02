@@ -113,7 +113,7 @@ define(["util/url_config","util/ajax_check","util/data_check","zepto"], function
                         timer:1000,
                         showConfirmButton: false
                     },function(status){
-                        if(status) window.location.hash="/user/login";
+                        if(status) window.location.href="/user/login";
                     });
                 },
                 fail : function(xhr,status,error){
@@ -122,7 +122,7 @@ define(["util/url_config","util/ajax_check","util/data_check","zepto"], function
                         text: "此用户已注册，请直接登录!",
                         type:  "error"
                     },function(status){
-                        window.location.hash="/user/login"
+                        window.location.href="/user/login"
                     });
                 }
             };

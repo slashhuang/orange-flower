@@ -1,9 +1,9 @@
 
 <!--头部-->
 <div class="of-header green clear-float">
-    <a class="of-header-person" href="/login"></a>
+    <a class="of-header-person" href="#/login"></a>
     <img class="of-logo-icon" src="/images/logo.png">
-    <a class = "of-header-search" href="/sale/search"></a>
+    <a class = "of-header-search" href="#/sale/search"></a>
 </div>
 <!--底部导航栏-->
 <div ng-include="'/views/header_bottom/bottom.html'"></div>
@@ -34,7 +34,7 @@
 <div class="of-icon-class-box">
 
     <div class="of-icon-class-item"  ng-repeat="category_list in mainData.category">
-        <a href="/sale/list/{{category_list.item.value}}/{{category_list.item.id}}">
+        <a href="#/sale/list/{{category_list.item.value}}/{{category_list.item.id}}">
             <img src="/images/icon_main/{{getPic(category_list.item.value)}}.png"/>
             {{category_list.item.value}}
         </a>
@@ -48,11 +48,11 @@
     <!--header部分，包括类目名和更多的链接-->
     <div class="of-class-recommand-header">
         限时特卖
-        <a href="/sale/discount">更多</a>
+        <a href="#/sale/discount">更多</a>
     </div>
     <!--图文简述-->
     <div class="of-special-sale-body" ng-repeat="discountItem in mainData.discount">
-        <a href="/sale/detail/{{discountItem.id}}">
+        <a href="#/sale/detail/{{discountItem.id}}">
             <span>{{discount.name}}</span>
             <div class="of-hot-container">
                 <div class="of-special-sale-item">
@@ -81,12 +81,12 @@
         <!--header部分，包括类目名和更多的链接-->
         <div class="of-class-recommand-header" ng-model="category_list.item.id">
             {{category_list.item.value}}
-            <a href="/sale/list/{{category_list.item.value}}/{{category_list.item.id}}">更多</a>
+            <a href="#/sale/list/{{category_list.item.value}}/{{category_list.item.id}}">更多</a>
         </div>
         <div class="of-class-recommand-body fuck-test">
             <div class="swiper-wrapper">
                 <div class="of-class-recommand-item swiper-slide" ng-repeat="list_detail in category_list.products track by $index">
-                    <a href="/sale/detail/{{list_detail.id}}">
+                    <a href="#/sale/detail/{{list_detail.id}}">
 
                         <img ng-src="{{prefuri+list_detail.thumb.bigUrl}}" />
                         <div class="of-name">

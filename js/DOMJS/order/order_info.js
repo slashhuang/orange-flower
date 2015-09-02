@@ -12,7 +12,7 @@ define([], function () {
     tTimeOut = setTimeout(function(){
         clearInterval(tInterval);
         clearTimeout(tTimeOut);
-        location.hash = '/';
+        location.href = '/';
     },4000);
 
 });

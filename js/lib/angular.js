@@ -5526,7 +5526,7 @@ function Browser(window, document, $log, $sniffer) {
   //////////////////////////////////////////////////////////////
 
   var cachedState, lastHistoryState,
-      lastBrowserUrl = location.hash,
+      lastBrowserUrl = location.href,
       baseElement = document.find('base'),
       reloadLocation = null;
 
@@ -5538,12 +5538,12 @@ function Browser(window, document, $log, $sniffer) {
    *
    * @description
    * GETTER:
-   * Without any argument, this method just returns current value of location.hash.
+   * Without any argument, this method just returns current value of location.href.
    *
    * SETTER:
    * With at least one argument, this method sets url to new value.
    * If html5 history api supported, pushState/replaceState is used, otherwise
-   * location.hash/location.replace is used.
+   * location.href/location.replace is used.
    * Returns its own instance to allow chaining
    *
    * NOTE: this api is intended for use only by the $location service. Please use the
@@ -5594,7 +5594,7 @@ function Browser(window, document, $log, $sniffer) {
         if (replace) {
           location.replace(url);
         } else if (!sameBase) {
-          location.hash = url;
+          location.href = url;
         } else {
           location.hash = getHash(url);
         }
@@ -5603,9 +5603,9 @@ function Browser(window, document, $log, $sniffer) {
     // getter
     } else {
       // - reloadLocation is needed as browsers don't allow to read out
-      //   the new location.hash if a reload happened.
+      //   the new location.href if a reload happened.
       // - the replacement is a workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=407172
-      return reloadLocation || location.hash.replace(/%27/g,"'");
+      return reloadLocation || location.href.replace(/%27/g,"'");
     }
   };
 
@@ -12183,7 +12183,7 @@ function $LocationProvider() {
 
       if (isUndefined(beginsWith(appBaseNoFile, newUrl))) {
         // If we are navigating outside of the app then force a reload
-        $window.location.hash = newUrl;
+        $window.location.href = newUrl;
         return;
       }
 
@@ -17831,7 +17831,7 @@ function $TimeoutProvider() {
 // exactly the behavior needed here.  There is little value is mocking these out for this
 // service.
 var urlParsingNode = document.createElement("a");
-var originUrl = urlResolve(window.location.hash);
+var originUrl = urlResolve(window.location.href);
 
 
 /**

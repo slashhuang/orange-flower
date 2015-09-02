@@ -25,7 +25,7 @@ define(["zepto","util/url_config"], function($,config){
     //付款按钮
     payBillNOW.on({
         "tap":function(){
-            window.location.hash=""
+            window.location.href=""
         }
     });
     //点击月份显示数据
