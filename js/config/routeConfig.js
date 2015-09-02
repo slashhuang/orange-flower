@@ -68,7 +68,9 @@ define([], function () {
             when("/forgetpwd",{
                 templateUrl: '/views/reg_login/forget_pwd.html',
                 controller: 'forgetPWDCtrl'
-            });
+            }).
+            when("/of_protocal",{templateUrl: '/views/reg_login/of_protocal.html',})
+
         //订单部分路由
         $routeProvider.
             when('/order/detail', {

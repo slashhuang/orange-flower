@@ -29,41 +29,6 @@ define(['angular','./categoryCtrl','./detailCtrl','./discountCtrl','./saleListCt
         });
 
 
-        function pullDownAction () {
-            setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
-                var el, li, i;
-                el = document.getElementById('thelist');
-
-                for (i=0; i<3; i++) {
-                    li = document.createElement('li');
-                    li.innerText = 'Generated row ' + (++generatedCount);
-                    el.insertBefore(li, el.childNodes[0]);
-                }
-                myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
-            }, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
-        }
-
-
-
-
-        //salesModule.directive('fuckingtest', function() {
-        //    return {
-        //        replace: false,
-        //        restrict: 'A',
-        //        link: function(scope, element, attr){
-        //            scope.$watch(attr.fuckingtest, function(value){
-        //                    new iScroll(document.querySelector('.hot-sale-main'), {
-        //                        snap: true,
-        //                        momentum: true,
-        //                        hScrollbar: true
-        //                    });
-        //            });
-        //        }
-        //    };
-        //});
-
-
-
         var App = angular.module('App', ['ng-scroller']);
 
         App.controller('Controller', function($scope){
