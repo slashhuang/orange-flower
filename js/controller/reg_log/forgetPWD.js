@@ -131,7 +131,7 @@ define([], function () {
         var showCountDown = function () {
             //避免多次点击事件
             if ($scope.countTime == 0) {
-                $scope.countTime = 10;
+                $scope.countTime = 60;
                 $scope.registerSmsHint = $scope.countTime + "秒后重发";
                 var state = setInterval(function () {
                     $scope.$apply(function () {

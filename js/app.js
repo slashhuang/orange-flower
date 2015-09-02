@@ -23,7 +23,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
 
 
         //定义全局变量
-        app.run(function ($rootScope) {
+        app.run(['$rootScope','$location',function ($rootScope,$location) {
 
             $rootScope.prefuri = "http://api.orangezc.com";
 
@@ -31,6 +31,8 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
 
             $rootScope.debugFlat = true;
             //  debug句柄
+
+            $rootScope.isLogin = false;
 
             /**
              * 根据debug句柄判断是否调用console.log或者alert
@@ -46,23 +48,35 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                     }
                 }
             };
-
-            $rootScope.isLogin = false;
-            //  判断是否登录成功
+            /**
+             *
+              * @param res
+             * @returns {boolean}
+             */
+            $rootScope.verifyActive = function (res) {
+                switch (res){
+                    case  'DISABLED':
+                        return false;
+                        break;
+                    case  'ENABLED':
+                        return true;
+                        break;
+                }
+            };
 
             $rootScope.httpError = function(res){
+                console.log(res)
                 if(res&&res.message){
                     alert(res.message)
                 };
                 if(res&&res.code){
                     switch (res.code){
-                        case 10000:
-                            $location.hash="/main";
+                        case '10000':
+                            location.href='#/login';
                             break;//用户未登录
                     }
                 }
             };
-
 
             /**
              * 价格单位转换,从分转成元
@@ -82,7 +96,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                 return location.href.indexOf(status) > -1 ? "active" : "";
             };
 
-        });
+        }]);
         var loadEl = document.getElementsByClassName("refresh-mask")[0];
 
         app.controller("BottomController", ['$http', '$location', '$scope', '$rootScope', function ($http, $location, $scope, $rootScope) {

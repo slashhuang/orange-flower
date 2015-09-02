@@ -22,6 +22,7 @@ define(['iscroll','zepto'],function(iscroll,$) {
         //初始化http请求@TODO需要加入参数
 
         var render_data = function(callback){
+
             $http({
                 "method":"post",
                 "url":saleListUrl+"/"+$scope.pageId,
@@ -32,22 +33,22 @@ define(['iscroll','zepto'],function(iscroll,$) {
                     "desc": $scope.desc
                 }
             }).success(function(data){
-                console.log(data);
-                $scope.saleList = $scope.saleList.concat(data.content);
-                if(callback(data)){
-                    callback()
-                }
-            }).error(function(){
                 if(callback){
-                    callback()
+                    $scope.saleList = $scope.saleList.concat(data.content);
+                    callback(data)
                 }
-            });
+                else{
+                    $scope.saleList=data.content;
+                    refreshHint.innerHTML="上拉刷新";
+                }
+            }).error($scope.httpError);
         };
 
         $scope.sortData = function(sortType,bool){
             bool=!bool;
             $scope.sortType=sortType;
             $scope.desc=bool;
+            $scope.pageId = 0;
             render_data();
         };
 
@@ -77,10 +78,9 @@ define(['iscroll','zepto'],function(iscroll,$) {
                 }
             },500)
         };
-        //初始化数据
-
-
-
+        /**
+         * 初始化数据
+         */
         render_data(callback);
         /**
          * 避免全局变量污染

@@ -1,74 +1,87 @@
-<!--头部-->
-<div class="of-header gray">
+<div ng-show="isLogin">
+
+
+
+    <!--头部-->
+    <div class="of-header gray">
         <a class="header-back" href="#/main"></a>
         个人中心
-    <a class="header-function" href="#/user/settings" style="color:#5b5b5b">设置</a>
-</div>
+        <a class="header-function" href="#/user/settings" style="color:#5b5b5b">设置</a>
+    </div>
 
-<!--个人信息-->
-<div class="h-40"></div>
-<div class="user-center-info clear-float">
-    <div class="left-info">
-        <img class="avator" src="/images/user_center/my_head.png">
-        <div class="name-mobile">
-            <h4 class="u-name">{{centerData.userName}}</h4>
-            <h6 class="u-mobile">{{centerData.telNo}}</h6>
+    <!--个人信息-->
+    <div class="h-40"></div>
+    <div class="user-center-info clear-float">
+        <div class="left-info">
+            <img class="avator" src="/images/user_center/my_head.png">
+            <div class="name-mobile">
+                <h4 class="u-name">{{centerData.userName}}</h4>
+                <h6 class="u-mobile">{{centerData.telNo}}</h6>
+            </div>
+        </div>
+        <div ng-class="{true: 'reg-btn-disable', false: 'reg-btn-active'}[verifyActive(centerData.status.value)]"
+           ng-click="centerJump(verifyActive(centerData.status.value))">{{verifyActive(centerData.status.value)?"已认证":"立即认证"}}</div>
+    </div>
+
+    <div class="split-line h-20"></div>
+
+    <!--余额-->
+    <div class="user-center-balance">
+        <div class="balance-left">
+            <h4 class="info-text">信用额度（元）</h4>
+            <p class="info-num">{{centerData.userCredit.totalCredit}}</p>
+        </div>
+        <div class="balance-right">
+            <h4 class="info-text">可用额度（元）</h4>
+            <p class="info-num">{{centerData.userCredit.currentCredit}}</p>
         </div>
     </div>
-    <a ng-class="{true: 'reg-btn-disable', false: 'reg-btn-active'}[verifyActive()]" class="btn-family" href="#/user/credit">立即认证</a>
-</div>
 
-<div class="split-line h-20"></div>
+    <div class="split-line h-20"></div>
 
-<!--余额-->
-<div class="user-center-balance">
-    <div class="balance-left">
-        <h4 class="info-text">信用额度（元）</h4>
-        <p class="info-num">0.0</p>
+    <!--按钮列表-->
+    <div class="user-center-btn-list">
+        <ul>
+            <li class="list-item">
+                <a href="#/order/list" class="whole-link">
+                    <b class="list-item-link" >我的订单</b>
+
+                    <em class="arrow"></em>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="#/bill" class="whole-link">
+                    <b class="list-item-link" >我的账单</b>
+                    <em class="arrow"></em>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="javascript:;" class="whole-link">
+                    <b class="list-item-link">客服热线</b>
+                    <em class="arrow"></em>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="#/user/modifypwd" class="whole-link">
+                    <b class="list-item-link">修改密码</b>
+                    <em class="arrow"></em>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="javascript:;" class="whole-link">
+                    <b class="list-item-link">使用帮助</b>
+                    <em class="arrow"></em>
+                </a>
+            </li>
+        </ul>
     </div>
-    <div class="balance-right">
-        <h4 class="info-text">可用额度（元）</h4>
-        <p class="info-num">0.0</p>
-    </div>
+
+    <div ng-include="'/views/header_bottom/bottom.html'"></div>
+
+
+
 </div>
 
-<div class="split-line h-20"></div>
-
-<!--按钮列表-->
-<div class="user-center-btn-list">
-    <ul>
-        <li class="list-item">
-            <a href="#/order/list" class="whole-link">
-                <b class="list-item-link" >我的订单</b>
-
-                <em class="arrow"></em>
-            </a>
-        </li>
-        <li class="list-item">
-            <a href="#/bill" class="whole-link">
-                <b class="list-item-link" >我的账单</b>
-                <em class="arrow"></em>
-            </a>
-        </li>
-        <li class="list-item">
-            <a href="javascript:;" class="whole-link">
-                <b class="list-item-link">客服热线</b>
-                <em class="arrow"></em>
-            </a>
-        </li>
-        <li class="list-item">
-            <a href="#/user/modifypwd" class="whole-link">
-                <b class="list-item-link">修改密码</b>
-                <em class="arrow"></em>
-            </a>
-        </li>
-        <li class="list-item">
-            <a href="javascript:;" class="whole-link">
-                <b class="list-item-link">使用帮助</b>
-                <em class="arrow"></em>
-            </a>
-        </li>
-    </ul>
+<div class="info-hint-style" ng-show="!isLogin">
+    程序员哥哥友情提醒:登录后才可以进个人中心哦～
 </div>
-
-<div ng-include="'/views/header_bottom/bottom.html'"></div>

@@ -144,7 +144,6 @@ define([], function () {
                     };
                     hintFunc(callback);
                 }).error(function (res) {
-
                     $scope.submitHint=res.message;
                     hintFunc();
                 });

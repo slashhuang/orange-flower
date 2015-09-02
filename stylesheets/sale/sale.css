@@ -3,12 +3,26 @@
     background: #fff;
     position: absolute;
     z-index: 1;
-    top: 45px;
-    bottom: 100px;
+    top: 50px;
+    bottom: 60px;
     left: 0;
     width: 100%;
     overflow: scroll;
 }
+
+.hot-sale-main-list{
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    top: 80px;
+    /*bottom: 60px;*/
+    left: 0;
+    width: 100%;
+    overflow: scroll;
+}
+
+
+
 .sale-item-title{
    padding:6px;
     width:100%;

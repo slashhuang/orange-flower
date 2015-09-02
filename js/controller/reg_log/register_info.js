@@ -113,7 +113,7 @@ define([],function(){
                 "campus": $scope.selectedCampus,
                 "level": $scope.selectedLevel,
                 "userName": $scope.completeData.userName,
-                "Room":$scope.selectedRoom
+                "room":$scope.selectedRoom
             };
 
             $scope.debugLog(checkInfoEveryting(data));
