@@ -14,7 +14,7 @@ define([], function () {
                 $scope.countTime --;
                 if($scope.countTime == 0){
                     clearInterval(interval);
-                    location.href = "/order/detail?orderId=" + orderId;
+                    location.hash = "/order/detail?orderId=" + orderId;
                 }
             });
         },1000);

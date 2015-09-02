@@ -7581,7 +7581,7 @@ var
 	allTypes = "*/".concat( "*" ),
 
 	// Document location
-	ajaxLocation = window.location.href,
+	ajaxLocation = window.location.hash,
 
 	// Segment location into parts
 	ajaxLocParts = rurl.exec( ajaxLocation.toLowerCase() ) || [];
