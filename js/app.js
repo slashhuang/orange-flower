@@ -33,7 +33,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
              */
             $rootScope.ErrorMessage="";
             $rootScope.debugFlat = true;
-            $rootScope.isLogin = true;
+            $rootScope.isLogin = false;
             /**
              * 根据debug句柄判断是否调用console.log或者alert
              * @param info  输出的信息

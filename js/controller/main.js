@@ -17,6 +17,18 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                 };
 
 
+
+                $scope.mainCheck =function(){
+                    if($scope.isLogin){
+                        location.href="/user/center"
+                    }
+                    else{
+                        location.href="/login";
+                    }
+                };
+
+
+
                 $http({
                     "method":"post",
                     "url":mainUrl
