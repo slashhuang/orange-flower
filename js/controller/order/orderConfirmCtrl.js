@@ -63,7 +63,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                     }).success(function (res) {
                         pay.createPayment(res, function (result, error) {
                             if (result == "success") {
-                                debug.success("success");
+                                location.href="/order/list";
                             } else if (result == "fail") {
                                 var info = "";
                                 for (var i in error) {
