@@ -34,7 +34,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                     state = "确认收货";
                     break;
                 default:
-                    state = "";
+                    state = "提交订单";
             }
             return state;
         };
@@ -115,7 +115,8 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                 "payAmount": data["payAmount"],                                  //  销售总额
                 "prePeriodsPay": data["orderLines"][0]["prePeriodsPay"],         //  每期付款
                 "periods": data["orderLines"][0]["periods"],                     //  分期期数
-                "firstPay": data["orderLines"][0]["firstPay"]                    //  首付
+                "firstPay": data["orderLines"][0]["firstPay"],                    //  首付
+                "totalStatus": data["totalStatus"]["value"]
             };
             return returnObj;
         }
