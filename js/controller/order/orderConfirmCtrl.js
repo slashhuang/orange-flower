@@ -26,6 +26,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
 
         $scope.confirmState =function(id){
             var state= "";
+            $scope.showBtn = true;
             switch(id){
                 case "TO_PAY":
                     state = "立即支付";
@@ -33,8 +34,11 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                 case "RECEIPTED":
                     state = "确认收货";
                     break;
-                default:
+                case "":
                     state = "提交订单";
+                    break;
+                default :
+                    $scope.showBtn = false;
             }
             return state;
         };

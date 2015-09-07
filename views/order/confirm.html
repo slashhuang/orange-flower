@@ -25,8 +25,8 @@
 
     <!--商品信息-->
     <div class="product-info">
-        <a href="/sale/detail/{{data.id}}">
-        <!--<a href="#/sale/detail/{{data.id}}">-->
+        <!--<a href="/sale/detail/{{data.id}}">-->
+        <a href="#/sale/detail/{{data.id}}">
             <div class="order-info-no-border">
                 <div class="order-img">
                     <img src="/images/order/iphone.jpg">
@@ -73,7 +73,7 @@
     <!--确认按钮-->
     <div class="confirm-area">
         <p class="confirm-info">由于分期月数限制，暂不支持毕业时间为<span class="confirm-tip">2017年7月</span>之前的同学申请</p>
-        <em class="confirm-submit-btn" ng-click="confirmBuy(data.orderId,data.firstPay,data.totalStatus)"
+        <em class="confirm-submit-btn" ng-show="showBtn == true" ng-click="confirmBuy(data.orderId,data.firstPay,data.totalStatus)"
             ng-show="confirmState(data.totalStatus)">{{confirmState(data.totalStatus)}}</em>
     </div>
 </div>
