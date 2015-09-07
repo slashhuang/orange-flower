@@ -50,11 +50,9 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                 if(firstPay && firstPay > 0){
                     var data = {
                         "orderId": id,
-                        "amount": firstPay,
                         "payChannel": "WX_PUB",
-                        "tradeType": "TRADE_CONSUME",
-                        "description": "消费"
-                    }
+                        "tradeType": "TRADE_CONSUME"
+                    };
 
                     $http({
                         "method": "post",
