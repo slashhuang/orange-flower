@@ -1,4 +1,4 @@
-define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], function (wx, $, debug, pay) {
+define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx, $, pay) {
 
     //定义确定购买orderConfirm
     function orderConfirmCtrl($scope, $routeParams, $location, $http,$rootScope) {
@@ -55,7 +55,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
          */
         $scope.confirmBuy = function (id, firstPay,status) {
 
-            if(status=="TO_PAY"){
+            if(status=="TO_PAY" || $location.search()["showBtn"] == "true"){
                 if(firstPay && firstPay > 0){
                     var data = {
                         "orderId": id,
@@ -66,20 +66,16 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                     $http({
                         "method": "post",
                         url: $rootScope.prefuri + "/pay/pay/",
-                        "data": data,
+                        "data": data
                     }).success(function (res) {
                         pay.createPayment(res, function (result, error) {
                             if (result == "success") {
-                                location.href="/order/list";
+                                //location.href="/order/list";
+                                location.href = "/order/info?orderId=" + id;
                             } else if (result == "fail") {
-                                var info = "";
-                                for (var i in error) {
-                                    info += i + "---" + error[i] + "\n";
-                                }
-                                debug.error(info);
-                                debug.error("发送错误！请重试！");
+                                $scope.debugLog("支付失败",'alert');
                             } else if (result == "cancel") {
-                                debug.log("您取消了本次支付！");
+                                $scope.debugLog("支付失败",'alert');
                             }
                         });
                     }).error($rootScope.httpError);
