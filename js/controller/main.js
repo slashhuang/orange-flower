@@ -16,14 +16,14 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                     category:[]
                 };
 
-
-
                 $scope.mainCheck =function(){
                     if($scope.isLogin){
                         location.href="/user/center"
+                        //location.href="#/user/center"
                     }
                     else{
                         location.href="/login";
+                        //location.href="#/login";
                     }
                 };
 

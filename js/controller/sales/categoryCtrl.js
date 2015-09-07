@@ -33,6 +33,7 @@ define([],function(){
             "url":categoryUrl
         }).success(function(data){
             $scope.category.saleNav =data.items;
+            queryProduct();
         }).error(function(){
         });
 
@@ -66,9 +67,13 @@ define([],function(){
         $scope.keyword="";
 
         var queryProduct = function(key){
+            if(isNaN(parseInt(key))){
+                key = $scope.catId;
+            }
+            //  如果传入的不是一个数字,
             var DATAsettings = {
                 "sortType": $scope.sortType,
-                "catId":key,
+                "catId":key || 1,
                 "keyword":$scope.keyword
             };
             $http({

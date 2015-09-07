@@ -5,7 +5,6 @@ define([],function() {
     //定义商品分类controller
     function searchCtrl($scope, $routeParams, $location, $http,$rootScope) {
 
-
         //设定url
         var saleListUrl = $rootScope.prefuri + "/product/query";
 
@@ -19,12 +18,24 @@ define([],function() {
         $scope.sortType="DEFAULT";
         $scope.catId="";
         $scope.keyword="";
+        $scope.showRefresh = false;
 
+        /**
+         * 取消搜索
+         */
+        $scope.cancelSearch = function(){
+            $scope.keyword = "";
+        };
 
+        /**
+         * 点击搜索按钮
+         * @param data
+         */
         $scope.searchProductFUnc = function(data){
             var DATAsettings = {
                 "sortType": $scope.sortType,
-                "catId":$scope.catId,
+                "desc":true,
+                "catId":0,
                 "keyword":data
             };
             $scope.debugLog(DATAsettings);

@@ -1,26 +1,26 @@
 
 <div ng-class="{true:'detail-show-frame-fixedbg',false:''}[showFrame]">
     <div class="of-header gray">
-    <a class="header-back" href="javascript:history.back()"></a>
-    商品详情
-    <!--<a class="header-function" href="javascript:;">筛选</a>-->
-    <a class="header-function" href="/main">首页</a>
-        </div>
+        <a class="header-back" href="javascript:history.back()"></a>
+        商品详情
+        <a class="header-function" href="/main">首页</a>
+        <!--<a class="header-function" href="#/main">首页</a>-->
+    </div>
     <div class="h-40"></div>
     <div class="swiper-container img-slider">
 
-        <div class="item-detail-position">
-            <div class="item-detail-banner active">
-                <div class="item-detail-inner">
-                    <div class="item-detail-inner1 active">
-                        <span>立减</span>
-                        <span class="ng-binding">300</span>
-                        <!--<i>罄</i>-->
-                    </div>
-                </div>
+        <!--<div class="item-detail-position">-->
+            <!--<div class="item-detail-banner active">-->
+                <!--<div class="item-detail-inner">-->
+                    <!--<div class="item-detail-inner1 active">-->
+                        <!--<span>立减</span>-->
+                        <!--<span>{{activity.discount}}</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
-            </div>
-        </div>
+        <div ng-bind-html="rendOffInfo(activity) | trustHtml"></div>
 
         <div class="swiper-wrapper">
             <div class="swiper-slide" style="width: 100%; text-align: center;" ng-repeat="imgs in detailImages">
@@ -37,7 +37,7 @@
 
     <div class="item-detail-intro">
         <h1>{{saleDetail.title}}</h1>
-        <h1 class="small-font">每个ID限购一单</h1>
+        <!--<h1 class="small-font">每个ID限购一单</h1>-->
         <span>￥<i>{{transferPrice(saleDetail.price)}}</i></span>
     </div>
     <div class="item-detail-option-wrapper">
@@ -105,6 +105,7 @@
             </li>
             <li class="of-item-buy-info-right">
                 <!--<h1>{{saleDetail.title}}</h1>-->
+                <!--<h1 style="font-size: 18px;color: #515151;">Apple shit 6s</h1>-->
                 <h1 style="font-size: 18px;color: #515151;">{{saleDetail.title}}</h1>
                 <span style="font-size: 13px;color: #adadad;">商品价格： ￥<i>{{transferPrice(saleDetail.price)}}</i></span>
             </li>

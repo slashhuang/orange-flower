@@ -1,8 +1,10 @@
 
 <div style="line-height: 20px;" class="of-header gray">
     <a class="header-back" href="/main"></a>
+    <!--<a class="header-back" href="#/main"></a>-->
     限时特卖
     <a class="of-header-search-gray" href="/sale/search"></a>
+    <!--<a class="of-header-search-gray" href="#/sale/search"></a>-->
 </div>
 <!--商品排序方式-->
 <div class="h-40"></div>
@@ -10,6 +12,7 @@
     <!--商品单元-->
     <div ng-repeat="salelist in discountList ">
         <a href="/sale/detail/{{salelist.itemID}}">
+        <!--<a href="#/sale/detail/{{salelist.itemID}}">-->
             <div class="item-sale-list clear-float">
               <!--class状态有两个"active":"soldout"-->
                 <div class="split-line-item"></div>
@@ -33,7 +36,7 @@
                     </div>
                 </div>
                 <div class="item-hot-list-detail">
-                    <h1>{{salelist.itemInfo |  cut:true:40:' ...'}}</h1>
+                    <h1>{{salelist.itemInfo | cut:true:40:' ...'}}</h1>
                     <p class="item-price color-51">￥{{transferPrice(salelist.itemPrice)}}&nbsp;&nbsp;&nbsp;<i>￥{{transferPrice(salelist.itemOldPrice)}}</i></p>
                     <div class="total-price">
                         <i>￥{{salelist.itemInstallation}}</i>

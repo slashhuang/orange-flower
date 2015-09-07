@@ -148,7 +148,7 @@ define([], function () {
                 "prePeriodsPay": data["orderLines"][0]["prePeriodsPay"],         //  每期付款
                 "periods": data["orderLines"][0]["periods"],                     //  分期期数
                 "firstPay": data["orderLines"][0]["firstPay"],                   //  首付
-                "productId": data["orderLines"][0]["sku"]["productId"]           //  商品id
+                "productId": data["orderLines"][0]["sku"]["id"]                  //  商品id
             };
             return returnObj;
         }

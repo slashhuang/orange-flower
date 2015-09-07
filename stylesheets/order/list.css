@@ -51,15 +51,23 @@
     float: right;
 }
 
+.order-status-text{
+    display: inline-block;
+    color: #fff;
+    padding: 0.2rem 0.25rem;
+    background: #16cd9b;
+    margin: 0 0 0 0.5rem;
+}
+
 /* 审核中 */
 .checking .orde-num-info:after{
     content: "审核中";
     position: absolute;
     right: -5rem;
     top: -0.2rem;
-    background: #16cd9b;
     color: #fff;
     padding: 0.2rem 0.25rem;
+    background: #16cd9b;
 }
 
 /* 已发货 */
@@ -151,7 +159,7 @@
 }
 
 .item-info{
-    width: 32rem;
+    /*width: 32rem;*/
     padding: 0 0 0 6rem;
 }
 

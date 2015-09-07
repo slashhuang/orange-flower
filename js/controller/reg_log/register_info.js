@@ -122,18 +122,20 @@ define([],function(){
                    "method":"post",
                    "url":completeInfoURL,
                    "data":data
-               }).success(function(response, status, headers, config){
-                   hintFUNC();
+               }).success(function(res){
+                   hintFUNC(res);
                }).error($scope.httpError);
            }
         };
 
         /**
-         *提示额度功能
+         * 完善信息后有提示信息
+         * @param money
          */
-        var hintFUNC = function(){//完善信息成功后输出提示并且跳转首页
+        var hintFUNC = function(money){
+            //完善信息成功后输出提示并且跳转首页
             $scope.hintStatus =true;
-            $scope.infoHint = "您已经获取6000元额度，可以立即购物哦";
+            $scope.infoHint = "您已经获取"+ $scope.transferPrice(money) +"元额度，可以立即购物哦";
             $timeout(function(){
                 $scope.hintStatus = false;
                 //window.location.href="#/main"

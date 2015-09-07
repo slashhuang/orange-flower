@@ -7,9 +7,9 @@
     width: 40px;
     height: 20px;
     /*background: url(/images/icon/arrow_header.png) no-repeat 0 0 ;*/
-    background: url(/images/icon/arrow.png) no-repeat 0 0 ;
-    background-size: 20px 20px;
-
+    background: url(/images/icon/arrow-head.png) no-repeat 0 0;
+    /*background: url(/images/icon/arrow.png) no-repeat 0 0;*/
+    background-size: 10px 20px;
 }
 
 .header-back-info{

@@ -20,7 +20,7 @@
 *图标和小字的分类
 */
 .of-icon-class-box{
-    margin-top:5px ;
+    /*margin-top:5px ;*/
     padding-bottom:11px;
     overflow: hidden;
     background-color: #fff;
@@ -32,7 +32,8 @@
     width:25%;
     text-align:center;
     font-size:13px;
-    margin-top:4px ;
+    /*margin-top:4px;*/
+    margin-top:10px;
 }
 
 .of-icon-class-item a{
@@ -43,10 +44,9 @@
 
 .of-icon-class-item img{
     display: block;
-    margin:auto;
+    margin:0 auto 8px;
     width:40px;
     height:40px;
-    margin-bottom: 8px;
 }
 
 /*限时特卖*/
@@ -207,8 +207,10 @@
     font-weight:900;
 }
 .of-class-recommand-item .of-price span{
-    font-size: 11px;
+    /*font-size: 11px;*/
+    font-size: 13px;
     color: #ff5959;
+    font-weight: bold;
 }
 
 /**
@@ -253,6 +255,9 @@
 .of-bottom-bar a{
     display: block;
     width: 100%;
+}
+.of-bottom-bar a.active{
+    color: #15c690;
 }
 .of-bottom-bar i{
     width: 24px;

@@ -83,11 +83,18 @@
 /*商品列表*/
 .item-sale-list{
     width:100%;
-    padding:8px 2% 13px;
+    padding:4px 2% 8px;
     background: #fff;
     border-bottom:1px #e6e6e6 solid;
+    position: relative;
     /*height:50px;*/
 }
+
+.item-sale-list .item-detail-position{
+    /*left: 0;*/
+    /*top: 0;*/
+}
+
 .item-list-img{
     width:33%;
     float:left;
@@ -182,6 +189,7 @@
     padding:3px 3px 0.6em 3px;
     /*font-size:12px;*/
     font-size:13px;
+    line-height: 20px;
     display: block;
     text-overflow:ellipsis;
     overflow: hidden;
@@ -191,6 +199,8 @@
 }
 .item-price{
     font-size:10px;
+    padding: 0 0 5px 0;
+    color: #adadad;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .item-price i{

@@ -3,13 +3,15 @@
          <a class="header-back" href="javascript:history.back()"></a>
          搜索
          <a class="header-function" href="/main">首页</a>
+         <!--<a class="header-function" href="#/main">首页</a>-->
      </div>
      <div class="h-40"></div>
      <div>
          <form class='of-category-input'>
              <input placeholder="搜索您需要的商品"  type="text" maxlength="20"
                     ng-model="keyword" ng-focus="noDataDetection=false;">
-             <b src="/images/icon/search_main_icon.png" ng-click="searchProductFUnc(keyword)"></b>
+             <b src="/images/icon/search_main_icon.png" class="search-icon" ng-click="searchProductFUnc(keyword)"></b>
+             <b src="/images/icon/search_cancel.png" class="cancel-icon" ng-show="keyword.length > 0" ng-click="cancelSearch()"></b>
          </form>
      </div>
  </div>
@@ -24,6 +26,7 @@
              <b src="/images/icon/search_main_icon.png" ng-click="searchProductFUnc(keyword1)"></b>
          </form>
          <a class="header-function" href="/main">首页</a>
+         <!--<a class="header-function" href="#/main">首页</a>-->
      </div>
     <!--商品排序方式-->
     <div class="sale-list-bar clear-float">
@@ -43,6 +46,7 @@
             <ul>
                 <li class="item-sale-list clear-float" ng-repeat="sale in saleList" >
                     <a href="/sale/detail/{{sale.id}}">
+                    <!--<a href="#/sale/detail/{{sale.id}}">-->
                         <div class="item-list-img">
                             <img ng-src="{{prefuri+sale.thumb.bigUrl}}" width="55px"style="margin-right:5px;">
                         </div>
@@ -62,7 +66,7 @@
                 </li>
             </ul>
             <div class="h-20"></div>
-            <div  id="refreshButton" class="sale-list-refreshField">
+            <div  id="refreshButton" ng-show="showRefresh == true" class="sale-list-refreshField">
                 <div class='sale-list-refreshImg' id="refreshImg"></div>
                 <div id="refreshHint" class='sale-list-refreshHint'>努力加载中</div>
             </div>

@@ -1,15 +1,17 @@
 <div>
     <div class="of-header gray">
         <a class="header-back" href="/main"></a>
+        <!--<a class="header-back" href="#/main"></a>-->
         分类
         <a class="header-function" href="/main">首页</a>
+        <!--<a class="header-function" href="#/main">首页</a>-->
     </div>
     <!--商品排序方式-->
 
     <div class="h-40"></div>
     <div class='of-category-input'>
         <input placeholder="搜索您需要的商品" type="text" maxlength="20" ng-model="keyword">
-        <b ng-click="searchProduct(keyword)"></b>
+        <b ng-click="searchProduct(keyword)" class="search-icon"></b>
     </div>
 
 
@@ -31,9 +33,10 @@
                 <!--偶数添加"splitline"-->
                 <li ng-class-odd="'splitline'" ng-class-even="''" ng-repeat="info in category.itemInfo | filter:keyword">
                     <a href="/sale/detail/{{info.id}}">
+                    <!--<a href="#/sale/detail/{{info.id}}">-->
                         <img ng-src="{{prefuri+info.thumb.bigUrl}}">
                         <span>{{info.title}}</span>
-                        <span>每个ID限购一单</span>
+                        <span class="limit-id">每个ID限购一单</span>
                     </a>
                 </li>
             </ul>

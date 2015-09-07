@@ -469,4 +469,27 @@
     font-weight: bold;
 }
 
+.Ptable{
+    border: 1px solid #adadad;
+    border-bottom: none;
+}
 
+.Ptable tr th{
+    border-bottom: 1px solid #adadad;
+    padding: 5px;
+}
+
+.Ptable td{
+    display: inline-block;
+    border-bottom: 1px solid #adadad;
+    padding: 5px;
+}
+
+.Ptable tr td:nth-of-type(1){
+    width: 35%;
+    border-right: 1px solid #adadad;
+}
+
+.Ptable tr td:nth-of-type(2){
+    width: 64%;
+}

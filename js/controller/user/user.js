@@ -18,12 +18,10 @@ define(['angular', './center', "./settings", "./setAccount", "./modifyPwd", "./c
                             "url": $rootScope.prefuri + "/file/upload?space=product",
                             "fileElementId": curEle.attr("id"),
                             "success": function (data,status) {
-                                alert("fuck")
                             },
                             error: function (data,status,e) {
-                                alert("failed")
                             }
-                        });
+                        }).off("change");
                     });
                 }
             };

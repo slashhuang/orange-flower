@@ -64,6 +64,18 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                 }
             };
 
+            /**
+             * 渲染优惠信息
+             * @param info
+             */
+            $rootScope.rendOffInfo = function(info){
+                if(Object.prototype.toString.apply(info) == "[object Null]"){
+                    return "";
+                }
+                return "<div class='item-detail-position'> <div class='item-detail-banner active'> <div class='item-detail-inner'><div class='item-detail-inner1 active'>" +
+                "<span>立减</span> <span>" + info["discount"] + "</span> <!--i>罄</i--> </div> </div> </div> </div>";
+            };
+
 
             //$rootScope.httpError = function(res){
             //    if(res&&res.message){
@@ -93,7 +105,14 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                                 $timeout(function () {
                                     location.href='/login';
                                 },2000);
-                            break;//用户未登录
+                            break;//    用户未登录
+                        case '10023':
+                            $rootScope.isLogin = false;
+                            errorHandler.loginAction =
+                                $timeout(function () {
+                                    location.href='/registerInfo';
+                                },2000);
+                            break;//    完善信息
                         default :
                             errorHandler.loginAction= function () {
                                 return false;
@@ -109,6 +128,9 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
              * @returns {string}
              */
             $rootScope.transferPrice = function (price) {
+                if(!price || price == 0){
+                    price = 0;
+                }
                 return parseFloat((parseInt(price) / 100).toFixed(2));
             };
 

@@ -25,6 +25,17 @@ define([], function () {
         XHRrequest.error($scope.httpError);
 
         /**
+         * 判断是否完善信息
+         * @param info
+         */
+        $scope.rendInfo = function(info){
+            if(!info){
+                return "请先完善信息";
+            }
+            return info;
+        };
+
+        /**
          * 处理跳转信用额度中心
          * @param bool
          */

@@ -1,9 +1,9 @@
 /**
  * Created by slashhuang on 15/8/21.
  */
-define([], function () {
+define(['zepto'], function ($) {
     //定义商品分类controller
-    function registerCtrl($scope, $routeParams, $location, $http, $timeout,$rootScope,$cookies) {
+    function registerCtrl($scope, $routeParams, $location, $http, $timeout, $rootScope, $cookies) {
 
 
         var favoriteCookie = $cookies.myFavorite;
@@ -19,7 +19,7 @@ define([], function () {
         $scope.code = "";
 
 
-        $scope.submitHint="";
+        $scope.submitHint = "";
         $scope.registerSmsHint = "发送验证码";
 
         //通用函数
@@ -30,7 +30,7 @@ define([], function () {
          */
         function _checkMobile(mobile) {
             var reg = /^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i;
-            if(!reg.test(mobile)){
+            if (!reg.test(mobile)) {
                 $scope.checkVaildHint = "手机号格式不符!";
             }
             return reg.test(mobile);
@@ -44,7 +44,7 @@ define([], function () {
             if (password.length > 5) {
                 return true
             }
-            else{
+            else {
                 return false;
             }
         }
@@ -55,8 +55,8 @@ define([], function () {
          */
 
         $scope.checkVaildHint = "";
-        $scope.checkMobile = function (mobile, password,verified) {
-            if(verified){
+        $scope.checkMobile = function (mobile, password, verified) {
+            if (verified) {
                 if (!_checkMobile(mobile)) {
                     $scope.checkVaildHint = "手机号格式不符!";
                     return false;
@@ -70,7 +70,7 @@ define([], function () {
                     }
                 }
             }
-            else{
+            else {
                 $scope.checkVaildHint = "请勾选同意协议按钮～";
             }
 
@@ -103,25 +103,58 @@ define([], function () {
          * 发送短信
          * @param tel
          */
-        $scope.sendsms=function(tel){
+        $scope.sendsms = function (tel) {
             if ($scope.countTime == 0) {
-                if(_checkMobile(tel)){
-                    $http({
-                        "method":"post",
-                        "url":sendSmsUrl+"/"+tel
-                    }).success(function(response, status, headers, config){
-                        //console.log(arguments);
-                        $scope.debugLog(arguments);
-                        $scope.checkVaildHint = "短信已发送，请查收";
-                        showCountDown();
-                    }).error(function(response, status, headers, config){
-                        //console.log(response);
-                        $scope.debugLog(response);
+                if (_checkMobile(tel)) {
+                    //$http.post(sendSmsUrl + "/" + tel, JSON.stringify({
+                    //    "register": true
+                    //})).success(function (response, status, headers, config) {
+                    //    //console.log(arguments);
+                    //    $scope.debugLog(arguments);
+                    //    $scope.checkVaildHint = "短信已发送，请查收";
+                    //    showCountDown();
+                    //}).error(function (response, status, headers, config) {
+                    //    //console.log(response);
+                    //    $scope.debugLog(response);
+                    //});
+                    //$http({
+                    //    "method":"post",
+                    //    "url":sendSmsUrl+"/"+tel,
+                    //    "data":{
+                    //        "register":true
+                    //    }
+                    //}).success(function(response, status, headers, config){
+                    //    //console.log(arguments);
+                    //    $scope.debugLog(arguments);
+                    //    $scope.checkVaildHint = "短信已发送，请查收";
+                    //    showCountDown();
+                    //}).error(function(response, status, headers, config){
+                    //    //console.log(response);
+                    //    $scope.debugLog(response);
+                    //});
+
+                    $.ajax({
+                        type: 'POST',
+                        url: sendSmsUrl + "/" + tel,
+                        data: {"register": true},
+                        dataType: 'json',
+                        success: function (data) {
+                            $scope.debugLog(arguments);
+                            $scope.checkVaildHint = "短信已发送，请查收";
+                            showCountDown();
+                        },
+                        error: function (xhr) {
+                            $scope.submitHint = JSON.parse(xhr.responseText).message;
+                            $timeout(function(){
+                                $scope.submitHint = "";
+                            },2000);
+                            //  输出错误信息,两秒后消失
+                            $scope.debugLog(xhr.responseText);
+                        }
                     });
                 }
 
             }
-
 
 
         };
@@ -132,19 +165,19 @@ define([], function () {
          * @param password
          * @param code
          */
-        $scope.registerSubmit = function (telephone,password,code,verified) {
-            if($scope.checkMobile(telephone, password,verified)){
+        $scope.registerSubmit = function (telephone, password, code, verified) {
+            if ($scope.checkMobile(telephone, password, verified)) {
                 $http({
                     "method": "post",
-                    "url": registerUrl+"?telephone="+telephone+"&password="+password+"&code="+code,
+                    "url": registerUrl + "?telephone=" + telephone + "&password=" + password + "&code=" + code,
                 }).success(function (response, status, headers, config) {
-                    $scope.submitHint="注册成功！";
-                    var callback = function(){
+                    $scope.submitHint = "注册成功！";
+                    var callback = function () {
                         $location.url("/registerInfo");
                     };
                     hintFunc(callback);
                 }).error(function (res) {
-                    $scope.submitHint=res.message;
+                    $scope.submitHint = res.message;
                     hintFunc();
                 });
             }
@@ -155,8 +188,8 @@ define([], function () {
          * @param passwordRepeat
          * @param password
          */
-        $scope.checkPassword = function ( password,passwordRepeat) {
-            if (password.length<5) {
+        $scope.checkPassword = function (password, passwordRepeat) {
+            if (password.length < 5) {
                 $scope.checkVaildHint = "密码长度至少6位!";
                 return false;
             } else if (!passwordRepeat.length) {
@@ -168,16 +201,16 @@ define([], function () {
             }
         };
 
-        var hintFunc =function(callback){
-            $timeout(function(){
-                if(callback){
+        var hintFunc = function (callback) {
+            $timeout(function () {
+                if (callback) {
                     callback()
                 }
-                $scope.submitHint="";
-            },2000)
+                $scope.submitHint = "";
+            }, 2000)
         };
     };
-    registerCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout','$rootScope','$cookies'];
+    registerCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout', '$rootScope', '$cookies'];
 
     return registerCtrl;
 });

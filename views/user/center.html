@@ -5,8 +5,10 @@
     <!--头部-->
     <div class="of-header gray">
         <a class="header-back" href="/main"></a>
+        <!--<a class="header-back" href="#/main"></a>-->
         个人中心
         <a class="header-function" href="/user/settings" style="color:#5b5b5b">设置</a>
+        <!--<a class="header-function" href="#/user/settings" style="color:#5b5b5b">设置</a>-->
     </div>
 
     <!--个人信息-->
@@ -15,8 +17,8 @@
         <div class="left-info">
             <img class="avator" src="/images/orchen.png">
             <div class="name-mobile">
-                <h4 class="u-name">{{centerData.userName}}</h4>
-                <h6 class="u-mobile">{{centerData.telNo}}</h6>
+                <h4 class="u-name">{{rendInfo(centerData.userName)}}</h4>
+                <h6 class="u-mobile">{{rendInfo(centerData.telNo)}}</h6>
             </div>
         </div>
         <div ng-class="{true: 'reg-btn-disable', false: 'reg-btn-active'}[verifyActive(centerData.status.value)]"
@@ -29,11 +31,11 @@
     <div class="user-center-balance">
         <div class="balance-left">
             <h4 class="info-text">信用额度（元）</h4>
-            <p class="info-num">{{centerData.userCredit.totalCredit}}</p>
+            <p class="info-num">{{transferPrice(centerData.userCredit.totalCredit)}}</p>
         </div>
         <div class="balance-right">
             <h4 class="info-text">可用额度（元）</h4>
-            <p class="info-num">{{centerData.userCredit.currentCredit}}</p>
+            <p class="info-num">{{transferPrice(centerData.userCredit.currentCredit)}}</p>
         </div>
     </div>
 
@@ -44,6 +46,7 @@
         <ul>
             <li class="list-item">
                 <a href="/order/list" class="whole-link">
+                <!--<a href="#/order/list" class="whole-link">-->
                     <b class="list-item-link" >我的订单</b>
 
                     <em class="arrow"></em>
@@ -51,6 +54,7 @@
             </li>
             <li class="list-item">
                 <a href="/bill" class="whole-link">
+                <!--<a href="#/bill" class="whole-link">-->
                     <b class="list-item-link" >我的账单</b>
                     <em class="arrow"></em>
                 </a>
@@ -63,6 +67,7 @@
             </li>
             <li class="list-item">
                 <a href="/user/modifypwd" class="whole-link">
+                <!--<a href="#/user/modifypwd" class="whole-link">-->
                     <b class="list-item-link">修改密码</b>
                     <em class="arrow"></em>
                 </a>
