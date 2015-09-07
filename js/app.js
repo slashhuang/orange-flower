@@ -69,7 +69,9 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
              * @param info
              */
             $rootScope.rendOffInfo = function(info){
-                if(Object.prototype.toString.apply(info) == "[object Null]"){
+
+                if(Object.prototype.toString.apply(info) == "[object Null]" || !info){
+                    //  优惠信息不存在
                     return "";
                 }
                 return "<div class='item-detail-position'> <div class='item-detail-banner active'> <div class='item-detail-inner'><div class='item-detail-inner1 active'>" +
@@ -113,6 +115,9 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                                     location.href='/registerInfo';
                                 },2000);
                             break;//    完善信息
+                        case '10024':
+                            $rootScope.debugLog(res.message,'alert');
+                            break;
                         default :
                             errorHandler.loginAction= function () {
                                 return false;
@@ -142,6 +147,14 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
             $rootScope.addActive = function (status) {
                 return location.href.indexOf(status) > -1 ? "active" : "";
             };
+
+            /**
+             * 公共的弹窗组件
+             * @param config
+             */
+            $rootScope.dialog = function(config){
+                //var bg = document.createElement("div")，
+            }
 
         }]);
         var loadEl = document.getElementsByClassName("refresh-mask")[0];
