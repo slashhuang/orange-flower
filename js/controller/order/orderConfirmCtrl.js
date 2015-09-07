@@ -40,6 +40,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "debug", "pingpp"], fun
                 default :{
                     $scope.showBtn = false;
                     if($location.search()["showBtn"] == "true"){
+                        state = "提交订单";
                         $scope.showBtn = true;
                     }
                 }
