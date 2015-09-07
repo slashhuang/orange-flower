@@ -7,6 +7,7 @@ define([], function () {
         var userCenterUrl = $rootScope.prefuri + "/user/info";
         $scope.centerData = {};
 
+        $rootScope.isLogin = true;
 
         /**
          * 处理HTTP请求
