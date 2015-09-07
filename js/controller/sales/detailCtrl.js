@@ -233,7 +233,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                     "url": $rootScope.prefuri + "/order/create",
                     "data": data
                 }).success(function (res) {
-                    location.href = "/order/confirm?orderId=" + res;
+                    location.href = "/order/confirm?orderId=" + res + "&showBtn=true";
                 }).error($rootScope.httpError);
         };
 
