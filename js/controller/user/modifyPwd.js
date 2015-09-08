@@ -60,8 +60,8 @@ define([], function () {
                     $scope.ErrorMessage ="修改密码成功";
                     $timeout(function () {
                         $scope.ErrorMessage ="";
-                        location.href = "#/user/center";
-                        //location.href = "/user/center"
+                        //location.href = "#/user/center";
+                        location.href = "/user/center"
                     }, 2000);
                 };
 

@@ -103,15 +103,13 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                         case '10000':
                             $rootScope.isLogin = false;
                                 $timeout(function () {
-                                    //location.href='/login';
-                                    location.href="#/login"
+                                    location.href='/login';
                                 },2000);
                             break;//    用户未登录
                         case '10023':
                             $rootScope.isLogin = false;
                                 $timeout(function () {
-                                    //location.href='/registerInfo';
-                                    location.href='#/registerInfo';
+                                    location.href='/registerInfo';
                                 },2000);
                             break;//    完善信息
                         case '10024':

@@ -4,11 +4,11 @@
 
     <!--头部-->
     <div class="of-header gray">
-        <!--<a class="header-back" href="/main"></a>-->
-        <a class="header-back" href="#/main"></a>
+        <a class="header-back" href="/main"></a>
+        <!--<a class="header-back" href="#/main"></a>-->
         个人中心
-        <!--<a class="header-function" href="/user/settings" style="color:#5b5b5b">设置</a>-->
-        <a class="header-function" href="#/user/settings" style="color:#5b5b5b">设置</a>
+        <a class="header-function" href="/user/settings" style="color:#5b5b5b">设置</a>
+        <!--<a class="header-function" href="#/user/settings" style="color:#5b5b5b">设置</a>-->
     </div>
 
     <!--个人信息-->
@@ -22,8 +22,8 @@
                 <h6 class="u-mobile">{{rendInfo(centerData.telNo)}}</h6>
             </div>
         </div>
-        <div ng-class="{true: 'reg-btn-disable', false: 'reg-btn-active'}[verifyActive(centerData.userAuthOffline.authStatus.value)]"
-           ng-click="centerJump(centerData.userAuthOffline.authStatus.value)">{{centerData.userAuthOffline.authStatus.title}}</div>
+        <div ng-class="{true: 'reg-btn-disable', false: 'reg-btn-active'}[verifyActive(centerData.status.value)]"
+           ng-click="centerJump(verifyActive(centerData.status.value))">{{verifyActive(centerData.status.value)?"已认证":"立即认证"}}</div>
     </div>
 
     <div class="split-line h-20"></div>
@@ -46,16 +46,16 @@
     <div class="user-center-btn-list">
         <ul>
             <li class="list-item">
-                <!--<a href="/order/list" class="whole-link">-->
-                <a href="#/order/list" class="whole-link">
+                <a href="/order/list" class="whole-link">
+                <!--<a href="#/order/list" class="whole-link">-->
                     <b class="list-item-link" >我的订单</b>
 
                     <em class="arrow"></em>
                 </a>
             </li>
             <li class="list-item">
-                <!--<a href="/bill" class="whole-link">-->
-                <a href="#/bill" class="whole-link">
+                <a href="/bill" class="whole-link">
+                <!--<a href="#/bill" class="whole-link">-->
                     <b class="list-item-link" >我的账单</b>
                     <em class="arrow"></em>
                 </a>
@@ -67,8 +67,8 @@
                 </a>
             </li>
             <li class="list-item">
-                <!--<a href="/user/modifypwd" class="whole-link">-->
-                <a href="#/user/modifypwd" class="whole-link">
+                <a href="/user/modifypwd" class="whole-link">
+                <!--<a href="#/user/modifypwd" class="whole-link">-->
                     <b class="list-item-link">修改密码</b>
                     <em class="arrow"></em>
                 </a>

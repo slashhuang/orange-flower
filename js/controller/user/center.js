@@ -38,11 +38,12 @@ define([], function () {
 
         /**
          * 处理跳转信用额度中心
-         * @param offStatus
+         * @param bool
          */
         $scope.centerJump = function(offStatus){
             var status = $scope.verifyActive(offStatus);
-            location.href="#/registerInfo";
+            //location.href="#/registerInfo";
+            location.href="/registerInfo";
 
         }
 
