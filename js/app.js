@@ -49,18 +49,23 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                 }
             };
             /**
-             *
-              * @param res
+             * NONE("未认证"), NO("认证失败"), YES("认证成功");
+             * @param res
              * @returns {boolean}
              */
             $rootScope.verifyActive = function (res) {
                 switch (res){
-                    case  'DISABLED':
+                    case  'NONE':
                         return false;
                         break;
-                    case  'ENABLED':
+                    case  'NO':
+                        return false;
+                        break;
+                    case 'YES':
                         return true;
                         break;
+                    case "WAIT":
+                        return true;
                 }
             };
 
@@ -78,53 +83,42 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                 "<span>立减</span> <span>" + info["discount"] + "</span> <!--i>罄</i--> </div> </div> </div> </div>";
             };
 
-
-            //$rootScope.httpError = function(res){
-            //    if(res&&res.message){
-            //        alert(res.message);
-            //    };
-            //    if(res&&res.code){
-            //        switch (res.code){
-            //            case '10000':
-            //                $rootScope.isLogin = false;
-            //                break;//用户未登录
-            //            default :
-            //               break;
-            //        }
-            //    }
-            //};
-
+            /**
+             * 统一处理ERROR
+             * @param res
+             * @returns {Function|*}
+             */
             $rootScope.httpError = function(res){
                 var errorHandler={};
                 if(res&&res.message){
                     $rootScope.ErrorMessage = res.message;
+                    $timeout(function(){
+                        $rootScope.ErrorMessage="";
+                    },1800);
                 };
                 if(res&&res.code){
                     switch (res.code){
                         case '10000':
                             $rootScope.isLogin = false;
-                            errorHandler.loginAction =
                                 $timeout(function () {
-                                    location.href='/login';
+                                    //location.href='/login';
+                                    location.href="#/login"
                                 },2000);
                             break;//    用户未登录
                         case '10023':
                             $rootScope.isLogin = false;
-                            errorHandler.loginAction =
                                 $timeout(function () {
-                                    location.href='/registerInfo';
+                                    //location.href='/registerInfo';
+                                    location.href='#/registerInfo';
                                 },2000);
                             break;//    完善信息
                         case '10024':
                             $rootScope.debugLog(res.message,'alert');
                             break;
                         default :
-                            errorHandler.loginAction= function () {
-                                return false;
-                            }
+                            break;
                     }
                 }
-                return errorHandler.loginAction;
             };
 
             /**

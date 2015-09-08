@@ -143,6 +143,29 @@ define([],function(){
             },2500);
         };
 
+
+        /**
+         * 重新取数据，之后再模块化
+         * @type {string}
+         */
+        var userCenterUrl = $rootScope.prefuri + "/user/info";
+        /**
+         * 处理HTTP请求
+         */
+        var XHRrequest = $http({
+            "method": "post",
+            "url": userCenterUrl
+        });
+        XHRrequest.success(function (data) {
+            $scope.centerData = data;
+            $scope.verifiedStatus = $scope.verifyActive($scope.centerData.userAuthOffline.authStatus.value);
+            /**
+             * 仅仅为测试数据，之后去掉上面的注释
+             * @type {boolean}
+             */
+            //$scope.verifiedStatus=false;
+        });
+        XHRrequest.error($scope.httpError);
     };
     registerInfoCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout','$rootScope'];
 

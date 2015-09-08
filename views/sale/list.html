@@ -26,8 +26,8 @@
         <ul>
             <li class="item-sale-list clear-float" ng-repeat="sale in saleList" >
                 <div ng-bind-html="rendOffInfo(sale.activity) | trustHtml"></div>
-                <a href="/sale/detail/{{sale.id}}">
-                <!--<a href="#/sale/detail/{{sale.id}}">-->
+                <!--<a href="/sale/detail/{{sale.id}}">-->
+                <a href="#/sale/detail/{{sale.id}}">
                     <div class="item-list-img">
                         <img ng-src="{{prefuri+sale.thumb.bigUrl}}" width="80"style="margin: 5px 5px 0 0;position: relative;">
                     </div>

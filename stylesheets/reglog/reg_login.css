@@ -160,3 +160,23 @@ input.checkbox-style{
     height: 15px;
     background: url(../../images/icon/check-box.png) no-repeat 0 0;
 }
+
+.of-register-form-check{
+   margin-top:10px
+}
+.of-register-form-check div{
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 12px 10px;
+    border-bottom: 1px #e6e6e6 solid;
+    overflow: hidden;
+    color: #515151;
+    line-height: 22px;
+}
+.of-register-form-check div span{
+    margin-left:24px;
+}
+
+
+

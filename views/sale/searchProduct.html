@@ -2,8 +2,8 @@
      <div class="of-header gray">
          <a class="header-back" href="javascript:history.back()"></a>
          搜索
-         <a class="header-function" href="/main">首页</a>
-         <!--<a class="header-function" href="#/main">首页</a>-->
+         <!--<a class="header-function" href="/main">首页</a>-->
+         <a class="header-function" href="#/main">首页</a>
      </div>
      <div class="h-40"></div>
      <div>
@@ -26,8 +26,8 @@
              <b class="search-icon" ng-click="searchProductFUnc(keyword)"></b>
              <b class="cancel-icon" ng-show="keyword.length > 0" ng-click="cancelSearch()"></b>
          </form>
-         <a class="header-function" href="/main">首页</a>
-         <!--<a class="header-function" href="#/main">首页</a>-->
+         <!--<a class="header-function" href="/main">首页</a>-->
+         <a class="header-function" href="#/main">首页</a>
      </div>
     <!--商品排序方式-->
     <div class="sale-list-bar clear-float">
@@ -46,8 +46,8 @@
         <div id="scroller" style="width:100%">
             <ul>
                 <li class="item-sale-list clear-float" ng-repeat="sale in saleList" >
-                    <!--<a href="#/sale/detail/{{sale.id}}">-->
-                    <a href="/sale/detail/{{sale.id}}">
+                    <a href="#/sale/detail/{{sale.id}}">
+                    <!--<a href="/sale/detail/{{sale.id}}">-->
                         <div class="item-list-img">
                             <img ng-src="{{prefuri+sale.thumb.bigUrl}}" width="55px"style="margin-right:5px;">
                         </div>

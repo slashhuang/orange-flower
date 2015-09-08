@@ -47,7 +47,6 @@
     float:right;
     width: 9px;
     height: 18px;
-    /*background: url(../images/icon/icon_arrow_right.png) no-repeat 0 0;*/
     background: url(../images/user_center/arrow_right.png) no-repeat 0 4px;
     background-size: 8px 14px;
     margin-left: 0 !important;
@@ -55,11 +54,18 @@
 .of-header{
     width: 100%;
     font-size:18px;
-    /*padding: 11px;*/
     padding: 9px 11px 8px 11px;
     text-align: center;
     position: fixed;
     z-index: 99;
+}
+.user-reglog-hint{
+    margin-top:10px;
+    height:20px;
+    line-height: 20px;
+    padding-left:10px;
+    color:#515151;
+    font-size:14px;
 }
 .h-40{
     height: 49px;

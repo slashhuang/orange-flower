@@ -1,11 +1,10 @@
+<div class="of-header gray clear-float">
+    <a class="header-back" href="javascript:history.back()"></a>
+    {{verifiedStatus ?"个人信息查看":"个人信息填写"}}
+</div>
 
-<div ng-show="!infoComplete">
-    <div class="of-header gray clear-float">
-        <a class="header-back" href="javascript:history.back()"></a>
-        个人信息填写
-    </div>
-
-    <div class="h-40"></div>
+<div class="h-40"></div>
+<div ng-show="!verifiedStatus">
     <form class="of-register-form" action="" method="">
         <label>
             姓名 <input type="text" class="modified" placeholder="请输入真实姓名" ng-model="completeData.userName">
@@ -62,6 +61,26 @@
         {{idTip}}
     </div>
     <div class="of-button user-credit-button" ng-click="nextStep()" style="margin-top:30px;">完成</div>
+</div>
+
+
+<div ng-show="verifiedStatus">
+    <div class="of-register-form-check">
+        <div>
+            姓名<span>{{centerData.userName}}</span>
+        </div>
+        <div>
+            身份证号<span>{{centerData.userAddressList[0].id}}</span>
+        </div>
+        <div>
+            联系地址<span>{{centerData.userAddressList[0].address}}</span>
+        </div>
+        <div>
+            联系电话<span>{{centerData.userAddressList[0].consigneeMobile}}</span>
+        </div>
+
+    </div>
+
 </div>
 
 

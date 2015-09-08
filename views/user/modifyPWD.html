@@ -5,12 +5,15 @@
 
 <div class="h-40"></div>
 <form class="modifyPWD-form">
-    <input ng-model="currentPWD" type="password" placeholder="请输入当前密码"/>
-    <input ng-model="newPWD" type="password" placeholder="请输入新的密码"/>
-    <input ng-model="repeatNewPWD" type="password" placeholder="再次输入新密码"/>
+    <input ng-model="currentPWD" type="password" placeholder="请输入当前密码"ng-change="verifyOriginPwd()"/>
+    <input ng-model="newPWD" type="password" placeholder="请输入新的密码" ng-change="verifyNewPwdLength()"/>
+    <input ng-model="repeatNewPWD" type="password" placeholder="再次输入新密码" ng-change="verifyNewPwd()"/>
 </form>
+
+<div class="user-reglog-hint" ng-bind="passwordHint"></div>
 
 <div class="of-button of-button-bar btn-family" ng-click="modfifyRequest()" style="font-size: 18px;margin-top: 20px;padding: 12px 10px;">
     完成</div>
 
-<div ng-show="hintStatus" ng-bind="submitHint" class="commonHint-style"></div>
+
+<div ng-show="ErrorMessage.length>0" ng-bind="ErrorMessage" class="commonHint-style"></div>
