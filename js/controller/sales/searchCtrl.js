@@ -35,7 +35,6 @@ define([],function() {
             var DATAsettings = {
                 "sortType": $scope.sortType,
                 "desc":true,
-                "catId":0,
                 "keyword":data
             };
             $scope.debugLog(DATAsettings);
@@ -44,6 +43,7 @@ define([],function() {
                 "url":saleListUrl+"/"+ $scope.pageId,
                 "data":DATAsettings
             }).success(function(data){
+                $scope.keyword = "";
                 $scope.debugLog(data);
                 if(data.content&&data.content.length){
                     $scope.nosearch = false;
@@ -53,7 +53,11 @@ define([],function() {
                     $scope.noDataDetection = true;
                     $scope.nosearch = true;
                 }
-            }).error($scope.httpError);
+                $rootScope.searchKey = $scope.keyword;
+            }).error(function(err){
+                $scope.keyword = "";
+                $scope.httpError(err);
+            });
         };
         
     }

@@ -34,13 +34,16 @@
 /*设置fix属性*/
 .sale-list-bar{
     position:fixed;
-    top:47px;
+    /*top:47px;*/
+    top:45px;
     width:100%;
+    border-top:1px solid #e6e6e6;
     border-bottom:1px solid #e6e6e6;
     font-size:12px;
     z-index:100;
     background:#fff;
-    height:30px;
+    /*height:30px;*/
+    height:32px;
     line-height:30px;
 }
 .h-80{

@@ -13,7 +13,38 @@ define([],function(){
         }).success(function(){
             $scope.creditInfo = arguments[0];
             $scope.debugLog(arguments)
-        })
+        });
+
+        /**
+         * 可用额度/信誉额度
+         * @param number
+         */
+        $scope.rendMoney = function(number){
+            if(!number){
+                return "0.00";
+            }else{
+                return $scope.transferPrice(number) + ".00";
+            }
+        };
+
+        /**
+         * 根据用户是否认证显示按钮文字
+         * @returns {string}
+         */
+        $scope.btnText = function(){
+            var userCredit = $scope.userCredit;
+            if(userCredit && userCredit.totalCredit > 0){
+                $scope.linkFlag = true;
+                return "查看信息";
+            }
+            $scope.linkFlag = false;
+            return "立即完善";
+        };
+
+        $scope.rendLink = function(){
+            //return $scope.linkFlag == true ? "#/registerInfo" : "javascript:;";
+            return $scope.linkFlag == true ? "/registerInfo" : "javascript:;";
+        };
     }
     userCreditCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout','$rootScope'];
     return userCreditCtrl;

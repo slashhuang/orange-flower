@@ -107,12 +107,13 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                 "id":data["id"],                                                //  商品单价
                 "mobile": data["mobile"],                                        //  手机号
                 "arg": data["orderLines"][0]["commodityName"],                   //  商品参数
-                "address": data["userAddress"]["address"],                                   //  配送地址
+                "address": data["userAddress"]["address"],                       //  配送地址
+                "img":data["orderLines"][0]["commodityIconFile"]["smallUrl"],   //  商品缩略图
                 "orderId": data["orderId"],                                      //  订单编号
                 "productName": data["orderLines"][0]["sku"]["title"],           //  商品名称
                 "saleUnit": data["orderLines"][0]["saleUnit"],                   //  购买单价
                 "saleVolume": data["orderLines"][0]["saleVolume"],               //  购买个数
-                "service": "2000",                                               //  服务费
+                "servicePay":data["orderLines"][0]["serviceCharge"],            //  每期服务费,包含在每期支付里面
                 "salePrice": data["orderLines"][0]["salePrice"],                 //  商品原价
                 "realPayAmount": data["orderLines"][0]["realPayAmount"],         //  实际付款
                 "payAmount": data["payAmount"],                                  //  销售总额

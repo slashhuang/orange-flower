@@ -191,15 +191,20 @@
     font-size: 1.5rem;
 }
 
-.info-details-name p:nth-of-type(1){
-    width: 14rem;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-}
+/*.info-details-name p:nth-of-type(1){*/
+    /*width: 14rem;*/
+    /*white-space:nowrap;*/
+    /*overflow:hidden;*/
+    /*text-overflow:ellipsis;*/
+/*}*/
 
-.info-details-name p.special-icon{
-    width: 16rem;
+/*.info-details-name p.special-icon{*/
+    /*width: 16rem;*/
+/*}*/
+
+.info-detail-args{
+    overflow: hidden;
+    padding: 0.5rem 0;
 }
 
 .info-detail-args p,
@@ -211,14 +216,14 @@
     line-height: 2rem;
 }
 
-.info-detail-args p:nth-of-type(1){
-    padding: 0.5rem 0;
-}
+/*.info-detail-args p:nth-of-type(1){*/
+    /*padding: 0.5rem 0;*/
+/*}*/
 
 p.special-icon{
     position: relative;
     padding: 0 0 0 1.25rem;
-    line-height: 1.3rem;
+    line-height: 2.3rem;
 }
 
 /* 特字 */

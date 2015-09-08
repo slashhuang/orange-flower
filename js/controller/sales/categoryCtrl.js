@@ -33,7 +33,8 @@ define([],function(){
             "url":categoryUrl
         }).success(function(data){
             $scope.category.saleNav =data.items;
-            queryProduct();
+            queryProduct(data.item[0].id);
+            //  传入第一个tab项的id
         }).error(function(){
         });
 
@@ -73,7 +74,7 @@ define([],function(){
             //  如果传入的不是一个数字,
             var DATAsettings = {
                 "sortType": $scope.sortType,
-                "catId":key || 1,
+                //"catId":key || 1,
                 "keyword":$scope.keyword
             };
             $http({
@@ -85,8 +86,10 @@ define([],function(){
                     //console.log(response);
                     $scope.debugLog(response);
                     $scope.category.itemInfo = response.content;
+                    $scope.keyword = "";
                 }).error(
                 function(res){
+                    $scope.keyword = "";
                     //console.log(res)
                     $scope.debugLog(res);
                 });
@@ -96,6 +99,13 @@ define([],function(){
         $scope.searchProduct = function(key){
             $scope.watchClick = findIndex(key);
             queryProduct(key);
+        };
+
+        /**
+         * 取消搜索
+         */
+        $scope.cancelSearch = function(){
+            $scope.keyword = "";
         };
 
     };

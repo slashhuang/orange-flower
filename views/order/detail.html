@@ -24,11 +24,10 @@
                 <img src="/images/order/iphone.jpg">
             </div>
             <div class="order-info-detail order-info-detail-detail">
-                <p class="decrease-icon order-info-name">{{data.productName}}</p>
-
-                <p class="info-arg">{{data.arg}}</p>
-
-                <div class="price">
+                <!--<p class="decrease-icon order-info-name">{{data.productName}}</p>-->
+                <p class="order-info-name order-detail-name">{{data.productName}}</p>
+                <!--<p class="info-arg">{{data.arg}}</p>-->
+                <div class="order-detail-price">
                     <p>商品价格</p>
 
                     <p class="info-price">￥<span class="price-red">{{transferPrice(data.payAmount)}}</span></p>
@@ -49,7 +48,7 @@
             <p class="info-detail">￥{{transferPrice(data.firstPay)}}</p>
         </div>
         <div class="info-item month-pay">
-            <p class="info-name">月付</p>
+            <p class="info-name">月供</p>
 
             <p class="info-detail">￥{{transferPrice(data.prePeriodsPay)}}×{{data.periods}}</p>
         </div>
@@ -114,6 +113,6 @@
     <div class="split-line"></div>
 
     <div class="re-buy">
-        <a href="javascript:;" class="re-buy-btn" ng-click="reBuy(data.productId)">重新购买</a>
+        <a href="javascript:;" class="re-buy-btn" ng-click="reBuy(data.productId)">再次购买</a>
     </div>
 </div>

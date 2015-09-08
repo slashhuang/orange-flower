@@ -188,8 +188,6 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
 
             //console.log(typeof $scope.salePrice.price);
 
-            $scope.calculateMoney = $rootScope.transferPrice($scope.saleDetail.price);
-
             $scope.showOffInfo = Object.prototype.toString.apply($scope.saleDetail.activity) == "[object Null]" ? false : true;
             //  是否显示优惠信息
 
@@ -198,6 +196,18 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             $scope.activity = data.activity;
             //  优惠信息
 
+            if($scope.showOffInfo){
+                var start = parseInt(data.activity.startTime);
+                var end = parseInt(data.activity.endTime);
+                var now = new Date().getTime();
+                var money = parseInt($scope.saleDetail.price);
+                if(now >= start && now <= end){
+                    money = parseInt($scope.saleDetail.price) - parseInt(data.activity.discount);
+                }
+                $scope.saleDetail.price = money;
+                $scope.calculateMoney = $rootScope.transferPrice(money);
+            }
+            //  根据是否有活动计算当前总价
 
         }).error(function () {
         });

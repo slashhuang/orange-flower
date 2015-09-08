@@ -123,10 +123,10 @@ define([],function(){
         function _rendData(data){
             var returnVal = [];
             angular.forEach(data,function(item,index){
-                if(item){
+                if(item && item["orderLines"][0] && item["orderLines"][0]["commodityIconFile"] && item["orderLines"][0]["commodityIconFile"] != null){
                     returnVal.push({
                         "orderId":item["orderId"],                                      //  订单id
-                        "img":item["orderLines"][0]["commodityIcon"],                   //  商品缩略图
+                        "img":item["orderLines"][0]["commodityIconFile"]["smallUrl"],   //  商品缩略图
                         "arg":item["orderLines"][0]["sku"]["title"],                    //  商品参数
                         "status":item["totalStatus"]["value"],                          //  订单状态
                         "statusText":item["totalStatus"]["title"],                      //  状态文字说明

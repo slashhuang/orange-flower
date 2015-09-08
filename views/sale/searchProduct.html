@@ -10,8 +10,8 @@
          <form class='of-category-input'>
              <input placeholder="搜索您需要的商品"  type="text" maxlength="20"
                     ng-model="keyword" ng-focus="noDataDetection=false;">
-             <b src="/images/icon/search_main_icon.png" class="search-icon" ng-click="searchProductFUnc(keyword)"></b>
-             <b src="/images/icon/search_cancel.png" class="cancel-icon" ng-show="keyword.length > 0" ng-click="cancelSearch()"></b>
+             <b class="search-icon" ng-click="searchProductFUnc(keyword)"></b>
+             <b class="cancel-icon" ng-show="keyword.length > 0" ng-click="cancelSearch()"></b>
          </form>
      </div>
  </div>
@@ -20,10 +20,11 @@
  <div ng-show="!nosearch" ng-controller="saleListCtrl">
      <div style="position:fixed;top:0;height:45px;width:100%;z-index: 10;background: #fff">
          <a class="header-back" href="javascript:history.back()"></a>
-         <form class='of-category-input' style="width:80%;margin-left:auto;margin-right:auto">
+         <form class='of-category-input' style="width:80%;margin-left: 25px;">
              <input placeholder="搜索您需要的商品"  type="text" maxlength="20"
-                    ng-model="keyword1">
-             <b src="/images/icon/search_main_icon.png" ng-click="searchProductFUnc(keyword1)"></b>
+                    ng-model="keyword">
+             <b class="search-icon" ng-click="searchProductFUnc(keyword)"></b>
+             <b class="cancel-icon" ng-show="keyword.length > 0" ng-click="cancelSearch()"></b>
          </form>
          <a class="header-function" href="/main">首页</a>
          <!--<a class="header-function" href="#/main">首页</a>-->

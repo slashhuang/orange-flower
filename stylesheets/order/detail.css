@@ -37,7 +37,7 @@
 
 .order-info-detail-detail{
     overflow: hidden;
-    height: 7.5rem;
+    height: auto!important;
 }
 
 .order-img-detail{
@@ -218,3 +218,12 @@
 }
 
 
+.order-detail-price{
+    overflow: hidden;
+    padding: 0.5rem 0 0 0;
+}
+
+.order-detail-price p{
+    float: left;
+    font-size: 1.2rem;
+}

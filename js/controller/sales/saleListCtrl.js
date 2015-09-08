@@ -14,6 +14,9 @@ define(['zepto'],function($) {
         $scope.keyword = "";
         $scope.desc =true;
         $scope.saleList=[];
+        $scope.showRefresh = true;
+        //  判断是否显示上滑加载更多
+
         //设定url
         var saleListUrl = $rootScope.prefuri + "/product/query";
 
@@ -44,6 +47,13 @@ define(['zepto'],function($) {
             }).error($scope.httpError);
         };
 
+        /**
+         * 取消搜索
+         */
+        $scope.cancelSearch = function(){
+            $scope.keyword = "";
+        };
+
         $scope.sortData = function(sortType,bool){
             bool=!bool;
             $scope.sortType=sortType;
@@ -71,12 +81,16 @@ define(['zepto'],function($) {
                 switch(dd.last){
                     case true:
                         refreshHint.innerHTML="已是最后一页";
+                        $timeout(function(){
+                            $scope.showRefresh = false;
+                        },1000);
                         break;
                     case false:
                         refreshHint.innerHTML="上拉刷新";
+                        $scope.showRefresh = true;
                         break;
                 }
-            },500)
+            },500);
         };
         /**
          * 初始化数据

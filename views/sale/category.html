@@ -12,6 +12,7 @@
     <div class='of-category-input'>
         <input placeholder="搜索您需要的商品" type="text" maxlength="20" ng-model="keyword">
         <b ng-click="searchProduct(keyword)" class="search-icon"></b>
+        <b class="cancel-icon" ng-show="keyword.length > 0" ng-click="cancelSearch()"></b>
     </div>
 
 
@@ -32,8 +33,8 @@
             <ul class="of-category-main-item">
                 <!--偶数添加"splitline"-->
                 <li ng-class-odd="'splitline'" ng-class-even="''" ng-repeat="info in category.itemInfo | filter:keyword">
-                    <!--<a href="/sale/detail/{{info.id}}">-->
-                    <a href="#/sale/detail/{{info.id}}">
+                    <a href="/sale/detail/{{info.id}}">
+                    <!--<a href="#/sale/detail/{{info.id}}">-->
                         <img ng-src="{{prefuri+info.thumb.bigUrl}}">
                         <span>{{info.title}}</span>
                         <span class="limit-id">每个ID限购一单</span>

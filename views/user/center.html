@@ -15,7 +15,8 @@
     <div class="h-40"></div>
     <div class="user-center-info clear-float">
         <div class="left-info">
-            <img class="avator" src="/images/orchen.png">
+            <!--<img class="avator" src="/images/orchen.png">-->
+            <img class="avator" src="/images/default-head.jpg">
             <div class="name-mobile">
                 <h4 class="u-name">{{rendInfo(centerData.userName)}}</h4>
                 <h6 class="u-mobile">{{rendInfo(centerData.telNo)}}</h6>
@@ -30,12 +31,12 @@
     <!--余额-->
     <div class="user-center-balance">
         <div class="balance-left">
-            <h4 class="info-text">信用额度（元）</h4>
-            <p class="info-num">{{transferPrice(centerData.userCredit.totalCredit)}}</p>
+            <h4 class="info-text">信用额度(元)</h4>
+            <p class="info-num">{{transferPrice(centerData.userCredit.totalCredit)}}.00</p>
         </div>
         <div class="balance-right">
-            <h4 class="info-text">可用额度（元）</h4>
-            <p class="info-num">{{transferPrice(centerData.userCredit.currentCredit)}}</p>
+            <h4 class="info-text">可用额度(元)</h4>
+            <p class="info-num">{{transferPrice(centerData.userCredit.currentCredit)}}.00</p>
         </div>
     </div>
 

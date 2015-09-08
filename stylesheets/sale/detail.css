@@ -219,7 +219,8 @@
     padding-bottom:50px;
 }
 .item-detail-list h1#itemSliderNav{
-    padding:5px 0 10px 0;
+    /*padding:5px 0 10px 0;*/
+    padding:16px 0 17px 0;
     border-bottom:1px solid #494949;
     font-size:0;
     position:relative;
@@ -476,7 +477,6 @@
 
 .Ptable tr th{
     border-bottom: 1px solid #adadad;
-    padding: ;
 }
 
 .Ptable td{
