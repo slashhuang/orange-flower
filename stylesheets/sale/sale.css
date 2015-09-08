@@ -75,3 +75,8 @@
     background:#fff;
     position:relative
 }
+
+.cur-choosed-tab{
+    color: #ff1502;
+    font-weight: bold;
+}

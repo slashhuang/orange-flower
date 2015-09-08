@@ -8,9 +8,7 @@ define([], function () {
             "url":$rootScope.prefuri + "/repay/repayments"
         }).success(function(res){
             $scope.data = res;
-        }).error(function(err){
-
-        });
+        }).error($rootScope.httpError);
 
         /**
          * 通过bill来判断是否返回

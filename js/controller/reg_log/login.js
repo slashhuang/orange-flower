@@ -92,6 +92,7 @@ define([],function(){
                        }
                     });
                     XHRrequest.error(function(res){
+                        $rootScope.httpError(res);
                         $scope.infoHint = res.message;
                         $timeout(function(){$scope.infoHint = ""},1500)
                     })

@@ -36,8 +36,8 @@
                     <a href="/sale/detail/{{info.id}}">
                     <!--<a href="#/sale/detail/{{info.id}}">-->
                         <img ng-src="{{prefuri+info.thumb.bigUrl}}">
-                        <span>{{info.title}}</span>
-                        <span class="limit-id">每个ID限购一单</span>
+                        <span>{{info.title | limitTo : 24}}...</span>
+                        <!--<span class="limit-id">每个ID限购一单</span>-->
                     </a>
                 </li>
             </ul>

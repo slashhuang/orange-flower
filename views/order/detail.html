@@ -96,7 +96,7 @@
         <div class="info-item address">
             <p class="info-name">收货地址</p>
 
-            <p class="info-detail">{{data.address}}</p>
+            <p class="info-detail">{{data.address | limitTo : 15}}...</p>
         </div>
         <div class="info-item pay-method">
             <p class="info-name">支付方式</p>

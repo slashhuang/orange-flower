@@ -35,6 +35,7 @@ define([],function(){
                 //console.log(response);
                 $scope.debugLog(response);
             }).error(function(res){
+                $rootScope.httpError(res);
             });
         };
 
@@ -48,6 +49,7 @@ define([],function(){
                 //console.log(response);
                 $scope.debugLog(response);
             }).error(function(res){
+                $rootScope.httpError(res);
             });
         };
 
@@ -61,6 +63,7 @@ define([],function(){
                 //console.log(response);
                 $scope.debugLog(response);
             }).error(function(res){
+                $rootScope.httpError(res);
             });
         };
 

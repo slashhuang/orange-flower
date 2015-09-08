@@ -1,11 +1,12 @@
-define(['angular', './center', "./settings", "./setAccount", "./modifyPwd", "./credit", "/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"],
-    function (angular, center, settings, setAccount, modifyPwd, credit, $, ajaxFileUpload) {
+define(['angular', './center', "./settings", "./setAccount", "./modifyPwd", "./credit", "./infoCtrl","/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"],
+    function (angular, center, settings, setAccount, modifyPwd, credit, infoCtrl,$, ajaxFileUpload) {
         var userModule = angular.module('userModule', ["ngRoute"]);
         userModule.controller('centerCtrl', center);
         userModule.controller('userSettingsCtrl', settings);
         userModule.controller('setAccountCtrl', setAccount);
         userModule.controller('modifyPwdCtrl', modifyPwd);
         userModule.controller('userCreditCtrl', credit);
+        userModule.controller('infoCtrl', infoCtrl);
 
         //  自定义事件指令value-change
         userModule.directive("valueChange", ['$rootScope',function ($rootScope) {
@@ -21,7 +22,7 @@ define(['angular', './center', "./settings", "./setAccount", "./modifyPwd", "./c
                             },
                             error: function (data,status,e) {
                             }
-                        }).off("change");
+                        });
                     });
                 }
             };

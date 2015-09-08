@@ -80,7 +80,8 @@ define([], function () {
             "url": $rootScope.prefuri + "/order/" + orderId
         }).success(function (res) {
             $scope.data = _rendData(res);
-        }).error(function () {
+        }).error(function (err) {
+            $rootScope.httpError(err);
             $scope.data = {};
         });
 

@@ -18,8 +18,9 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
         }).success(function (res) {
             $scope.data = _rendData(res);
             tmpData = res;
-        }).error(function () {
+        }).error(function (err) {
             $scope.data = {};
+            $rootScope.httpError(err);
         });
 
 
@@ -71,7 +72,8 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                         pay.createPayment(res, function (result, error) {
                             if (result == "success") {
                                 //location.href="/order/list";
-                                location.href = "/order/info?orderId=" + id;
+                                //location.href = "/order/info?orderId=" + id;
+                                location.href = "/order/info?uId=" + $scope.uId;
                             } else if (result == "fail") {
                                 $scope.debugLog("支付失败",'alert');
                             } else if (result == "cancel") {
@@ -80,7 +82,8 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                         });
                     }).error($rootScope.httpError);
                 }else{
-                    location.href = "/order/info?orderId=" + id;
+                    //location.href = "/order/info?orderId=" + id;
+                    location.href = "/order/info?uId=" + $scope.uId;
                 }
             }
             else if(status=="RECEIPTED"){
@@ -92,6 +95,14 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                 }).error($rootScope.httpError);
             }
 
+        };
+
+        /**
+         * 立即付款,去订单确认页面确认
+         * @param orderId
+         */
+        $scope.payNow = function(orderId){
+            location.href = "/order/confirm?orderId=" + orderId;
         };
 
         /**
@@ -120,7 +131,8 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                 "prePeriodsPay": data["orderLines"][0]["prePeriodsPay"],         //  每期付款
                 "periods": data["orderLines"][0]["periods"],                     //  分期期数
                 "firstPay": data["orderLines"][0]["firstPay"],                    //  首付
-                "totalStatus": data["totalStatus"]["value"]
+                "totalStatus": data["totalStatus"]["value"],                      //    总状态
+                "uId":data["buyer"]["id"]                                         //    用户Id
             };
             return returnObj;
         }

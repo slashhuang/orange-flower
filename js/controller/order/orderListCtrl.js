@@ -7,15 +7,19 @@ define([],function(){
     function orderListCtrl($scope,$routeParams,$location,$http,$rootScope){
         //初始化变量完成
 
-        var uId = $location.search()["uId"];
+        var uId = $location.search()["uId"],
         //  从url里面获取uId
+
+            statusArr = ['TO_PAY', 'CHECKING', 'CHECKING_FAIL', 'TO_SHIPPED', 'SHIPPED', 'TRADING_SUCCESS', 'TRADING_CLOSED', 'EXCHANGE_CHECK', 'RETURN_CHECK', 'EXCHANGE_FAILED', 'RETURN_FAILED', 'EXCHANGE_SUCCESS', 'RETURN_SUCCESS', 'RETURNING', 'EXCHANGE', 'RETURNED', 'RECEIPTED'];
+        //  状态数组
 
         $http({
             "method":"get",
             "url":$rootScope.prefuri + "/order/list"
         }).success(function(res){
             $scope.data = _rendData(res["content"]);
-        }).error(function(){
+        }).error(function(err){
+            $rootScope.httpError(err);
             $scope.data = [];
         });
         //  请求数据
@@ -33,9 +37,40 @@ define([],function(){
                 if(res){
                     $scope.data.splice(index,1);
                 }
-            }).error(function(){
+            }).error(function(err){
+                $rootScope.httpError(err);
                 $scope.data = [];
             });
+        };
+
+        /**
+         * 根据不同的按钮渲染按钮
+         * @param status
+         */
+        $scope.showButton = function(status){
+            var index = _findIndex(statusArr,status);
+            if(index == 0 || index == 1 || index == 2){
+                return 1;
+            }else if(index == 4 || index == 16){
+                return 2;
+            } else if(index == 0){
+                return 3;
+            } else{
+                return 4;
+            }
+        };
+
+        /**
+         * 确认收货
+         * @param orderId
+         * @param status
+         */
+        $scope.confirmRecive = function(orderId,status){
+            var url = prefuri + "/order/status/" + orderId + status;
+            $http({
+                "url":url,
+                "method":"get"
+            }).success().error($rootScope.httpError);
         };
 
         /**

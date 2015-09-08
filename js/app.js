@@ -41,6 +41,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
              */
             $rootScope.debugLog = function(info,type){
                 if($rootScope.debugFlat){
+                    console.trace();
                     if(type == "alert"){
                         alert(info);
                     }else{
@@ -95,21 +96,23 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                     $rootScope.ErrorMessage = res.message;
                     $timeout(function(){
                         $rootScope.ErrorMessage="";
-                        callback();
+                        callback && callback();
                     },1800);
-                };
+                }
                 if(res&&res.code){
                     switch (res.code){
                         case '10000':
                             $rootScope.isLogin = false;
                                 $timeout(function () {
                                     location.href='/login';
+                                    //location.href="#/login"
                                 },2000);
                             break;//    用户未登录
                         case '10023':
                             $rootScope.isLogin = false;
                                 $timeout(function () {
                                     location.href='/registerInfo';
+                                    //location.href='#/registerInfo';
                                 },2000);
                             break;//    完善信息
                         case '10024':

@@ -17,65 +17,6 @@
  </div>
 
  <!--bug有点多，写不动了-->
- <div ng-show="!nosearch" ng-controller="saleListCtrl">
-     <div style="position:fixed;top:0;height:45px;width:100%;z-index: 10;background: #fff">
-         <a class="header-back" href="javascript:history.back()"></a>
-         <form class='of-category-input' style="width:80%;margin-left: 25px;">
-             <input placeholder="搜索您需要的商品"  type="text" maxlength="20"
-                    ng-model="keyword">
-             <b class="search-icon" ng-click="searchProductFUnc(keyword)"></b>
-             <b class="cancel-icon" ng-show="keyword.length > 0" ng-click="cancelSearch()"></b>
-         </form>
-         <a class="header-function" href="/main">首页</a>
-         <!--<a class="header-function" href="#/main">首页</a>-->
-     </div>
-    <!--商品排序方式-->
-    <div class="sale-list-bar clear-float">
-        <div class="sale-sort-option sale-sort-border" ng-click="sortData('DEFAULT')">
-            默认排序
-        </div>
-        <div class="sale-sort-option sale-sort-border" ng-click="sortData('SALE')">
-            销量排序
-        </div>
-        <div class="sale-sort-option" ng-click="sortData('PRICE',desc)">
-            价格
-        </div>
-    </div>
-    <!--商品列表-->
-    <div class="hot-sale-main-list">
-        <div id="scroller" style="width:100%">
-            <ul>
-                <li class="item-sale-list clear-float" ng-repeat="sale in saleList" >
-                    <!--<a href="#/sale/detail/{{sale.id}}">-->
-                    <a href="/sale/detail/{{sale.id}}">
-                        <div class="item-list-img">
-                            <img ng-src="{{prefuri+sale.thumb.bigUrl}}" width="55px"style="margin-right:5px;">
-                        </div>
-                        <div class="item-hot-list-detail">
-                            <h1>{{sale.title |cut:true:40:' ...'}}</h1>
-                            <p class="item-price">售价：￥{{transferPrice(sale.price)}}</p>
-                            <div class="total-price">
-                                <i>￥{{transferPrice(sale.pricePerMonth)}}</i>
-                                <h2>×</h2><span>{{sale.month}}期</span>
-
-                                <a href="" class="item-hot-sale" ng-repeat="tagAttr in sale.tags"
-                                   style="color:{{tagAttr.attrs.color}};
-                        border-color:{{tagAttr.attrs.color}}">{{tagAttr.value}}</a>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <div class="h-20"></div>
-            <div  id="refreshButton" ng-show="showRefresh == true" class="sale-list-refreshField">
-                <div class='sale-list-refreshImg' id="refreshImg"></div>
-                <div id="refreshHint" class='sale-list-refreshHint'>努力加载中</div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
+ <div ng-include="'/views/sale/searchResult.html'"></div>
 
 <div class="empty-sale" ng-show="noDataDetection"></div>

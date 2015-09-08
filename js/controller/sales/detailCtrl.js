@@ -168,6 +168,15 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                 swiper.mainItem();
                 swiper.picture();
                 detailDomFunc();
+                var table = document.getElementById("productArgs").getElementsByTagName("table")[0],
+                    attrs = {
+                        "cellpadding":1,
+                        //"cellspacing":0,
+                        "border":1,
+                        "bordercolor":"#adadad"
+                    };
+                $scope.debugLog(table.getAttribute("cellspaceing"));
+                _setAttr(table,attrs);
             }, 200);
 
             /***初始化自己设置的变量*/
@@ -209,7 +218,8 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             }
             //  根据是否有活动计算当前总价
 
-        }).error(function () {
+        }).error(function (err) {
+            $rootScope.httpError(err);
         });
 
         //初始化数据
@@ -267,6 +277,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                 $scope.itemColors = $scope.saleDetail.attrs[0];//颜色
                 $scope.itemShapes = $scope.saleDetail.attrs[1];//外形
             }).error(function (err) {
+                $rootScope.httpError(err);
             });
         }
 
@@ -274,6 +285,19 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             $scope.tapIndex = num;
         }
 
+    }
+
+    /**
+     * 给某个DOM元素设置属性
+     * @param obj
+     * @param attrs
+     * @private
+     */
+    function _setAttr(obj,attrs){
+        for(var i in attrs){
+            attrs[i] && (obj.removeAttribute(i));
+            attrs[i] && (obj.setAttribute(i,attrs[i]));
+        }
     }
 
     detailCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout', '$rootScope'];

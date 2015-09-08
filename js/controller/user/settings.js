@@ -21,13 +21,14 @@ define(["/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"], function ($, ajaxFile
             }).success(function (data) {
                 $scope.infoHint = "登出成功" + time + "秒后转向首页";
                 outLogin("登出成功");
-            }).error(function () {
+            }).error(function (err) {
                 $scope.infoHint = "登出失败";
                 $scope.logoutStatus = true;
                 $timeout(function () {
                     $scope.infoHint="";
                     $scope.logoutStatus = false;
-                },1500)
+                },1500);
+                $rootScope.httpError(err);
             });
         };
 

@@ -2,8 +2,7 @@
  * Created by slashhuang on 15/8/23.
  */
 define([],function(){
-    //定义商品分类controller
-    function userCreditCtrl($scope,$routeParams,$location,$http,$timeout,$rootScope){
+    function infoCtrl($scope,$routeParams,$location,$http,$timeout,$rootScope){
         var userCreditUrl= $rootScope.prefuri + "/user/info";
         $scope.creditInfo = {};
         //重置头像@TODO
@@ -49,6 +48,6 @@ define([],function(){
             return $scope.linkFlag ? "#/registerInfo" : "javascript:;";
         };
     }
-    userCreditCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout','$rootScope'];
-    return userCreditCtrl;
+    infoCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout','$rootScope'];
+    return infoCtrl;
 });

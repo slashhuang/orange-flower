@@ -1,8 +1,7 @@
-
 define([], function () {
-    function routecfg($routeProvider,$locationProvider,$httpProvider){
+    function routecfg($routeProvider, $locationProvider, $httpProvider) {
         //主页部分路由
-        $routeProvider.when("/main",{
+        $routeProvider.when("/main", {
             templateUrl: '/views/main.html',
             controller: 'mainCtrl'
         });
@@ -24,52 +23,55 @@ define([], function () {
                 templateUrl: '/views/sale/detail.html',
                 controller: 'detailCtrl'
             }).
-            when('/sale/search',{
-                templateUrl:"/views/sale/searchProduct.html",
-                controller:"searchCtrl"
+            when('/sale/search', {
+                templateUrl: "/views/sale/searchProduct.html",
+                controller: "searchCtrl"
             })
         ;
         //用户部分路由
         $routeProvider.
-            when("/user/settings",{
+            when("/user/settings", {
                 templateUrl: '/views/user/settings.html',
                 controller: 'userSettingsCtrl'
             }).
-            when("/user/center",{
+            when("/user/center", {
                 templateUrl: '/views/user/center.html',
                 controller: 'centerCtrl'
             }).
-            when("/user/credit",{
+            when("/user/credit", {
                 templateUrl: '/views/user/credit.html',
                 controller: 'userCreditCtrl'
             }).
-            when("/user/setAccount",{
+            when("/user/setAccount", {
                 templateUrl: '/views/user/setAccount.html',
                 controller: 'setAccountCtrl'
             }).
-            when("/user/modifypwd",{
-            templateUrl: '/views/user/modifyPWD.html',
-            controller: 'modifyPwdCtrl'
-        });
+            when("/user/modifypwd", {
+                templateUrl: '/views/user/modifyPWD.html',
+                controller: 'modifyPwdCtrl'
+            }).when("/user/info",{
+                templateUrl: '/views/user/info.html',
+                controller: 'infoCtrl'
+            });
         //登录注册部分
         $routeProvider.
-            when("/register",{
+            when("/register", {
                 templateUrl: '/views/reg_login/register.html',
                 controller: 'registerCtrl'
             }).
-            when("/login",{
+            when("/login", {
                 templateUrl: '/views/reg_login/login.html',
                 controller: 'loginCtrl'
             }).
-            when("/registerInfo",{
+            when("/registerInfo", {
                 templateUrl: '/views/reg_login/info.html',
                 controller: 'registerInfoCtrl'
             }).
-            when("/forgetpwd",{
+            when("/forgetpwd", {
                 templateUrl: '/views/reg_login/forget_pwd.html',
                 controller: 'forgetPWDCtrl'
             }).
-            when("/of_protocal",{templateUrl: '/views/reg_login/of_protocal.html',})
+            when("/of_protocal", {templateUrl: '/views/reg_login/of_protocal.html',})
 
         //订单部分路由
         $routeProvider.
@@ -85,11 +87,11 @@ define([], function () {
                 templateUrl: '/views/order/list.html',
                 controller: 'orderListCtrl'
             }).
-            when('/order/confirm',{
+            when('/order/confirm', {
                 templateUrl: '/views/order/confirm.html',
                 controller: 'orderConfirmCtrl'
             }).
-            when('/order/reason',{
+            when('/order/reason', {
                 templateUrl: '/views/order/reason.html',
                 controller: 'orderReasonCtrl'
             });
@@ -117,6 +119,6 @@ define([], function () {
         $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
     };
 
-    routecfg.$inject=['$routeProvider','$locationProvider','$httpProvider'];
+    routecfg.$inject = ['$routeProvider', '$locationProvider', '$httpProvider'];
     return routecfg;
 });

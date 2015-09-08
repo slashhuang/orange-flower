@@ -58,6 +58,7 @@
     -moz-border-radius: 20px;
     border-radius: 20px;
     width:100%;
+    line-height: 17px;
 }
 
 .search-icon{
@@ -74,12 +75,12 @@
 .cancel-icon{
     position: absolute;
     right: 50px;
-    top:17px;
+    top:18px;
     display:block;
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
     background: url(/images/icon/search_cancel.png) no-repeat 0 0 ;
-    background-size: 20px 20px;
+    background-size: 17px 17px;
 }
 
 .of-category-input-active b{
@@ -137,7 +138,7 @@
 }
 .of-category-main-poster{
     width:100%;
-    height:auto
+    height:auto;
 }
 .of-category-main-poster img{
     width:100%;
@@ -162,13 +163,14 @@
 }
 .of-category-main-item li span{
     overflow:hidden;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     text-overflow: ellipsis;
     display: block;
     padding-top:3px;
-    width:80%;
     margin-right:auto;
     margin-left:auto;
+    font-size: 12px;
+    color: #adadad;
 }
 .of-category-main-item li span.limit-id{
     color: #ff5959;

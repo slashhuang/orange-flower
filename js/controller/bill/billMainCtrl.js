@@ -18,8 +18,7 @@ define([], function () {
             "url": $rootScope.prefuri + "/repay/bill/{year}/{month}?month=" + $scope.month + "&year=" + $scope.year
         }).success(function(res){
             $scope.data = res;
-        }).error(function(){
-        });
+        }).error($rootScope.httpError);
 
         /**
          * 渲染新的信息DOM
@@ -33,8 +32,7 @@ define([], function () {
             }).success(function(res){
                 $scope.data = res;
                 $scope.handle = false;
-            }).error(function(){
-            });
+            }).error($rootScope.httpError);
         };
 
         /**

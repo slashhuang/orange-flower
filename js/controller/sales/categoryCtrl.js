@@ -33,9 +33,10 @@ define([],function(){
             "url":categoryUrl
         }).success(function(data){
             $scope.category.saleNav =data.items;
-            queryProduct(data.item[0].id);
+            queryProduct(data.items[0].id);
             //  传入第一个tab项的id
-        }).error(function(){
+        }).error(function(err){
+            $rootScope.httpError(err);
         });
 
 
@@ -68,15 +69,15 @@ define([],function(){
         $scope.keyword="";
 
         var queryProduct = function(key){
-            if(isNaN(parseInt(key))){
-                key = $scope.catId;
-            }
             //  如果传入的不是一个数字,
             var DATAsettings = {
                 "sortType": $scope.sortType,
-                //"catId":key || 1,
+                "catId":key,
                 "keyword":$scope.keyword
             };
+            if(isNaN(parseInt(key))){
+                DATAsettings.catId = undefined;
+            }
             $http({
                 "method":"post",
                 "url":$rootScope.prefuri+"/product/query/0",
@@ -89,6 +90,7 @@ define([],function(){
                     $scope.keyword = "";
                 }).error(
                 function(res){
+                    $rootScope.httpError(res);
                     $scope.keyword = "";
                     //console.log(res)
                     $scope.debugLog(res);

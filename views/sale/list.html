@@ -7,13 +7,13 @@
 </div>
 <!--商品排序方式-->
 <div class="sale-list-bar clear-float">
-    <div class="sale-sort-option sale-sort-border" ng-click="sortData('DEFAULT')">
+    <div class="sale-sort-option sale-sort-border" ng-class="curClass(sortType,0)" ng-click="sortData('DEFAULT')">
         默认排序
     </div>
-    <div class="sale-sort-option sale-sort-border" ng-click="sortData('SALE')">
+    <div class="sale-sort-option sale-sort-border" ng-class="curClass(sortType,1)" ng-click="sortData('SALE')">
         销量排序
     </div>
-    <div class="sale-sort-option" ng-click="sortData('PRICE',desc)">
+    <div class="sale-sort-option" ng-class="curClass(sortType,2)" ng-click="sortData('PRICE',desc)">
         价格
     </div>
 </div>
@@ -29,7 +29,7 @@
                 <a href="/sale/detail/{{sale.id}}">
                 <!--<a href="#/sale/detail/{{sale.id}}">-->
                     <div class="item-list-img">
-                        <img ng-src="{{prefuri+sale.thumb.bigUrl}}" width="80"style="margin: 5px 5px 0 0;position: relative;">
+                        <img ng-src="{{prefuri + sale.thumb.bigUrl}}" width="80"style="margin: 5px 5px 0 0;position: relative;">
                     </div>
                     <div class="item-hot-list-detail">
                         <h1>{{sale.title |cut:true:37:' ...'}}</h1>

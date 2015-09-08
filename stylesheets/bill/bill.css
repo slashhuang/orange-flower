@@ -10,8 +10,9 @@
     margin:0 auto;
 }
 .of-bill-month i{
-    display: inline-block;
+    display: inline-table;
     vertical-align: middle;
+    font-family: Arial,"华文黑体";
 }
 .of-bill-month img{
     display: inline-block;
@@ -47,12 +48,11 @@
     margin-top:5px;
 }
 .of-bill-Pay p span{
-    font-weight: lighter;
     color:#ff4f4f;
     font-size:23px;
     display: block;
     float:left;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Arial;
 }
 #payBillNOW.nopaid{
     color:#fff;

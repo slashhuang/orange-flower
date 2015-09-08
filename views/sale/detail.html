@@ -82,11 +82,11 @@
                 </div>
                 <div class="item-slider-param" ng-show="tapIndex==1">
                     <div class="split-line-fff"></div>
-                    <div ng-bind-html="saleDetail.specs | trustHtml"></div>
+                    <div ng-bind-html="saleDetail.specs | trustHtml" id="productArgs"></div>
                 </div>
                 <div class="item-slider-param" ng-show="tapIndex==2">
                     <div class="split-line-fff"></div>
-                    <div ng-bind-html="saleDetail.inventory | trustHtml"></div>
+                    <div ng-bind-html="saleDetail.inventory | trustHtml" class="package-info"></div>
                 </div>
             </div>
         </div>
