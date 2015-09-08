@@ -106,51 +106,36 @@ define(['zepto'], function ($) {
         $scope.sendsms = function (tel) {
             if ($scope.countTime == 0) {
                 if (_checkMobile(tel)) {
-                    //$http.post(sendSmsUrl + "/" + tel, JSON.stringify({
-                    //    "register": true
-                    //})).success(function (response, status, headers, config) {
-                    //    //console.log(arguments);
-                    //    $scope.debugLog(arguments);
-                    //    $scope.checkVaildHint = "短信已发送，请查收";
-                    //    showCountDown();
-                    //}).error(function (response, status, headers, config) {
-                    //    //console.log(response);
-                    //    $scope.debugLog(response);
-                    //});
-                    //$http({
-                    //    "method":"post",
-                    //    "url":sendSmsUrl+"/"+tel,
-                    //    "data":{
-                    //        "register":true
-                    //    }
-                    //}).success(function(response, status, headers, config){
-                    //    //console.log(arguments);
-                    //    $scope.debugLog(arguments);
-                    //    $scope.checkVaildHint = "短信已发送，请查收";
-                    //    showCountDown();
-                    //}).error(function(response, status, headers, config){
-                    //    //console.log(response);
-                    //    $scope.debugLog(response);
-                    //});
-
-                    $.ajax({
-                        type: 'POST',
-                        url: sendSmsUrl + "/" + tel,
-                        data: {"register": true},
-                        dataType: 'json',
-                        success: function (data) {
-                            $scope.debugLog(arguments);
-                            $scope.checkVaildHint = "短信已发送，请查收";
-                            showCountDown();
-                        },
-                        error: function (xhr) {
-                            $scope.submitHint = JSON.parse(xhr.responseText).message;
-                            $timeout(function(){
-                                $scope.submitHint = "";
-                            },2000);
-                            //  输出错误信息,两秒后消失
-                            $scope.debugLog(xhr.responseText);
+                    $http.post(sendSmsUrl + "/" + tel, JSON.stringify({
+                        "register": true
+                    })).success(function (response, status, headers, config) {
+                        //console.log(arguments);
+                        $scope.debugLog(arguments);
+                        $scope.checkVaildHint = "短信已发送，请查收";
+                        showCountDown();
+                    }).error(function (response, status, headers, config) {
+                        //console.log(response);
+                        $scope.debugLog(response);
+                    });
+                    $http({
+                        "method":"post",
+                        "url":sendSmsUrl+"/"+tel,
+                        "data":{
+                            "register":true
                         }
+                    }).success(function(response, status, headers, config){
+                        //console.log(arguments);
+                        $scope.debugLog(arguments);
+                        $scope.checkVaildHint = "短信已发送，请查收";
+                        showCountDown();
+                    }).error(function(response, status, headers, config){
+                        //console.log(response);
+                        var args = [response,function(){
+                            $scope.submitHint = $rootScope.ErrorMessage;
+                        }];
+                        $scope.httpError.apply(true,args);
+                        $scope.submitHint = $rootScope.ErrorMessage;
+                        $scope.debugLog(response);
                     });
                 }
 
@@ -177,6 +162,7 @@ define(['zepto'], function ($) {
                     };
                     hintFunc(callback);
                 }).error(function (res) {
+                    $rootScope.httpError(res);
                     $scope.submitHint = res.message;
                     hintFunc();
                 });

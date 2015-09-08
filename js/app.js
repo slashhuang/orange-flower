@@ -86,14 +86,16 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
             /**
              * 统一处理ERROR
              * @param res
+             * @param callback
              * @returns {Function|*}
              */
-            $rootScope.httpError = function(res){
+            $rootScope.httpError = function(res,callback){
                 var errorHandler={};
                 if(res&&res.message){
                     $rootScope.ErrorMessage = res.message;
                     $timeout(function(){
                         $rootScope.ErrorMessage="";
+                        callback();
                     },1800);
                 };
                 if(res&&res.code){
@@ -143,15 +145,41 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
             };
 
             /**
-             * 公共的弹窗组件
-             * @param config
+             * 根据不同的type渲染class
+             * @param type
+             * @param index
+             * @returns {string}
              */
-            $rootScope.dialog = function(config){
-                //var bg = document.createElement("div")，
-            }
-
+            $rootScope.curClass = function(type,index){
+                var sortArr = ["DEFAULT","SALE","PRICE"];
+                return _findIndex(sortArr,type) == index ? "cur-choosed-tab" : "";
+            };
         }]);
-        var loadEl = document.getElementsByClassName("refresh-mask")[0];
+
+
+        /**
+         * 根据具体的键值(有或没有)返回该元素在数组中的位置
+         * @param data
+         * @param id
+         * @param attr
+         * @returns {number}
+         * @private
+         */
+        function _findIndex(data,id,attr){
+            var index = -1;
+            angular.forEach(data,function(item,key){
+                if(attr){
+                    if(item[attr] === id){
+                        index = key;
+                    }
+                }else{
+                    if(item === id){
+                        index = key;
+                    }
+                }
+            });
+            return index;
+        }
 
         app.controller("BottomController", ['$http', '$location', '$scope', '$rootScope', function ($http, $location, $scope, $rootScope) {
             $scope.addActive = function (cur) {
