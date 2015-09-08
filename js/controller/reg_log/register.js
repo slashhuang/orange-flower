@@ -106,17 +106,17 @@ define(['zepto'], function ($) {
         $scope.sendsms = function (tel) {
             if ($scope.countTime == 0) {
                 if (_checkMobile(tel)) {
-                    $http.post(sendSmsUrl + "/" + tel, JSON.stringify({
-                        "register": true
-                    })).success(function (response, status, headers, config) {
-                        //console.log(arguments);
-                        $scope.debugLog(arguments);
-                        $scope.checkVaildHint = "短信已发送，请查收";
-                        showCountDown();
-                    }).error(function (response, status, headers, config) {
-                        //console.log(response);
-                        $scope.debugLog(response);
-                    });
+                    //$http.post(sendSmsUrl + "/" + tel, JSON.stringify({
+                    //    "register": true
+                    //})).success(function (response, status, headers, config) {
+                    //    //console.log(arguments);
+                    //    $scope.debugLog(arguments);
+                    //    $scope.checkVaildHint = "短信已发送，请查收";
+                    //    showCountDown();
+                    //}).error(function (response, status, headers, config) {
+                    //    //console.log(response);
+                    //    $scope.debugLog(response);
+                    //});
                     $http({
                         "method":"post",
                         "url":sendSmsUrl+"/"+tel,
