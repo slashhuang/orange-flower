@@ -40,6 +40,9 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                     $scope.debugLog(data);
                     if(data){
                         window.localStorage.isLogin = true;
+                    }
+                    else{
+                        window.localStorage.isLogin = false;
                     };
                 });
                 XHRrequest.error($scope.httpError);

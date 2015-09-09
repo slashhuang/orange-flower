@@ -5,7 +5,7 @@ define([], function () {
     //定义商品分类controller
     function centerCtrl($scope, $routeParams, $location, $http,$rootScope,$timeout) {
         var userCenterUrl = $rootScope.prefuri + "/user/info";
-
+        $scope.userCenterShow = window.localStorage.isLogin;
         $scope.centerData = {};
 
         /**

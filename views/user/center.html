@@ -1,8 +1,6 @@
-<div ng-show="true">
+<div ng-show="userCenterShow">
 
-
-
-    <!--头部-->
+<!--头部-->
     <div class="of-header gray">
         <a class="header-back" href="/main"></a>
         <!--<a class="header-back" href="#/main"></a>-->
@@ -22,8 +20,6 @@
                 <h6 class="u-mobile">{{rendInfo(centerData.telNo)}}</h6>
             </div>
         </div>
-
-
 
 
         <div ng-class="{true: 'reg-btn-disable', false: 'reg-btn-active'}[verifyActive(centerData.userAuthOffline.authStatus.value)||false]"
@@ -88,8 +84,4 @@
 
     <div ng-include="'/views/header_bottom/bottom.html'"></div>
 
-
-
 </div>
-
-

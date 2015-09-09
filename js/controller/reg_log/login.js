@@ -89,7 +89,7 @@ define([],function(){
                            outLogin("登录成功");
                        }
                         else{
-                           $rootScope.isLogin = false;
+                           window.localStorage.isLogin=false;
                            $scope.infoHint = "密码错误";
                            $timeout(function(){
                                $scope.infoHint=""
