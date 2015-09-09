@@ -33,7 +33,6 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
              */
             $rootScope.ErrorMessage="";
             $rootScope.debugFlat = true;
-            $rootScope.isLogin = false;
             /**
              * 根据debug句柄判断是否调用console.log或者alert
              * @param info  输出的信息
@@ -101,14 +100,14 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                 if(res&&res.code){
                     switch (res.code){
                         case '10000':
-                            $rootScope.isLogin = false;
+                            window.localStorage.isLogin = false;
                                 $timeout(function () {
                                     location.href='/login';
                                     //location.href="#/login"
                                 },2000);
                             break;//    用户未登录
                         case '10023':
-                            $rootScope.isLogin = false;
+                            window.localStorage.isLogin=false;
                                 $timeout(function () {
                                     location.href='/registerInfo';
                                     //location.href='#/registerInfo';

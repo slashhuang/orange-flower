@@ -3,7 +3,7 @@
 }
 .of-forget-pwd label{
     display: block;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     padding:10px 10px 10px 10px ;
     border-bottom: 1px #e9e9e9 solid;
@@ -18,7 +18,7 @@
 }
 .of-forget-pwd label.no-border{
     border-bottom: none;
-    font-size:12px;
+    font-size:16px;
     margin-top:5px;
 }
 

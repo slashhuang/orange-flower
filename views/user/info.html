@@ -1,36 +1,54 @@
 <div>
-    <!--头部-->
     <div class="of-header gray">
         <a class="header-back" href="/main"></a>
         <!--<a class="header-back" href="#/main"></a>-->
-        个人资料
+        个人信息查看
     </div>
 
     <div class="h-40"></div>
 
-    <!--个人档案-->
-    <div class="u-info">
-        <ul class="info-items-list">
-            <li class="item-list-each">
-                <div>姓名：</div>
-                <div>小宋</div>
-            </li>
-            <li class="item-list-each">
-                <div>手机号码：</div>
-                <div>13814529475</div>
-            </li>
-            <li class="item-list-each">
-                <div>身份证号码：</div>
-                <div>320125199207120711</div>
-            </li>
-            <li class="item-list-each">
-                <div>学校：</div>
-                <div>清华大学</div>
-            </li>
-        </ul>
-        <div class="detail-address">
-            <div>详细地址：</div>
-            <div>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+
+    <div class="of-register-form-check">
+        <div>
+            姓名<span>{{centerData.userName}}</span>
         </div>
+        <div>
+            联系电话<span>{{centerData.userAddressList[0].consigneeMobile}}</span>
+        </div>
+        <div>
+            身份证号<span>{{centerData.userAddressList[0].id}}</span>
+        </div>
+        <div>
+            联系地址<span>{{centerData.userAddressList[0].address}}</span>
+        </div>
+
     </div>
 </div>
+
+
+    <!--&lt;!&ndash;个人档案&ndash;&gt;-->
+    <!--<div class="u-info">-->
+        <!--<ul class="info-items-list">-->
+            <!--<li class="item-list-each">-->
+                <!--<div>姓名：</div>-->
+                <!--<div>小宋</div>-->
+            <!--</li>-->
+            <!--<li class="item-list-each">-->
+                <!--<div>手机号码：</div>-->
+                <!--<div>13814529475</div>-->
+            <!--</li>-->
+            <!--<li class="item-list-each">-->
+                <!--<div>身份证号码：</div>-->
+                <!--<div>320125199207120711</div>-->
+            <!--</li>-->
+            <!--<li class="item-list-each">-->
+                <!--<div>学校：</div>-->
+                <!--<div>清华大学</div>-->
+            <!--</li>-->
+        <!--</ul>-->
+        <!--<div class="detail-address">-->
+            <!--<div>详细地址：</div>-->
+            <!--<div>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

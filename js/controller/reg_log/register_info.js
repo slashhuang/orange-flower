@@ -32,7 +32,6 @@ define([],function(){
                 url:gettingDistrictList+param
             }).success(function(response, status, headers, config){
                 $scope.completeData.province = response
-                //console.log(response);
                 $scope.debugLog(response);
             }).error(function(res){
                 $rootScope.httpError(res);
@@ -46,7 +45,6 @@ define([],function(){
                 url:gettingDistrictList+param
             }).success(function(response, status, headers, config){
                 $scope.completeData.city = response;
-                //console.log(response);
                 $scope.debugLog(response);
             }).error(function(res){
                 $rootScope.httpError(res);
@@ -59,8 +57,7 @@ define([],function(){
                 method:"get",
                 url:gettingDistrictList+param
             }).success(function(response, status, headers, config){
-                $scope.completeData.school = response
-                //console.log(response);
+                $scope.completeData.school = response;
                 $scope.debugLog(response);
             }).error(function(res){
                 $rootScope.httpError(res);
@@ -148,29 +145,6 @@ define([],function(){
         };
 
 
-        /**
-         * 重新取数据，之后再模块化
-         * @type {string}
-         */
-        var userCenterUrl = $rootScope.prefuri + "/user/info";
-        /**
-         * 处理HTTP请求
-         */
-        var XHRrequest = $http({
-            "method": "post",
-            "url": userCenterUrl
-        });
-        XHRrequest.success(function (data) {
-            if(data){
-                console.log(data);
-                $scope.centerData = data;
-                $scope.verifiedStatus = $scope.verifyActive($scope.centerData.userAuthOffline.authStatus.value);
-            }
-            else{
-                $scope.verifiedStatus=false;
-            }
-        });
-        XHRrequest.error($scope.httpError);
     };
     registerInfoCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout','$rootScope'];
 

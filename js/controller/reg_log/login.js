@@ -80,6 +80,7 @@ define([],function(){
                         "url": loginURL + loginName + '/' + password
                     }).success(function (data) {
                        if(data) {
+                           window.localStorage.isLogin=true;
                            $rootScope.isLogin = true;
                            outLogin("登录成功");
                        }

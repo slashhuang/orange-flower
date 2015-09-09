@@ -19,13 +19,13 @@ define([], function () {
             $scope.debugLog(data);
             if(data){
                 $scope.centerData = data;
-                $rootScope.isLogin = true;
+                window.localStorage.isLogin=true;
             }
             else{
                 //location.href="/login";
                 location.href="#/login"
             }
-        }); //@TODO 需要写精简一点
+        });
         XHRrequest.error($scope.httpError);
 
         /**
@@ -45,14 +45,16 @@ define([], function () {
          */
         $scope.centerJump = function(offStatus){
             var status = $scope.verifyActive(offStatus);
+            alert(status)
            if(status){
-               return false;
+               location.href = "#/user/info";
+               //location.href = "/user/info";
            }
             else {
                location.href = "#/registerInfo";
                //location.href = "/registerInfo";
            }
-        }
+        };
 
     }
     centerCtrl.$inject = ['$scope', '$routeParams', '$location', '$http','$rootScope','$timeout'];

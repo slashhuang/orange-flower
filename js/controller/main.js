@@ -17,7 +17,7 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                 };
 
                 $scope.mainCheck =function(){
-                    if($scope.isLogin){
+                    if(window.localStorage.isLogin){
                         //location.href="/user/center"
                         location.href="#/user/center"
                     }
@@ -27,12 +27,11 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                     }
                 };
 
-                //存储loginStatus
-                var userCenterUrl = $rootScope.prefuri + "/user/info";
-
                 /**
-                 * 处理HTTP请求
+                 * 存储loginStatus进入localStorage
                  */
+
+                var userCenterUrl = $rootScope.prefuri + "/user/info";
                 var XHRrequest = $http({
                     "method": "post",
                     "url": userCenterUrl
@@ -40,14 +39,14 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                 XHRrequest.success(function (data) {
                     $scope.debugLog(data);
                     if(data){
-                        $rootScope.isLogin = true;
-                    }
+                        window.localStorage.isLogin = true;
+                    };
                 });
                 XHRrequest.error($scope.httpError);
 
-
-
-
+                /**
+                 * http请求，渲染首页数据
+                 */
                 $http({
                     "method":"post",
                     "url":mainUrl
