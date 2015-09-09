@@ -4,7 +4,7 @@ define([],function(){
     //定义商品分类controller
     function loginCtrl($scope,$routeParams,$location,$http,$timeout,$rootScope) {
         //页面载入请求
-        var loginURL = $rootScope.prefuri + "/user/login/";
+        var loginURL = $rootScope.prefuri + "/user/login";
 
 
         //初始情况下不显示提示
@@ -77,7 +77,11 @@ define([],function(){
                 if ($scope.checkLoginData(loginName, password)){
                    var XHRrequest= $http({
                         "method": "post",
-                        "url": loginURL + loginName + '/' + password
+                        "url": loginURL,
+                       "data": {
+                           "loginName": loginName,
+                           "password": password
+                       }
                     }).success(function (data) {
                        if(data) {
                            window.localStorage.isLogin=true;
