@@ -1,4 +1,4 @@
-<div ng-show="isLogin">
+<div ng-show="true">
 
 
 
@@ -22,8 +22,12 @@
                 <h6 class="u-mobile">{{rendInfo(centerData.telNo)}}</h6>
             </div>
         </div>
-        <div ng-class="{true: 'reg-btn-disable', false: 'reg-btn-active'}[verifyActive(centerData.status.value)]"
-           ng-click="centerJump(verifyActive(centerData.status.value))">{{verifyActive(centerData.status.value)?"已认证":"立即认证"}}</div>
+
+
+
+
+        <div ng-class="{true: 'reg-btn-disable', false: 'reg-btn-active'}[verifyActive(centerData.userAuthOffline.authStatus.value)||false]"
+           ng-click="centerJump(centerData.userAuthOffline.authStatus.value)">{{centerData&&verifyActive(centerData.userAuthOffline.authStatus.value)?"已认证":"立即认证"}}</div>
     </div>
 
     <div class="split-line h-20"></div>
@@ -61,7 +65,7 @@
                 </a>
             </li>
             <li class="list-item">
-                <a href="javascript:;" class="whole-link">
+                <a href="tel:4000377295" class="whole-link">
                     <b class="list-item-link">客服热线</b>
                     <em class="arrow"></em>
                 </a>
@@ -88,6 +92,4 @@
 
 </div>
 
-<div class="info-hint-style" ng-show="ErrorMessage.length>0">
-    {{ErrorMessage}}
-</div>
+

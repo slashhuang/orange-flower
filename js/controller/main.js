@@ -18,14 +18,33 @@ define(['angular',"util/swiper_"],function(angular,swiper){
 
                 $scope.mainCheck =function(){
                     if($scope.isLogin){
-                        location.href="/user/center"
-                        //location.href="#/user/center"
+                        //location.href="/user/center"
+                        location.href="#/user/center"
                     }
                     else{
-                        location.href="/login";
-                        //location.href="#/login";
+                        //location.href="/login";
+                        location.href="#/login";
                     }
                 };
+
+                //存储loginStatus
+                var userCenterUrl = $rootScope.prefuri + "/user/info";
+
+                /**
+                 * 处理HTTP请求
+                 */
+                var XHRrequest = $http({
+                    "method": "post",
+                    "url": userCenterUrl
+                });
+                XHRrequest.success(function (data) {
+                    $scope.debugLog(data);
+                    if(data){
+                        $rootScope.isLogin = true;
+                    }
+                });
+                XHRrequest.error($scope.httpError);
+
 
 
 

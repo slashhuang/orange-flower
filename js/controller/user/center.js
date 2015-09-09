@@ -5,9 +5,8 @@ define([], function () {
     //定义商品分类controller
     function centerCtrl($scope, $routeParams, $location, $http,$rootScope,$timeout) {
         var userCenterUrl = $rootScope.prefuri + "/user/info";
-        $scope.centerData = {};
 
-        $rootScope.isLogin = true;
+        $scope.centerData = {};
 
         /**
          * 处理HTTP请求
@@ -18,9 +17,13 @@ define([], function () {
         });
         XHRrequest.success(function (data) {
             $scope.debugLog(data);
-            $scope.centerData = data;
-            if(data.id){
+            if(data){
+                $scope.centerData = data;
                 $rootScope.isLogin = true;
+            }
+            else{
+                //location.href="/login";
+                location.href="#/login"
             }
         }); //@TODO 需要写精简一点
         XHRrequest.error($scope.httpError);
@@ -42,9 +45,13 @@ define([], function () {
          */
         $scope.centerJump = function(offStatus){
             var status = $scope.verifyActive(offStatus);
-            //location.href="#/registerInfo";
-            location.href="/registerInfo";
-
+           if(status){
+               return false;
+           }
+            else {
+               location.href = "#/registerInfo";
+               //location.href = "/registerInfo";
+           }
         }
 
     }

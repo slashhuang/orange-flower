@@ -38,9 +38,15 @@
         require(["app"])
     </script>
     <!--<base href="/index.html">-->
-    <base href="/">
+    <!--<base href="/">-->
     <title>橘花</title>
 </head>
-<body ng-view>
+<body>
+<div ng-view>
+
+</div>
+
+<div ng-class="{true:'info-hint-style',false:''}[ErrorMessage.length>0]" ng-bind="ErrorMessage">
+</div>
 </body>
 </html>

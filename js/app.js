@@ -91,7 +91,6 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
              * @returns {Function|*}
              */
             $rootScope.httpError = function(res,callback){
-                var errorHandler={};
                 if(res&&res.message){
                     $rootScope.ErrorMessage = res.message;
                     $timeout(function(){

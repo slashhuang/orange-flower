@@ -11,28 +11,39 @@
         </label>
         <label>
             身份证号
-            <input  type="tel" placeholder="请输入证件号" style="display: inline-block;height: 21px;line-height: 14px;font-size: 16px;" ng-model="completeData.idNo" ng-focus="idTip=''"/>
+            <input  type="tel" placeholder="请输入证件号" class="userId"
+                    ng-model="completeData.idNo" ng-focus="idTip=''"/>
         </label>
         <label>
             省份
-            <span class="arrow-right-select-register"></span>
-            <select id="userProvince" ng-model="selectedProvince" ng-change="setCity(selectedProvince)" ng-focus="idTip=''">
-                <option ng-repeat="option in completeData.province" value="{{option.id}}">{{option.value}}</option>
-            </select>
+            <div class="select-area">
+                <div class="hide-select">
+                    <select id="userProvince" ng-model="selectedProvince" ng-change="setCity(selectedProvince)" ng-focus="idTip=''">
+                        <option ng-repeat="option in completeData.province" value="{{option.id}}">{{option.value}}</option>
+                    </select>
+                </div>
+            </div>
+
         </label>
         <label>
             城市
-            <span class="arrow-right-select-register"></span>
+            <div class="select-area">
+                <div class="hide-select">
             <select id="userCity" ng-model="selectedCity" ng-change="setSchool(selectedCity)" ng-focus="idTip=''">
                 <option ng-repeat="option in completeData.city" value="{{option.id}}">{{option.value}}</option>
             </select>
+                    </div>
+                </div>
         </label>
         <label>
             学校
-            <span class="arrow-right-select-register"></span>
+            <div class="select-area">
+                <div class="hide-select">
             <select id="userUniversity" ng-model="selectedSchool" ng-focus="idTip=''">
                 <option ng-repeat="option in completeData.school" value="{{option.id}}">{{option.value}}</option>
             </select>
+                    </div>
+                </div>
         </label>
         <label>
             校区
@@ -40,7 +51,9 @@
         </label>
         <label>
             年级
-            <span class="arrow-right-select-register"></span>
+            <!--<span class="arrow-right-select-register"></span>-->
+            <div class="select-area">
+                <div class="hide-select">
             <select  ng-model="selectedLevel" ng-focus="idTip=''">
                 <option value="大一">大一</option>
                 <option value="大二">大二</option>
@@ -51,7 +64,9 @@
                 <option value="研三">研三</option>
                 <option value="博一">博一</option>
                 <option value="博二">博二</option>
-            </select><!--校区部分还没有写上去-->
+            </select>
+                    </div>
+                </div>
         </label>
         <label>
             宿舍 <input type="text" placeholder="请填写宿舍楼号" style="display: inline-block;width: 70%;" class="modified" ng-model="selectedRoom" ng-focus="idTip=''">
@@ -84,4 +99,4 @@
 </div>
 
 
-<div class="info-hint-style" ng-bind="infoHint" ng-show="hintStatus"></div>
+<div class="info-hint-style" ng-bind="regInfoHint" ng-show="regInfoHint.length>0"></div>

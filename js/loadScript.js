@@ -4,7 +4,6 @@
 define(['angular'], function (angular) {
     (function (ng) {
         'use strict';
-
         var app = ng.module('ngLoadScript', []);
 
         app.directive('script', function() {
@@ -16,10 +15,11 @@ define(['angular'], function (angular) {
                         var code = elem.text();
                         var f = new Function(code);
                         f();
+                        console.log(attr.type)
                     }
                 }
             };
         });
 
     }(angular));
-})
+});

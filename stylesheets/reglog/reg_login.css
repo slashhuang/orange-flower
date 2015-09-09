@@ -41,9 +41,16 @@
    font-size:16px;
     padding-left:2em;
     display: inline-block;
-    height: 21px;
+    /*height: 21px;*/
     /*line-height: 21px;*/
-    line-height: 15px;
+}
+.of-register-form label input.userId{
+  padding-left:2px;
+    display: inline-block;
+    vertical-align: top;
+    /*height: 21px;*/
+    /*line-height: 16px;*/
+    font-size: 16px;"
 }
 .of-register-button{
     border-radius:20px;
@@ -66,18 +73,12 @@ label input{
     line-height: 18px;
 }
 .of-register-form label select{
-    float: right;
+    display: block;
+    width: 90px;
+    padding-right: 20px;
+    font-size: 15px;
     border: none;
-    /*color: #b5b5b5;*/
-    color: #515151;
-    text-align: right;
-    width:100px;
-    font-size:16px;
-    text-overflow:ellipsis ;
-    background: none;
-    align-items: right;
-    overflow: hidden;
-    outline:none;
+    background:none;
 }
 .of-register-form label span{
     margin-left: 24px;

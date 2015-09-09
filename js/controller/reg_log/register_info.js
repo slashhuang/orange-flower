@@ -67,7 +67,9 @@ define([],function(){
             });
         };
 
-        //初始情况下
+        /**
+         * 初始情况下
+         */
         $scope.setProvince();
 
         /**
@@ -102,7 +104,7 @@ define([],function(){
                 return true;
             }
             else{
-                $scope.idTip="请填写所有字段"
+                $scope.idTip="请填写所有字段";
                 return false
             }
         };
@@ -137,10 +139,9 @@ define([],function(){
          */
         var hintFUNC = function(money){
             //完善信息成功后输出提示并且跳转首页
-            $scope.hintStatus =true;
-            $scope.infoHint = "您已经获取"+ $scope.transferPrice(money) +"元额度，可以立即购物哦";
+            $scope.regInfoHint = "您已经获取"+ $scope.transferPrice(money) +"元额度，可以立即购物哦";
             $timeout(function(){
-                $scope.hintStatus = false;
+                $scope.regInfoHint = "";
                 //window.location.href="#/main"
                 location.href="/main"
             },2500);
@@ -160,13 +161,14 @@ define([],function(){
             "url": userCenterUrl
         });
         XHRrequest.success(function (data) {
-            $scope.centerData = data;
-            $scope.verifiedStatus = $scope.verifyActive($scope.centerData.userAuthOffline.authStatus.value);
-            /**
-             * 仅仅为测试数据，之后去掉上面的注释
-             * @type {boolean}
-             */
-            //$scope.verifiedStatus=false;
+            if(data){
+                console.log(data);
+                $scope.centerData = data;
+                $scope.verifiedStatus = $scope.verifyActive($scope.centerData.userAuthOffline.authStatus.value);
+            }
+            else{
+                $scope.verifiedStatus=false;
+            }
         });
         XHRrequest.error($scope.httpError);
     };
