@@ -81,7 +81,11 @@ define([],function(){
                        "data": {
                            "loginName": loginName,
                            "password": password
+                       },
+                       headers: {
+                           'Content-Type': 'application/x-www-form-urlencoded'
                        }
+
                     }).success(function (data) {
                        if(data) {
                            window.localStorage.isLogin=true;

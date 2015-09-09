@@ -5,29 +5,9 @@ define([],function(){
     function infoCtrl($scope,$routeParams,$location,$http,$timeout,$rootScope){
 
         /**
-         * 重新取数据，之后再模块化
-         * @type {string}
+         * 用户数据在主程序路口存入$rootScope.centerData,
+         * 在进页面时候就在登录和进用户中心的时候，点击按钮存入
          */
-        var userCenterUrl = $rootScope.prefuri + "/user/info";
-        /**
-         * 处理HTTP请求
-         */
-        var XHRrequest = $http({
-            "method": "post",
-            "url": userCenterUrl
-        });
-        XHRrequest.success(function (data) {
-            if(data){
-                console.log(data);
-                $scope.centerData = data;
-                $scope.verifiedStatus = $scope.verifyActive($scope.centerData.userAuthOffline.authStatus.value);
-            }
-            else{
-                $scope.verifiedStatus=false;
-            }
-        });
-        XHRrequest.error($scope.httpError);
-
 
     }
     infoCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout','$rootScope'];

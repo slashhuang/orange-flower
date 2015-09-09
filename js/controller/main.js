@@ -15,37 +15,14 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                     discount:[],
                     category:[]
                 };
-
-                $scope.mainCheck =function(){
+                $scope.mainCheck_center =function(){
                     if(window.localStorage.isLogin){
-                        location.href="/user/center";
-                        //location.href="#/user/center"
+                        location.href="/user/center"
                     }
                     else{
-                        location.href="/login";
-                        //location.href="#/login";
+                        $scope.jumpToCenter(true);
                     }
                 };
-
-                /**
-                 * 存储loginStatus进入localStorage
-                 */
-
-                var userCenterUrl = $rootScope.prefuri + "/user/info";
-                var XHRrequest = $http({
-                    "method": "post",
-                    "url": userCenterUrl
-                });
-                XHRrequest.success(function (data) {
-                    $scope.debugLog(data);
-                    if(data){
-                        window.localStorage.isLogin = true;
-                    }
-                    else{
-                        window.localStorage.isLogin = false;
-                    };
-                });
-                XHRrequest.error($scope.httpError);
 
                 /**
                  * http请求，渲染首页数据

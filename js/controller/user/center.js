@@ -5,28 +5,8 @@ define([], function () {
     //定义商品分类controller
     function centerCtrl($scope, $routeParams, $location, $http,$rootScope,$timeout) {
         var userCenterUrl = $rootScope.prefuri + "/user/info";
-        $scope.userCenterShow = window.localStorage.isLogin;
+        //$scope.userCenterShow = window.localStorage.isLogin;
         $scope.centerData = {};
-
-        /**
-         * 处理HTTP请求
-         */
-        var XHRrequest = $http({
-            "method": "post",
-            "url": userCenterUrl
-        });
-        XHRrequest.success(function (data) {
-            $scope.debugLog(data);
-            if(data){
-                $scope.centerData = data;
-                window.localStorage.isLogin=true;
-            }
-            else{
-                location.href="/login";
-                //location.href="#/login"
-            }
-        });
-        XHRrequest.error($scope.httpError);
 
         /**
          * 判断是否完善信息

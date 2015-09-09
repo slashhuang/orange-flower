@@ -23,7 +23,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
 
 
         //定义全局变量
-        app.run(['$rootScope','$location','$timeout',function ($rootScope,$location,$timeout) {
+        app.run(['$rootScope','$location','$timeout','$http',function ($rootScope,$location,$timeout,$http) {
 
             $rootScope.prefuri = "http://api.orangezc.com";
 
@@ -142,7 +142,29 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
             $rootScope.addActive = function (status) {
                 return location.href.indexOf(status) > -1 ? "active" : "";
             };
-
+            /**
+             * 处理HTTP请求，统一放置用户信息
+             */
+            $rootScope.jumpToCenter=function(centerFlag){
+                var userCenterUrl = $rootScope.prefuri + "/user/info";
+                var XHRrequest = $http({
+                    "method": "post",
+                    "url": userCenterUrl
+                });
+                XHRrequest.success(function (data) {
+                    console.log(data);
+                    alert("come to success")
+                    if(data){
+                        $rootScope.centerData = data;
+                        window.localStorage.isLogin=true;
+                        if(centerFlag){
+                            alert("fucking coming to here");
+                            location.href="/user/center"
+                        }
+                    }
+                });
+                XHRrequest.error($rootScope.httpError);
+            };
             /**
              * 根据不同的type渲染class
              * @param type
