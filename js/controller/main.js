@@ -18,12 +18,12 @@ define(['angular',"util/swiper_"],function(angular,swiper){
 
                 $scope.mainCheck =function(){
                     if(window.localStorage.isLogin){
-                        //location.href="/user/center"
-                        location.href="#/user/center"
+                        location.href="/user/center";
+                        //location.href="#/user/center"
                     }
                     else{
-                        //location.href="/login";
-                        location.href="#/login";
+                        location.href="/login";
+                        //location.href="#/login";
                     }
                 };
 

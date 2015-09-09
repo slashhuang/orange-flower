@@ -22,8 +22,8 @@ define([], function () {
                 window.localStorage.isLogin=true;
             }
             else{
-                //location.href="/login";
-                location.href="#/login"
+                location.href="/login";
+                //location.href="#/login"
             }
         });
         XHRrequest.error($scope.httpError);
@@ -47,12 +47,12 @@ define([], function () {
             var status = $scope.verifyActive(offStatus);
             alert(status)
            if(status){
-               location.href = "#/user/info";
-               //location.href = "/user/info";
+               //location.href = "#/user/info";
+               location.href = "/user/info";
            }
             else {
-               location.href = "#/registerInfo";
-               //location.href = "/registerInfo";
+               //location.href = "#/registerInfo";
+               location.href = "/registerInfo";
            }
         };
 
