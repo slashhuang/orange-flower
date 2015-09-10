@@ -139,7 +139,7 @@ define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
                 "method":"get"
             }).success(function(res){
                 $location.path("/orde/list?uId=" + uId);
-            }).error($scope.httpError());
+            }).error($scope.httpError);
         };
 
         /**
@@ -194,7 +194,10 @@ define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
                 "arg": data["orderLines"][0]["commodityName"],                   //  商品参数
                 "off": "",                                                       //  优惠信息
                 "status": data["totalStatus"]["value"],                          //  订单状态
-                "sendTime": "",                                                  //  发货时间
+                "title": data["totalStatus"]["title"],                           //  订单状态(文本显示)
+                "sendTime": data["orderLogistics"] ? data["orderLogistics"]["sendTime"] : "",                  //  发货时间
+                "logisticsCompany": data["orderLogistics"] ? data["orderLogistics"]["logisticsCompany"] : "",                  //  物流公司
+                "logisticsId": data["orderLogistics"] ? data["orderLogistics"]["logisticsId"] : "",                  //  单号
                 "address": data["userAddress"]["address"],                       //  配送地址
                 "payMethod": "微信支付",                                          //  支付方式
                 "ticketInfo": "个人",                                             //  发票信息

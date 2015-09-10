@@ -58,31 +58,46 @@
 
             <p class="info-detail"><span class="first-pay-off">首付20%</span>再减200</p>
         </div>
-        <div class="info-item order-state">
+        <div class="info-item delivery-time" ng-show="data.sendTime.length > 0">
             <p class="info-name">订单状态</p>
 
-            <div class="state-bar">
-                <div class="state-item" ng-class="setClass(data.status,1)">
-                    <i class="icon"></i>
+            <p class="info-detail">{{data.title}}</p>
+        </div>
+        <!--<div class="info-item order-state">-->
+            <!--<p class="info-name">订单状态</p>-->
 
-                    <p class="text-state">审核中</p>
-                </div>
-                <div class="state-item" ng-class="setClass(data.status,2)">
-                    <i class="icon"></i>
+            <!--<div class="state-bar">-->
+                <!--<div class="state-item" ng-class="setClass(data.status,1)">-->
+                    <!--<i class="icon"></i>-->
 
-                    <p class="text-state">发货中</p>
-                </div>
-                <div class="state-item" ng-class="setClass(data.status,3)">
-                    <i class="icon"></i>
+                    <!--<p class="text-state">审核中</p>-->
+                <!--</div>-->
+                <!--<div class="state-item" ng-class="setClass(data.status,2)">-->
+                    <!--<i class="icon"></i>-->
 
-                    <p class="text-state">已发货</p>
-                </div>
-                <div class="state-item" ng-class="setClass(data.status,4)">
-                    <i class="icon"></i>
+                    <!--<p class="text-state">发货中</p>-->
+                <!--</div>-->
+                <!--<div class="state-item" ng-class="setClass(data.status,3)">-->
+                    <!--<i class="icon"></i>-->
 
-                    <p class="text-state">申请售后</p>
-                </div>
-            </div>
+                    <!--<p class="text-state">已发货</p>-->
+                <!--</div>-->
+                <!--<div class="state-item" ng-class="setClass(data.status,4)">-->
+                    <!--<i class="icon"></i>-->
+
+                    <!--<p class="text-state">申请售后</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="info-item delivery-time" ng-show="data.logisticsCompany.length > 0">
+            <p class="info-name">物流</p>
+
+            <p class="info-detail">{{data.logisticsCompany}}</p>
+        </div>
+        <div class="info-item delivery-time" ng-show="data.logisticsId.length > 0">
+            <p class="info-name">快递单号</p>
+
+            <p class="info-detail">{{data.logisticsId}}</p>
         </div>
         <div class="info-item delivery-time" ng-show="data.sendTime.length > 0">
             <p class="info-name">发货时间</p>
