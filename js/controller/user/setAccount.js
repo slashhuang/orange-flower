@@ -13,7 +13,6 @@ define([],function(){
             }).success(function(data){
             }).error($rootScope.httpError);
         };
-        //重置头像@TODO
         $scope.changeHead = function(){
 
         }

@@ -95,7 +95,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                     $timeout(function(){
                         $rootScope.ErrorMessage="";
                         callback && callback();
-                    },2000);
+                    },1000);
                 }
                 if(res&&res.code){
                     switch (res.code){
@@ -104,14 +104,14 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                                 $timeout(function () {
                                     location.href='/login';
                                     //location.href="#/login"
-                                },1800);
+                                },800);
                             break;//    用户未登录
                         case '10023':
                             window.localStorage.isLogin=false;
                                 $timeout(function () {
                                     location.href='/registerInfo';
                                     //location.href='#/registerInfo';
-                                },1800);
+                                },800);
                             break;//    完善信息
                         case '10024':
                             $rootScope.debugLog(res.message,'alert');
