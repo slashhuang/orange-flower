@@ -62,7 +62,7 @@ define([],function(){
                             clearInterval(interval);
                             switch(txt){
                                 case "登录成功":
-                                    location.href = "/main";
+                                    $location.path("/main");
                                     break;
                                 case "登录失败":
                                     $scope.loginfoHint=""

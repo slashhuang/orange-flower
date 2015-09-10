@@ -16,7 +16,7 @@ define([], function () {
             //  显示用户头像
         }
         else{
-            location.href="#/login";
+            $location.path("/login");
             //location.href="/login"
         }
 
@@ -39,11 +39,11 @@ define([], function () {
            var status = $scope.verifyActive(offStatus);
            if(status){
                //location.href = "#/user/info";
-               location.href = "/user/info";
+               $location.path("/user/info");
            }
             else {
                //location.href = "#/registerInfo";
-               location.href = "/registerInfo";
+               $location.path("/registerInfo");
            }
         };
 

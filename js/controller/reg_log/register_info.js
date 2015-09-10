@@ -141,7 +141,7 @@ define([],function(){
             $timeout(function(){
                 $scope.regInfoHint = "";
                 //window.location.href="#/main"
-                location.href="/main"
+                $location.path("/main")
             },2500);
         };
 

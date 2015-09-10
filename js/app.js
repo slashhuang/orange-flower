@@ -168,7 +168,9 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                     $rootScope.ErrorMessage = res.message;
                     $timeout(function(){
                         $rootScope.ErrorMessage="";
-                        callback && callback();
+                        if(typeof callback=='function'){
+                            callback();
+                        }
                     },1000);
                 }
                 if(res&&res.code){
@@ -176,14 +178,14 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                         case '10000':
                             window.localStorage.isLogin = false;
                                 $timeout(function () {
-                                    location.href='/login';
+                                    $location.path('/login');
                                     //location.href="#/login"
                                 },800);
                             break;//    用户未登录
                         case '10023':
                             window.localStorage.isLogin=false;
                                 $timeout(function () {
-                                    location.href='/registerInfo';
+                                    $location.path('/registerInfo');
                                     //location.href='#/registerInfo';
                                 },800);
                             break;//    完善信息
@@ -214,7 +216,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
              * @returns {string}
              */
             $rootScope.addActive = function (status) {
-                return location.href.indexOf(status) > -1 ? "active" : "";
+                return $location.path().indexOf(status) > -1 ? "active" : "";
             };
             /**
              * 处理HTTP请求，统一放置用户信息
@@ -233,7 +235,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
 
                 if(window.localStorage.centerData){
                         //location.href="#/user/center";
-                        location.href="/user/center"
+                        $location.path("/user/center");
                     }
                 else{
                     var userCenterUrl = $rootScope.prefuri + "/user/info";
@@ -247,7 +249,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                             window.localStorage.isLogin=true;
                             if(centerFlag){
                                 //location.href="#/user/center";
-                                location.href="/user/center"
+                                $location.path("/user/center")
                             }
                         }
                     });
@@ -306,7 +308,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                  * change location.hash to location.href
                  * @type {string}
                  */
-                var hash = location.href;
+                var hash = $location.path();
                 if (hash.indexOf(cur) > 0) {
                     return "active";
                 }

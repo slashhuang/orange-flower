@@ -61,7 +61,7 @@ define([], function () {
                     $timeout(function () {
                         $scope.ErrorMessage ="";
                         //location.href = "#/user/center";
-                        location.href = "/user/center"
+                        $location.path("/user/center")
                     }, 2000);
                 };
 

@@ -13,7 +13,7 @@ define([],function(){
         }
         else{
             //location.href="#/login";
-            location.href="/login"
+            $location.path("/login")
         }
 
         /**
