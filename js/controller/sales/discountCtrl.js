@@ -79,7 +79,7 @@ define([],function() {
         })();
 
         $scope.showRefresh = true;
-        $scope.curPage = 1;
+        $scope.curPage = 0;
 
         $http({
             "url":$scope.prefuri + "/product/queryActivities/XSTM/" + $scope.curPage,
