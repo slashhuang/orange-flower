@@ -9,7 +9,7 @@
     <h4>信用额度(元)</h4>
     <i>{{rendMoney(creditInfo.userCredit.totalCredit)}}</i>
 </div>
-<div class="user-credit-info" ng-show="!verifyActive(creditInfo.status.value)">完善信息即可获取<span>{{creditInfo.userCredit.totalCredit}}</span>元额度</div>
+<div class="user-credit-info" ng-show="!verifyActive(creditInfo.status.value)">完善信息即可获取<span>{{transferPrice(creditInfo.userCredit.totalCredit)}}</span>元额度</div>
 <div style="margin-top:15px;" ng-show="creditInfo.authenticate">&nbsp;</div>
 <!--<a href="/registerInfo">-->
 <a href="{{rendLink()}}">

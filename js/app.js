@@ -175,6 +175,14 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                 var sortArr = ["DEFAULT","SALE","PRICE"];
                 return _findIndex(sortArr,type) == index ? "cur-choosed-tab" : "";
             };
+
+            $http({
+                "url":$rootScope.prefuri + "/product/monthRates",
+                "method":"post"
+            }).success(function(res){
+                $rootScope.rateInfo = res;
+            }).error($rootScope.httpError);
+
         }]);
 
 
