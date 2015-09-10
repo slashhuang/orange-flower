@@ -78,7 +78,9 @@ label input{
     padding-right: 20px;
     font-size: 15px;
     border: none;
+    outline:none;
     background:none;
+    opacity:0;
 }
 .of-register-form label span{
     margin-left: 24px;
