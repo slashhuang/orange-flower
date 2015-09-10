@@ -207,30 +207,8 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
 
             // [选择价格月份]
             $scope.finalMonth = $scope.saleDetail.minMonth;
-            $scope.maxFirst = $scope.transferPrice(data["maxPay"]);
-            $scope.minFirst = $scope.transferPrice(data["minPay"]);
 
-            $scope.showOffInfo = Object.prototype.toString.apply($scope.saleDetail.activity) == "[object Null]" ? false : true;
-            //  是否显示优惠信息
-
-            $scope.debugLog($scope.showOffInfo);
-
-            $scope.activity = data.activity;        //  优惠开始时间、结束时间、优惠多少
-            $scope.now = Date.now();                //  现在时间
-            $scope.left = data["left"];             //  商品余量
-
-            if ($scope.showOffInfo) {
-                var start = parseInt(data.activity.startTime);
-                var end = parseInt(data.activity.endTime);
-                var now = new Date().getTime();
-                var money = parseInt($scope.saleDetail.price);
-                if (now >= start && now <= end) {
-                    money = parseInt($scope.saleDetail.price) - parseInt(data.activity.discount) * 100;
-                }
-                $scope.saleDetail.price = money;
-                $scope.calculateMoney = $rootScope.transferPrice(money);
-            }
-            //  根据是否有活动计算当前总价
+            _rendOffInfo();
 
         }).error(function (err) {
             $rootScope.httpError(err);
@@ -334,9 +312,43 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                 $scope.saleDetail = res;
                 $scope.itemColors = $scope.saleDetail.attrs[0];//颜色
                 $scope.itemShapes = $scope.saleDetail.attrs[1];//外形
+
+                _rendOffInfo();
+
             }).error(function (err) {
                 $rootScope.httpError(err);
             });
+        }
+
+        /**
+         * 活动信息更新
+         * @private
+         */
+        function _rendOffInfo(){
+            $scope.maxFirst = $scope.transferPrice(data["maxPay"]);
+            $scope.minFirst = $scope.transferPrice(data["minPay"]);
+
+            $scope.showOffInfo = Object.prototype.toString.apply($scope.saleDetail.activity) == "[object Null]" ? false : true;
+            //  是否显示优惠信息
+
+            $scope.debugLog($scope.showOffInfo);
+
+            $scope.activity = data.activity;        //  优惠开始时间、结束时间、优惠多少
+            $scope.now = Date.now();                //  现在时间
+            $scope.left = data["left"];             //  商品余量
+
+            if ($scope.showOffInfo) {
+                var start = parseInt(data.activity.startTime);
+                var end = parseInt(data.activity.endTime);
+                var now = new Date().getTime();
+                var money = parseInt($scope.saleDetail.price);
+                if (now >= start && now <= end) {
+                    money = parseInt($scope.saleDetail.price) - parseInt(data.activity.discount) * 100;
+                }
+                $scope.saleDetail.price = money;
+                $scope.calculateMoney = $rootScope.transferPrice(money);
+            }
+            //  根据是否有活动计算当前总价
         }
 
         $scope.setTapIndex = function (num) {
