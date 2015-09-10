@@ -23,7 +23,6 @@ define([],function(){
 
         /**
          * /设置省份/城市/大学
-         * @param params
          */
         $scope.setProvince = function(){
             var param = 'province';
