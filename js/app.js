@@ -147,16 +147,20 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
              */
             $rootScope.jumpToCenter=function(centerFlag,where){
 
-                //用户修改注册信息需要重新存储storage
+                /**
+                 * 用户修改注册信息需要重新存储storage,加一层判断
+                 */
                 if(where){
                     window.localStorage.centerData="";
                 }
+                else{
 
-                else if(window.localStorage.centerData){
-                        location.href="#/user/center";
-                        //location.href="/user/center"
+                };
+
+                if(window.localStorage.centerData){
+                        //location.href="#/user/center";
+                        location.href="/user/center"
                     }
-
                 else{
                     var userCenterUrl = $rootScope.prefuri + "/user/info";
                     var XHRrequest = $http({
@@ -169,8 +173,8 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                             window.localStorage.isLogin=true;
                             $rootScope.centerData = JSON.parse(window.localStorage.centerData);
                             if(centerFlag){
-                                location.href="#/user/center";
-                                //location.href="/user/center"
+                                //location.href="#/user/center";
+                                location.href="/user/center"
                             }
                         }
                     });

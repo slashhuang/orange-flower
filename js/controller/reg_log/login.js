@@ -81,7 +81,9 @@ define([],function(){
                 if ($scope.checkLoginData(loginName, password)){
                    var XHRrequest= $http({
                         "method": "post",
-                        "url": loginURL+"/"+loginName+'/'+ password
+                        "url": loginURL,
+                       "data": 'loginName='+loginName+'&password='+password,
+                       headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
                     }).success(function (data) {
                        if(data) {
                            window.localStorage.isLogin=true;

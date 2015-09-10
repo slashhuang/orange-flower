@@ -4,16 +4,17 @@
 define([],function(){
     //定义商品分类controller
     function userCreditCtrl($scope,$routeParams,$location,$http,$timeout,$rootScope){
-        var userCreditUrl= $rootScope.prefuri + "/user/info";
-        $scope.creditInfo = {};
-        //重置头像@TODO
-        $http({
-            method:"post",
-            url:userCreditUrl
-        }).success(function(){
-            $scope.creditInfo = arguments[0];
-            $scope.debugLog(arguments)
-        }).error($rootScope.httpError);
+
+
+
+        if(window.localStorage.centerData){
+            $rootScope.centerData = JSON.parse(window.localStorage.centerData);
+            console.log($rootScope.centerData )
+        }
+        else{
+            location.href="#/login";
+            //location.href="/login"
+        }
 
         /**
          * 可用额度/信誉额度
@@ -32,8 +33,8 @@ define([],function(){
          * @returns {string}
          */
         $scope.btnText = function(){
-            var userCredit = $scope.userCredit;
-            if(userCredit && userCredit.totalCredit > 0){
+            var userCredit = $rootScope.verifyActive($scope.centerData.userAuthOffline.authStatus.value);
+            if(userCredit){
                 $scope.linkFlag = true;
                 return "查看信息";
             }
@@ -46,7 +47,7 @@ define([],function(){
          * @returns {string}
          */
         $scope.rendLink = function(){
-            return $scope.linkFlag ? "/registerInfo" : "javascript:;";
+            return $scope.linkFlag ? "/user/info" : "/registerInfo:;";
         };
     }
     userCreditCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout','$rootScope'];
