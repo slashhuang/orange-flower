@@ -124,10 +124,10 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                 if (firstTimePay && firstTimePay >= min && firstTimePay <= max) {
                     $scope.firstTimePay = firstTimePay;
                     $scope.calculateMoney = _calculateRate(firstTimePay, $scope.saleDetail.price, finalMonth)["monthPay"];
-                    $scope.monthRate = _calculateRate(firstTimePay, $scope.saleDetail.price, finalMonth)["monthRate"];
+                    $scope.monthRate = _calculateRate($scope.firstTimePay, $scope.saleDetail.price, finalMonth)["monthRate"];
                 } else {
                     $scope.firstTimePay = max;
-                    $scope.calculateMoney = _calculateRate(firstTimePay, $scope.saleDetail.price, finalMonth)["monthPay"];
+                    $scope.calculateMoney = _calculateRate($scope.firstTimePay, $scope.saleDetail.price, finalMonth)["monthPay"];
                     $scope.monthRate = _calculateRate(firstTimePay, $scope.saleDetail.price, finalMonth)["monthRate"];
                 }
                 //  根据范围内的
@@ -264,46 +264,54 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                 activity = dataSubmit["activity"] == null ? "false" : "true";
             //  是否活动
 
+
+            var checkUrl = $scope.prefuri + "/user/check/credit?firstPay=" + $scope.firstTimePay + "&productPrice=" + $scope.saleDetail.price;
             $http({
-                "url": $scope.prefuri + "/user/info",
-                "method": "POST"
-            }).success(function (res) {
-                if (!res) {
-                    //return location.href = "/login";
-                    return $location.path("/login");
-                }
-                //  未登录的情况就到登录页
+                "method":"get",
+                "url":checkUrl
+            }).success(function(){
+                $http({
+                    "url": $scope.prefuri + "/user/info",
+                    "method": "POST"
+                }).success(function (res) {
+                    if (!res) {
+                        //return location.href = "/login";
+                        return $location.path("/login");
+                    }
+                    //  未登录的情况就到登录页
 
-                else if (!res["userAddressList"][0]["address"] && !res["userName"]) {
-                    //return location.href = "/registerInfo";
-                    return $location.path("/registerInfo");
-                }
-                //  未完善信息的用户
+                    else if (!res["userAddressList"][0]["address"] && !res["userName"]) {
+                        //return location.href = "/registerInfo";
+                        return $location.path("/registerInfo");
+                    }
+                    //  未完善信息的用户
 
-                localStorage.orderInfo = JSON.stringify({
-                    "pagePrice":dataSubmit["pagePrice"],                //  显示价格
-                    "uId":res["id"],                                    //  用户Id
-                    "skuId":dataSubmit["id"],                                 //  skuId
-                    "showBtn":"true",                                        //  是否显示按钮
-                    "productId":dataSubmit["id"],                   //  产品id
-                    "salePrice":dataSubmit["price"],                   //  原价
-                    "firstPay" : info["firstTimePay"],                   //  首付
-                    "servicePay" : info["monthRate"],                    //  利息
-                    "monthPay" : info["calculateMoney"],                 //  月供
-                    "count":"1",                                            //  数量
-                    "periods" : info["finalMonth"],                      //  分期月数
-                    "uName" : res["userName"],                           //  购买人姓名
-                    "telphone" : res["inviteCode"],                      //  购买人手机号
-                    "address" : res["userAddressList"][0]["address"],    //  收货地址
-                    "arg" : dataSubmit["title"],                         //  商品详情名称
-                    "prviewImg" : dataSubmit["thumb"]["smallUrl"],       //  预览图片
-                    "activity" :activity,                              //  是否参加活动
-                    "discount":dataSubmit["activity"] != null ? dataSubmit["activity"]["discount"] : 0       //  活动折扣
-                });
+                    localStorage.orderInfo = JSON.stringify({
+                        "pagePrice":dataSubmit["pagePrice"],                //  显示价格
+                        "uId":res["id"],                                    //  用户Id
+                        "skuId":dataSubmit["id"],                                 //  skuId
+                        "showBtn":"true",                                        //  是否显示按钮
+                        "productId":dataSubmit["id"],                   //  产品id
+                        "salePrice":dataSubmit["price"],                   //  原价
+                        "firstPay" : info["firstTimePay"],                   //  首付
+                        "servicePay" : info["monthRate"],                    //  利息
+                        "monthPay" : info["calculateMoney"],                 //  月供
+                        "count":"1",                                            //  数量
+                        "periods" : info["finalMonth"],                      //  分期月数
+                        "uName" : res["userName"],                           //  购买人姓名
+                        "telphone" : res["inviteCode"],                      //  购买人手机号
+                        "address" : res["userAddressList"][0]["address"],    //  收货地址
+                        "arg" : dataSubmit["title"],                         //  商品详情名称
+                        "prviewImg" : dataSubmit["thumb"]["smallUrl"],       //  预览图片
+                        "activity" :activity,                              //  是否参加活动
+                        "discount":dataSubmit["activity"] != null ? dataSubmit["activity"]["discount"] : 0       //  活动折扣
+                    });
 
-                //location.href = "#/order/confirm";
-                //location.href = "/order/confirm";
-                $location.path("/order/confirm");
+                    //location.href = "#/order/confirm";
+                    //location.href = "/order/confirm";
+                    $location.path("/order/confirm");
+                }).error($scope.httpError);
+
             }).error($scope.httpError);
         };
 
