@@ -61,6 +61,14 @@
     left: 0;
     z-index: 99;
 }
+
+.of-header.reg-log{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
 .user-reglog-hint{
     margin-top:10px;
     height:20px;
@@ -84,10 +92,10 @@
 .of-header.gray{
     background-color: #dfdfdf;
     padding: 15px 11px;
-    /*font-family: STHeiti;*/
     font-family: "华文黑体";
     font-weight: 500;
     color: #515151;
+
 }
 .of-header-person{
     display:inline-block;
