@@ -3,12 +3,9 @@
 define([],function(){
     //定义商品分类controller
     function loginCtrl($scope,$routeParams,$location,$http,$timeout,$rootScope) {
-        //页面载入请求
-        var loginURL = $rootScope.prefuri + "/user/login";
-
 
         //初始情况下不显示提示
-        $scope.infoHint="";
+        $scope.loginfoHint="";
         $scope.checkVaildHint = "";
 
         /**
@@ -50,15 +47,17 @@ define([],function(){
             }
         };
 
-        //组件
-        //跳出登录函数
+        /**
+         * 跳出登录函数
+         */
+
             var outLogin = function (txt) {
                 var time = 2;
-                $scope.infoHint = txt + time + "秒后转向首页";
+                $scope.loginfoHint = txt + time + "秒后转向首页";
                 var interval = setInterval(function () {
                     $scope.$apply(function () {
                         time--;
-                        $scope.infoHint = txt + time + "秒后转向首页";
+                        $scope.loginfoHint = txt + time + "秒后转向首页";
                         if (time == 0) {
                             clearInterval(interval);
                             switch(txt){
@@ -66,45 +65,30 @@ define([],function(){
                                     location.href = "/main";
                                     break;
                                 case "登录失败":
-                                    $scope.infoHint=""
+                                    $scope.loginfoHint=""
                             }
                         }
                     });
                 }, 1000);
             };
-            //点击登录按钮
+
+
+        /**
+         * 点击登录按钮
+         */
             $scope.userLogin = function (loginName, password) {
+                var loginURL = $rootScope.prefuri + "/user/login";
                 if ($scope.checkLoginData(loginName, password)){
                    var XHRrequest= $http({
                         "method": "post",
-                        "url": loginURL,
-                       "data": {
-                           "loginName": loginName,
-                           "password": password
-                       },
-                       headers: {
-                           'Content-Type': 'application/x-www-form-urlencoded'
-                       }
-
+                        "url": loginURL+"/"+loginName+'/'+ password
                     }).success(function (data) {
                        if(data) {
                            window.localStorage.isLogin=true;
-                           $rootScope.isLogin = true;
                            outLogin("登录成功");
                        }
-                        else{
-                           window.localStorage.isLogin=false;
-                           $scope.infoHint = "密码错误";
-                           $timeout(function(){
-                               $scope.infoHint=""
-                           },1000)
-                       }
                     });
-                    XHRrequest.error(function(res){
-                        $rootScope.httpError(res);
-                        $scope.infoHint = res.message;
-                        $timeout(function(){$scope.infoHint = ""},1500)
-                    })
+                    XHRrequest.error($rootScope.httpError)
                 }
             }
     };

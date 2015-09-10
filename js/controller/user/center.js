@@ -4,9 +4,35 @@
 define([], function () {
     //定义商品分类controller
     function centerCtrl($scope, $routeParams, $location, $http,$rootScope,$timeout) {
+
         var userCenterUrl = $rootScope.prefuri + "/user/info";
-        //$scope.userCenterShow = window.localStorage.isLogin;
-        $scope.centerData = {};
+
+
+        //
+        //var XHRrequest = $http({
+        //    "method": "post",
+        //    "url": userCenterUrl
+        //});
+        //XHRrequest.success(function (data) {
+        //    console.log(data);
+        //    alert("come to success");
+        //    if(data){
+        //        $rootScope.centerData = data;
+        //        alert("entry point success!");
+        //        //避免刷新，选择localStorage存储
+        //        window.localStorage.centerData = data;
+        //        window.localStorage.isLogin=true;
+        //    }
+        //});
+        //XHRrequest.error($rootScope.httpError);
+
+        if(window.localStorage.centerData){
+            console.log(window.localStorage.centerData);
+            $rootScope.centerData = window.localStorage.centerData;
+        }
+        else{
+            alert("no storage")
+        }
 
         /**
          * 判断是否完善信息

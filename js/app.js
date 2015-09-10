@@ -95,7 +95,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                     $timeout(function(){
                         $rootScope.ErrorMessage="";
                         callback && callback();
-                    },1800);
+                    },2000);
                 }
                 if(res&&res.code){
                     switch (res.code){
@@ -104,14 +104,14 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                                 $timeout(function () {
                                     location.href='/login';
                                     //location.href="#/login"
-                                },2000);
+                                },1800);
                             break;//    用户未登录
                         case '10023':
                             window.localStorage.isLogin=false;
                                 $timeout(function () {
                                     location.href='/registerInfo';
                                     //location.href='#/registerInfo';
-                                },2000);
+                                },1800);
                             break;//    完善信息
                         case '10024':
                             $rootScope.debugLog(res.message,'alert');
@@ -146,6 +146,8 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
              * 处理HTTP请求，统一放置用户信息
              */
             $rootScope.jumpToCenter=function(centerFlag){
+
+
                 var userCenterUrl = $rootScope.prefuri + "/user/info";
                 var XHRrequest = $http({
                     "method": "post",
@@ -153,13 +155,19 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                 });
                 XHRrequest.success(function (data) {
                     console.log(data);
-                    alert("come to success")
+                    alert("come to success");
                     if(data){
                         $rootScope.centerData = data;
+                        alert("entry point success!");
+                        //避免刷新，选择localStorage存储
+                        window.localStorage.centerData={};
+                        window.localStorage.centerData = data;
+                        console.log( window.localStorage.centerData);
+                        console.log(data);
                         window.localStorage.isLogin=true;
                         if(centerFlag){
                             alert("fucking coming to here");
-                            location.href="/user/center"
+                            location.href="#/user/center"
                         }
                     }
                 });

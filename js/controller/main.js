@@ -15,14 +15,6 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                     discount:[],
                     category:[]
                 };
-                $scope.mainCheck_center =function(){
-                    if(window.localStorage.isLogin){
-                        location.href="/user/center"
-                    }
-                    else{
-                        $scope.jumpToCenter(true);
-                    }
-                };
 
                 /**
                  * http请求，渲染首页数据

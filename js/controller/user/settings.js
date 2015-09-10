@@ -9,7 +9,6 @@ define(["/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"], function ($, ajaxFile
 
         //初始化show状态
         $scope.logoutStatus = false;
-
         $scope.infoHint = "";
 
         //登出函数
