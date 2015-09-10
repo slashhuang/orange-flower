@@ -75,6 +75,9 @@ define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
                 }
             ];
 
+        var uId = JSON.parse(localStorage.orderInfo)["uId"];
+        var path = "/order/info?uId=" + uId;
+
         $http({
             "method": "get",
             "url": $rootScope.prefuri + "/order/" + orderId
@@ -108,7 +111,7 @@ define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
                         $scope.debugLog("支付失败",'alert');
                         $location.path(path);
                     } else if (result == "cancel") {
-                        $scope.debugLog("支付失败",'alert');
+                        $scope.debugLog("用户取消支付",'alert');
                         $location.path(path);
                     }
                 });
@@ -126,6 +129,19 @@ define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
                 return true;
             }
             return false;
+        };
+
+        /**
+         * 确认收货
+         * @param orderId
+         */
+        $scope.confirmRecive = function(orderId){
+            $http({
+                "url":$scope.prefuri + "/confirm/" + orderId,
+                "method":"get"
+            }).success(function(res){
+                $location.path("/orde/list?uId=" + uId);
+            }).error($scope.httpError());
         };
 
         /**

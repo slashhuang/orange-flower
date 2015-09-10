@@ -126,7 +126,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                                     $location.path(path);
                                     //location.href = "/order/info?uId=" + $scope.data.uId;
                                 } else if (result == "cancel") {
-                                    $scope.debugLog("支付失败",'alert');
+                                    $scope.debugLog("用户取消支付",'alert');
                                     $location.path(path);
                                     //location.href = "/order/info?uId=" + $scope.data.uId;
                                 }

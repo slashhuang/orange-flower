@@ -74,12 +74,14 @@ define([],function(){
          * @param orderId
          * @param status
          */
-        $scope.confirmRecive = function(orderId,status){
-            var url = prefuri + "/order/status/" + orderId + status;
+        $scope.confirmRecive = function(orderId){
+            var url = $scope.prefuri + "/order/confirm/" + orderId;
             $http({
                 "url":url,
                 "method":"get"
-            }).success().error($rootScope.httpError);
+            }).success(function(){
+                location.reload();
+            }).error($rootScope.httpError);
         };
 
         /**
