@@ -120,15 +120,10 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                             pay.createPayment(res, function (result, error) {
                                 if (result == "success") {
                                     $location.path(path);
-                                    //location.href = "/order/info?uId=" + $scope.data.uId;
                                 } else if (result == "fail") {
                                     $scope.debugLog("支付失败",'alert');
-                                    $location.path(path);
-                                    //location.href = "/order/info?uId=" + $scope.data.uId;
                                 } else if (result == "cancel") {
                                     $scope.debugLog("用户取消支付",'alert');
-                                    $location.path(path);
-                                    //location.href = "/order/info?uId=" + $scope.data.uId;
                                 }
                             });
                         }).error($rootScope.httpError);

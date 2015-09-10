@@ -75,7 +75,7 @@ define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
                 }
             ];
 
-        var uId = JSON.parse(localStorage.orderInfo)["uId"];
+        var uId = JSON.parse(localStorage.centerData)["id"];
         var path = "/order/info?uId=" + uId;
 
         $http({
@@ -109,10 +109,8 @@ define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
                         $location.path(path);
                     } else if (result == "fail") {
                         $scope.debugLog("支付失败",'alert');
-                        $location.path(path);
                     } else if (result == "cancel") {
                         $scope.debugLog("用户取消支付",'alert');
-                        $location.path(path);
                     }
                 });
             }).error($rootScope.httpError);

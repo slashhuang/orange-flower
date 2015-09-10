@@ -48,7 +48,7 @@
                 </div>
                 <div class="order-item-bottom">
                     <span class="order-btn" ng-if="showButton(item.status) != 3" ng-click="reBuy(item.productId)">再次购买</span>
-                    <span class="order-btn" ng-if="showButton(item.status) == 3" ng-click="payNow(item.productId)">立即付款</span>
+                    <span class="order-btn" ng-if="showButton(item.status) == 0" ng-click="payNow(item.productId)">立即付款</span>
                     <span class="order-btn" ng-if="showButton(item.status) == 2" ng-click="confirmRecive(item.orderId)">确认收货</span>
                     <span class="order-btn" ng-if="showButton(item.status) == 1" ng-click="cancelOrder(item.orderId)">取消订单</span>
                 </div>
