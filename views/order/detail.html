@@ -13,7 +13,6 @@
     <!-- 创建时间-->
     <div class="order-top">
         <h4 class="order-num">订单号&nbsp;&nbsp;{{data.orderId}}</h4>
-        <h4 class="create-time">交易时间&nbsp;&nbsp;{{date(data.orderId)}} </h4>
     </div>
 
     <!-- 订单详情-->
@@ -31,7 +30,7 @@
                 <div class="order-detail-price">
                     <p>商品价格</p>
 
-                    <p class="info-price">￥<span class="price-red">{{transferPrice(data.payAmount)}}</span></p>
+                    <p class="info-price">￥<span class="price-red">{{transferPrice(data.salePrice)}}</span></p>
 
                     <p class="info-del-price">
                         <del>￥{{transferPrice(data.salePrice)}}</del>
@@ -102,7 +101,7 @@
         <div class="info-item delivery-time" ng-show="data.sendTime.length > 0">
             <p class="info-name">发货时间</p>
 
-            <p class="info-detail">{{data.sendTime}}</p>
+            <p class="info-detail">{{data.sendTime|date:'yyyy-MM-dd'}}</p>
         </div>
         <div class="info-item recive-person">
             <p class="info-name">收货人</p>
@@ -114,7 +113,7 @@
 
             <p class="info-detail">{{data.address | limitTo : 15}}...</p>
         </div>
-        <div class="info-item pay-method">
+        <div class="info-item pay-method" ng-show="data.payMethod.length > 0">
             <p class="info-name">支付方式</p>
 
             <p class="info-detail">{{data.payMethod}}</p>
@@ -123,6 +122,11 @@
             <p class="info-name">发票信息</p>
 
             <p class="info-detail">{{data.ticketInfo}}</p>
+        </div>
+        <div class="info-item receipt-info">
+            <p class="info-name">交易时间</p>
+
+            <p class="info-detail">{{data.orderTime|date:'yyyy-MM-dd HH:mm'}}</p>
         </div>
     </div>
 

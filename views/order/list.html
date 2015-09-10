@@ -1,7 +1,7 @@
 <div>
     <!--头部-->
     <div class="of-header gray">
-        <a class="header-back" href="javascript:history.back();"></a>
+        <a class="header-back" href="/user/center"></a>
         我的订单
         <a class="header-function" href="/main" style="color: #5b5b5b">首页</a>
         <!--<a class="header-function" href="#/main" style="color: #5b5b5b">首页</a>-->
@@ -47,10 +47,10 @@
                     </a>
                 </div>
                 <div class="order-item-bottom">
-                    <span class="order-btn" ng-if="showButton(item.status) != 3" ng-click="reBuy(item.productId)">再次购买</span>
-                    <span class="order-btn" ng-if="showButton(item.status) == 0" ng-click="payNow(item.productId)">立即付款</span>
-                    <span class="order-btn" ng-if="showButton(item.status) == 2" ng-click="confirmRecive(item.orderId)">确认收货</span>
-                    <span class="order-btn" ng-if="showButton(item.status) == 1" ng-click="cancelOrder(item.orderId)">取消订单</span>
+                    <span class="order-btn" ng-if="showButton('buyAgain', item.status)" ng-click="reBuy(item.productId)">再次购买</span>
+                    <span class="order-btn" ng-if="showButton('payNow', item.status)" ng-click="payNow(item.orderId)">立即付款</span>
+                    <span class="order-btn" ng-if="showButton('confirm', item.status)" ng-click="confirmRecive(item.orderId)">确认收货</span>
+                    <span class="order-btn" ng-if="showButton('cancel', item.status)" ng-click="cancelOrder(item.orderId)">取消订单</span>
                 </div>
             </li>
         </ul>

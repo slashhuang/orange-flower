@@ -2,9 +2,17 @@
  * 订单列表控制器
  * build by rwson @2015-08-23
  */
-define([],function(){
+define(["pingpp", "jquery"],function(pay, $){
     //定义商品分类orderList
     function orderListCtrl($scope,$routeParams,$location,$http,$rootScope){
+        var btnArray = {
+            "buyAgain": ['CHECKING', 'CHECKING_FAIL', 'TO_SHIPPED', 'SHIPPED', 'TRADING_SUCCESS', 'TRADING_CLOSED', 'EXCHANGE_CHECK', 'RETURN_CHECK', 'EXCHANGE_FAILED', 'RETURN_FAILED', 'EXCHANGE_SUCCESS', 'RETURN_SUCCESS', 'RETURNING', 'EXCHANGE', 'RETURNED', 'RECEIPTED'],
+            "payNow": ['TO_PAY'],
+            "confirm": ['RECEIPTED'],
+            "cancel": ['CHECKING','TO_PAY','CHECKING_FAIL']
+        }
+
+
         //初始化变量完成
 
         var uId = $location.search()["uId"],
@@ -52,21 +60,33 @@ define([],function(){
             });
         };
 
+
+        $scope.showButton = function(flag, status){
+            var statuses = btnArray[flag];
+            return $.inArray(status, statuses) > -1;
+        };
+
         /**
          * 根据不同的按钮渲染按钮
          * @param status
          */
-        $scope.showButton = function(status){
+        $scope.showButton1 = function(status){
             var index = _findIndex(statusArr,status);
+            console.log(index)
+            var result;
             if(index == 0 || index == 1 || index == 2){
-                return 1;
+                if(index == 1 || index == 2)
+                    result = 1;
+                else
+                    result = 3;
             }else if(index == 4 || index == 16){
-                return 2;
-            } else if(index == 0){
-                return 3;
+                result = 2;
             } else{
-                return 4;
+                result = 4;
             }
+
+            console.log("result=" + result)
+            return result;
         };
 
         /**
@@ -135,6 +155,35 @@ define([],function(){
             }else{
                 return false;
             }
+        };
+
+        /**
+         * 立即支付
+         * @param orderId
+         */
+        $scope.payNow = function(orderId){
+            var data = {
+                "orderId": orderId,
+                "payChannel": "WX_PUB",
+                "tradeType": "TRADE_CONSUME"
+            };
+
+            $http({
+                "method": "post",
+                url: $scope.prefuri + "/pay/pay/",
+                "data": data
+            }).success(function (res) {
+                pay.createPayment(res, function (result, error) {
+                    if (result == "success") {
+                        //$location.path(path);
+                        location.href = "/order/list?uId=" + uId;
+                    } else if (result == "fail") {
+                        $scope.debugLog("支付失败",'alert');
+                    } else if (result == "cancel") {
+                        $scope.debugLog("用户取消支付",'alert');
+                    }
+                });
+            }).error($rootScope.httpError);
         };
 
         /**

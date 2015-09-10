@@ -121,7 +121,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                             pay.createPayment(res, function (result, error) {
                                 if (result == "success") {
                                     //$location.path(path);
-                                    location.href = path;
+                                    location.href = "/order/list?uId=" + $scope.data.uId;
                                 } else if (result == "fail") {
                                     $scope.debugLog("支付失败",'alert');
                                 } else if (result == "cancel") {
