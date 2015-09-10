@@ -19,8 +19,7 @@
                 <!--</div>-->
             <!--</div>-->
         <!--</div>-->
-
-        <div ng-bind-html="rendOffInfo(activity) | trustHtml"></div>
+        <div ng-bind-html="rendOffInfo(activity,'detail',now,left) | trustHtml"></div>
 
         <div class="swiper-wrapper">
             <div class="swiper-slide" style="width: 100%; text-align: center;" ng-repeat="imgs in detailImages">

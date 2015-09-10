@@ -13,7 +13,8 @@
     <div class="user-center-info clear-float">
         <div class="left-info">
             <!--<img class="avator" src="/images/orchen.png">-->
-            <img class="avator" src="/images/default-head.jpg">
+            <!--<img class="avator" src="/images/default-head.jpg">-->
+            <img class="avator" src="{{headPic}}">
             <div class="name-mobile">
                 <h4 class="u-name">{{rendInfo(centerData.userName)}}</h4>
                 <h6 class="u-mobile">{{rendInfo(centerData.telNo)}}</h6>
@@ -45,16 +46,16 @@
     <div class="user-center-btn-list">
         <ul>
             <li class="list-item">
-                <a href="/order/list" class="whole-link">
-                <!--<a href="#/order/list" class="whole-link">-->
+                <a href="/order/list?uId={{centerData.id}}" class="whole-link">
+                <!--<a href="#/order/list?uId={{centerData.id}}" class="whole-link">-->
                     <b class="list-item-link" >我的订单</b>
 
                     <em class="arrow"></em>
                 </a>
             </li>
             <li class="list-item">
-                <a href="/bill" class="whole-link">
-                <!--<a href="#/bill" class="whole-link">-->
+                <a href="/bill?uId={{centerData.id}}" class="whole-link">
+                <!--<a href="#/bill?uId={{centerData.id}}" class="whole-link">-->
                     <b class="list-item-link" >我的账单</b>
                     <em class="arrow"></em>
                 </a>

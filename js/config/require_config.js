@@ -9,6 +9,7 @@ require.config({
         "util":"lib/common_util",
         "ajaxUrl":"lib/common_util/ajax_check",
         "jquery":"lib/jquery",
+        "formSubmit":"lib/jquery.form.min",
         "swiper":"lib/swiper",
         "cookie":"lib/cookie",
         "dom_sales":"DOMJS/sales",

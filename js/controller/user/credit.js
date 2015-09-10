@@ -12,8 +12,8 @@ define([],function(){
             console.log($rootScope.centerData )
         }
         else{
-            location.href="#/login";
-            //location.href="/login"
+            //location.href="#/login";
+            location.href="/login"
         }
 
         /**

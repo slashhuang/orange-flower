@@ -32,7 +32,6 @@
     color: #fff;
 }
 .item-detail-inner{
-    background:#fff;
     width:42px;
     height:42px;
     -webkit-border-radius:42px ;
@@ -46,15 +45,20 @@
     -webkit-border-radius:38px ;
     -moz-border-radius: 38px;
     border-radius: 38px;
-    padding:5px;
+    /*padding:5px;*/
+    padding:5px 10px 0 0;
     font-size:10px;
     text-align:center;
-    line-height:14px;
+    line-height:10px;
 }
 
 .item-detail-inner1 span{
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.item-detail-inner1 span:nth-of-type(1){
+    font-size: 8px;
 }
 
 .item-detail-inner1 i{

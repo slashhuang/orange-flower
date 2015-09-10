@@ -7,10 +7,16 @@ define([], function () {
 
         if(window.localStorage.centerData){
             $rootScope.centerData = JSON.parse(window.localStorage.centerData);
-            console.log($rootScope.centerData )
+            var uData = JSON.parse(localStorage.centerData);
+            if(uData["displayPicture"]){
+                $scope.headPic = $scope.prefuri + "/file/z2/" + uData["displayPicture"];
+            }else{
+                $scope.headPic = "../images/default-head.jpg";
+            }
+            //  显示用户头像
         }
         else{
-            location.href="#/login";
+            location.href="/login";
             //location.href="/login"
         }
 
