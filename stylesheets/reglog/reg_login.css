@@ -167,16 +167,21 @@ input.checkbox-style{
 }
 .of-register-form-check>div{
     display: block;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     padding: 12px 10px;
     border-bottom: 1px #e6e6e6 solid;
     overflow: hidden;
-    color: #515151;
     line-height: 22px;
 }
 .of-register-form-check>div span{
     margin-left:24px;
+}
+.of-register-form-check>div h1{
+    color:#15c690
+}
+.of-register-form-check>div div:nth-of-type(1){
+    color:#515151
 }
 
 
