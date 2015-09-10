@@ -117,5 +117,6 @@
         <a href="javascript:;" class="re-buy-btn" ng-click="reBuy(data.productId)">再次购买</a>
         <a href="javascript:;" class="re-buy-btn" ng-show="status == 'RECEIPTED'" ng-click="confirmRecive(data.productId)">确认收货</a>
         <a href="javascript:;" ng-show="showPayBtn(data.firstPay,data.status)" class="re-buy-btn" ng-click="payNow(data.orderId)">立即支付</a>
+        <a href="javascript:;" ng-show="showConfirm(data.status)" class="re-buy-btn" ng-click="conformRecive(data.orderId)">立即支付</a>
     </div>
 </div>

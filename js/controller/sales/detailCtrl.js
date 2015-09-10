@@ -97,13 +97,13 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                 $scope.calculateMoney = _calculateRate($scope.firstTimePay, $scope.saleDetail.price, $scope.finalMonth)["monthPay"];
             }
         };
+
         /**
          * 循环出月份的相关数据
          * @param min
          * @param max
          * @returns {Array}
          */
-
         $scope.monthSelector = function (min, max) {
             var monthArray = [];
             for (var i = min - 1; i < max; i++) {
@@ -225,7 +225,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                 var now = new Date().getTime();
                 var money = parseInt($scope.saleDetail.price);
                 if (now >= start && now <= end) {
-                    money = parseInt($scope.saleDetail.price) - parseInt(data.activity.discount);
+                    money = parseInt($scope.saleDetail.price) - parseInt(data.activity.discount) * 100;
                 }
                 $scope.saleDetail.price = money;
                 $scope.calculateMoney = $rootScope.transferPrice(money);

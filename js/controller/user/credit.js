@@ -47,7 +47,7 @@ define([],function(){
          * @returns {string}
          */
         $scope.rendLink = function(){
-            return $scope.linkFlag ? "/user/info" : "/registerInfo:;";
+            return $scope.linkFlag ? "/user/info" : "/registerInfo";
         };
     }
     userCreditCtrl.$inject=['$scope','$routeParams','$location','$http','$timeout','$rootScope'];

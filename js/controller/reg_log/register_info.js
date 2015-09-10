@@ -102,7 +102,7 @@ define([],function(){
                 return true;
             }
             else{
-                alert($scope.idErr);
+                //alert($scope.idErr);
                 $scope.idTip="请填写所有字段";
                 if($scope.idErr){
                     $scope.idTip="身份证号格式错误";

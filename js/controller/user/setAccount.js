@@ -13,17 +13,21 @@ define([],function(){
             }).success(function (data) {
             }).error($rootScope.httpError);
         };
+
+        var uData = JSON.parse(localStorage.centerData);
+        //  显示用户头像
+        if (uData["displayPicture"] && uData["displayPicture"] != 0) {
+            $scope.headPic = $scope.prefuri + "/file/z2/" + uData["displayPicture"];
+        } else {
+            $scope.headPic = "../images/default-head.jpg";
+        }
+        //  显示用户头像
+
         //重置头像@TODO
         $scope.changeHead = function () {
 
             var uData = JSON.parse(localStorage.centerData);
-            if (uData["displayPicture"]) {
-                $scope.headPic = $scope.prefuri + "/file/z2/" + uData["displayPicture"];
-            } else {
-                $scope.headPic = "../images/default-head.jpg";
-            }
             //  显示用户头像
-            var uData = JSON.parse(localStorage.centerData);
             if (uData["displayPicture"] && uData["displayPicture"] != 0) {
                 $scope.headPic = $scope.prefuri + "/file/z2/" + uData["displayPicture"];
             } else {

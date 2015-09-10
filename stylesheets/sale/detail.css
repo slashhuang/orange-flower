@@ -486,3 +486,8 @@
 .package-info p{
     line-height: 2rem;
 }
+
+.discount-old{
+    padding: 0 0 0 20px;
+    color: #515151;
+}

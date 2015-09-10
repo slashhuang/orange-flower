@@ -23,7 +23,7 @@
                                 <!--<div class="item-discount-inner1 active" >-->
                                     <!--<span>立减</span>-->
                                     <!--<span>{{salelist.discount.firstTime}}</span>-->
-                                    <!--<!--<i>罄</i>-->-->
+                                    <!--<!--<i>罄</i>-->
                                 <!--</div>-->
                             <!--</div>-->
                         <!--</div>-->
@@ -40,7 +40,7 @@
                     <h1>{{salelist.itemInfo | cut:true:40:' ...'}}</h1>
                     <p class="item-price color-51">￥{{transferPrice(salelist.itemPrice)}}&nbsp;&nbsp;&nbsp;<i>￥{{transferPrice(salelist.itemOldPrice)}}</i></p>
                     <div class="total-price">
-                        <i>￥{{salelist.itemInstallation}}</i>
+                        <i>￥{{transferPrice(salelist.itemInstallation)}}</i>
                         <h2 class="color-51">×</h2><span class="color-51">{{salelist.itemCycle}}期</span>
                         <a href="" class="item-hot-sale" ng-show="salelist.hot == true">热卖</a>
                         <a href="" class="item-new-sale" ng-show="salelist.new == true">新品</a>

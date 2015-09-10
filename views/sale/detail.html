@@ -37,7 +37,7 @@
     <div class="item-detail-intro">
         <h1>{{saleDetail.title}}</h1>
         <!--<h1 class="small-font">每个ID限购一单</h1>-->
-        <span>￥<i>{{transferPrice(saleDetail.price)}}</i></span>
+        <span>￥<i>{{transferPrice(saleDetail.price)}}</i><del ng-show="saleDetail.activity != null" class="discount-old">￥{{transferPrice(saleDetail.pagePrice)}}</del></span>
     </div>
     <div class="item-detail-option-wrapper">
         <!--自定义命令区域-->
