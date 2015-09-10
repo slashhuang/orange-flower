@@ -10,7 +10,7 @@
     <i>{{rendMoney(centerData.userCredit.totalCredit)}}</i>
 </div>
 <div class="user-credit-info" ng-show="!verifyActive(centerData.status.value)">完善信息即可获取<span>{{transferPrice(centerData.userCredit.totalCredit)}}</span>元额度</div>
-<div style="margin-top:15px;" ng-show="centerData.authenticate">&nbsp;</div>
+<!--<div ng-show="centerData.authenticate">&nbsp;</div>-->
 <!--<a href="/registerInfo">-->
 <a href="{{rendLink()}}">
     <div class="of-button user-credit-button">{{btnText()}}</div>

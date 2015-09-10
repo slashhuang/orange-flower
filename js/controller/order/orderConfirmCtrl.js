@@ -24,6 +24,13 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
             });
         }
 
+        $scope.rendPrice = function(){
+            if($scope.activity == "false"){
+                return $scope.transferPrice($scope.pagePrice);
+            }
+            return $scope.transferPrice(parseInt($scope.pagePrice) - $scope.discount);
+        };
+
         /**
          * 显示按钮的状态值
          * @param id
@@ -77,6 +84,8 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
             };
             //  下单相关参数
 
+            var path = "/order/info?uId=" + $scope.data.uId;
+
             if(status=="TO_PAY" || storageParams["showBtn"] == "true"){
                 if(firstPay && firstPay > 0){
                     //  首付大于0,先下单后支付
@@ -85,7 +94,17 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                         "url": $rootScope.prefuri + "/order/create",
                         "data": submitData
                     }).success(function (res) {
-
+                        var userCenterUrl = $rootScope.prefuri + "/user/info";
+                        var XHRrequest = $http({
+                            "method": "post",
+                            "url": userCenterUrl
+                        });
+                        XHRrequest.success(function (data) {
+                            if(data){
+                                localStorage.centerData = JSON.stringify(data);
+                            }
+                        });
+                        XHRrequest.error($rootScope.httpError);
                         var data = {
                             //"orderId": id,
                             "orderId": id || res,
@@ -100,13 +119,16 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                         }).success(function (res) {
                             pay.createPayment(res, function (result, error) {
                                 if (result == "success") {
-                                    location.href = "/order/info?uId=" + $scope.data.uId;
+                                    $location.path(path);
+                                    //location.href = "/order/info?uId=" + $scope.data.uId;
                                 } else if (result == "fail") {
                                     $scope.debugLog("支付失败",'alert');
-                                    location.href = "/order/info?uId=" + $scope.data.uId;
+                                    $location.path(path);
+                                    //location.href = "/order/info?uId=" + $scope.data.uId;
                                 } else if (result == "cancel") {
                                     $scope.debugLog("支付失败",'alert');
-                                    location.href = "/order/info?uId=" + $scope.data.uId;
+                                    $location.path(path);
+                                    //location.href = "/order/info?uId=" + $scope.data.uId;
                                 }
                             });
                         }).error($rootScope.httpError);
@@ -119,7 +141,8 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                         "url": $rootScope.prefuri + "/order/create",
                         "data": submitData
                     }).success(function (res) {
-                        location.href = "/order/info?uId=" + $scope.data.uId;
+                        //location.href = "/order/info?uId=" + $scope.data.uId;
+                        $location.path(path);
                     }).error($rootScope.httpError);
                 }
             }
@@ -139,7 +162,8 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
          * @param orderId
          */
         $scope.payNow = function(orderId){
-            location.href = "/order/info?uId=" + $scope.data.uId;
+            //location.href = "/order/info?uId=" + $scope.data.uId;
+            $location.path(path);
         };
 
         /**
@@ -193,9 +217,12 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                     "firstPay": data["firstPay"] * 100,                    //  首付
                     "id":data["skuId"],                     //  skuId
                     "uId":data["uId"],                   //  用户Id
-                    "activity":data["activity"]         //  活动
+                    "activity":data["activity"],         //  活动
+                    "pagePrice":data["pagePrice"],       //  显示价格
+                    "discount":data["discount"]          //  活动优惠
                 };
                 //  从商品详情页进来的
+
             }
             return returnObj;
         }

@@ -23,6 +23,13 @@ define([],function(){
                 $scope.headPic = "../images/default-head.jpg";
             }
             //  显示用户头像
+            var uData = JSON.parse(localStorage.centerData);
+            if (uData["displayPicture"] && uData["displayPicture"] != 0) {
+                $scope.headPic = $scope.prefuri + "/file/z2/" + uData["displayPicture"];
+            } else {
+                $scope.headPic = "../images/default-head.jpg";
+            }
+            //  显示用户头像
 
         }
     }

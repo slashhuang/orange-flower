@@ -2,7 +2,7 @@
  * 订单详情控制器
  * build by rwson @2015-08-23
  */
-define([], function () {
+define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
     function orderDetailCtrl($scope, $routeParams, $location, $http,$rootScope) {
 
         var orderId = $location.search()["orderId"],
@@ -86,11 +86,54 @@ define([], function () {
         });
 
         /**
+         * 立即支付
+         * @param orderId
+         */
+        $scope.payNow = function(orderId){
+            var data = {
+                "orderId": orderId,
+                "payChannel": "WX_PUB",
+                "tradeType": "TRADE_CONSUME"
+            };
+
+            $http({
+                "method": "post",
+                url: $scope.prefuri + "/pay/pay/",
+                "data": data
+            }).success(function (res) {
+                pay.createPayment(res, function (result, error) {
+                    if (result == "success") {
+                        $location.path(path);
+                    } else if (result == "fail") {
+                        $scope.debugLog("支付失败",'alert');
+                        $location.path(path);
+                    } else if (result == "cancel") {
+                        $scope.debugLog("支付失败",'alert');
+                        $location.path(path);
+                    }
+                });
+            }).error($rootScope.httpError);
+        };
+
+        /**
+         * 显示立即支付按钮
+         * @param firstPay
+         * @param status
+         * @returns {boolean}
+         */
+        $scope.showPayBtn = function(firstPay,status){
+            if(firstPay > 0 && status == "TO_PAY"){
+                return true;
+            }
+            return false;
+        };
+
+        /**
          * 重新购买
          * @param id
          */
         $scope.reBuy = function (id) {
-            location.href = "/sale/detail/" + id;
+            $location.path("/sale/detail/" + id);
         };
         /**
          * 根据两个值是否相同返回class名
@@ -128,15 +171,17 @@ define([], function () {
          * @private
          */
         function _rendData(data) {
-            var returnObj = {};
+            var returnObj = {},
+                activity = (!data["orderLines"][0]["activityId"] && data["orderLines"][0]["activityId"] != "0") ? true : false;
             returnObj = {
+                "activity":activity,                                             // 活动
                 "name": data["userName"],                                        //  姓名
                 "mobile": data["mobile"],                                        //  手机号
                 "arg": data["orderLines"][0]["commodityName"],                   //  商品参数
                 "off": "",                                                       //  优惠信息
                 "status": data["totalStatus"]["value"],                          //  订单状态
                 "sendTime": "",                                                  //  发货时间
-                "address": data["userAddress"]["address"],                                    //  配送地址
+                "address": data["userAddress"]["address"],                       //  配送地址
                 "payMethod": "微信支付",                                          //  支付方式
                 "ticketInfo": "个人",                                             //  发票信息
                 "orderId": data["orderId"],                                      //  订单编号

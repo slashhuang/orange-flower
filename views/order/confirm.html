@@ -35,8 +35,9 @@
                     <!--<p class="decrease-icon confirm-name order-info-name"><span class="product-name">{{data.productName}}</span><em>￥{{transferPrice(data.payAmount)}}</em></p>-->
                     <!--<p class="decrease-icon confirm-name order-info-name"><span class="product-name">{{data.productName}}</span><em>￥{{transferPrice(data.payAmount)}}</em></p>-->
                     <p class="confirm-name order-info-name"><span class="product-name">{{data.productName}}</span></p>
-                    <p class="info-arg"><em class="cur-price">￥{{transferPrice(data.payAmount)}}</em><del>￥{{transferPrice(data.salePrice)}}</del></p>
-                    <p class="info-arg">首付￥{{transferPrice(data.firstPay)}}  月供￥{{transferPrice(data.prePeriodsPay)}}×{{data.periods}}</p>
+                    <!--<p class="info-arg"><em class="cur-price">￥{{transferPrice(data.payAmount)}}</em><del ng-show="data.activity != 'false'">￥{{transferPrice(data.salePrice)}}</del></p>-->
+                    <p class="info-arg"><em class="cur-price">￥{{transferPrice(data.pagePrice)}}</em><del ng-show="data.activity != 'false'">￥{{transferPrice(data.salePrice)}}</del></p>
+                    <!--<p class="info-arg">首付￥{{transferPrice(data.firstPay)}}  月供￥{{transferPrice(data.prePeriodsPay)}}×{{data.periods}}</p>-->
                 </div>
             </div>
         </a>
@@ -64,10 +65,10 @@
                 <p class="pay-left-info">月供</p>
                 <p class="pay-right-info"><em>￥{{transferPrice(data.prePeriodsPay)}}</em><span ng-show="data.servicePay > 0">（包含服务费¥{{transferPrice(data.servicePay)}})</span></p>
             </div>
-            <div class="total pay-item">
-                <p class="pay-left-info">总价</p>
-                <p class="pay-right-info">￥{{transferPrice(data.payAmount)}}</p>
-            </div>
+            <!--<div class="total pay-item">-->
+                <!--<p class="pay-left-info">总价</p>-->
+                <!--<p class="pay-right-info">￥{{transferPrice(data.payAmount)}}</p>-->
+            <!--</div>-->
         </div>
     </div>
 

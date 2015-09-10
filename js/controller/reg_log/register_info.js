@@ -75,6 +75,7 @@ define([],function(){
         var checkId = function(data){
             var bool = (/^[\d]{15}$/).test(data) || (/^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$/g).test(data);
             $scope.idTip = bool ? "" : "身份证格式错误";
+            $scope.idErr = !bool ? true : false;
             return bool;
         };
         /**
@@ -101,8 +102,12 @@ define([],function(){
                 return true;
             }
             else{
+                alert($scope.idErr);
                 $scope.idTip="请填写所有字段";
-                return false
+                if($scope.idErr){
+                    $scope.idTip="身份证号格式错误";
+                }
+                return false;
             }
         };
         //注册字段要修改
@@ -141,7 +146,7 @@ define([],function(){
             $timeout(function(){
                 $scope.regInfoHint = "";
                 //window.location.href="#/main"
-                $location.path("/main")
+                $location.path("/main");
             },2500);
         };
 

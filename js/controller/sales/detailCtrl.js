@@ -269,16 +269,19 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                 "method": "POST"
             }).success(function (res) {
                 if (!res) {
-                    return location.href = "/login";
+                    //return location.href = "/login";
+                    return $location.path("/login");
                 }
                 //  未登录的情况就到登录页
 
                 else if (!res["userAddressList"][0]["address"] && !res["userName"]) {
-                    return location.href = "/registerInfo";
+                    //return location.href = "/registerInfo";
+                    return $location.path("/registerInfo");
                 }
                 //  未完善信息的用户
 
                 localStorage.orderInfo = JSON.stringify({
+                    "pagePrice":dataSubmit["pagePrice"],                //  显示价格
                     "uId":res["id"],                                    //  用户Id
                     "skuId":dataSubmit["id"],                                 //  skuId
                     "showBtn":"true",                                        //  是否显示按钮
@@ -294,11 +297,13 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                     "address" : res["userAddressList"][0]["address"],    //  收货地址
                     "arg" : dataSubmit["title"],                         //  商品详情名称
                     "prviewImg" : dataSubmit["thumb"]["smallUrl"],       //  预览图片
-                    "activity" :activity                              //  是否参加活动
+                    "activity" :activity,                              //  是否参加活动
+                    "discount":dataSubmit["activity"] != null ? dataSubmit["activity"]["discount"] : 0       //  活动折扣
                 });
 
                 //location.href = "#/order/confirm";
-                location.href = "/order/confirm";
+                //location.href = "/order/confirm";
+                $location.path("/order/confirm");
             }).error($scope.httpError);
         };
 

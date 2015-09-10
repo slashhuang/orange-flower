@@ -34,7 +34,18 @@ define([],function(){
                 "method":"get",
                 "url":$rootScope.prefuri + "/order/cancel/" + id
             }).success(function(res){
-                location.reload();
+                var userCenterUrl = $rootScope.prefuri + "/user/info";
+                var XHRrequest = $http({
+                    "method": "post",
+                    "url": userCenterUrl
+                });
+                XHRrequest.success(function (data) {
+                    if(data){
+                        localStorage.centerData = JSON.stringify(data);
+                        location.reload();
+                    }
+                });
+                XHRrequest.error($rootScope.httpError);
             }).error(function(err){
                 $rootScope.httpError(err);
                 $scope.data = [];
@@ -108,7 +119,8 @@ define([],function(){
          * @param id
          */
         $scope.reBuy = function(id){
-            location.href = "/sale/detail/" + id;
+            //location.href = "/sale/detail/" + id;
+            $location.path("/sale/detail/" + id);
         };
 
         /**
