@@ -106,7 +106,8 @@ define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
             }).success(function (res) {
                 pay.createPayment(res, function (result, error) {
                     if (result == "success") {
-                        $location.path(path);
+                        //$location.path(path);
+                        location.href = path;
                     } else if (result == "fail") {
                         $scope.debugLog("支付失败",'alert');
                     } else if (result == "cancel") {
@@ -138,8 +139,9 @@ define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
                 "url":$scope.prefuri + "/confirm/" + orderId,
                 "method":"get"
             }).success(function(res){
-                $location.path("/orde/list?uId=" + uId);
-            }).error($scope.httpError);
+                //$location.path("/orde/list?uId=" + uId);
+                location.href = "/orde/list?uId=" + uId;
+            }).error($scope.httpError());
         };
 
         /**
@@ -147,7 +149,8 @@ define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
          * @param id
          */
         $scope.reBuy = function (id) {
-            $location.path("/sale/detail/" + id);
+            //$location.path("/sale/detail/" + id);
+            location.href = "/sale/detail/" + id;
         };
         /**
          * 根据两个值是否相同返回class名
