@@ -3,10 +3,11 @@ define([], function () {
     function orderInfoCtrl($scope, $routeParams, $location, $http,$rootScope) {
         //初始化变量完成
 
-        var orderId = $location.search()["orderId"];
+        var uId = $location.search()["uId"];
         //  从url里面获取orderId
 
-        $scope.url = "/order/detail?orderId=" + orderId;
+        //$scope.url = "/order/detail?orderId=" + orderId;
+        $scope.url = "/order/list?uId=" + uId;
         $scope.countTime = 3;
 
         var interval = setInterval(function(){
