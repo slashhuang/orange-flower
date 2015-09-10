@@ -9,7 +9,7 @@ define(["pingpp", "jquery"],function(pay, $){
             "buyAgain": ['CHECKING', 'CHECKING_FAIL', 'TO_SHIPPED', 'SHIPPED', 'TRADING_SUCCESS', 'TRADING_CLOSED', 'EXCHANGE_CHECK', 'RETURN_CHECK', 'EXCHANGE_FAILED', 'RETURN_FAILED', 'EXCHANGE_SUCCESS', 'RETURN_SUCCESS', 'RETURNING', 'EXCHANGE', 'RETURNED', 'RECEIPTED'],
             "payNow": ['TO_PAY'],
             "confirm": ['RECEIPTED'],
-            "cancel": ['CHECKING','TO_PAY','CHECKING_FAIL']
+            "cancel": ['CHECKING','TO_PAY','CHECKING_FAIL',"TO_SHIPPED"]
         }
 
 
