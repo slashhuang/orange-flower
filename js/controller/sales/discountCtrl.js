@@ -127,7 +127,7 @@ define([],function() {
                 "method":"POST"
             }).success(function(res){
 
-                $scope.discountList = _rendData(res);
+                $scope.discountList = _rendData(res.content);
                 $scope.showRefresh = false;
             }).error(function(err){
                 //$scope.showRefresh = false;
