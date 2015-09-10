@@ -47,31 +47,6 @@ define([],function(){
             }
         };
 
-        /**
-         * 跳出登录函数
-         */
-
-            var outLogin = function (txt) {
-                var time = 2;
-                $scope.loginfoHint = txt + time + "秒后转向首页";
-                var interval = setInterval(function () {
-                    $scope.$apply(function () {
-                        time--;
-                        $scope.loginfoHint = txt + time + "秒后转向首页";
-                        if (time == 0) {
-                            clearInterval(interval);
-                            switch(txt){
-                                case "登录成功":
-                                    $location.path("/main");
-                                    break;
-                                case "登录失败":
-                                    $scope.loginfoHint=""
-                            }
-                        }
-                    });
-                }, 1000);
-            };
-
 
         /**
          * 点击登录按钮
@@ -87,7 +62,9 @@ define([],function(){
                     }).success(function (data) {
                        if(data) {
                            window.localStorage.isLogin=true;
-                           outLogin("登录成功");
+                           $location.path("/main");
+                       }else{
+                           $scope.loginfoHint=""
                        }
                     });
                     XHRrequest.error($rootScope.httpError)

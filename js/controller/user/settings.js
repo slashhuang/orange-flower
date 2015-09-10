@@ -13,39 +13,19 @@ define(["/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"], function ($, ajaxFile
 
         //登出函数
         $scope.logout = function () {
-            time = 3;
+            time = 1;
             $http({
                 "method": "get",
                 "url": logoutURL
             }).success(function (data) {
-                $scope.infoHint = "登出成功" + time + "秒后转向首页";
-                outLogin("登出成功");
-            }).error(function (err) {
-                $scope.infoHint = "登出失败";
                 $scope.logoutStatus = true;
-                $timeout(function () {
-                    $scope.infoHint="";
-                    $scope.logoutStatus = false;
-                },1500);
+                window.localStorage.centerData="";
+                window.localStorage.isLogin = false;
+                $location.path("/main");
+            }).error(function (err) {
+                $scope.logoutStatus = false;
                 $rootScope.httpError(err);
             });
-        };
-
-        function outLogin(txt) {
-            $scope.infoHint = txt + time + "秒后转向首页";
-            $scope.logoutStatus = true;
-            window.localStorage.centerData="";
-            window.localStorage.isLogin = false;
-            var interval = setInterval(function () {
-                $scope.$apply(function () {
-                    time--;
-                    $scope.infoHint = txt + time + "秒后转向首页";
-                    if (time == 0) {
-                        clearInterval(interval);
-                        $location.path("/main");
-                    }
-                });
-            }, 1000);
         };
 
         //页面出现效果

@@ -170,7 +170,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                         if(typeof callback=='function'){
                             callback();
                         }
-                    },1000);
+                    },300);
                 }
                 if(res&&res.code){
                     switch (res.code){
@@ -179,14 +179,14 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                                 $timeout(function () {
                                     $location.path('/login');
                                     //location.href="#/login"
-                                },800);
+                                },200);
                             break;//    用户未登录
                         case '10023':
                             window.localStorage.isLogin=false;
                                 $timeout(function () {
                                     $location.path('/registerInfo');
                                     //location.href='#/registerInfo';
-                                },800);
+                                },200);
                             break;//    完善信息
                         case '10024':
                             $rootScope.debugLog(res.message,'alert');
