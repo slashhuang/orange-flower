@@ -7,12 +7,18 @@
 <div class="h-40"></div>
 <div class="setAccountHead clear-float">
     <span style="font-size:16px;color: #515151;">头像</span>
-    <label class="head-img">
-        <!--<input type="file" ng-model="userModule" value-change class="select-head" name="user-head" id="user-head">-->
-        <input type="file" ng-model="userModule" value-change class="select-head" name="user-head" id="user-head">
-        <!--<img src="../../images/user_center/my_head.png" class="user-head-pic">-->
-        <img src="../../images/default-head.jpg" class="user-head-pic">
-    </label>
+    <form id="head-form" action="http://api.orangezc.com/file/upload?space=user" method="POST" enctype="multipart/form-data">
+        <label class="head-img">
+            <!--<input type="file" ng-model="userModule" value-change class="select-head" name="user-head" id="user-head">-->
+            <input type="file" ng-model="userModule" value-change class="select-head" name="user-head" id="user-head">
+            <!--<input type="file" ng-model="userModule" class="select-head" name="user-head" id="user-head">-->
+            <!--<img src="../../images/user_center/my_head.png" class="user-head-pic">-->
+            <!--<img src="../../images/default-head.jpg" class="user-head-pic">-->
+            <img src="{{headPic}}" class="user-head-pic">
+            <input type="submit" style="display: none;" id="submit">
+        </label>
+        <!--<input type="submit" value="提交">-->
+    </form>
     <!--<img class="avator "src="/images/user_center/my_head.png" style="float:right;margin-right:20px;">-->
 </div>
 

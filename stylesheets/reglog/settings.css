@@ -62,6 +62,11 @@
     width: 5rem;
     height: 5rem;
     float: left;
+    -webkit-border-radius: 50% 50%;
+    -moz-border-radius: 50% 50%;
+    -ms-border-radius: 50% 50%;
+    -o-border-radius: 50% 50%;
+    border-radius: 50% 50%;
 }
 
 .select-head{

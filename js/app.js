@@ -72,15 +72,89 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
             /**
              * 渲染优惠信息
              * @param info
+             * @param type
+             * @param now
+             * @param left
+             * @returns {string}
              */
-            $rootScope.rendOffInfo = function(info){
-
+            $rootScope.rendOffInfo = function(info,type,now,left){
+                var html = "",
+                    start,end,progress,nums = "HAS";
                 if(Object.prototype.toString.apply(info) == "[object Null]" || !info){
                     //  优惠信息不存在
                     return "";
                 }
-                return "<div class='item-detail-position'> <div class='item-detail-banner active'> <div class='item-detail-inner'><div class='item-detail-inner1 active'>" +
-                "<span>立减</span> <span>" + info["discount"] + "</span> <!--i>罄</i--> </div> </div> </div> </div>";
+                //  判断优惠信息是否存在
+
+                start = info["startTime"];
+                end = info["endTime"];
+
+                console.log(now);
+                console.log(end);
+
+                if(now < start){
+                    progress = "NOT_START";
+                    //  还没开始
+                }else if(now >= start && now <= end){
+                    progress = "ING";
+                    //  正则进行
+                }else if(now > end){
+                    progress = "END";
+                    //  活动结束
+                }
+                //  活动时间流程
+
+                if(left == 0){
+                    nums = "END";
+                }
+                //  是否售罄
+
+                if(type == "detail"){
+                    if(progress == "ING"){
+                        html = "<div class='item-detail-position'> <div class='item-detail-banner active'> <div class='item-detail-inner'><div class='item-detail-inner1 active'>" +
+                        "<span>立减</span> <span>" + info["discount"] + "</span> ";
+
+                        if(nums == "END"){
+                            html += "<i>罄</i>";
+                        }
+
+                        html += " </div> </div> </div> </div>";
+                    }else{
+                        html = "<div class='item-detail-position'> <div class='item-detail-banner gray'> <div class='item-detail-inner'><div class='item-detail-inner1 active'>" +
+                        "<span>立减</span> <span>" + info["discount"] + "</span>";
+
+                        if(nums == "END"){
+                            html += "<i>罄</i>";
+                        }
+
+                        html += "</div> </div> </div> </div>";
+                    }
+                }else{
+
+                    console.log(progress);
+
+                    if(progress == "ING"){
+                        html = "<div class='item-detail-position'> <div class='item-detail-banner active'> <div class='item-detail-inner'><div class='item-detail-inner1 active'>" +
+                        "<span>立减</span> <span>" + info["discount"] + "</span> ";
+
+                        if(nums == "END"){
+                            html += "<i>罄</i>";
+                        }
+
+                        html += " </div> </div> </div> </div>";
+                    }else{
+                        html = "<div class='item-detail-position'> <div class='item-detail-banner gray'> <div class='item-detail-inner'><div class='item-detail-inner1 active'>" +
+                        "<span>立减</span> <span>" + info["discount"] + "</span>";
+
+                        if(nums == "END"){
+                            html += "<i>罄</i>";
+                        }
+
+                        html += "</div> </div> </div> </div>";
+                    }
+                }
+                return html;
+                //}
             };
 
             /**
@@ -171,7 +245,6 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                         if(data){
                             window.localStorage.centerData = JSON.stringify(data);
                             window.localStorage.isLogin=true;
-                            $rootScope.centerData = JSON.parse(window.localStorage.centerData);
                             if(centerFlag){
                                 //location.href="#/user/center";
                                 location.href="/user/center"

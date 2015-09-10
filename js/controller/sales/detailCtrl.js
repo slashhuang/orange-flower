@@ -215,8 +215,9 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
 
             $scope.debugLog($scope.showOffInfo);
 
-            $scope.activity = data.activity;
-            //  优惠信息
+            $scope.activity = data.activity;        //  优惠开始时间、结束时间、优惠多少
+            $scope.now = Date.now();                //  现在时间
+            $scope.left = data["left"];             //  商品余量
 
             if ($scope.showOffInfo) {
                 var start = parseInt(data.activity.startTime);

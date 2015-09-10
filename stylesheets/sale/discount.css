@@ -92,8 +92,8 @@
 }
 
 .item-sale-list .item-detail-position{
-    /*left: 0;*/
-    /*top: 0;*/
+    left: 35px;
+    top: 0;
 }
 
 .item-list-img{
@@ -101,6 +101,7 @@
     float:left;
     text-align: center;
     position: relative;
+    top: 15px;
 }
 
 .item-discount-position{
@@ -154,7 +155,7 @@
 }
 /*.item-discount-banner.active,.item-discount-inner1.active{*/
     /*background-color: #d20011;*/
-    /*background: url(../../images/icon/red-icon.png) no-repeat 0 0;*/
+    /*background: url(../../images/icon/¬red-icon.png) no-repeat 0 0;*/
     /*background-size: contain;*/
 /*}*/
 
@@ -171,16 +172,11 @@
     transform: rotate(160deg);
 }
 
-
-
-
-
-
 /*列表信息*/
 .item-hot-list-detail{
     float:left;
     width:60%;
-    margin: -18px 0 0 0;
+    /*margin: -18px 0 0 0;*/
 }
 .item-hot-list-detail .item-new-sale{
     float:right;
