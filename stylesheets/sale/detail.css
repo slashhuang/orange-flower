@@ -403,7 +403,7 @@
 }
 
 .hide-select{
-    width: 53px;
+    /*width: 53px;*/
     overflow: hidden;
 }
 

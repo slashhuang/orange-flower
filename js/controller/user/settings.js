@@ -9,7 +9,6 @@ define(["/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"], function ($, ajaxFile
 
         //初始化show状态
         $scope.logoutStatus = false;
-
         $scope.infoHint = "";
 
         //登出函数
@@ -35,6 +34,8 @@ define(["/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"], function ($, ajaxFile
         function outLogin(txt) {
             $scope.infoHint = txt + time + "秒后转向首页";
             $scope.logoutStatus = true;
+            window.localStorage.centerData="";
+            window.localStorage.isLogin = false;
             var interval = setInterval(function () {
                 $scope.$apply(function () {
                     time--;

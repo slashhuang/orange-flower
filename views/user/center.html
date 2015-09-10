@@ -22,7 +22,7 @@
 
 
         <div ng-class="{true: 'reg-btn-disable', false: 'reg-btn-active'}[verifyActive(centerData.userAuthOffline.authStatus.value)||false]"
-           ng-click="centerJump(centerData.userAuthOffline.authStatus.value)">{{centerData&&verifyActive(centerData.userAuthOffline.authStatus.value)?"已认证":"立即认证"}}</div>
+           ng-click="centerJump(centerData.userAuthOffline.authStatus.value)">{{centerData.userAuthOffline.authStatus.title}}</div>
     </div>
 
     <div class="split-line h-20"></div>
@@ -73,7 +73,7 @@
                 </a>
             </li>
             <li class="list-item">
-                <a href="javascript:;" class="whole-link">
+                <a href="/usageHelp" class="whole-link">
                     <b class="list-item-link">使用帮助</b>
                     <em class="arrow"></em>
                 </a>

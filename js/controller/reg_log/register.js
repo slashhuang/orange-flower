@@ -158,7 +158,7 @@ define(['zepto'], function ($) {
                 }).success(function (response, status, headers, config) {
                     $scope.submitHint = "注册成功！";
                     var callback = function () {
-                        $location.url("/registerInfo");
+                        location.href = "/registerInfo";
                     };
                     hintFunc(callback);
                 }).error(function (res) {

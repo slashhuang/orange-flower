@@ -55,16 +55,16 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
              */
             $rootScope.verifyActive = function (res) {
                 switch (res){
-                    case  'NONE':
+                    case  'TO_AUTH':
                         return false;
                         break;
-                    case  'NO':
+                    case  'FAIL':
                         return false;
                         break;
-                    case 'YES':
+                    case 'SUCCESS':
                         return true;
                         break;
-                    case "WAIT":
+                    case "AUTHING":
                         return true;
                 }
             };
@@ -95,7 +95,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                     $timeout(function(){
                         $rootScope.ErrorMessage="";
                         callback && callback();
-                    },1800);
+                    },2000);
                 }
                 if(res&&res.code){
                     switch (res.code){
@@ -104,14 +104,14 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                                 $timeout(function () {
                                     location.href='/login';
                                     //location.href="#/login"
-                                },2000);
+                                },1800);
                             break;//    用户未登录
                         case '10023':
                             window.localStorage.isLogin=false;
                                 $timeout(function () {
                                     location.href='/registerInfo';
                                     //location.href='#/registerInfo';
-                                },2000);
+                                },1800);
                             break;//    完善信息
                         case '10024':
                             $rootScope.debugLog(res.message,'alert');
@@ -145,25 +145,41 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
             /**
              * 处理HTTP请求，统一放置用户信息
              */
-            $rootScope.jumpToCenter=function(centerFlag){
-                var userCenterUrl = $rootScope.prefuri + "/user/info";
-                var XHRrequest = $http({
-                    "method": "post",
-                    "url": userCenterUrl
-                });
-                XHRrequest.success(function (data) {
-                    console.log(data);
-                    alert("come to success")
-                    if(data){
-                        $rootScope.centerData = data;
-                        window.localStorage.isLogin=true;
-                        if(centerFlag){
-                            alert("fucking coming to here");
-                            location.href="/user/center"
-                        }
+            $rootScope.jumpToCenter=function(centerFlag,where){
+
+                /**
+                 * 用户修改注册信息需要重新存储storage,加一层判断
+                 */
+                if(where){
+                    window.localStorage.centerData="";
+                }
+                else{
+
+                };
+
+                if(window.localStorage.centerData){
+                        //location.href="#/user/center";
+                        location.href="/user/center"
                     }
-                });
-                XHRrequest.error($rootScope.httpError);
+                else{
+                    var userCenterUrl = $rootScope.prefuri + "/user/info";
+                    var XHRrequest = $http({
+                        "method": "post",
+                        "url": userCenterUrl
+                    });
+                    XHRrequest.success(function (data) {
+                        if(data){
+                            window.localStorage.centerData = JSON.stringify(data);
+                            window.localStorage.isLogin=true;
+                            $rootScope.centerData = JSON.parse(window.localStorage.centerData);
+                            if(centerFlag){
+                                //location.href="#/user/center";
+                                location.href="/user/center"
+                            }
+                        }
+                    });
+                    XHRrequest.error($rootScope.httpError);
+                }
             };
             /**
              * 根据不同的type渲染class

@@ -34,6 +34,14 @@ define([], function () {
                 templateUrl: '/views/user/settings.html',
                 controller: 'userSettingsCtrl'
             }).
+            when("/usageHelp",{
+                templateUrl: '/views/user/usageHelp.html',
+                controller: ''
+            }).
+            when("/about/us",{
+                templateUrl: '/views/user/aboutUs.html',
+                controller: ''
+            }).
             when("/user/center", {
                 templateUrl: '/views/user/center.html',
                 controller: 'centerCtrl'

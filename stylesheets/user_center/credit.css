@@ -9,6 +9,8 @@
     color:#fff
 }
 .user-credit-limit i{
+    margin-top:10px;
+    display: block;
     font-style: normal;
     font-size:26px;
 }

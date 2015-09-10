@@ -4,9 +4,15 @@
 define([], function () {
     //定义商品分类controller
     function centerCtrl($scope, $routeParams, $location, $http,$rootScope,$timeout) {
-        var userCenterUrl = $rootScope.prefuri + "/user/info";
-        //$scope.userCenterShow = window.localStorage.isLogin;
-        $scope.centerData = {};
+
+        if(window.localStorage.centerData){
+            $rootScope.centerData = JSON.parse(window.localStorage.centerData);
+            console.log($rootScope.centerData )
+        }
+        else{
+            location.href="#/login";
+            //location.href="/login"
+        }
 
         /**
          * 判断是否完善信息
@@ -24,8 +30,7 @@ define([], function () {
          * @param bool
          */
         $scope.centerJump = function(offStatus){
-            var status = $scope.verifyActive(offStatus);
-            alert(status)
+           var status = $scope.verifyActive(offStatus);
            if(status){
                //location.href = "#/user/info";
                location.href = "/user/info";
