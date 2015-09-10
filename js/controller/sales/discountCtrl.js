@@ -66,11 +66,9 @@ define([],function() {
 
             });
             dragButton.addEventListener('touchend',function (e) {
-                console.log(e);
                 var touch = e.touches[0];
                 if(deltaY>=60){
-                    console.log("proceeding callback");
-                    $scope.refresh(callback)
+                    $scope.refresh();
                 }
                 else{
                     callback()
@@ -86,8 +84,9 @@ define([],function() {
             "method":"POST"
         }).success(function(res){
 
-            $scope.discountList = _rendData(res);
-            $scope.showRefresh = false;
+            $scope.discountList = _rendData(res.content);
+            //$scope.showRefresh = false;
+            refreshHint.innerHTML = "上拉刷新";
         }).error(function(err){
             //$scope.showRefresh = false;
             $scope.httpError(err);
@@ -123,12 +122,13 @@ define([],function() {
         $scope.refresh = function(callback){
             $scope.curPage += 1;
             $http({
-                "url":$scope.prefuri + "/product/listActivities/XSTM/" + $scope.curPage,
+                "url":$scope.prefuri + "/product/queryActivities/XSTM/" + $scope.curPage,
                 "method":"POST"
             }).success(function(res){
-
-                $scope.discountList = _rendData(res.content);
-                $scope.showRefresh = false;
+                if(res.content.length == 0){
+                    $scope.showRefresh = false;
+                }
+                $scope.discountList = $scope.discountList.concat(_rendData(res.content));
             }).error(function(err){
                 //$scope.showRefresh = false;
                 $scope.httpError(err);
