@@ -78,15 +78,10 @@ define([],function(){
                    var XHRrequest= $http({
                         "method": "post",
                         "url": loginURL,
-                       "data": {
-                           "loginName": loginName,
-                           "password": password
-                       },
-                       headers: {
-                           'Content-Type': 'application/x-www-form-urlencoded'
-                       }
-
-                    }).success(function (data) {
+                        "datatype": "json",
+                        "data": 'loginName='+loginName+'&password='+password,
+                        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
+                   }).success(function (data) {
                        if(data) {
                            window.localStorage.isLogin=true;
                            $rootScope.isLogin = true;
