@@ -107,7 +107,7 @@ define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
                 pay.createPayment(res, function (result, error) {
                     if (result == "success") {
                         //$location.path(path);
-                        location.href = path;
+                        location.href = "/order/list?uId=" + uId;
                     } else if (result == "fail") {
                         $scope.debugLog("支付失败",'alert');
                     } else if (result == "cancel") {
@@ -194,6 +194,7 @@ define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
                 "activity":activity,                                             // 活动
                 "name": data["userName"],                                        //  姓名
                 "mobile": data["mobile"],                                        //  手机号
+                "orderTime": data["orderTime"],                                 // 下单时间
                 "arg": data["orderLines"][0]["commodityName"],                   //  商品参数
                 "off": "",                                                       //  优惠信息
                 "status": data["totalStatus"]["value"],                          //  订单状态
@@ -202,7 +203,7 @@ define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
                 "logisticsCompany": data["orderLogistics"] ? data["orderLogistics"]["logisticsCompany"] : "",                  //  物流公司
                 "logisticsId": data["orderLogistics"] ? data["orderLogistics"]["logisticsId"] : "",                  //  单号
                 "address": data["userAddress"]["address"],                       //  配送地址
-                "payMethod": "微信支付",                                          //  支付方式
+                "payMethod": data["payment"] ? data["payment"]["payCode"]["title"] : "",                                          //  支付方式
                 "ticketInfo": "个人",                                             //  发票信息
                 "orderId": data["orderId"],                                      //  订单编号
                 "productName": data["orderLines"][0]["commodityName"],           //  商品名称

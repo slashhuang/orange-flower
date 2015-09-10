@@ -49,7 +49,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                 }
             };
             /**
-             * NONE("未认证"), NO("认证失败"), YES("认证成功");
+             * TO_AUTH("立即认证"), FAIL("认证失败"), SUCCESS("认证成功"), AUTHING("待认证")
              * @param res
              * @returns {boolean}
              */

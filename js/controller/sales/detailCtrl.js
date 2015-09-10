@@ -265,7 +265,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             //  是否活动
 
 
-            var checkUrl = $scope.prefuri + "/user/check/credit?firstPay=" + $scope.firstTimePay + "&productPrice=" + $scope.saleDetail.price;
+            var checkUrl = $scope.prefuri + "/user/check/credit?firstPay=" + $scope.firstTimePay*100 + "&productPrice=" + $scope.saleDetail.price*100;
             $http({
                 "method":"get",
                 "url":checkUrl
