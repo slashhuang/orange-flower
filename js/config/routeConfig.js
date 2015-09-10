@@ -119,7 +119,7 @@ define([], function () {
             });
         //商品部分路由
 
-        //$locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
 
         $httpProvider.defaults.withCredentials = true;
 

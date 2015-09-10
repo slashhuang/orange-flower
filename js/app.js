@@ -62,10 +62,9 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                         return false;
                         break;
                     case 'SUCCESS':
-                        return true;
-                        break;
                     case "AUTHING":
                         return true;
+                        break;
                 }
             };
 
