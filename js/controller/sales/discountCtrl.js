@@ -151,9 +151,10 @@ define([],function() {
                 start = item["activity"]["startTime"];
                 end = item["activity"]["end"];
                 curPrice = item["price"];
-                if(item["activity"] != null && now >= start && now <= end){
-                    curPrice = parseInt(item["price"] - item["activity"]["discount"]);
-                }
+                //if(item["activity"] != null && now >= start && now <= end){
+                //    curPrice = parseInt(item["price"] - item["activity"]["discount"]);
+                //}
+                curPrice = parseInt(item["price"] - item["activity"]["discount"] * 100);
                 angular.forEach(item["tags"],function(tag){
                     if(tag["value"] == "热卖"){
                         hotProduct = true;
