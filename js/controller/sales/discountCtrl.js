@@ -82,7 +82,7 @@ define([],function() {
         $scope.curPage = 1;
 
         $http({
-            "url":$scope.prefuri + "/product/listActivities/XSTM/" + $scope.curPage,
+            "url":$scope.prefuri + "/product/queryActivities/XSTM/" + $scope.curPage,
             "method":"POST"
         }).success(function(res){
 
