@@ -85,6 +85,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
             //  下单相关参数
 
             var path = "/order/info?uId=" + $scope.data.uId;
+            //var path = "/order/info";
 
             if(status=="TO_PAY" || storageParams["showBtn"] == "true"){
                 if(firstPay && firstPay > 0){
@@ -119,7 +120,8 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                         }).success(function (res) {
                             pay.createPayment(res, function (result, error) {
                                 if (result == "success") {
-                                    $location.path(path);
+                                    //$location.path(path);
+                                    location.href = path;
                                 } else if (result == "fail") {
                                     $scope.debugLog("支付失败",'alert');
                                 } else if (result == "cancel") {
@@ -137,7 +139,9 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                         "data": submitData
                     }).success(function (res) {
                         //location.href = "/order/info?uId=" + $scope.data.uId;
-                        $location.path(path);
+                        //console.log(path);
+                        //$location.path(path);
+                        location.href = path;
                     }).error($rootScope.httpError);
                 }
             }
@@ -157,8 +161,8 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
          * @param orderId
          */
         $scope.payNow = function(orderId){
-            //location.href = "/order/info?uId=" + $scope.data.uId;
-            $location.path(path);
+            location.href = path;
+            //$location.path(path);
         };
 
         /**

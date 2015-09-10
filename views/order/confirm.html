@@ -56,7 +56,7 @@
             <!--</div>-->
             <div class="first-pay pay-item">
                 <p class="pay-left-info">首付</p>
-                <p class="pay-right-info">￥{{transferPrice(data.firstPay)}}</p>
+                <p class="pay-right-info confirm-first-pay">￥{{transferPrice(data.firstPay)}}</p>
             </div>
             <div class="pay-month pay-item">
                 <p class="pay-left-info">分期月数</p>
@@ -64,7 +64,7 @@
             </div>
             <div class="month-num pay-item">
                 <p class="pay-left-info">月供</p>
-                <p class="pay-right-info"><em>￥{{transferPrice(data.prePeriodsPay)}}</em><span ng-show="data.servicePay > 0">（包含服务费¥{{transferPrice(data.servicePay)}})</span></p>
+                <p class="pay-right-info"><em>￥{{transferPrice(data.prePeriodsPay)}}</em><span ng-show="data.servicePay > 0">(包含服务费¥{{transferPrice(data.servicePay)}})</span></p>
             </div>
             <!--<div class="total pay-item">-->
                 <!--<p class="pay-left-info">总价</p>-->

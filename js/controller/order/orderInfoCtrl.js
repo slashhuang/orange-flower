@@ -15,8 +15,8 @@ define([], function () {
                 $scope.countTime --;
                 if($scope.countTime == 0){
                     clearInterval(interval);
-                    //location.href = $scope.url;
-                    $location.path($scope.url);
+                    location.href = $scope.url;
+                    //$location.path($scope.url);
                 }
             });
         },1000);

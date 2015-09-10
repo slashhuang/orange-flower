@@ -121,8 +121,8 @@ define([],function(){
          * @param id
          */
         $scope.reBuy = function(id){
-            //location.href = "/sale/detail/" + id;
-            $location.path("/sale/detail/" + id);
+            location.href = "/sale/detail/" + id;
+            //$location.path("/sale/detail/" + id);
         };
 
         /**
