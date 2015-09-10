@@ -6,16 +6,92 @@
  */
 define([],function() {
     //定义商品分类controller
-    function detailCtrl($scope, $routeParams, $location, $http,$rootScope) {
+    function detailCtrl($scope, $routeParams, $location, $http,$rootScope,$timeout) {
+
+        /**
+         * 配置刷新加载
+         * @type {Element}
+         */
+        var dragButton = document.getElementById("refreshButton");
+        var refreshHint = document.getElementById("refreshHint");
+        var refreshImg = document.getElementById("refreshImg");
+        var callback = function (dd) {
+            dragButton.style.marginTop=0;
+            refreshImg.style.top=0;
+            refreshHint.innerHTML="努力加载中";
+            $timeout(function(){
+                switch(dd.last){
+                    case true:
+                        refreshHint.innerHTML="已是最后一页";
+                        $timeout(function(){
+                            $scope.showRefresh = false;
+                        },1000);
+                        break;
+                    case false:
+                        refreshHint.innerHTML="上拉刷新";
+                        $scope.showRefresh = true;
+                        break;
+                }
+            },500);
+        };
+
+
+        (function () {
+            var startPosition, endPosition, deltaY;
+            dragButton.addEventListener('touchstart', function (e) {
+                var touch = e.touches[0];
+                startPosition = {
+                    x: touch.pageX,
+                    y: touch.pageY
+                }
+            });
+            dragButton.addEventListener('touchmove', function (e) {
+                var touch = e.touches[0];
+                endPosition = {
+                    x: touch.pageX,
+                    y: touch.pageY
+                };
+                deltaY = startPosition.y-endPosition.y;
+
+                if(deltaY>60&&deltaY<80){
+                    refreshHint.innerHTML="释放加载数据";
+                    dragButton.style.marginTop=deltaY+'px';
+                    refreshImg.style.top=-deltaY+'px'
+                }
+                if(deltaY>10&&deltaY<60){
+                    refreshHint.innerHTML="上拉刷新";
+                    dragButton.style.marginTop=deltaY+'px';
+                    refreshImg.style.top=-deltaY+'px'
+                }
+
+            });
+            dragButton.addEventListener('touchend',function (e) {
+                console.log(e);
+                var touch = e.touches[0];
+                if(deltaY>=60){
+                    console.log("proceeding callback");
+                    $scope.refresh(callback)
+                }
+                else{
+                    callback()
+                }
+            });
+        })();
+
+        $scope.showRefresh = true;
+        $scope.curPage = 1;
 
         $http({
-            "url":$scope.prefuri + "/product/listActivities/XSTM",
+            "url":$scope.prefuri + "/product/listActivities/XSTM/" + $scope.curPage,
             "method":"POST"
         }).success(function(res){
 
             $scope.discountList = _rendData(res);
-
-        }).error($scope.httpError);
+            $scope.showRefresh = false;
+        }).error(function(err){
+            //$scope.showRefresh = false;
+            $scope.httpError(err);
+        });
 
 
         //通用函数
@@ -39,6 +115,25 @@ define([],function() {
         //        numLeft: 0
         //    };
         //}
+
+        /**
+         * 刷新数据
+         * @param callback
+         */
+        $scope.refresh = function(callback){
+            $scope.curPage += 1;
+            $http({
+                "url":$scope.prefuri + "/product/listActivities/XSTM/" + $scope.curPage,
+                "method":"POST"
+            }).success(function(res){
+
+                $scope.discountList = _rendData(res);
+                $scope.showRefresh = false;
+            }).error(function(err){
+                //$scope.showRefresh = false;
+                $scope.httpError(err);
+            });
+        };
 
         /**
          * 循环对象遍历数据
@@ -93,6 +188,6 @@ define([],function() {
 
     }
 
-    detailCtrl.$inject = ['$scope','$routeParams', '$location', '$http','$rootScope'];
+    detailCtrl.$inject = ['$scope','$routeParams', '$location', '$http','$rootScope','$timeout'];
     return detailCtrl
 });

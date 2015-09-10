@@ -6,15 +6,23 @@ define(['angular',"util/swiper_"],function(angular,swiper){
         mainModule.controller('mainCtrl', ['$scope', '$routeParams', '$http','$timeout','$rootScope',
             function($scope, $routeParams, $http,$timeout,$rootScope) {
                 //首页数据请求地址
-                var mainUrl = $rootScope.prefuri+"/product/typedProducts";
-
-                //通用函数
+                var mainUrl = $rootScope.prefuri+"/product/typedProducts",
+                    limeTimeSale = $scope.prefuri + "/product/listActivities/XSTM";
+                //  主页数据url和限时特卖请求url
 
                 //首页数据收集
                 $scope.mainData={
                     discount:[],
                     category:[]
                 };
+
+                $http({
+                    "method":"post",
+                    "url":limeTimeSale
+                }).success(function(res){
+                    $scope.mainData.discount = res;
+                }).error($scope.httpError);
+                //  请求限时特卖数据
 
                 /**
                  * http请求，渲染首页数据
