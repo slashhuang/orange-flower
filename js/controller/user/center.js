@@ -5,33 +5,13 @@ define([], function () {
     //定义商品分类controller
     function centerCtrl($scope, $routeParams, $location, $http,$rootScope,$timeout) {
 
-        var userCenterUrl = $rootScope.prefuri + "/user/info";
-
-
-        //
-        //var XHRrequest = $http({
-        //    "method": "post",
-        //    "url": userCenterUrl
-        //});
-        //XHRrequest.success(function (data) {
-        //    console.log(data);
-        //    alert("come to success");
-        //    if(data){
-        //        $rootScope.centerData = data;
-        //        alert("entry point success!");
-        //        //避免刷新，选择localStorage存储
-        //        window.localStorage.centerData = data;
-        //        window.localStorage.isLogin=true;
-        //    }
-        //});
-        //XHRrequest.error($rootScope.httpError);
-
         if(window.localStorage.centerData){
-            console.log(window.localStorage.centerData);
-            $rootScope.centerData = window.localStorage.centerData;
+            $rootScope.centerData = JSON.parse(window.localStorage.centerData);
+            console.log($rootScope.centerData )
         }
         else{
-            alert("no storage")
+            location.href="#/login";
+            //location.href="/login"
         }
 
         /**
@@ -50,8 +30,7 @@ define([], function () {
          * @param bool
          */
         $scope.centerJump = function(offStatus){
-            var status = $scope.verifyActive(offStatus);
-            alert(status)
+           var status = $scope.verifyActive(offStatus);
            if(status){
                //location.href = "#/user/info";
                location.href = "/user/info";

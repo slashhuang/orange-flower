@@ -55,16 +55,16 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
              */
             $rootScope.verifyActive = function (res) {
                 switch (res){
-                    case  'NONE':
+                    case  'TO_AUTH':
                         return false;
                         break;
-                    case  'NO':
+                    case  'FAIL':
                         return false;
                         break;
-                    case 'YES':
+                    case 'SUCCESS':
                         return true;
                         break;
-                    case "WAIT":
+                    case "AUTHING":
                         return true;
                 }
             };
@@ -145,33 +145,37 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
             /**
              * 处理HTTP请求，统一放置用户信息
              */
-            $rootScope.jumpToCenter=function(centerFlag){
+            $rootScope.jumpToCenter=function(centerFlag,where){
 
+                //用户修改注册信息需要重新存储storage
+                if(where){
+                    window.localStorage.centerData="";
+                }
 
-                var userCenterUrl = $rootScope.prefuri + "/user/info";
-                var XHRrequest = $http({
-                    "method": "post",
-                    "url": userCenterUrl
-                });
-                XHRrequest.success(function (data) {
-                    console.log(data);
-                    alert("come to success");
-                    if(data){
-                        $rootScope.centerData = data;
-                        alert("entry point success!");
-                        //避免刷新，选择localStorage存储
-                        window.localStorage.centerData={};
-                        window.localStorage.centerData = data;
-                        console.log( window.localStorage.centerData);
-                        console.log(data);
-                        window.localStorage.isLogin=true;
-                        if(centerFlag){
-                            alert("fucking coming to here");
-                            location.href="#/user/center"
-                        }
+                else if(window.localStorage.centerData){
+                        location.href="#/user/center";
+                        //location.href="/user/center"
                     }
-                });
-                XHRrequest.error($rootScope.httpError);
+
+                else{
+                    var userCenterUrl = $rootScope.prefuri + "/user/info";
+                    var XHRrequest = $http({
+                        "method": "post",
+                        "url": userCenterUrl
+                    });
+                    XHRrequest.success(function (data) {
+                        if(data){
+                            window.localStorage.centerData = JSON.stringify(data);
+                            window.localStorage.isLogin=true;
+                            $rootScope.centerData = JSON.parse(window.localStorage.centerData);
+                            if(centerFlag){
+                                location.href="#/user/center";
+                                //location.href="/user/center"
+                            }
+                        }
+                    });
+                    XHRrequest.error($rootScope.httpError);
+                }
             };
             /**
              * 根据不同的type渲染class
@@ -183,6 +187,14 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                 var sortArr = ["DEFAULT","SALE","PRICE"];
                 return _findIndex(sortArr,type) == index ? "cur-choosed-tab" : "";
             };
+
+            $http({
+                "url":$rootScope.prefuri + "/product/monthRates",
+                "method":"post"
+            }).success(function(res){
+                $rootScope.rateInfo = res;
+            }).error($rootScope.httpError);
+
         }]);
 
 

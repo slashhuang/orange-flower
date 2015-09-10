@@ -126,6 +126,7 @@ define([],function(){
                    "data":data
                }).success(function(res){
                    hintFUNC(res);
+                   $rootScope.jumpToCenter(false,'regInfo')
                }).error($scope.httpError);
            }
         };

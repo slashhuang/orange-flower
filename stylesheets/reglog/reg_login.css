@@ -165,7 +165,7 @@ input.checkbox-style{
 .of-register-form-check{
    margin-top:10px
 }
-.of-register-form-check div{
+.of-register-form-check>div{
     display: block;
     font-size: 16px;
     font-weight: 400;
@@ -175,7 +175,7 @@ input.checkbox-style{
     color: #515151;
     line-height: 22px;
 }
-.of-register-form-check div span{
+.of-register-form-check>div span{
     margin-left:24px;
 }
 

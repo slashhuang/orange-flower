@@ -34,9 +34,7 @@ define([],function(){
                 "method":"get",
                 "url":$rootScope.prefuri + "/order/cancel/" + id
             }).success(function(res){
-                if(res){
-                    $scope.data.splice(index,1);
-                }
+                location.reload();
             }).error(function(err){
                 $rootScope.httpError(err);
                 $scope.data = [];
