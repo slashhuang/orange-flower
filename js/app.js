@@ -163,7 +163,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
              * @returns {Function|*}
              */
             $rootScope.httpError = function(res,callback){
-                if(res&&res.message){
+                if(res&&res.message&&res.code!='10024'){
                     $rootScope.ErrorMessage = res.message;
                     $timeout(function(){
                         $rootScope.ErrorMessage="";
