@@ -120,7 +120,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
         $scope.calculate = function (finalMonth, firstTimePay) {
             var min = $scope.transferPrice($scope.saleDetail.minPay),
                 max = $scope.transferPrice($scope.saleDetail.maxPay);
-            if(firstTimePay.length >= 1){
+            if((firstTimePay+"").length >= 1){
                 if ((/^[+-]?\d+(\.\d+)?/).test(firstTimePay)) {
                     if (firstTimePay && firstTimePay >= min && firstTimePay <= max) {
                         $scope.firstTimePay = firstTimePay;
