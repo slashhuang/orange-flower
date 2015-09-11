@@ -119,10 +119,7 @@ define(['zepto'], function ($) {
                     //});
                     $http({
                         "method":"post",
-                        "url":sendSmsUrl+"/"+tel,
-                        "data":{
-                            "register":true
-                        }
+                        "url":sendSmsUrl+"/"+tel + "?register=true"
                     }).success(function(response, status, headers, config){
                         //console.log(arguments);
                         $scope.debugLog(arguments);
