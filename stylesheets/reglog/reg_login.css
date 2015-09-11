@@ -82,12 +82,14 @@ label input{
 }
 
 .of-register-form .select-area .hide-select{
-    width: 220px;
+    width: 25px;
     height: 24px;
     background: url(/images/item_detail/arrow-down.png) no-repeat right 6px;
     background-size: 14px 7px;
     overflow: hidden;
     position: absolute;
+    right:0;
+    top:0;
     z-index:100;
 }
 .of-register-form .select-area select{
