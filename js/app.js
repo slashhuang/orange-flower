@@ -21,7 +21,6 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
 
             }}]);
 
-
         //定义全局变量
         app.run(['$rootScope','$location','$timeout','$http',function ($rootScope,$location,$timeout,$http) {
 
