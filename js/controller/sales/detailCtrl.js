@@ -212,6 +212,8 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
 
             _rendOffInfo($scope.saleDetail);
 
+            $scope.firstTimePay = $scope.transferPrice($scope.saleDetail.minPay);
+
         }).error(function (err) {
             $rootScope.httpError(err);
         });
