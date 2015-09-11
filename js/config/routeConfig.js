@@ -111,6 +111,14 @@ define([], function () {
                 templateUrl: '/views/bill/plain.html',
                 controller: 'billPlainCtrl'
             });
+        //活动部分路由
+        $routeProvider.
+            when('/activity', {
+                templateUrl: '/views/activity/activity.html',
+                controller: 'activityCtrl'
+            });
+
+
         //默认状态下路由转向登录页面
         $routeProvider.
             otherwise({

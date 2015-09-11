@@ -1,0 +1,24 @@
+<div>
+    <!--头部-->
+    <div class="of-header gray">
+        <a class="header-back" href="javascript:history.go(-1)"></a>
+        我的活动
+        <a class="header-function" href="/main" style="color: #5b5b5b">首页</a>
+    </div>
+
+    <!--订单-->
+    <div class="h-40"></div>
+    <div class="activity-main" ng-show="myEvent.length > 0">
+        <ul>
+            <!-- 审核中-->
+            <li class="order-item" ng-repeat="">
+
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--订单列表为空-->
+<div class="empty-order" ng-show="myEvent.length < 1">
+    对不起，您还没有参加任何活动哦
+</div>
