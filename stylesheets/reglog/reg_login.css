@@ -76,30 +76,35 @@ label input{
 .of-register-form .select-area{
     width: 220px;
     height: 24px;
-    background: url(../../images/item_detail/arrow-down.png) no-repeat right 6px;
+    float: right;
+    position:relative;
+    margin-right:10px;
+}
+
+.of-register-form .select-area .hide-select{
+    width: 220px;
+    height: 24px;
+    background: url(/images/item_detail/arrow-down.png) no-repeat right 6px;
     background-size: 14px 7px;
     overflow: hidden;
-    float: right;
+    position: absolute;
+    z-index:100;
 }
-
-
-
-
-.of-register-form .hide-select{
-    width:200px;
-    overflow:hidden;
-}
-
-.of-register-form label select{
+.of-register-form .select-area select{
     display: block;
-    width: 202px;
+    position:absolute;
+    top:0;left:0;
+    z-index:101;
+    width: 220px;
     padding-right: 20px;
     font-size: 15px;
     border: none;
     outline:none;
     background:transparent;
-    /*opacity:0;*/
 }
+
+
+
 .of-register-form label span{
     margin-left: 24px;
     /*color: #afafaf;*/
