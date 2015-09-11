@@ -127,7 +127,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                         $scope.calculateMoney = _calculateRate(firstTimePay, $scope.saleDetail.price, finalMonth)["monthPay"];
                         $scope.monthRate = _calculateRate($scope.firstTimePay, $scope.saleDetail.price, finalMonth)["monthRate"];
                     } else {
-                        $scope.firstTimePay = max;
+                        $scope.firstTimePay = min;
                         $scope.calculateMoney = _calculateRate($scope.firstTimePay, $scope.saleDetail.price, finalMonth)["monthPay"];
                         $scope.monthRate = _calculateRate(firstTimePay, $scope.saleDetail.price, finalMonth)["monthRate"];
                     }
