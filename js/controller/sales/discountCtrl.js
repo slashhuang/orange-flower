@@ -8,6 +8,9 @@ define([],function() {
     //定义商品分类controller
     function detailCtrl($scope, $routeParams, $location, $http,$rootScope,$timeout) {
 
+        var check = null;
+        //  检查定时器
+
         /**
          * 配置刷新加载
          * @type {Element}
@@ -20,18 +23,18 @@ define([],function() {
             refreshImg.style.top=0;
             refreshHint.innerHTML="努力加载中";
             $timeout(function(){
-                switch(dd.last){
-                    case true:
-                        refreshHint.innerHTML="已是最后一页";
-                        $timeout(function(){
-                            $scope.showRefresh = false;
-                        },1000);
-                        break;
-                    case false:
-                        refreshHint.innerHTML="上拉刷新";
-                        $scope.showRefresh = true;
-                        break;
-                }
+                //switch(dd.last){
+                //    case true:
+                //        refreshHint.innerHTML="已是最后一页";
+                //        $timeout(function(){
+                //            $scope.showRefresh = false;
+                //        },1000);
+                //        break;
+                //    case false:
+                //        refreshHint.innerHTML="上拉刷新";
+                //        $scope.showRefresh = true;
+                //        break;
+                //}
             },500);
         };
 
@@ -70,9 +73,6 @@ define([],function() {
                 if(deltaY>=60){
                     $scope.refresh();
                 }
-                else{
-                    callback()
-                }
             });
         })();
 
@@ -84,36 +84,16 @@ define([],function() {
             "method":"POST"
         }).success(function(res){
 
+            console.log(res);
+
             $scope.discountList = _rendData(res.content);
+            _rendTime();
             //$scope.showRefresh = false;
             refreshHint.innerHTML = "上拉刷新";
         }).error(function(err){
             //$scope.showRefresh = false;
             $scope.httpError(err);
         });
-
-
-        //通用函数
-        //初始化变量完成
-        //$scope.discountList = [];
-        //for (var i = 0; i < 10; i++) {
-        //    $scope.discountList[i] = {
-        //        itemID:i+i,
-        //        itemInfo: "苹果（Apple）iPhone 6 (A1586)金色 16GB 每个ID限购一单",
-        //        itemImg: "/images/item_detail/iphone6.png",
-        //        itemPrice: "4788.00",
-        //        itemOldPrice: "4688.00",
-        //        itemInstallation: "220.94",
-        //        itemCycle: 24,
-        //        discount: {
-        //            firstTime: 300,
-        //            payOncePercent: [20, 300]
-        //        },
-        //        saleState: true,
-        //        timeCountDown: new Date().toLocaleString(),
-        //        numLeft: 0
-        //    };
-        //}
 
         /**
          * 刷新数据
@@ -129,6 +109,7 @@ define([],function() {
                     $scope.showRefresh = false;
                 }
                 $scope.discountList = $scope.discountList.concat(_rendData(res.content));
+                _rendTime();
             }).error(function(err){
                 //$scope.showRefresh = false;
                 $scope.httpError(err);
@@ -146,15 +127,12 @@ define([],function() {
                 now = Date.now(),
                 newProduct = false,
                 hotProduct = false,
-                start,end;
+                progress,start,end;
             angular.forEach(data,function(item){
                 start = item["activity"]["startTime"];
                 end = item["activity"]["end"];
                 curPrice = item["price"];
-                //if(item["activity"] != null && now >= start && now <= end){
-                //    curPrice = parseInt(item["price"] - item["activity"]["discount"]);
-                //}
-                curPrice = parseInt(item["price"] - item["activity"]["discount"] * 100);
+                curPrice = parseInt(item["pagePrice"] - item["activity"]["discount"] * 100);
                 angular.forEach(item["tags"],function(tag){
                     if(tag["value"] == "热卖"){
                         hotProduct = true;
@@ -173,6 +151,7 @@ define([],function() {
                     "itemImg": item["thumb"]["smallUrl"],           //  预览图
                     "itemPrice": curPrice,                          //  当前售价
                     "itemOldPrice": item["price"],                  //  原价
+                    "pagePrice": item["pagePrice"],                  //  页面显示价格
                     "itemInstallation": item["pricePerMonth"],
                     "itemCycle": item["month"],
                     "discount": {
@@ -185,6 +164,55 @@ define([],function() {
                 });
             });
             return arrs;
+        }
+
+        /**
+         * 倒计时
+         * @private
+         */
+        function _rendTime(){
+            clearInterval(check);
+            var now = Date.now(),
+                disCount = $scope.discountList;
+            _interVal(disCount);
+            check = setInterval(function(){
+                now = Date.now();
+                $scope.$apply(function(){
+                    _interVal(disCount);
+                });
+                //  执行脏检查,通知view层
+            },1000);
+        }
+
+        /**
+         * 定时器更新时间算法
+         * @param disCount
+         * @private
+         */
+        function _interVal(disCount){
+            angular.forEach(disCount,function(item,index){
+                var now = Date.now(),
+                    start = item["activity"]["startTime"],
+                    end = item["activity"]["endTime"],
+                    progress;
+                if(now >= start && start <= end) {
+                    $scope.discountList[index]["progress"] = "ING";
+                    var youtime = end - now;
+                    var seconds = youtime / 1000;
+                    var minutes = Math.floor(seconds / 60);
+                    var hours = Math.floor(minutes / 60);
+                    var days = Math.floor(hours / 24);
+                    var CHour = hours % 24;
+                    var CMinute = minutes % 60;
+                    var CSecond = Math.floor(seconds % 60);
+                    var CMSecond = Math.floor(seconds * 100 % 100);
+                    $scope.discountList[index]["timeInfo"] = "倒计时" + days + "天" + CHour + ":" + CMinute + ":" + CSecond;
+                }else if(now < start){
+                    $scope.discountList[index]["timeInfo"] = "还未开始,敬请期待!";
+                }else{
+                    $scope.discountList[index]["timeInfo"] = "你来晚啦!";
+                }
+            });
         }
 
     }

@@ -33,12 +33,12 @@
                     <div class="discount-item-timeLeft">
                         <p>仅剩<span>{{salelist.numLeft}}</span>台</p>
                         <!--<img src="/images/icon/icon-clock.png" width="8px;">-->
-                        倒计时1天15:18:30
+                        {{salelist.timeInfo}}
                     </div>
                 </div>
                 <div class="item-hot-list-detail">
                     <h1>{{salelist.itemInfo | cut:true:40:' ...'}}</h1>
-                    <p class="item-price color-51">￥{{transferPrice(salelist.itemPrice)}}&nbsp;&nbsp;&nbsp;<i>￥{{transferPrice(salelist.itemOldPrice)}}</i></p>
+                    <p class="item-price color-51">￥{{transferPrice(salelist.pagePrice - salelist.activity.discount * 100)}}&nbsp;&nbsp;&nbsp;<i>￥{{transferPrice(salelist.pagePrice)}}</i></p>
                     <div class="total-price">
                         <i>￥{{transferPrice(salelist.itemInstallation)}}</i>
                         <h2 class="color-51">×</h2><span class="color-51">{{salelist.itemCycle}}期</span>
@@ -58,9 +58,9 @@
                             <!--</div>-->
                         <!--</div>-->
                            <!--抢完与否对应的class"active":"disabled""我要抢 ":"已抢完 "-->
-                            <div class="discount-installment-buy <%-classChooser%>">
-                                我要抢<img src="/images/icon/button_arrow_right.png" width="5">
-                            </div>
+                        <div class="discount-installment-buy <%-classChooser%>">
+                            我要抢<img src="/images/icon/button_arrow_right.png" width="5">
+                        </div>
                     </div>
                 </div>
             </div>

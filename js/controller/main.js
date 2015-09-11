@@ -20,7 +20,8 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                     "method":"post",
                     "url":limeTimeSale
                 }).success(function(res){
-                    $scope.mainData.discount = res;
+                    $scope.mainData.discount = res.slice(0,3);
+                    console.log($scope.mainData.discount);
                 }).error($scope.httpError);
                 //  请求限时特卖数据
 

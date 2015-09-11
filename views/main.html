@@ -57,7 +57,7 @@
     <div class="of-special-sale-body" ng-repeat="discountItem in mainData.discount">
         <a href="/sale/detail/{{discountItem.id}}">
         <!--<a href="#/sale/detail/{{discountItem.id}}">-->
-            <span>{{discount.name}}</span>
+            <span>{{discountItem.title | limitTo:14}}...</span>
             <div class="of-hot-container">
                 <div class="of-special-sale-item">
                     <div class="of-special-sale-banner">
@@ -68,6 +68,7 @@
                     </div>
                 </div>
                 <img src="{{prefuri + discountItem.thumb.smallUrl}}" width="32px">
+                <!--<img src="http://api.orangezc.com/file/z1/269450363818483712" width="70">-->
             </div>
         </a>
     </div>

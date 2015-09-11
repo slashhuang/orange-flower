@@ -67,7 +67,6 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                         break;
                 }
             };
-
             /**
              * 渲染优惠信息
              * @param info
@@ -87,9 +86,6 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
 
                 start = info["startTime"];
                 end = info["endTime"];
-
-                console.log(now);
-                console.log(end);
 
                 if(now < start){
                     progress = "NOT_START";
@@ -130,8 +126,6 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                     }
                 }else{
 
-                    console.log(progress);
-
                     if(progress == "ING"){
                         html = "<div class='item-detail-position'> <div class='item-detail-banner active'> <div class='item-detail-inner'><div class='item-detail-inner1 active'>" +
                         "<span>立减</span> <span>" + info["discount"] + "</span> ";
@@ -155,6 +149,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                 return html;
                 //}
             };
+
 
             /**
              * 统一处理ERROR
