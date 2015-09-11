@@ -18,7 +18,7 @@
             省份
             <div class="select-area">
                 <div class="hide-select">
-                    <select id="userProvince" ng-model="selectedProvince" ng-change="setCity(selectedProvince)" ng-focus="idTip=''">
+                    <select id="userProvince" ng-model="selectedProvince" ng-change="setCity(selectedProvince)" ng-focus="idTip=''"  dir="rtl">
                         <option ng-repeat="option in completeData.province" value="{{option.id}}">{{option.value}}</option>
                     </select>
                 </div>
@@ -29,7 +29,7 @@
             城市
             <div class="select-area">
                 <div class="hide-select">
-            <select id="userCity" ng-model="selectedCity" ng-change="setSchool(selectedCity)" ng-focus="idTip=''">
+            <select id="userCity" ng-model="selectedCity" ng-change="setSchool(selectedCity)" ng-focus="idTip=''" dir="rtl">
                 <option ng-repeat="option in completeData.city" value="{{option.id}}">{{option.value}}</option>
             </select>
                     </div>
@@ -39,7 +39,7 @@
             学校
             <div class="select-area">
                 <div class="hide-select">
-            <select id="userUniversity" ng-model="selectedSchool" ng-focus="idTip=''">
+            <select id="userUniversity" ng-model="selectedSchool" ng-focus="idTip=''"   dir="rtl">
                 <option ng-repeat="option in completeData.school" value="{{option.id}}">{{option.value}}</option>
             </select>
                     </div>
@@ -54,7 +54,7 @@
             <!--<span class="arrow-right-select-register"></span>-->
             <div class="select-area">
                 <div class="hide-select">
-            <select  ng-model="selectedLevel" ng-focus="idTip=''">
+            <select  ng-model="selectedLevel" ng-focus="idTip=''"   dir="rtl">
                 <option value="大一">大一</option>
                 <option value="大二">大二</option>
                 <option value="大三">大三</option>

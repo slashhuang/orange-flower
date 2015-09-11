@@ -1,3 +1,5 @@
+
+<div ng-show="!ofProtocal">
 <div class="of-header gray reg-log clear-float">
     <a class="header-back" href="javascript:history.back()"></a>
     注册新用户
@@ -34,7 +36,7 @@
                    ng-model="verified" ng-init="verified = true">
             <p></p>
         </span>
-        我已阅读并同意<a href="/of_protocal"><u>《橘花协议》</u></a>
+        我已阅读并同意<b ng-click="registerChange()"><u>《橘花协议》</u></b>
         <!--我已阅读并同意<a href="#/of_protocal"><u>《橘花协议》</u></a>-->
     </label>
 </form>
@@ -42,4 +44,13 @@
 
 <div class="of-button of-button-bar" id="regSubmit" style="margin: 18px auto 10px;" ng-click="registerSubmit(telephone,password,code,verified)">注册</div>
 
-<div ng-bind="submitHint" ng-show="submitHint.length>1" class="commonHint-style"></div>
+    <div ng-bind="submitHint" ng-show="submitHint.length>1" class="commonHint-style"></div>
+</div>
+
+
+
+<div ng-include="'/views/reg_login/of_protocal.html'" ng-controller="registerCtrl" ng-show="ofProtocal"  ></div>
+
+
+
+

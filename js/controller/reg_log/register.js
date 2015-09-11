@@ -5,11 +5,18 @@ define(['zepto'], function ($) {
     //定义商品分类controller
     function registerCtrl($scope, $routeParams, $location, $http, $timeout, $rootScope, $cookies) {
 
+        /**
+         * 还是把协议放在注册里面
+          * @type {boolean}
+         */
+        $rootScope.ofProtocal=false;
 
-        var favoriteCookie = $cookies.myFavorite;
-        $cookies.myFavorite = 'oatmeal';
-        //console.log($cookies);
-        $scope.debugLog($cookies);
+
+        $scope.registerChange=function(){
+            $rootScope.ofProtocal=!$rootScope.ofProtocal;
+        };
+
+
 
         var sendSmsUrl = $rootScope.prefuri + "/user/getCode";//发送短信url
         var registerUrl = $rootScope.prefuri + "/user/register";//提交注册信息
