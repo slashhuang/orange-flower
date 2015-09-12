@@ -33,11 +33,11 @@ define([], function () {
                 templateUrl: '/views/user/settings.html',
                 controller: 'userSettingsCtrl'
             }).
-            when("/usageHelp",{
+            when("/usageHelp", {
                 templateUrl: '/views/user/usageHelp.html',
                 controller: ''
             }).
-            when("/about/us",{
+            when("/about/us", {
                 templateUrl: '/views/user/aboutUs.html',
                 controller: ''
             }).
@@ -56,7 +56,7 @@ define([], function () {
             when("/user/modifypwd", {
                 templateUrl: '/views/user/modifyPWD.html',
                 controller: 'modifyPwdCtrl'
-            }).when("/user/info",{
+            }).when("/user/info", {
                 templateUrl: '/views/user/info.html',
                 controller: 'infoCtrl'
             });
@@ -116,7 +116,11 @@ define([], function () {
             when('/activity', {
                 templateUrl: '/views/activity/activity.html',
                 controller: 'activityCtrl'
-            });
+            }).
+            when('/lottery', {
+                templateUrl: '/views/activity/lottery.html'
+            })
+        ;
 
 
         //默认状态下路由转向登录页面
