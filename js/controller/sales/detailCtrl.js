@@ -115,8 +115,8 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
          */
         $scope.monthSelector = function (min, max) {
             var monthArray = [];
-            for (var i = min - 1; i < max; i++) {
-                monthArray[i] = parseInt(min) + parseInt(i);
+            for (var i = min; i <= max; i++) {
+                monthArray.push(i);
             }
             return monthArray;
         };
