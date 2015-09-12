@@ -84,6 +84,15 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             return index;
         };
 
+        $scope.showPrice = function(pagePrice, activity){
+            var realPrice = pagePrice;
+            if(activity) {
+                realPrice -= activity.discount * 100;
+            }
+
+            return realPrice/100;
+        }
+
         /**
          *
          * @param state
@@ -291,7 +300,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
 
                     //location.href = "#/order/confirm";
                     //location.href = "/order/confirm";
-                    $location.path("/order/confirm");
+                    location.href = "/order/confirm";
                 }).error($scope.httpError);
 
             }).error($scope.httpError);
