@@ -89,7 +89,7 @@ define([],function() {
             $scope.discountList = _rendData(res.content);
             _rendTime();
             //$scope.showRefresh = false;
-            refreshHint.innerHTML = "上拉刷新";
+            refreshHint.innerHTML = "点我加载更多";
         }).error(function(err){
             //$scope.showRefresh = false;
             $scope.httpError(err);

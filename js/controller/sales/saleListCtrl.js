@@ -42,7 +42,7 @@ define(['zepto'],function($) {
                 }
                 else{
                     $scope.saleList=data.content;
-                    refreshHint.innerHTML="上拉刷新";
+                    refreshHint.innerHTML="点我加载更多";
                 }
             }).error($scope.httpError);
         };
@@ -86,7 +86,7 @@ define(['zepto'],function($) {
                         },1000);
                         break;
                     case false:
-                        refreshHint.innerHTML="上拉刷新";
+                        refreshHint.innerHTML="点我加载更多";
                         $scope.showRefresh = true;
                         break;
                 }
