@@ -69,10 +69,10 @@ define([],function() {
 
             });
             dragButton.addEventListener('touchend',function (e) {
-                var touch = e.touches[0];
-                if(deltaY>=60){
+                //var touch = e.touches[0];
+                //if(deltaY>=60){
                     $scope.refresh();
-                }
+                //}
             });
         })();
 

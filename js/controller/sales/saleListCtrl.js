@@ -131,13 +131,13 @@ define(['zepto'],function($) {
             dragButton.addEventListener('touchend',function (e) {
                 console.log(e);
                 var touch = e.touches[0];
-                if(deltaY>=60){
+                //if(deltaY>=60){
                     console.log("proceeding callback");
-                    $scope.refresh(callback)
-                }
-                else{
-                    callback()
-                }
+                    $scope.refresh(callback);
+                //}
+                //else{
+                //    callback()
+                //}
             });
         })();
     }
