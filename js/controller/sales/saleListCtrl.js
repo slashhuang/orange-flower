@@ -122,7 +122,7 @@ define(['zepto'],function($) {
                     refreshImg.style.top=-deltaY+'px'
                 }
                 if(deltaY>10&&deltaY<60){
-                    refreshHint.innerHTML="上拉刷新";
+                    refreshHint.innerHTML="点我加载更多";
                     dragButton.style.marginTop=deltaY+'px';
                     refreshImg.style.top=-deltaY+'px'
                 }
