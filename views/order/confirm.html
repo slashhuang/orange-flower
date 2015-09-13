@@ -37,7 +37,7 @@
                     <!--<p class="decrease-icon confirm-name order-info-name"><span class="product-name">{{data.productName}}</span><em>￥{{transferPrice(data.payAmount)}}</em></p>-->
                     <p class="confirm-name order-info-name"><span class="product-name">{{data.productName}}</span></p>
                     <!--<p class="info-arg"><em class="cur-price">￥{{transferPrice(data.payAmount)}}</em><del ng-show="data.activity != 'false'">￥{{transferPrice(data.salePrice)}}</del></p>-->
-                    <p class="info-arg"><em class="cur-price">￥{{transferPrice(data.pagePrice)}}</em><del ng-show="data.activity != 'false'">￥{{transferPrice(data.salePrice)}}</del></p>
+                    <p class="info-arg"><em class="cur-price">￥{{showPrice(data.pagePrice, data.discount)}}</em><del ng-show="data.activity != 'false'">￥{{transferPrice(data.pagePrice)}}</del></p>
                     <!--<p class="info-arg">首付￥{{transferPrice(data.firstPay)}}  月供￥{{transferPrice(data.prePeriodsPay)}}×{{data.periods}}</p>-->
                 </div>
             </div>

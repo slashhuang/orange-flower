@@ -165,6 +165,15 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
             //$location.path(path);
         };
 
+        $scope.showPrice = function(pagePrice, discount){
+            var realPrice = pagePrice;
+            if(discount) {
+                realPrice -= discount * 100;
+            }
+
+            return realPrice/100;
+        };
+
         /**
          * 拼接需要的数据
          * @param data
