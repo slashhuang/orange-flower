@@ -10,14 +10,15 @@
         <span class="common-input-left">手机号</span>
         <input id="phoneNumber" type="tel" name="telephone" placeholder="请输入手机号码" ng-model="telephone" ng-focus="checkVaildHint=''">
     </label>
-    <label>
-        <span class="common-input-left">验证码</span>
-        <input id="certNumber" type="tel" name="code" placeholder="请输入验证码" ng-model="code"/>
-        <b ng-class="{true:'of-button of-register-button',false:'of-sms-button of-register-button'}[countTime<=0]"
-           id="sendCert" ng-click="sendsms(telephone)">
-            {{registerSmsHint}}
-        </b>
-    </label>
+    <!--因为功能原因先注释验证码，之后恢复-->
+    <!--<label>-->
+        <!--<span class="common-input-left">验证码</span>-->
+        <!--<input id="certNumber" type="tel" name="code" placeholder="请输入验证码" ng-model="code"/>-->
+        <!--<b ng-class="{true:'of-button of-register-button',false:'of-sms-button of-register-button'}[countTime<=0]"-->
+           <!--id="sendCert" ng-click="sendsms(telephone)">-->
+            <!--{{registerSmsHint}}-->
+        <!--</b>-->
+    <!--</label>-->
 
     <label>
         <span class="common-input-left">密码</span>

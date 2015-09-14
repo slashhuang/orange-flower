@@ -107,28 +107,18 @@ define(['zepto'], function ($) {
         };
 
         /**
+         * 发送短信代码，实际没有用到
          * 发送短信
          * @param tel
          */
+
         $scope.sendsms = function (tel) {
             if ($scope.countTime == 0) {
                 if (_checkMobile(tel)) {
-                    //$http.post(sendSmsUrl + "/" + tel, JSON.stringify({
-                    //    "register": true
-                    //})).success(function (response, status, headers, config) {
-                    //    //console.log(arguments);
-                    //    $scope.debugLog(arguments);
-                    //    $scope.checkVaildHint = "短信已发送，请查收";
-                    //    showCountDown();
-                    //}).error(function (response, status, headers, config) {
-                    //    //console.log(response);
-                    //    $scope.debugLog(response);
-                    //});
                     $http({
                         "method":"post",
                         "url":sendSmsUrl+"/"+tel + "?register=true"
                     }).success(function(response, status, headers, config){
-                        //console.log(arguments);
                         $scope.debugLog(arguments);
                         $scope.checkVaildHint = "短信已发送，请查收";
                         showCountDown();
@@ -144,8 +134,6 @@ define(['zepto'], function ($) {
                 }
 
             }
-
-
         };
 
         /**
@@ -158,7 +146,7 @@ define(['zepto'], function ($) {
             if ($scope.checkMobile(telephone, password, verified)) {
                 $http({
                     "method": "post",
-                    "url": registerUrl + "?telephone=" + telephone + "&password=" + password + "&code=" + code,
+                    "url": registerUrl + "?telephone=" + telephone + "&password=" + password + "&code=" + 1,
                 }).success(function (response, status, headers, config) {
                     $scope.submitHint = "注册成功！";
                     var callback = function () {
