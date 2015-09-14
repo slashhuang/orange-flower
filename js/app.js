@@ -6,12 +6,12 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
         'controller/user/user', 'controller/order/order',
         'controller/reg_log/reglog', 'controller/main',
         'controller/sales/sales', 'controller/user/user',
-        'controller/reg_log/reglog', 'controller/order/order', 'controller/bill/bill'],
+        'controller/reg_log/reglog', 'controller/order/order', 'controller/bill/bill', 'controller/activity/activity'],
     function (scriptsLoader, angular, routeConfig) {
 
         var app = angular.module('app',
             ["ngRoute", "ngCookies","mainModule", "salesModule", "ngLoadScript",
-              "userModule", "orderModule", "reglogModule", "orderModule", "billModule"]);
+              "userModule", "orderModule", "reglogModule", "orderModule", "billModule","activityModule"]);
         //定义服务
         app.filter('trustHtml', ['$sce',function ($sce) {
 
@@ -25,6 +25,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
         app.run(['$rootScope','$location','$timeout','$http',function ($rootScope,$location,$timeout,$http) {
 
             $rootScope.prefuri = "http://api.orangezc.com";
+            $rootScope.jumpFlag = false;
 
             /**
              * 全局处理errorMessage

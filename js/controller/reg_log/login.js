@@ -4,6 +4,8 @@ define([],function(){
     //定义商品分类controller
     function loginCtrl($scope,$routeParams,$location,$http,$timeout,$rootScope) {
 
+        alert($scope.jumpFlag);
+
         //初始情况下不显示提示
         $scope.loginfoHint="";
         $scope.checkVaildHint = "";
@@ -62,7 +64,12 @@ define([],function(){
                     }).success(function (data) {
                        if(data) {
                            window.localStorage.isLogin=true;
-                           $location.path("/main");
+                           if($scope.jumpFlag){
+                               $scope.jumpFlag = false;
+                               history.back();
+                           }else{
+                               $location.path("/main");
+                           }
                        }else{
                            $scope.loginfoHint=""
                        }

@@ -3,21 +3,48 @@
     <div class="of-header gray">
         <a class="header-back" href="javascript:history.go(-1)"></a>
         我的活动
-        <a class="header-function" href="/main" style="color: #5b5b5b">首页</a>
+        <a class="header-function" href="/user/setings" style="color: #5b5b5b">设置</a>
     </div>
 
-    <!--订单-->
     <div class="h-40"></div>
-    <div class="activity-main" ng-show="myEvent.length > 0">
-        <ul>
-            <!-- 审核中-->
-            <li class="order-item" ng-repeat="">
+    <div class="activity-list" ng-show="myEvent.length > 0">
+        <ul class="prize-list">
+            <li class="prize-item">
+                <p class="prize-name">森林音乐节转盘抽奖</p>
+                <div class="prize-info">
+                    <p class=prize-info-name>中奖商品名称：</p>
+                    <p class="prize-info-detail">你猜你猜你猜</p>
+                </div>
+                <div class="prize-info">
+                    <p class=prize-info-name>有效期：</p>
+                    <p class="prize-info-detail dead-line">2015-09-21</p>
+                </div>
+                <div class="prize-info">
+                    <p class=prize-info-name>价格：</p>
+                    <p class="prize-info-detail">￥9.9</p>
+                </div>
+                <a href="javascript:;" class="use-now-btn">立即使用</a>
+            </li>
 
+            <li class="prize-item out-of-date">
+                <p class="prize-name">森林音乐节转盘抽奖</p>
+                <div class="prize-info">
+                    <p class=prize-info-name>中奖商品名称：</p>
+                    <p class="prize-info-detail">你猜你猜你猜</p>
+                </div>
+                <div class="prize-info">
+                    <p class=prize-info-name>有效期：</p>
+                    <p class="prize-info-detail dead-line">2015-09-21</p>
+                </div>
+                <div class="prize-info">
+                    <p class=prize-info-name>价格：</p>
+                    <p class="prize-info-detail">￥9.9</p>
+                </div>
+                <a href="javascript:;" class="use-now-btn">立即使用</a>
             </li>
         </ul>
     </div>
 </div>
-
 <!--订单列表为空-->
 <div class="empty-order" ng-show="myEvent.length < 1">
     对不起，您还没有参加任何活动哦

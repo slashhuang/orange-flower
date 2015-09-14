@@ -81,7 +81,7 @@ define([], function () {
             when("/forgetpwd", {
                 templateUrl: '/views/reg_login/forget_pwd.html',
                 controller: 'forgetPWDCtrl'
-            })
+            });
 
         //订单部分路由
         $routeProvider.
@@ -115,16 +115,21 @@ define([], function () {
                 templateUrl: '/views/bill/plain.html',
                 controller: 'billPlainCtrl'
             });
+
         //活动部分路由
         $routeProvider.
             when('/activity', {
                 templateUrl: '/views/activity/activity.html',
                 controller: 'activityCtrl'
             }).
+            when('/activityMain',{
+                templateUrl: '/views/activity/activity-main.html',
+                controller: 'lotteryMainCtrl'
+            }).
             when('/lottery', {
-                templateUrl: '/views/activity/lottery.html'
-            })
-        ;
+                templateUrl: '/views/activity/lottery.html',
+                controller:'lotteryCtrl'
+            });
 
 
         //默认状态下路由转向登录页面

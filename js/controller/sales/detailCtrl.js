@@ -266,6 +266,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                 }).success(function (res) {
                     if (!res) {
                         //return location.href = "/login";
+                        $scope.jumpFlag = true;
                         return $location.path("/login");
                     }
                     //  未登录的情况就到登录页

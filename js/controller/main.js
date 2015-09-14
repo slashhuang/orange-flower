@@ -6,7 +6,6 @@ define(['angular',"util/swiper_"],function(angular,swiper){
         mainModule.controller('mainCtrl', ['$scope', '$routeParams', '$http','$timeout','$rootScope','$location',
             function($scope, $routeParams, $http,$timeout,$rootScope,$location) {
 
-
                 ///**
                 // * 判断是否微信浏览器
                 // * @returns {boolean}
@@ -38,8 +37,6 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                 //else{
                 //    alert("只有在微信中才能购买橘花分期产品哦～")
                 //}
-
-
 
                 //首页数据请求地址
                 var mainUrl = $rootScope.prefuri+"/product/typedProducts",
