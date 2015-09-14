@@ -143,10 +143,12 @@ define([],function(){
         var hintFUNC = function(money){
             //完善信息成功后输出提示并且跳转首页
             $scope.regInfoHint = "您已经获取"+ $scope.transferPrice(money) +"元额度，可以立即购物哦";
+            var isBack = $location.search()["back"];
             $timeout(function(){
                 $scope.regInfoHint = "";
                 //window.location.href="#/main"
-                $location.path("/main");
+                isBack && history.back();
+                !isBack && $location.path("/main");
             },2500);
         };
 

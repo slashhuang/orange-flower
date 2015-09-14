@@ -24,7 +24,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
         //定义全局变量
         app.run(['$rootScope','$location','$timeout','$http',function ($rootScope,$location,$timeout,$http) {
 
-            $rootScope.prefuri = "http://api.orangezc.com";
+            $rootScope.prefuri = "http://api.localhost";
 
             /**
              * 全局处理errorMessage
@@ -182,6 +182,9 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                                     //location.href='#/registerInfo';
                                 },800);
                             break;//    完善信息
+                        case '10027':
+                            location.href='/registerInfo?back=true';
+                            break;
                         case '10024':
                             $rootScope.debugLog(res.message,'alert');
                             break;
