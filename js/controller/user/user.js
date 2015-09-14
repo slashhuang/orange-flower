@@ -1,5 +1,5 @@
-define(['angular', './center', "./settings", "./setAccount", "./modifyPwd", "./credit", "./infoCtrl","/js/lib/jquery.js", "/js/lib/jquery.form.min.js"],
-    function (angular, center, settings, setAccount, modifyPwd, credit, infoCtrl,$,formSubmit) {
+define(['angular', './center', "./settings", "./setAccount", "./modifyPwd", "./credit", "./infoCtrl",'./invitedCode',"/js/lib/jquery.js", "/js/lib/jquery.form.min.js"],
+    function (angular, center, settings, setAccount, modifyPwd, credit, infoCtrl,invitedCode,$,formSubmit) {
         var userModule = angular.module('userModule', ["ngRoute"]);
         userModule.controller('centerCtrl', center);
         userModule.controller('userSettingsCtrl', settings);
@@ -7,7 +7,7 @@ define(['angular', './center', "./settings", "./setAccount", "./modifyPwd", "./c
         userModule.controller('modifyPwdCtrl', modifyPwd);
         userModule.controller('userCreditCtrl', credit);
         userModule.controller('infoCtrl', infoCtrl);
-
+        userModule.controller('invitedCodeCtrl', invitedCode);
         //  自定义事件指令value-change
         userModule.directive("valueChange", ['$rootScope','$http',function ($rootScope,$http) {
             return {
