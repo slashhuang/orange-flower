@@ -165,18 +165,21 @@ h4,h6{
     background: url(../../images/user_center/my_bill.png) no-repeat 1.25rem 1.4rem;
     background-size: 2.4rem;
 }
-
 .list-item:nth-of-type(3){
+    background: url(../../images/icon/activityIcon.jpg) no-repeat 1.6rem 1.4rem;
+    background-size: 1.6rem;
+}
+.list-item:nth-of-type(4){
     background: url(../../images/user_center/hot_line.png) no-repeat 1.25rem 1.4rem;
     background-size: 2.4rem;
 }
 
-.list-item:nth-of-type(4){
+.list-item:nth-of-type(5){
     background: url(../../images/user_center/change_pwd.png) no-repeat 1.25rem 1.4rem;
     background-size: 2.4rem;
 }
 
-.list-item:nth-of-type(5){
+.list-item:nth-of-type(6){
     background: url(../../images/user_center/get_help.png) no-repeat 1.25rem 1.4rem;
     background-size: 2.4rem;
 }

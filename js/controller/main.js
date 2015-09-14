@@ -3,8 +3,44 @@
  */
 define(['angular',"util/swiper_"],function(angular,swiper){
         var mainModule = angular.module('mainModule',["ngRoute"]);
-        mainModule.controller('mainCtrl', ['$scope', '$routeParams', '$http','$timeout','$rootScope',
-            function($scope, $routeParams, $http,$timeout,$rootScope) {
+        mainModule.controller('mainCtrl', ['$scope', '$routeParams', '$http','$timeout','$rootScope','$location',
+            function($scope, $routeParams, $http,$timeout,$rootScope,$location) {
+
+
+                ///**
+                // * 判断是否微信浏览器
+                // * @returns {boolean}
+                // */
+                //function is_weixin(){
+                //    var ua = navigator.userAgent.toLowerCase();
+                //    console.log(ua)
+                //    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+                //        return true;
+                //    } else {
+                //        return false;
+                //    }
+                //}
+                //if(is_weixin()){
+                //    $http({
+                //        "method":"post",
+                //        "url":$rootScope.prefuri+"/user/weixinOpenId"
+                //    }).success(function(data){
+                //        if(!data){
+                //            $location.path($rootScope.prefuri+"/oauth/init?url="+encodeURI($location.absUrl()));
+                //            console.log($rootScope.prefuri+"/oauth/init?url="+encodeURI($location.absUrl()))
+                //        }
+                //        else{
+                //            window.localStorage.openId = JSON.stringify(data);
+                //            console.log( window.localStorage.openId)
+                //        }
+                //    }).error($scope.httpError);
+                //}
+                //else{
+                //    alert("只有在微信中才能购买橘花分期产品哦～")
+                //}
+
+
+
                 //首页数据请求地址
                 var mainUrl = $rootScope.prefuri+"/product/typedProducts",
                     limeTimeSale = $scope.prefuri + "/product/listActivities/XSTM";
