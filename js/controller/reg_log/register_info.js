@@ -122,8 +122,9 @@ define([],function(){
                 "room":$scope.selectedRoom
             };
 
-            $scope.debugLog(checkInfoEveryting(data));
            if(checkInfoEveryting(data)){
+               data.invitedCode = $scope.invitedCode;
+               console.log(data);
                $http({
                    "method":"post",
                    "url":completeInfoURL,
