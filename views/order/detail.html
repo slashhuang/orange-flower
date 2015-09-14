@@ -30,10 +30,10 @@
                 <div class="order-detail-price">
                     <p>商品价格</p>
 
-                    <p class="info-price">￥<span class="price-red">{{transferPrice(data.salePrice)}}</span></p>
+                    <p class="info-price">￥<span class="price-red">{{transferPrice(data.preferentialAmount)}}</span></p>
 
-                    <p class="info-del-price">
-                        <del>￥{{transferPrice(data.salePrice)}}</del>
+                    <p class="info-del-price" ng-show="data.activity != null">
+                        <del>￥{{transferPrice(data.pagePrice)}}</del>
                     </p>
                 </div>
             </div>

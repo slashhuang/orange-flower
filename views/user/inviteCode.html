@@ -1,0 +1,19 @@
+<div class="of-header gray reg-log clear-float">
+    <a class="header-back" href="javascript:history.go(-1)"></a>
+    <!--<a class="header-back" href="#/main"></a>-->
+    输入邀请码
+</div>
+<div class="h-40"></div>
+<form class="of-register-form" action="" method="post">
+    <label>
+        <span class="common-input-left">邀请码</span>
+        <input  style="margin-left:20px;display: inline-block" type="text" placeholder="请输入邀请码" ng-model="invitedCode"/>
+    </label>
+
+</form>
+<div class="loginHint common-hint-tips" ng-show="checkCode.length>0">{{checkCode}}</div>
+<div class=" no-border">
+    <div class="of-button of-button-bar" style="margin-top: 30px;" id="loginSubmit" ng-click="submitCode(invitedCode)">提交</div>
+</div>
+
+

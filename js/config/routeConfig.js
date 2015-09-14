@@ -59,6 +59,10 @@ define([], function () {
             }).when("/user/info", {
                 templateUrl: '/views/user/info.html',
                 controller: 'infoCtrl'
+            })
+            .when("/invitedCode",{
+                templateUrl: '/views/user/inviteCode.html',
+                controller: 'invitedCodeCtrl'
             });
         //登录注册部分
         $routeProvider.

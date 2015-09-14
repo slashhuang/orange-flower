@@ -84,13 +84,13 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             return index;
         };
 
-        $scope.showPrice = function(pagePrice, activity){
+        $scope.showPrice = function (pagePrice, activity) {
             var realPrice = pagePrice;
-            if(activity) {
+            if (activity) {
                 realPrice -= activity.discount * 100;
             }
 
-            return realPrice/100;
+            return realPrice / 100;
         }
 
         /**
@@ -129,7 +129,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
         $scope.calculate = function (finalMonth, firstTimePay) {
             var min = $scope.transferPrice($scope.saleDetail.minPay),
                 max = $scope.transferPrice($scope.saleDetail.maxPay);
-            if((firstTimePay+"").length >= 1){
+            if ((firstTimePay + "").length >= 1) {
                 if ((/^[+-]?\d+(\.\d+)?/).test(firstTimePay)) {
                     if (firstTimePay && firstTimePay >= min && firstTimePay <= max) {
                         $scope.firstTimePay = firstTimePay;
@@ -255,12 +255,11 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                 activity = dataSubmit["activity"] == null ? "false" : "true";
             //  是否活动
 
-
-            var checkUrl = $scope.prefuri + "/user/check/credit?firstPay=" + $scope.firstTimePay*100 + "&productPrice=" + $scope.showPrice($scope.saleDetail.pagePrice, $scope.saleDetail.activity);
+            var checkUrl = $scope.prefuri + "/user/check/credit?needToStaging=" + parseInt($scope.calculateMoney * $scope.finalMonth * 100);
             $http({
-                "method":"get",
-                "url":checkUrl
-            }).success(function(){
+                "method": "get",
+                "url": checkUrl
+            }).success(function () {
                 $http({
                     "url": $scope.prefuri + "/user/info",
                     "method": "POST"
@@ -278,24 +277,24 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                     //  未完善信息的用户
 
                     localStorage.orderInfo = JSON.stringify({
-                        "pagePrice":dataSubmit["pagePrice"],                //  显示价格
-                        "uId":res["id"],                                    //  用户Id
-                        "skuId":dataSubmit["id"],                                 //  skuId
-                        "showBtn":"true",                                        //  是否显示按钮
-                        "productId":dataSubmit["id"],                   //  产品id
-                        "salePrice":dataSubmit["price"],                   //  原价
-                        "firstPay" : info["firstTimePay"],                   //  首付
-                        "servicePay" : info["monthRate"],                    //  利息
-                        "monthPay" : info["calculateMoney"],                 //  月供
-                        "count":"1",                                            //  数量
-                        "periods" : info["finalMonth"],                      //  分期月数
-                        "uName" : res["userName"],                           //  购买人姓名
-                        "telphone" : res["inviteCode"],                      //  购买人手机号
-                        "address" : res["userAddressList"][0]["address"],    //  收货地址
-                        "arg" : dataSubmit["title"],                         //  商品详情名称
-                        "prviewImg" : dataSubmit["thumb"]["smallUrl"],       //  预览图片
-                        "activity" :activity,                              //  是否参加活动
-                        "discount":dataSubmit["activity"] != null ? dataSubmit["activity"]["discount"] : 0       //  活动折扣
+                        "pagePrice": dataSubmit["pagePrice"],                //  显示价格
+                        "uId": res["id"],                                    //  用户Id
+                        "skuId": dataSubmit["id"],                                 //  skuId
+                        "showBtn": "true",                                        //  是否显示按钮
+                        "productId": dataSubmit["id"],                   //  产品id
+                        "salePrice": dataSubmit["price"],                   //  原价
+                        "firstPay": info["firstTimePay"],                   //  首付
+                        "servicePay": info["monthRate"],                    //  利息
+                        "monthPay": info["calculateMoney"],                 //  月供
+                        "count": "1",                                            //  数量
+                        "periods": info["finalMonth"],                      //  分期月数
+                        "uName": res["userName"],                           //  购买人姓名
+                        "telphone": res["inviteCode"],                      //  购买人手机号
+                        "address": res["userAddressList"][0]["address"],    //  收货地址
+                        "arg": dataSubmit["title"],                         //  商品详情名称
+                        "prviewImg": dataSubmit["thumb"]["smallUrl"],       //  预览图片
+                        "activity": activity,                              //  是否参加活动
+                        "discount": dataSubmit["activity"] != null ? dataSubmit["activity"]["discount"] : 0       //  活动折扣
                     });
 
                     //location.href = "#/order/confirm";
@@ -337,7 +336,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
          * 活动信息更新
          * @private
          */
-        function _rendOffInfo(data){
+        function _rendOffInfo(data) {
             $scope.maxFirst = $scope.transferPrice(data["maxPay"]);
             $scope.minFirst = $scope.transferPrice(data["minPay"]);
 

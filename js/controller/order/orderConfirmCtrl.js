@@ -94,7 +94,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                         "method": "post",
                         "url": $rootScope.prefuri + "/order/create",
                         "data": submitData
-                    }).success(function (res) {
+                    }).success(function (orderId) {
                         var userCenterUrl = $rootScope.prefuri + "/user/info";
                         var XHRrequest = $http({
                             "method": "post",
@@ -108,7 +108,7 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                         XHRrequest.error($rootScope.httpError);
                         var data = {
                             //"orderId": id,
-                            "orderId": id || res,
+                            "orderId": orderId,
                             "payChannel": "WX_PUB",
                             "tradeType": "TRADE_CONSUME"
                         };
@@ -124,10 +124,10 @@ define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx
                                     location.href = "/order/list?uId=" + $scope.data.uId;
                                 } else if (result == "fail") {
                                     $scope.debugLog("支付失败",'alert');
-                                    location.href = "/order/detail?orderId=" + res;
+                                    location.href = "/order/detail?orderId=" + orderId;
                                 } else if (result == "cancel") {
                                     $scope.debugLog("用户取消支付",'alert');
-                                    location.href = "/order/detail?orderId=" + res;
+                                    location.href = "/order/detail?orderId=" + orderId;
                                 }
                             });
                         }).error($rootScope.httpError);

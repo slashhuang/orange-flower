@@ -72,6 +72,11 @@
         <label>
             宿舍 <input type="text" placeholder="请填写宿舍楼号" style="display: inline-block;width: 70%;" class="modified" ng-model="selectedRoom" ng-focus="idTip=''">
         </label>
+
+        <label>
+            <span class="common-input-left">邀请码</span>
+            <input  style="margin-left:20px;display: inline-block" type="text" placeholder="请输入邀请码(选填)" ng-model="invitedCode"/>
+        </label>
     </form>
     <div ng-show="idTip.length > 0" class="id-tips no-border">
         {{idTip}}
