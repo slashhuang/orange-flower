@@ -10,7 +10,23 @@ define(["/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"], function ($, ajaxFile
         //初始化show状态
         $scope.logoutStatus = false;
         $scope.infoHint = "";
+        $scope.jumpCode=function(){
+            var verifyCodeUrl = $scope.prefuri+"/user/judgeYqm";
+            $http({
+                "method": "post",
+                "url": verifyCodeUrl
+            }).success(function (data) {
+                if(!data){
+                    $scope.infoHint="您已经使用过邀请码";
+                    $timeout(function(){ $scope.infoHint = "";},1000)
+                }
+                else{
+                    $location.path("/invitedCode");
+                }
 
+            }).error($rootScope.httpError);
+
+        };
         //登出函数
         $scope.logout = function () {
             time = 1;
