@@ -227,7 +227,6 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                 };
 
                 if(window.localStorage.centerData){
-                        //location.href="#/user/center";
                         $location.path("/user/center");
                     }
                 else{
@@ -241,7 +240,6 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                             window.localStorage.centerData = JSON.stringify(data);
                             window.localStorage.isLogin=true;
                             if(centerFlag){
-                                //location.href="#/user/center";
                                 $location.path("/user/center")
                             }
                         }

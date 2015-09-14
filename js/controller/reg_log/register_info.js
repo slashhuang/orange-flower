@@ -18,8 +18,6 @@ define([],function(){
             "level": "",
             "userName": ""
         };
-        $scope.idTip = "";
-        $scope.hintStatus = false;
 
         /**
          * /设置省份/城市/大学
@@ -73,7 +71,7 @@ define([],function(){
          */
         var checkId = function(data){
             var bool = (/^[\d]{15}$/).test(data) || (/^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$/g).test(data);
-            $scope.idTip = bool ? "" : "身份证格式错误";
+            $rootScope.errorMessage = bool ? "" : "身份证格式错误";
             $scope.idErr = !bool ? true : false;
             return bool;
         };
@@ -97,15 +95,17 @@ define([],function(){
          *点击触发下一步
          */
         var checkInfoEveryting = function(data){
+            console.log(data)
             if(checkId($scope.completeData.idNo)&&checkIsAllOk(data)){
                 return true;
             }
             else{
                 //alert($scope.idErr);
-                $scope.idTip="请填写所有字段";
+                $rootScope.ErrorMessage="请完善相关信息";
                 if($scope.idErr){
-                    $scope.idTip="身份证号格式错误";
+                    $rootScope.ErrorMessage="身份证号格式错误";
                 }
+                $timeout(function(){$rootScope.ErrorMessage=""},800);
                 return false;
             }
         };
