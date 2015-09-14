@@ -232,8 +232,12 @@ define(["pingpp", "jquery"],function(pay, $){
                         "periods":item["orderLines"][0]["periods"],                     //  分期期数
                         "firstPay":item["orderLines"][0]["firstPay"],                   //  首付
                         "productName":item["orderLines"][0]["commodityName"],           //  商品名称
-                        "productId":item["orderLines"][0]["sku"]["id"]                  //  商品id
+                        "productId":item["orderLines"][0]["sku"]["id"],                  //  商品id,
+                        "preferentialAmount": item["orderLines"][0]["preferentialAmount"], // 商品优惠后的价格
+                        "pagePrice": item["orderLines"][0]["pagePrice"],
+                        "activity": item["orderLines"][0]["activity"]                 // 订单关联的活动
                     });
+                    console.log(item["orderLines"][0]["activity"] != null)
                 }
             });
             return returnVal;

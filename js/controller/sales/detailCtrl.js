@@ -255,8 +255,7 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                 activity = dataSubmit["activity"] == null ? "false" : "true";
             //  是否活动
 
-
-            var checkUrl = $scope.prefuri + "/user/check/credit?firstPay=" + $scope.firstTimePay*100 + "&productPrice=" + $scope.showPrice($scope.saleDetail.pagePrice, $scope.saleDetail.activity);
+            var checkUrl = $scope.prefuri + "/user/check/credit?needToStaging=" + $scope.calculateMoney * $scope.finalMonth * 100;
             $http({
                 "method":"get",
                 "url":checkUrl
