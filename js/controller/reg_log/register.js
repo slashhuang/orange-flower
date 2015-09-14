@@ -36,7 +36,7 @@ define(['zepto'], function ($) {
          * @private
          */
         function _checkMobile(mobile) {
-            var reg = /^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i;
+            var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
             if (!reg.test(mobile)) {
                 $scope.checkVaildHint = "手机号格式不符!";
             }
