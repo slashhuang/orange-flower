@@ -35,9 +35,10 @@
                             </div>
                             <div class="info-detail-args">
                                 <!--<p>{{item.productName}}</p>-->
-                                <p>￥{{transferPrice(item.realPayAmount)}}</p>
-                                <p>
-                                    <del>￥{{transferPrice(item.salePrice)}}</del>
+                                <p>￥{{transferPrice(item.preferentialAmount)}}</p>
+
+                                <p ng-show="item.activity != null">
+                                    <del>￥{{transferPrice(item.pagePrice)}}</del>
                                 </p>
                             </div>
                             <div class="info-detail-price">

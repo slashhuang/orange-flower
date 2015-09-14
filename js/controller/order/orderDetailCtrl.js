@@ -207,15 +207,18 @@ define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
                 "ticketInfo": "个人",                                             //  发票信息
                 "orderId": data["orderId"],                                      //  订单编号
                 "productName": data["orderLines"][0]["commodityName"],           //  商品名称
-                "saleUnit": data["orderLines"][0]["saleUnit"],                   //  购买单价
+                "saleUnit": data["orderLines"][0]["saleUnit"],                   //  购买单位
                 "saleVolume": data["orderLines"][0]["saleVolume"],               //  购买个数
                 "salePrice": data["orderLines"][0]["salePrice"],                 //  商品原价
+                "preferentialAmount": data["orderLines"][0]["preferentialAmount"], // 商品优惠后的价格
                 "realPayAmount": data["orderLines"][0]["realPayAmount"],         //  实际付款
                 "payAmount": data["payAmount"],                                  //  销售总额
                 "prePeriodsPay": data["orderLines"][0]["prePeriodsPay"],         //  每期付款
                 "periods": data["orderLines"][0]["periods"],                     //  分期期数
                 "firstPay": data["orderLines"][0]["firstPay"],                   //  首付
-                "productId": data["orderLines"][0]["sku"]["id"]                  //  商品id
+                "productId": data["orderLines"][0]["sku"]["id"],                  //  商品id
+                "activity": data["orderLines"][0]["activity"],                   // 订单关联的活动
+                "pagePrice": data["orderLines"][0]["pagePrice"]                               //商品显示的页面价格
             };
             return returnObj;
         }
