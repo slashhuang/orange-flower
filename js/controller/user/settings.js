@@ -1,7 +1,7 @@
 /**
  * Created by slashhuang on 15/8/23.
  */
-define(["/js/lib/jquery.js", "/js/lib/ajaxfileupload.js"], function ($, ajaxFileUpload) {
+define([], function () {
     //定义商品分类controller
     function userSettingsCtrl($scope, $routeParams, $location, $http,$rootScope,$timeout) {
         var logoutURL = $rootScope.prefuri + "/user/logout";

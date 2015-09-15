@@ -1,5 +1,5 @@
-define(['angular', './center', "./settings", "./setAccount", "./modifyPwd", "./credit", "./infoCtrl",'./invitedCode',"/js/lib/jquery.js", "/js/lib/jquery.form.min.js"],
-    function (angular, center, settings, setAccount, modifyPwd, credit, infoCtrl,invitedCode,$,formSubmit) {
+define(['angular', './center', "./settings", "./setAccount", "./modifyPwd", "./credit", "./infoCtrl",'./invitedCode'],
+    function (angular, center, settings, setAccount, modifyPwd, credit, infoCtrl,invitedCode) {
         var userModule = angular.module('userModule', ["ngRoute"]);
         userModule.controller('centerCtrl', center);
         userModule.controller('userSettingsCtrl', settings);

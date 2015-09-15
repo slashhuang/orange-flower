@@ -1,4 +1,4 @@
-define(["/js/lib/jweixin-1.0.0.js", "/js/lib/jquery.js", "pingpp"], function (wx, $, pay) {
+define(["weixinPay", "jquery", "pingpp"], function (wx, $, pay) {
 
     //定义确定购买orderConfirm
     function orderConfirmCtrl($scope, $routeParams, $location, $http,$rootScope) {

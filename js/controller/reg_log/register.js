@@ -1,7 +1,7 @@
 /**
  * Created by slashhuang on 15/8/21.
  */
-define(['zepto'], function ($) {
+define([], function () {
     //定义商品分类controller
     function registerCtrl($scope, $routeParams, $location, $http, $timeout, $rootScope) {
 

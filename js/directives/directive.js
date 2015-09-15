@@ -2,7 +2,7 @@
  * 单独指令部分模块化
  */
 
-define(['angular'], function (angular) {
+define(['angular',"jquery", "formSubmit"], function (angular,$,formSubmit) {
         var directiveModule = angular.module('appDirectives', ["ngRoute"]);
 
         //路由切换,loading加载

@@ -12,6 +12,7 @@ require.config({
         "swiper":"lib/swiper",
         "cookie":"lib/cookie",
         "pingpp":"lib/pingpp_pay",
+        "weixinPay":"lib/jweixin-1.0.0",
         "iscroll":"lib/iscroll"
     },
     shim:{
@@ -36,6 +37,15 @@ require.config({
         },
         "pingpp":{
             "exports": "pingpp"
+        },
+        "jquery":{
+            "exports":"jquery"
+        },
+        "formSubmit":{
+            "exports":"formSubmit"
+        },
+        "weixinPay":{
+            "exports":"weixinPay"
         }
     }
 });

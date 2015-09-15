@@ -2,7 +2,7 @@
  * 订单详情控制器
  * build by rwson @2015-08-23
  */
-define(["/js/lib/jweixin-1.0.0.js", "pingpp"], function (wx, pay) {
+define(["weixinPay", "pingpp"], function (wx, pay) {
     function orderDetailCtrl($scope, $routeParams, $location, $http,$rootScope) {
 
         var orderId = $location.search()["orderId"],

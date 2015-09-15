@@ -2,7 +2,7 @@
  * 订单列表控制器
  * build by rwson @2015-08-23
  */
-define(["pingpp", "jquery"],function(pay, $){
+define(["pingpp"],function(pay){
     //定义商品分类orderList
     function orderListCtrl($scope,$routeParams,$location,$http,$rootScope){
         var btnArray = {

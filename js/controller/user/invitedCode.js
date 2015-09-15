@@ -1,9 +1,7 @@
 /**
  * Created by slashhuang on 15/9/14.
  */
-/**
- * Created by slashhuang on 15/8/23.
- */
+
 define([], function () {
     //定义商品分类controller
     function invitedCodeCtrl($scope, $routeParams, $location, $http,$rootScope,$timeout) {

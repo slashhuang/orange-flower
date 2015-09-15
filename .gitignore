@@ -68,6 +68,7 @@ atlassian-ide-plugin.xml
 js/DOMJS
 bower_components/*
 .idea/
+dist/*
 *.class
 
 # Package Files #

@@ -1,5 +1,5 @@
 //配置路由
-define(['angular','./categoryCtrl','./detailCtrl','./discountCtrl','./saleListCtrl','./searchCtrl','iscroll'],
+define(['angular','./categoryCtrl','./detailCtrl','./discountCtrl','./saleListCtrl','./searchCtrl'],
     function(angular,category,detail,discount,saleList,search,iscroll){
     var salesModule = angular.module('salesModule',["ngRoute"]);
         salesModule.controller('categoryCtrl',category);
@@ -10,9 +10,9 @@ define(['angular','./categoryCtrl','./detailCtrl','./discountCtrl','./saleListCt
 
         /*cut指令迁移至filters*/
 
-        var App = angular.module('App', ['ng-scroller']);
-
-        App.controller('Controller', function($scope){
-        });
+        //var App = angular.module('App', ['ng-scroller']);
+        //
+        //App.controller('Controller', function($scope){
+        //});
 
 });
