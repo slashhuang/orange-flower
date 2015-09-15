@@ -29,7 +29,8 @@
                         <!--</div>-->
                         <div ng-bind-html="rendOffInfo(salelist.activity,'discount',salelist.now,salelist.left) | trustHtml"></div>
                     </div>
-                    <img src="/images/mobile_demo.png"  width="35px">
+
+                    <img src="{{salelist.imgUrl}}"  width="35">
                     <div class="discount-item-timeLeft">
                         <p>仅剩<span>{{salelist.numLeft}}</span>台</p>
                         <!--<img src="/images/icon/icon-clock.png" width="8px;">-->
