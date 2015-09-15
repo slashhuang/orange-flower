@@ -4,14 +4,10 @@
  */
 
 ({
-    appDir: './',
     baseUrl: './js',
-    modules: [
-        {
-            name: 'app'
-        }
-    ],
-    dir:"./dist",
+    name: 'app',
+
+    out:"app.js",
     fileExclusionRegExp: /^(r|build)\.js$|node_modules/,
     optimizeCss: 'standard',
     removeCombined: true,

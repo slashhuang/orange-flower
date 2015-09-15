@@ -48,7 +48,7 @@
     <div class="of-icon-class-item"  ng-repeat="category_list in mainData.category">
         <a href="/sale/list/{{category_list.item.value}}/{{category_list.item.id}}">
         <!--<a href="#/sale/list/{{category_list.item.value}}/{{category_list.item.id}}">-->
-            <img src="/images/icon_main/{{getPic(category_list.item.value)}}.png"/>
+            <img ng-src="/images/icon_main/{{getPic(category_list.item.value)}}.png"/>
             {{category_list.item.value}}
         </a>
     </div>
@@ -78,7 +78,7 @@
                         </p>
                     </div>
                 </div>
-                <img src="{{prefuri + discountItem.thumb.smallUrl}}" width="32px">
+                <img ng-src="{{prefuri+discountItem.thumb.smallUrl}}" width="32px">
                 <!--<img src="http://api.orangezc.com/file/z1/269450363818483712" width="70">-->
             </div>
         </a>

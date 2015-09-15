@@ -6,12 +6,12 @@ define(['angular', 'config/routeConfig',"directives/directive","filters/filters"
         'controller/user/user', 'controller/order/order',
         'controller/reg_log/reglog', 'controller/main',
         'controller/sales/sales', 'controller/user/user',
-        'controller/reg_log/reglog', 'controller/order/order', 'controller/bill/bill', 'controller/activity/activity'],
+        'controller/reg_log/reglog', 'controller/order/order', 'controller/bill/bill'],
     function (angular, routeConfig) {
 
         var app = angular.module('app',
             ["ngRoute","appDirectives","appFilters","mainModule", "salesModule",
-              "userModule", "orderModule", "reglogModule", "orderModule", "billModule","activityModule"]);
+              "userModule", "orderModule", "reglogModule", "orderModule", "billModule"]);
         //定义全局变量
         app.run(['$rootScope','$location','$timeout','$http',function ($rootScope,$location,$timeout,$http) {
 
