@@ -54,9 +54,7 @@ define(['angular',"util/swiper_"],function(angular,swiper){
                     "url":limeTimeSale
                 }).success(function(res){
                     $scope.mainData.discount = res.slice(0,3);
-                    console.log($scope.mainData.discount);
                 }).error($scope.httpError);
-                //  请求限时特卖数据
 
                 /**
                  * http请求，渲染首页数据

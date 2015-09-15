@@ -10,7 +10,6 @@ define([], function () {
 
             $scope.startLottery = function () {
                 _runLottery(ele,3,function(){
-                    alert("fuck");
                 });
             };
 

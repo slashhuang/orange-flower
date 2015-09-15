@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/stylesheets/common.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/swiper.min.css">
-    <link rel="stylesheet" href="/stylesheets/sweetalert.css">
     <!--user_center 样式-->
     <link rel="stylesheet" href="/stylesheets/user_center/center.css">
     <link rel="stylesheet" href="/stylesheets/user_center/credit.css">
@@ -49,6 +48,8 @@
 <div ng-view ng-show="ErrorMessage.length==0">
 
 </div>
+
+<div change-route class="route-loading-style"><img src="images/loading.gif" class="loadingStyle"></div>
 
 <div ng-class="{true:'info-hint-style',false:''}[ErrorMessage.length>0]" ng-bind="ErrorMessage">
 </div>

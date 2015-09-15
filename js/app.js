@@ -1,26 +1,17 @@
 /**
  * Created by slashhuang on 15/8/21.
  */
-define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'lib/angular-route',
+define(['angular', 'config/routeConfig',"directives/directive","filters/filters",'lib/angular-route',
         'controller/main', 'controller/sales/sales',
         'controller/user/user', 'controller/order/order',
         'controller/reg_log/reglog', 'controller/main',
         'controller/sales/sales', 'controller/user/user',
         'controller/reg_log/reglog', 'controller/order/order', 'controller/bill/bill', 'controller/activity/activity'],
-    function (scriptsLoader, angular, routeConfig) {
+    function (angular, routeConfig) {
 
         var app = angular.module('app',
-            ["ngRoute", "ngCookies","mainModule", "salesModule", "ngLoadScript",
+            ["ngRoute","appDirectives","appFilters","mainModule", "salesModule",
               "userModule", "orderModule", "reglogModule", "orderModule", "billModule","activityModule"]);
-        //定义服务
-        app.filter('trustHtml', ['$sce',function ($sce) {
-
-            return function (input) {
-
-                return $sce.trustAsHtml(input);
-
-            }}]);
-
         //定义全局变量
         app.run(['$rootScope','$location','$timeout','$http',function ($rootScope,$location,$timeout,$http) {
 
@@ -165,7 +156,7 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                         if(typeof callback=='function'){
                             callback();
                         }
-                    },1000);
+                    },1050);
                 }
                 if(res&&res.code){
                     switch (res.code){
@@ -173,15 +164,13 @@ define(['loadScript', 'angular', 'config/routeConfig','lib/angular-cookies', 'li
                             window.localStorage.isLogin = false;
                                 $timeout(function () {
                                     $location.path('/login');
-                                    //location.href="#/login"
-                                },800);
+                                },1000);
                             break;//    用户未登录
                         case '10023':
                             window.localStorage.isLogin=false;
                                 $timeout(function () {
                                     $location.path('/registerInfo');
-                                    //location.href='#/registerInfo';
-                                },800);
+                                },1000);
                             break;//    完善信息
                         case '10027':
                             location.href='/registerInfo?back=true';

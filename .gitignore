@@ -64,6 +64,8 @@ atlassian-ide-plugin.xml
 # NetBeans specific files/directories
 .nbattrs
 
+# DOMJS 注释掉
+js/DOMJS
 bower_components/*
 .idea/
 *.class

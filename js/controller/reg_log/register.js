@@ -3,7 +3,7 @@
  */
 define(['zepto'], function ($) {
     //定义商品分类controller
-    function registerCtrl($scope, $routeParams, $location, $http, $timeout, $rootScope, $cookies) {
+    function registerCtrl($scope, $routeParams, $location, $http, $timeout, $rootScope) {
 
         /**
          * 还是把协议放在注册里面
@@ -188,7 +188,7 @@ define(['zepto'], function ($) {
             }, 2000)
         };
     };
-    registerCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout', '$rootScope', '$cookies'];
+    registerCtrl.$inject = ['$scope', '$routeParams', '$location', '$http', '$timeout', '$rootScope'];
 
     return registerCtrl;
 });

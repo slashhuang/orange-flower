@@ -5,6 +5,23 @@
 /**
 *头部
 */
+
+.routeHide{
+    display: none;
+}
+.route-loading-style{
+    position: fixed;
+    top: 30%;
+    left: 5%;
+    right: 5%;
+    font-size: 15px;
+    z-index: 1000;
+}
+.loadingStyle{
+    width:100%;
+    height:auto;
+}
+
 .of-logo-icon{
     height: 32px;
     width:auto;
