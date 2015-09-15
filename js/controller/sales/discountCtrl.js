@@ -158,6 +158,7 @@ define([],function() {
                         "firstTime": 300,
                         "payOncePercent": [20, 300]
                     },
+                    "imgUrl":$scope.prefuri + item["thumb"]["smallUrl"],
                     "saleState": true,
                     "timeCountDown": new Date().toLocaleString(),
                     "numLeft": item["left"]
