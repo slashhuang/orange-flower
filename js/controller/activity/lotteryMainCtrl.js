@@ -6,11 +6,107 @@ define([], function () {
         function lotteryMainCtrl($scope, $routeParams, $location, $http, $rootScope) {
 
             var ele = document.querySelector("#light-icon"),
-                interval = null;
+                //lotteryIcon = document.querySelectorAll(".lottery-icon"),
+                interval = null,
+                tmpDom = document.querySelector(".icon-1"),
+                prefUri = $scope.prefuri,
+                posInfo = [
+                    {
+                        "left": 0,
+                        "top": 0
+                    },
+                    {
+                        "left": "33.33%",
+                        "top": 0
+                    },
+                    {
+                        "left": "66.66%",
+                        "top": 0
+                    },
+                    {
+                        "left": "66.66%",
+                        "top": "33.33%"
+                    },
+                    {
+                        "left": "66.66%",
+                        "top": "66.66%"
+                    },
+                    {
+                        "left": "33.33%",
+                        "top": "66.66%"
+                    },
+                    {
+                        "left": 0,
+                        "top": "66.66%"
+                    },
+                    {
+                        "left": 0,
+                        "top": "33.33%"
+                    }
+                ],
+                showHide = [
+                    {
+                        "display":"block"
+                    },
+                    {
+                        "display":"none"
+                    }
+                ],
+                stopIndex = 0,
+                index = 0,
+                round = 0,items,isPrice;
+
+            $scope.prizeInfo = "";
+            $scope.showMask = false;
+
+            $http({
+                "url": prefUri + "/lottery/SLYYJCJ",
+                "method":"GET"
+            }).success(function(res){
+                items = res["items"];
+                angular.forEach(items,function(item,index){
+                    tmpDom = document.getElementsByClassName("icon-" + item["id"])[0];
+                    _setStyle(tmpDom,{
+                        "background":"url(" + prefUri + item["file"]["smallUrl"] + ") no-repeat 0 0",
+                        "backgroundSize":"100% 100%"
+                    });
+                });
+            }).error($scope.httpError);
+            //  ajax返回成功渲染DOM
 
             $scope.startLottery = function () {
-                _runLottery(ele,3,function(){
-                });
+                $http({
+                    "url":prefUri + "/lottery/SLYYJCJ/lottery",
+                    "method":"POST"
+                }).success(function(res){
+                    angular.forEach(items,function(item,index){
+                        if(res["lotteryItemId"] == item["id"]){
+                            stopIndex = index;
+                        }
+                    });
+                    _runLottery(ele,stopIndex,function(){
+                        $scope.$apply(function(){
+                            $scope.prizeInfo = "恭喜你获得了价值" + $scope.transferPrice(res["productPrice"]) + res["productName"];
+                        });
+                    });
+                }).error($scope.httpError);
+            };
+
+            /**
+             * 按钮点击动作
+             */
+            $scope.btnTaped = function(){
+                if(!isPrice){
+                    $scope.prizeInfo = "";
+                    $scope.showMask = false;
+                }
+            };
+
+            /**
+             * 渲染按钮文字
+             */
+            $scope.btnText = function(){
+                return "立即购买";
             };
 
             /**
@@ -21,53 +117,12 @@ define([], function () {
              * @private
              */
             function _runLottery(target,pos,callback) {
-                var posInfo = [
-                        {
-                            "left": 0,
-                            "top": 0
-                        },
-                        {
-                            "left": "33.33%",
-                            "top": 0
-                        },
-                        {
-                            "left": "66.66%",
-                            "top": 0
-                        },
-                        {
-                            "left": "66.66%",
-                            "top": "33.33%"
-                        },
-                        {
-                            "left": "66.66%",
-                            "top": "66.66%"
-                        },
-                        {
-                            "left": "33.33%",
-                            "top": "66.66%"
-                        },
-                        {
-                            "left": 0,
-                            "top": "66.66%"
-                        },
-                        {
-                            "left": 0,
-                            "top": "33.33%"
-                        }
-                    ],
-                    showHide = [
-                        {
-                            "display":"block"
-                        },
-                        {
-                            "display":"none"
-                        }
-                    ],
-                    index = 0,
-                    round = 0;
                 clearInterval(interval);
+                index = 0;
+                round = 0;
+
                 interval = setInterval(function(){
-                    index = index ++ == posInfo.length - 1 ? 0 : index ++;
+                    index = index ++ == posInfo.length ? 0 : index ++;
 
                     _setStyle(target,posInfo[index]);
                     //  200ms转一圈
@@ -76,7 +131,7 @@ define([], function () {
                         round = 0;
 
                         interval = setInterval(function(){
-                            index = index ++ == posInfo.length - 1 ? 0 : index ++;
+                            index = index ++ == posInfo.length ? 0 : index ++;
                             _setStyle(target,posInfo[index]);
                             if(index == 7){
                                 round ++;
@@ -87,7 +142,7 @@ define([], function () {
                                 //  60ms转八圈
 
                                 interval = setInterval(function(){
-                                    index = index ++ == posInfo.length - 1 ? 0 : index ++;
+                                    index = index ++ == posInfo.length ? 0 : index ++;
                                     if(index == 7){
                                         round ++;
                                     }
@@ -107,14 +162,14 @@ define([], function () {
                                             if(round == 15){
                                                 clearInterval(interval);
                                                 _setStyle(target,showHide[0]);
-                                                callback && angular.isFunction(callback) && callback.call(true);
+                                                callback();
                                             }
                                             //  闪个15下后走回调
                                         },16);
                                     }
                                 },300);
                             }
-                        },60);
+                        },30);
                     }
                 },200);
             }

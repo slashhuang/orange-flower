@@ -25,41 +25,6 @@
     float: left;
 }
 
-.lottery-start-btn{
-    background: url(../../images/activity/start-icon.jpg) no-repeat 0 0;
-    background-size: 100% 100%;
-}
-
-.tks-icon-red{
-    background: url(../../images/activity/tks-2.jpg) no-repeat 0 0;
-    background-size: 100% 100%;
-}
-
-.tks-icon-orange{
-    background: url(../../images/activity/tks-1.jpg) no-repeat 0 0;
-    background-size: 100% 100%;
-}
-
-.camp-9-9{
-    background: url(../../images/activity/9-9camp.jpg) no-repeat 0 0;
-    background-size: 100% 100%;
-}
-
-.ticket-9-9{
-    background: url(../../images/activity/9-9ticket.jpg) no-repeat 0 0;
-    background-size: 100% 100%;
-}
-
-.ticket-99{
-    background: url(../../images/activity/99-tickets.jpg) no-repeat 0 0;
-    background-size: 100% 100%;
-}
-
-.ticket-119{
-    background: url(../../images/activity/119-tickets.jpg) no-repeat 0 0;
-    background-size: 100% 100%;
-}
-
 .lottery-rules{
     margin: 1rem 1.3rem 0;
 }
@@ -82,7 +47,43 @@
     width: 33.33%;
     height: 33.33%;
     position: absolute;
-    background: rgba(21,198,144,0.5);
+    /*background: rgba(117, 18, 0,0.6);*/
+    background: rgba(189, 214, 20, 0.6);
+    box-shadow: 0 0 30px yellow;
     left: 0;
     top: 0;
+}
+
+.lottery-start-btn{
+    background: url(../../images/activity/start-icon.jpg) no-repeat 0 0;
+    background-size: 100% 100%;
+}
+
+.prize-info-bj{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.8);
+}
+
+.prize-text{
+    width: 24rem;
+    min-height: 10rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    border-radius: 1rem;
+    margin: -5rem 0 0 -12rem;
+    background: rgba(0,0,0,0.6);
+    font-size: 1.3rem;
+    line-height: 2.3rem;
+    color: #fff;
 }

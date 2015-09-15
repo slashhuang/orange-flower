@@ -3,19 +3,19 @@
         <div class="lottery-area">
             <div class="light-icon" id="light-icon"></div>
             <div class="lottery-area-item">
-                <div class="lottery-item-cell tks-icon-red"></div>
-                <div class="lottery-item-cell camp-9-9"></div>
-                <div class="lottery-item-cell tks-icon-orange"></div>
+                <div class="lottery-item-cell lottery-icon icon-1"></div>
+                <div class="lottery-item-cell lottery-icon icon-2"></div>
+                <div class="lottery-item-cell lottery-icon icon-3"></div>
             </div>
             <div class="lottery-area-item">
-                <div class="lottery-item-cell ticket-9-9"></div>
+                <div class="lottery-item-cell lottery-icon icon-8"></div>
                 <div class="lottery-item-cell lottery-start-btn" ng-click="startLottery()"></div>
-                <div class="lottery-item-cell ticket-99"></div>
+                <div class="lottery-item-cell lottery-icon icon-4"></div>
             </div>
             <div class="lottery-area-item">
-                <div class="lottery-item-cell tks-icon-orange"></div>
-                <div class="lottery-item-cell ticket-119"></div>
-                <div class="lottery-item-cell tks-icon-red"></div>
+                <div class="lottery-item-cell lottery-icon icon-7"></div>
+                <div class="lottery-item-cell lottery-icon icon-6"></div>
+                <div class="lottery-item-cell lottery-icon icon-5"></div>
             </div>
         </div>
         <div class="lottery-rules">
@@ -25,6 +25,13 @@
             <p class="lottery-rule-detail">1.我要门票给不给,不给弄屎你</p>
             <p class="lottery-rule-detail">1.我要门票给不给,不给弄屎你</p>
             <p class="lottery-rule-detail">1.我要门票给不给,不给弄屎你</p>
+            <p class="lottery-rule-detail">1.我要门票给不给,不给弄屎你</p>
+        </div>
+        <div class="prize-info-bj" id="prize-info-bj" ng-show="prizeInfo.length > 0">
+            <div class="prize-text">
+                {{prizeInfo}}
+            </div>
+            <a href="javascript:;" ng-click="btnTaped()">{{btnText()}}</a>
         </div>
     </div>
 </div>
