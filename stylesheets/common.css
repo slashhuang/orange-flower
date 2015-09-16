@@ -24,13 +24,18 @@
 
 .header-function{
     right:16px;
-    /*top:13px;*/
     top:17px;
     position: absolute;
     font-size: 15px;
     font-weight: normal;
     color: #2d2d2d;
     display: inline-block;
+}
+.settings-plus-icon{
+    background: url("/images/icon/icon-plus.png") center;
+    background-size: cover;
+    width:20px;
+    height:20px;
 }
 .arrow-right-select{
     display:block;
@@ -67,6 +72,7 @@
     top: 0;
     left: 0;
 }
+
 
 
 .user-reglog-hint{

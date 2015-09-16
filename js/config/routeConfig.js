@@ -33,6 +33,10 @@ define([], function () {
                 templateUrl: '/views/user/settings.html',
                 controller: 'userSettingsCtrl'
             }).
+            when("/feedback",{
+                templateUrl: '/views/user/feedback.html',
+                controller: 'feedbackCtrl'
+            }).
             when("/usageHelp", {
                 templateUrl: '/views/user/usageHelp.html',
                 controller: ''

@@ -1,31 +1,29 @@
 <div style="height:100%;width:100%; background:#f0f0f0;position:absolute;top:0">
-<div id="settingFilter" ng-show="logoutStatus && infoHint.length == 0">
-    <div class="of-login-bottom">
+<div id="settingFilter" ng-show="logoutStatus && infoHint.length == 0||showFunc==true" ng-click="maskFunc()">
+    <div class="of-login-bottom" ng-show="logoutStatus && infoHint.length == 0">
         <p class="hint">感谢您对橘花的支持，欢迎下次光临^_^</p>
         <p class="identified" ng-click="logout()">退出登录</p>
         <div class="split-line h-20"></div>
-        <p class="cancel" ng-click="changeLogoutStatus(logoutStatus)">取消</p>
+        <p class="cancel" ng-click="cencelLogout()">取消</p>
     </div>
 </div>
 <div class="of-header gray reg-log clear-float ">
     <a class="header-back" href="javascript:history.back()"></a>
     设置
+    <b class="header-function settings-plus-icon" ng-click="navIcon()"></b>
+    <ul class="settings-func-list" ng-show="showFunc">
+        <li>消息</li>
+        <li><a href="/sale/search">搜索</a></li>
+        <li><a href="/sale/category">分类</a></li>
+        <li ng-click="refreshPage()">刷新</li>
+        <li>分享</li>
+    </ul>
 </div>
-
-<!--<div class="head-setting">-->
-    <!--头像-->
-    <!--<label class="head-img">-->
-        <!--<input type="file" value-change="change()" ng-model="userModule" class="select-head" name="user-head" id="user-head">-->
-        <!--<img src="../../images/user_center/my_head.png" class="user-head-pic">-->
-        <!--<a href="javascript:" class="arrow-select-right arrow-right-select"></a>-->
-    <!--</label>-->
-<!--</div>-->
 
     <div class="h-40"></div>
     <div class="split-line h-20"></div>
     <div class="settings-list"><a href="/user/setAccount" class="whole-link">账号设置 <em class="arrow-right-select"></em></a></div>
-    <!--<div class="settings-list"><a href="#/user/setAccount" class="whole-link">账号设置 <em class="arrow-right-select"></em></a></div>-->
-
+    <div class="settings-list"><a href="/feedback" class="whole-link">意见反馈 <em class="arrow-right-select"></em></a></div>
 
     <div class="settings-list"><a href="/about/us" class="whole-link">关于我们  <em class="arrow-right-select"></em></a></div>
     <div class="settings-list" style="border-bottom: 1px solid #e6e6e6;"><b ng-click="jumpCode()" class="whole-link">邀请码  <em class="arrow-right-select"></em></b></div>
@@ -33,16 +31,7 @@
     <div class="split-line h-20"></div>
 
     <div class="settings-list" style="text-align: center;border-bottom: 1px solid #e6e6e6;"
-         ng-click="changeLogoutStatus(logoutStatus)">退出登录</div>
+         ng-click="logoutButton()">退出登录</div>
 
     <div class="log-hint-style" ng-show="infoHint.length > 0">{{infoHint}}</div>
-    <div class="invited-mask">
-        <div class="invited-area">
-            <input type="text" placeholder="请输入邀请码" name="invite-code" class="invite-code">
-            <div class="invited-btns">
-                <a class="invited-btn-item" href="javascript:;">取消</a>
-                <a class="invited-btn-item" href="javascript:;">保存</a>
-            </div>
-        </div>
-    </div>
 </div>
