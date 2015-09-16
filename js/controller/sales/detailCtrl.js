@@ -129,13 +129,16 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
         $scope.calculate = function (finalMonth, firstTimePay) {
             var min = $scope.transferPrice($scope.saleDetail.minPay),
                 max = $scope.transferPrice($scope.saleDetail.maxPay);
-            if ((firstTimePay + "").length >= 1) {
-                if ((/^[+-]?\d+(\.\d+)?/).test(firstTimePay)) {
+            console.log((firstTimePay).length >= 1);
+            if ((firstTimePay).length >= 1) {
+                if ((/^\d+(\.\d+)?/).test(firstTimePay)) {
                     if (firstTimePay && firstTimePay >= min && firstTimePay <= max) {
                         $scope.firstTimePay = firstTimePay;
                         $scope.calculateMoney = _calculateRate(firstTimePay, $scope.saleDetail.price, finalMonth)["monthPay"];
                         $scope.monthRate = _calculateRate($scope.firstTimePay, $scope.saleDetail.price, finalMonth)["monthRate"];
                     } else {
+                        console.log(firstTimePay && firstTimePay >= min);
+                        console.log(firstTimePay <= max);
                         $scope.firstTimePay = min;
                         $scope.calculateMoney = _calculateRate($scope.firstTimePay, $scope.saleDetail.price, finalMonth)["monthPay"];
                         $scope.monthRate = _calculateRate(firstTimePay, $scope.saleDetail.price, finalMonth)["monthRate"];
@@ -201,8 +204,10 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                         "border": 1,
                         "bordercolor": "#adadad"
                     };
-                $scope.debugLog(table.getAttribute("cellspaceing"));
-                _setAttr(table, attrs);
+                //$scope.debugLog(table.getAttribute("cellspaceing"));
+                if(table){
+                    _setAttr(table, attrs);
+                }
             }, 200);
 
             /***初始化自己设置的变量*/
