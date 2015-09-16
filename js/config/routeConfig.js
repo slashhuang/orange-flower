@@ -127,7 +127,7 @@ define([], function () {
                 controller: 'activityCtrl'
             }).
             when('/activityMain',{
-                templateUrl: '/views/activity/activity-main.html',
+                templateUrl: '/views/activity/lottery-main.html',
                 controller: 'lotteryMainCtrl'
             }).
             when('/lottery', {

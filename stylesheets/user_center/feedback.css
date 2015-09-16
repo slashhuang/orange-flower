@@ -35,7 +35,7 @@
     right: 13px;
     width:74px;
     height:165px;
-    background: url("/images/user_center/settingsFuncBack.png") right 0;
+    background: url("/images2/user_center/settingsFuncBack.png") right 0;
     background-size:74px 165px;
     padding-top:17px;
 }
@@ -49,7 +49,7 @@
 .feedback-success{
     width: 150px;
     height: 150px;
-    background: url('/images/orchen_single.png') no-repeat 40px 0;
+    background: url('/images2/orchen_single.png') no-repeat 40px 0;
     background-size: 75px 80px;
     position: absolute;
     left: 50%;

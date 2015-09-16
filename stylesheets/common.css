@@ -7,7 +7,7 @@
     width: 40px;
     height: 20px;
     /*background: url(/images/icon/arrow_header.png) no-repeat 0 0 ;*/
-    background: url(/images/icon/arrow-head.png) no-repeat 0 0;
+    background: url(/images2/icon/arrow-head.png) no-repeat 0 0;
     /*background: url(/images/icon/arrow.png) no-repeat 0 0;*/
     background-size: 10px 20px;
 }
@@ -32,7 +32,7 @@
     display: inline-block;
 }
 .settings-plus-icon{
-    background: url("/images/icon/icon-plus.png") center;
+    background: url("/images2/icon/icon-plus.png") center;
     background-size: cover;
     width:20px;
     height:20px;
@@ -43,7 +43,7 @@
     width: 30px;
     height: 16px;
     /*background: url(../images/icon/icon_arrow_right.png) no-repeat 20px 0;*/
-    background: url(../images/user_center/arrow_right.png) no-repeat 20px 2px;
+    background: url(../images2/user_center/arrow_right.png) no-repeat 20px 2px;
     /*background-size: 9px 16px;*/
     background-size: 8px 14px;
 }
@@ -52,7 +52,7 @@
     float:right;
     width: 9px;
     height: 18px;
-    background: url(../images/user_center/arrow_right.png) no-repeat 0 4px;
+    background: url(../images2/user_center/arrow_right.png) no-repeat 0 4px;
     background-size: 8px 14px;
     margin-left: 0 !important;
 }
@@ -110,7 +110,7 @@
     left:11px;
     width: 26px;
     height: 26px;
-    background: url(/images/icon/icon-person-white.png) no-repeat;
+    background: url(/images2/icon/icon-person-white.png) no-repeat;
     background-size: 26px 26px;
 }
 .of-header-search{
@@ -120,14 +120,14 @@
     right:11px;
     width: 26px;
     height: 26px;
-    background: url(../images/icon/icon-search-white.png);
+    background: url(../images2/icon/icon-search-white.png);
     background-size: 26px 26px;
 }
 .of-header-search-gray{
     display:inline-block;
     width: 20px;
     height: 20px;
-    background: url(../images/icon/icon-search-grey.png) no-repeat;
+    background: url(../images2/icon/icon-search-grey.png) no-repeat;
     background-size: 20px 20px;
     position: absolute;
     top:15px;

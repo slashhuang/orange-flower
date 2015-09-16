@@ -6,7 +6,6 @@ define([], function () {
         function lotteryMainCtrl($scope, $routeParams, $location, $http, $rootScope) {
 
             var ele = document.querySelector("#light-icon"),
-                //lotteryIcon = document.querySelectorAll(".lottery-icon"),
                 interval = null,
                 tmpDom = document.querySelector(".icon-1"),
                 prefUri = $scope.prefuri,
@@ -54,10 +53,11 @@ define([], function () {
                 ],
                 stopIndex = 0,
                 index = 0,
-                round = 0,items,isPrice;
+                round = 0,
+                items,
+                isPrice;
 
             $scope.prizeInfo = "";
-            $scope.showMask = false;
 
             $http({
                 "url": prefUri + "/lottery/SLYYJCJ",
@@ -84,9 +84,21 @@ define([], function () {
                             stopIndex = index;
                         }
                     });
+                    //  获取转到哪里停下来
+
                     _runLottery(ele,stopIndex,function(){
                         $scope.$apply(function(){
                             $scope.prizeInfo = "恭喜你获得了价值" + $scope.transferPrice(res["productPrice"]) + res["productName"];
+                            if(res["productSkuId"] == 0){
+                                $scope.prizeInfo = "很遗憾!你没有中奖!再试试手气吧!";
+                                $scope.prized = false;
+                                isPrice = false;
+                            }else{
+                                $scope.skuId = res["productSkuId"];
+                                $scope.prized = true;
+                                $scope.prizeInfo = "恭喜你获得了价值" + $scope.transferPrice(res["productPrice"]) + "元的" + res["productName"];
+                                isPrice = true;
+                            }
                         });
                     });
                 }).error($scope.httpError);
@@ -98,15 +110,18 @@ define([], function () {
             $scope.btnTaped = function(){
                 if(!isPrice){
                     $scope.prizeInfo = "";
-                    $scope.showMask = false;
+                }else{
+                    location.href = "/sale/detail/" + $scope.skuId;
                 }
             };
 
             /**
-             * 渲染按钮文字
+             * 重新抽奖,把变量什么的都设置成
              */
-            $scope.btnText = function(){
-                return "立即购买";
+            $scope.reLottery = function(){
+                $scope.prizeInfo = "";
+                index = 0;
+                round = 0;
             };
 
             /**
@@ -118,7 +133,7 @@ define([], function () {
              */
             function _runLottery(target,pos,callback) {
                 clearInterval(interval);
-                index = 0;
+                index = -1;
                 round = 0;
 
                 interval = setInterval(function(){

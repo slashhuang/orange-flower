@@ -5,8 +5,6 @@ define([],function(){
     //定义商品分类controller
     function userCreditCtrl($scope,$routeParams,$location,$http,$timeout,$rootScope){
 
-
-
         if(window.localStorage.centerData){
             $rootScope.centerData = JSON.parse(window.localStorage.centerData);
             console.log($rootScope.centerData )

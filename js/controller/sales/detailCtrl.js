@@ -89,9 +89,8 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
             if (activity) {
                 realPrice -= activity.discount * 100;
             }
-
             return realPrice / 100;
-        }
+        };
 
         /**
          *
@@ -129,22 +128,23 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
         $scope.calculate = function (finalMonth, firstTimePay) {
             var min = $scope.transferPrice($scope.saleDetail.minPay),
                 max = $scope.transferPrice($scope.saleDetail.maxPay);
-            console.log((firstTimePay).length >= 1);
-            if ((firstTimePay).length >= 1) {
+            $scope.monthCount = finalMonth;
+            if (("" + firstTimePay).length >= 1) {
                 if ((/^\d+(\.\d+)?/).test(firstTimePay)) {
                     if (firstTimePay && firstTimePay >= min && firstTimePay <= max) {
+                        $scope.firstPayErr = false;
                         $scope.firstTimePay = firstTimePay;
                         $scope.calculateMoney = _calculateRate(firstTimePay, $scope.saleDetail.price, finalMonth)["monthPay"];
                         $scope.monthRate = _calculateRate($scope.firstTimePay, $scope.saleDetail.price, finalMonth)["monthRate"];
                     } else {
-                        console.log(firstTimePay && firstTimePay >= min);
-                        console.log(firstTimePay <= max);
-                        $scope.firstTimePay = min;
+                        $scope.firstPayErr = true;
+                        //$scope.firstTimePay = min;
                         $scope.calculateMoney = _calculateRate($scope.firstTimePay, $scope.saleDetail.price, finalMonth)["monthPay"];
                         $scope.monthRate = _calculateRate(firstTimePay, $scope.saleDetail.price, finalMonth)["monthRate"];
                     }
                     //  根据范围内的
                 } else {
+                    $scope.firstPayErr = true;
                     $scope.firstTimePay = 0;
                     $scope.calculateMoney = _calculateRate(0, $scope.saleDetail.price, finalMonth)["monthPay"];
                     $scope.monthRate = _calculateRate(0, $scope.saleDetail.price, finalMonth)["monthRate"];
@@ -204,7 +204,6 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
                         "border": 1,
                         "bordercolor": "#adadad"
                     };
-                //$scope.debugLog(table.getAttribute("cellspaceing"));
                 if(table){
                     _setAttr(table, attrs);
                 }
@@ -241,6 +240,19 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
          * ->未登录,跳转到登录页,让他登录
          */
         $scope.buyNow = function () {
+
+            var min = $scope.transferPrice($scope.saleDetail.minPay),
+                max = $scope.transferPrice($scope.saleDetail.maxPay),
+                firstTimePay = $scope.transferPrice($scope.firstTimePay);
+            if (!(firstTimePay && firstTimePay >= min && firstTimePay <= max)) {
+                return;
+                //return $scope.httpError({
+                //    "code":400,
+                //    "message":"首付金额错误!"
+                //});
+            }
+            //  立即分期校验首付是否正确
+
             var dataSubmit = $scope.saleDetail,
                 info = $scope;
             var data = {
@@ -310,7 +322,6 @@ define(["zepto", "util/swiper_"], function ($, swiper) {
 
             }).error($scope.httpError);
         };
-
 
         /**
          * 根据商品id等信息重新发送信息

@@ -1,17 +1,16 @@
-.lottery-main{
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    background: url(../../images/activity/activity-top.jpg) no-repeat 0 0,#43b1dd;
-    background-size: 100%;
+.lottery-page{
+    background: #43b1dd;
+}
+
+.activity-logo{
+    width: 100%;
 }
 
 .lottery-area{
     position: relative;
     width: 29.5rem;
     height: 29.5rem;
-    margin: 15rem auto 0;
+    margin: 1.5rem auto 0;
 }
 
 .lottery-area-item{
@@ -26,7 +25,7 @@
 }
 
 .lottery-rules{
-    margin: 1rem 1.3rem 0;
+    margin: 1rem 1.3rem 2.5rem;
 }
 
 .lottery-rule-title{
@@ -47,15 +46,15 @@
     width: 33.33%;
     height: 33.33%;
     position: absolute;
-    /*background: rgba(117, 18, 0,0.6);*/
-    background: rgba(189, 214, 20, 0.6);
-    box-shadow: 0 0 30px yellow;
+    background: rgba(117, 18, 0,0.6);
+    /*background: rgba(189, 214, 20, 0.6);*/
+    /*box-shadow: 0 0 30px yellow;*/
     left: 0;
     top: 0;
 }
 
 .lottery-start-btn{
-    background: url(../../images/activity/start-icon.jpg) no-repeat 0 0;
+    background: url(../../images2/activity/start-icon.jpg) no-repeat 0 0;
     background-size: 100% 100%;
 }
 
@@ -86,4 +85,20 @@
     font-size: 1.3rem;
     line-height: 2.3rem;
     color: #fff;
+}
+
+.buy-now-btn{
+    display: block;
+    width: 10rem;
+    height: 3rem;
+    margin: 1.5rem auto 0;
+    background: #16cd9b;
+    -webkit-border-radius: 1.3rem;
+    -moz-border-radius: 1.3rem;
+    -ms-border-radius: 1.3rem;
+    -o-border-radius: 1.3rem;
+    border-radius: 1.3rem;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    text-align: center;
 }

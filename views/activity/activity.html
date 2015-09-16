@@ -9,8 +9,7 @@
     <div class="h-40"></div>
     <div class="activity-list" ng-show="listItem.length > 0">
         <ul class="prize-list">
-
-            <li class="prize-item" ng-repeat="item in listItem">
+            <li class="prize-item" ng-repeat="item in listItem" ng-class="isOutOfDate(item.expiredTime) ? 'out-of-date' : ''">
                 <p class="prize-name">森林音乐节转盘抽奖</p>
                 <div class="prize-info">
                     <p class=prize-info-name>中奖商品名称：</p>
@@ -18,30 +17,13 @@
                 </div>
                 <div class="prize-info">
                     <p class=prize-info-name>有效期：</p>
-                    <p class="prize-info-detail dead-line">2015-09-21</p>
+                    <p class="prize-info-detail dead-line">{{item.expiredTime | date : "yyyy-MM-dd"}}</p>
                 </div>
                 <div class="prize-info">
                     <p class=prize-info-name>价格：</p>
                     <p class="prize-info-detail">￥{{transferPrice(item.productPrice)}}</p>
                 </div>
-                <a href="javascript:;" class="use-now-btn">立即使用</a>
-            </li>
-
-            <li class="prize-item out-of-date">
-                <p class="prize-name">森林音乐节转盘抽奖</p>
-                <div class="prize-info">
-                    <p class=prize-info-name>中奖商品名称：</p>
-                    <p class="prize-info-detail">你猜你猜你猜</p>
-                </div>
-                <div class="prize-info">
-                    <p class=prize-info-name>有效期：</p>
-                    <p class="prize-info-detail dead-line">2015-09-21</p>
-                </div>
-                <div class="prize-info">
-                    <p class=prize-info-name>价格：</p>
-                    <p class="prize-info-detail">￥9.9</p>
-                </div>
-                <a href="javascript:;" class="use-now-btn">立即使用</a>
+                <a href="/sale/detail{{item.productSkuId}}" class="use-now-btn">立即使用</a>
             </li>
         </ul>
     </div>

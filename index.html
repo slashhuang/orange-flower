@@ -32,16 +32,10 @@
     <link rel="stylesheet" href="/stylesheets/bill/history.css">
     <link rel="stylesheet" href="/stylesheets/bill/plain.css">
     <!--活动(暂时注释活动部分CSS)-->
-    <!--<link rel="stylesheet" href="/stylesheets/activity/activity-list.css">-->
-    <!--<link rel="stylesheet" href="/stylesheets/activity/activity-main.css">-->
-    <!--<link rel="stylesheet" href="/stylesheets/activity/lottery.css">-->
-    <!--加载函数库-->
-    <!--<script src="/js/require.js" data-main="/app"></script>-->
-    <script src="/js/require.js"></script>
-    <script src="/js/config/require_config.js"></script>
-    <script>
-        require(["app"])
-    </script>
+    <link rel="stylesheet" href="/stylesheets/activity/activity-list.css">
+    <link rel="stylesheet" href="/stylesheets/activity/lottery-main.css">
+    <link rel="stylesheet" href="/stylesheets/activity/lottery.css">
+    <!--<link rel="stylesheet" href="/stylesheets/main.css">-->
     <!--<base href="/index.html">-->
     <base href="/">
     <title>橘花</title>
@@ -51,9 +45,17 @@
 
 </div>
 
-<div change-route class="route-loading-style"><img src="/images/loading.gif" class="loadingStyle"></div>
+<div change-route class="route-loading-style"><img src="/images2/loading.gif" class="loadingStyle"></div>
 
 <div ng-class="{true:'info-hint-style',false:''}[ErrorMessage.length>0]" ng-bind="ErrorMessage">
 </div>
+
+<!--加载函数库-->
+<script src="/js/require.js" data-main="/app"></script>
+<!--<script src="/js/require.js"></script>-->
+<!--<script src="/js/config/require_config.js"></script>-->
+<!--<script>-->
+<!--require(["app"])-->
+<!--</script>-->
 </body>
 </html>

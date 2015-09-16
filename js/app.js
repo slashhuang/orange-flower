@@ -1,25 +1,45 @@
 /**
  * Created by slashhuang on 15/8/21.
  */
-define(['angular', 'config/routeConfig',"directives/directive","filters/filters",'lib/angular-route',
+define(['angular', 'config/routeConfig', 'lib/angular-route',
         'controller/main', 'controller/sales/sales',
         'controller/user/user', 'controller/order/order',
         'controller/reg_log/reglog', 'controller/main',
         'controller/sales/sales', 'controller/user/user',
-        'controller/reg_log/reglog', 'controller/order/order', 'controller/bill/bill'],
+        'controller/reg_log/reglog', 'controller/order/order', 'controller/bill/bill', 'controller/activity/activity'],
     function (angular, routeConfig) {
 
         var app = angular.module('app',
-            ["ngRoute","appDirectives","appFilters","mainModule", "salesModule",
-              "userModule", "orderModule", "reglogModule", "orderModule", "billModule"]);
+            ["ngRoute", "mainModule", "salesModule",
+              "userModule", "orderModule", "reglogModule", "orderModule", "billModule","activityModule"]);
+        //定义服务
+        app.filter('trustHtml', ['$sce',function ($sce) {
+
+            return function (input) {
+
+                return $sce.trustAsHtml(input);
+
+            }}]);
         //定义全局变量
         app.run(['$rootScope','$location','$timeout','$http','$route',function ($rootScope,$location,$timeout,$http,$route) {
+
+            $rootScope.env = "dev";
+
             $rootScope.refreshPage = function(){
                 $route.reload()
             };
 
             $rootScope.prefuri = "http://api.orangezc.com";
             $rootScope.jumpFlag = false;
+
+            var bodyClass = document.getElementsByTagName("body")[0].classList;
+            if(location.href.match(/activityMain$/gi) != null){
+                bodyClass = bodyClass.add("lottery-page");
+            }else{
+                bodyClass = bodyClass.remove("lottery-page");
+            }
+            document.getElementsByTagName("body")[0].classList = bodyClass;
+            //  给抽奖页面设置样式
 
             /**
              * 全局处理errorMessage
@@ -33,12 +53,12 @@ define(['angular', 'config/routeConfig',"directives/directive","filters/filters"
              * @param type  类型
              */
             $rootScope.debugLog = function(info,type){
-                $rootScope.debugFlat = false;
                 if($rootScope.debugFlat){
                     console.trace();
                     if(type == "alert"){
                         alert(info);
                     }else{
+                        return;
                         console.log(info);
                     }
                 }

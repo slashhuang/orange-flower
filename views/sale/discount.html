@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="item-hot-list-detail">
-                    <h1>{{salelist.itemInfo | cut:true:40:' ...'}}</h1>
+                    <h1>{{salelist.itemInfo | limitTo:40}}...</h1>
                     <p class="item-price color-51">￥{{transferPrice(salelist.pagePrice - salelist.activity.discount * 100)}}&nbsp;&nbsp;&nbsp;<i>￥{{transferPrice(salelist.pagePrice)}}</i></p>
                     <div class="total-price">
                         <i>￥{{transferPrice(salelist.itemInstallation)}}</i>
@@ -60,7 +60,7 @@
                         <!--</div>-->
                            <!--抢完与否对应的class"active":"disabled""我要抢 ":"已抢完 "-->
                         <div class="discount-installment-buy <%-classChooser%>">
-                            我要抢<img src="/images/icon/button_arrow_right.png" width="5">
+                            我要抢<img src="/images2/icon/button_arrow_right.png" width="5">
                         </div>
                     </div>
                 </div>

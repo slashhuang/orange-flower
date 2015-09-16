@@ -46,7 +46,7 @@
     margin-top:0.3rem;
     width: 0.7rem;
     height: 1.3rem;
-    background: url(../../images/user_center/arrow_right.png) no-repeat;
+    background: url(../../images2/user_center/arrow_right.png) no-repeat;
     background-size: 100%;
     float: right;
 }
@@ -274,7 +274,7 @@ p.special-icon:before{
     width: 22rem;
     height: 5.5rem;
     text-align: center;
-    background: url(../../images/order/empty-order.png) no-repeat 2rem 0;
+    background: url(../../images2/order/empty-order.png) no-repeat 2rem 0;
     background-size: 18rem 8.5rem;
     padding: 9.5rem 0 0 0;
     position: absolute;
@@ -287,7 +287,7 @@ p.special-icon:before{
 .empty-sale{
     width: 150px;
     height: 150px;
-    background: url(/images/orchen.png) no-repeat 40px 0;
+    background: url(/images2/orchen.png) no-repeat 40px 0;
     background-size: 75px 80px;
     position: absolute;
     left: 50%;

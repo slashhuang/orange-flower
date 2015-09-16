@@ -33,7 +33,7 @@
                             <img ng-src="{{prefuri+sale.thumb.bigUrl}}" width="55px"style="margin-right:5px;">
                         </div>
                         <div class="item-hot-list-detail">
-                            <h1>{{sale.title |cut:true:40:' ...'}}</h1>
+                            <h1>{{sale.title |limitTo:40}}...</h1>
                             <p class="item-price">售价：￥{{transferPrice(sale.price)}}</p>
                             <div class="total-price">
                                 <i>￥{{transferPrice(sale.pricePerMonth)}}</i>

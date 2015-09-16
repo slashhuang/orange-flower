@@ -160,7 +160,7 @@
 /*}*/
 
 .item-discount-banner.active{
-    background: url(../../images/icon/red-icon.png) no-repeat 0 0;
+    background: url(../../images2/icon/red-icon.png) no-repeat 0 0;
     background-size: 36px 36px;
 }
 .item-discount-banner.soldout,.item-discount-inner1.soldout{

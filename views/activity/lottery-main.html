@@ -1,5 +1,6 @@
 <div>
     <div class="lottery-main">
+        <img src="/images2/activity/activity-top.jpg" class="activity-logo">
         <div class="lottery-area">
             <div class="light-icon" id="light-icon"></div>
             <div class="lottery-area-item">
@@ -30,8 +31,9 @@
         <div class="prize-info-bj" id="prize-info-bj" ng-show="prizeInfo.length > 0">
             <div class="prize-text">
                 {{prizeInfo}}
+                <a class="buy-now-btn" href="javascript:;" ng-show="prized" ng-click="btnTaped()">立即购买</a>
+                <a class="buy-now-btn" href="javascript:;" ng-click="reLottery()">再来一次</a>
             </div>
-            <a href="javascript:;" ng-click="btnTaped()">{{btnText()}}</a>
         </div>
     </div>
 </div>

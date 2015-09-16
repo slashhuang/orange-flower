@@ -67,6 +67,7 @@ define([], function () {
             }).success(function () {
                 window.localStorage.centerData="";
                 window.localStorage.isLogin = false;
+                localStorage.clear();
                 $location.path("/main");
             }).error(function (err) {
                 $scope.cencelLogout();

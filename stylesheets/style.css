@@ -1,8 +1,4 @@
 /**
-*橘花第一版样式文件
-*/
-
-/**
 *头部
 */
 
@@ -16,6 +12,7 @@
     right: 5%;
     font-size: 15px;
     z-index: 1000;
+    display: none;
 }
 .loadingStyle{
     width:100%;
@@ -120,7 +117,7 @@
     z-index:99
 }
 .of-special-sale-banner p{
-    background: url("../images/icon/discount_flag.png") no-repeat;
+    background: url("../images2/icon/discount_flag.png") no-repeat;
     background-size:cover ;
     color:#fff;
     font-size:10px;
@@ -286,7 +283,7 @@
 .of-bottom-bar i.of-icon-hot,
 .of-bottom-bar i.of-icon-hot-on{
     width: 28px;
-    height: 28px;
+    height: 26px;
     margin-top: -2px;
 }
 
@@ -309,43 +306,43 @@
     margin-bottom: 6px;
 }
 .of-icon-home{
-    background: url(../images/icon/icon-home.png) no-repeat center;
+    background: url(../images2/icon/icon-home.png) no-repeat center;
     background-size:contain ;
 }
 .of-icon-home-on{
-    background: url(../images/icon/icon-house-h.png) no-repeat center;
+    background: url(../images2/icon/icon-house-h.png) no-repeat center;
     background-size:contain ;
 }
 .of-icon-classify{
-    background: url(../images/icon/icon-classify.png) no-repeat center;
+    background: url(../images2/icon/icon-classify.png) no-repeat center;
     background-size:contain;
 }
 .of-icon-classify-on{
-    background: url(../images/icon/icon-classify-h.png) no-repeat center;
+    background: url(../images2/icon/icon-classify-h.png) no-repeat center;
     background-size:contain ;
 }
 .of-icon-hot{
-    background: url(../images/icon/icon-h.png) no-repeat center ;
+    background: url(../images2/icon/icon-h.png) no-repeat center ;
     background-size:contain ;
 }
 .of-icon-hot-on{
-    background: url(../images/icon/icon-h-h.png) no-repeat center ;
+    background: url(../images2/icon/icon-h-h.png) no-repeat center ;
     background-size:contain ;
 }
 .of-icon-person{
-    background: url(../images/icon/icon-person.png) no-repeat center ;
+    background: url(../images2/icon/icon-person.png) no-repeat center ;
     background-size:contain ;
 }
 .of-icon-person-on{
-    background: url(../images/icon/icon-person-h.png) no-repeat center;
+    background: url(../images2/icon/icon-person-h.png) no-repeat center;
     background-size:contain ;
 }
 .of-icon-heart{
-    background: url(../images/icon/icon-heart.png) no-repeat center;
+    background: url(../images2/icon/icon-heart.png) no-repeat center;
     background-size:contain ;
 }
 .of-icon-heart-on{
-    background: url(../images/icon/icon-heart-h.png) no-repeat center ;
+    background: url(../images2/icon/icon-heart-h.png) no-repeat center ;
     background-size:contain ;
 }
 .of-icon-home-on,
