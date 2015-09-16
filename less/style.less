@@ -1,0 +1,354 @@
+/**
+*橘花第一版样式文件
+*/
+
+/**
+*头部
+*/
+.of-logo-icon{
+    height: 32px;
+    width:auto;
+}
+.swiper-pagination-bullet-active{
+    background-color: #939393 !important;
+}
+.swiper-pagination-bullet{
+    background-color: #16cd9b !important;
+}
+
+/**
+*图标和小字的分类
+*/
+.of-icon-class-box{
+    /*margin-top:5px ;*/
+    padding-bottom:11px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.of-icon-class-item{
+    display: inline-block;
+    float: left;
+    width:25%;
+    text-align:center;
+    font-size:13px;
+    /*margin-top:4px;*/
+    margin-top:10px;
+}
+
+.of-icon-class-item a{
+    font-size:12px;
+    color: #888;
+    display: block;
+}
+
+.of-icon-class-item img{
+    display: block;
+    margin:0 auto 8px;
+    width:40px;
+    height:40px;
+}
+
+/*限时特卖*/
+
+.of-special-sale{
+    background-color:#fff;
+    /*border-top:#e6e6e6 1px solid;*/
+    border-radius:1px;
+    overflow: hidden;
+    position: relative;
+    z-index: 9;
+}
+
+.of-special-sale-body{
+    background-color: #fff;
+    float: left;
+    width:33.33%;
+    padding-left:5%;
+    text-align: center;
+    border-right:1px solid #e5e5e5;
+    font-size: 10px;
+}
+.of-special-sale-body a{
+    color: #000;
+}
+.of-special-sale-body span{
+    display: block;
+    margin:auto;
+    padding:5px 10px 5px 0;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.of-hot-container{
+    display: block;
+    position:relative;
+    margin:5px 10px 5px 0;
+    overflow:hidden;
+}
+.of-hot-container img{
+    margin-top:5px;
+    text-align: center;
+}
+.of-special-sale-item{
+    position: absolute;
+    top:0;
+    left:50%;
+    z-index: 999;
+}
+.of-special-sale-banner{
+    position: absolute;
+    top:0;
+    right:11px;
+    z-index:99
+}
+.of-special-sale-banner p{
+    background: url("../images/icon/discount_flag.png") no-repeat;
+    background-size:cover ;
+    color:#fff;
+    font-size:10px;
+    padding:3px 1px 1px 1px;
+    text-align: center;
+}
+.of-special-sale-banner p i{
+   margin:0 auto;
+    font-style: normal;
+    display: block;
+    width: auto;
+    white-space: nowrap
+}
+.of-special-sale:last-child{
+    border-right: none;
+}
+
+/**
+*每个分类推荐的样式
+*/
+.of-class-recommand-box{
+    /*border:#c9c9c9 1px solid;*/
+    border-radius:1px;
+
+    overflow: hidden;
+    background-color:#fff;
+}
+
+.of-class-recommand-header{
+    background-color: #fff;
+    /*padding:10px 2px 4px 8px;*/
+    padding:12px 2px 10px 8px;
+    font-size: 15px;
+    color: #2d2d2d;
+    /*border-left:2px solid #fb4551;*/
+}
+.of-class-recommand-header i{
+    display: inline-block;
+    height:14px;
+    width: 14px;
+    margin-right: 8px;
+    margin-top:4px;
+}
+
+.of-class-recommand-header a{
+    display: inline-block;
+    float: right;
+    margin-right:10px;
+    margin-top: 4px;
+    font-size: 12px;
+    text-decoration: none;
+    color: #2d2d2d;
+}
+
+.of-class-recommand-body{
+    width:100%;
+    height:auto;
+    background-color: #ffffff;
+    padding-bottom: 12px;
+}
+.of-class-recommand-body .swiper-wrapper:first-child{
+    margin-left:6px;
+}
+
+.of-class-recommand-item.swiper-slide{
+    width:28%;
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    background-color:#fff;
+    padding: 10px 0;
+    margin-left: 2px;
+    margin-right:6px;
+    overflow:hidden;
+}
+.of-class-recommand-item a{
+    display: block;
+}
+.swiper-wrapper{
+    margin-top:10px;
+}
+.of-class-recommand-item img{
+    width:70px;
+}
+
+.of-class-recommand-item .of-name{
+    text-align: center;
+    font-family: monospace;
+    font-size: 11px;
+    font-weight: normal;
+    white-space:nowrap;
+    display: block;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    margin-top: 5px;
+    color: #2d2d2d;
+    padding:0 5px;
+}
+
+.of-class-recommand-item .of-price{
+    font-size: 9px;
+    margin-top: 3px;
+    /*color: #2d2d2d;*/
+    color: #515151;
+    font-weight:900;
+}
+.of-class-recommand-item .of-price span{
+    /*font-size: 11px;*/
+    font-size: 13px;
+    color: #ff5959;
+    font-weight: bold;
+}
+
+/**
+*广告栏位
+*/
+.of-ad{
+
+}
+.of-ad img{
+    width:100%;
+}
+.of-ad.of-bottom{
+    padding-bottom:60px;
+    background: #f6f6f6;
+}
+/**
+*底部样式
+*/
+.of-bottom-bar{
+    background-color: #ffffff;
+    border-top: 1px solid #dbdbdb;
+    position: fixed;
+    bottom: 0;
+    padding-top:6px;
+    padding-bottom:6px ;
+    overflow: hidden;
+    font-size: 12px;
+    color:#c8c8c8;
+    width: 100%;
+    z-index: 199;
+}
+
+.of-bottom-bar.hidden{
+    display: none;
+}
+
+.of-bottom-bar div{
+     float: left;
+     width: 20%;
+    text-align: center;
+ }
+.of-bottom-bar a{
+    display: block;
+    width: 100%;
+}
+.of-bottom-bar a.active{
+    color: #15c690;
+}
+.of-bottom-bar i{
+    width: 24px;
+    height: 24px;
+}
+.of-bottom-bar i.of-icon-hot,
+.of-bottom-bar i.of-icon-hot-on{
+    width: 28px;
+    height: 28px;
+    margin-top: -2px;
+}
+
+.of-bottom-bar div.active{
+    color:#c8c8c8;
+}
+
+
+/*头部图片slider部分*/
+.swiper-img-size{
+    width:100%;
+    height:auto;
+}
+
+/*icon部分*/
+.of-icon-bottom{
+    display: block;
+    margin:auto;
+    background-size:contain ;
+    margin-bottom: 6px;
+}
+.of-icon-home{
+    background: url(../images/icon/icon-home.png) no-repeat center;
+    background-size:contain ;
+}
+.of-icon-home-on{
+    background: url(../images/icon/icon-house-h.png) no-repeat center;
+    background-size:contain ;
+}
+.of-icon-classify{
+    background: url(../images/icon/icon-classify.png) no-repeat center;
+    background-size:contain;
+}
+.of-icon-classify-on{
+    background: url(../images/icon/icon-classify-h.png) no-repeat center;
+    background-size:contain ;
+}
+.of-icon-hot{
+    background: url(../images/icon/icon-h.png) no-repeat center ;
+    background-size:contain ;
+}
+.of-icon-hot-on{
+    background: url(../images/icon/icon-h-h.png) no-repeat center ;
+    background-size:contain ;
+}
+.of-icon-person{
+    background: url(../images/icon/icon-person.png) no-repeat center ;
+    background-size:contain ;
+}
+.of-icon-person-on{
+    background: url(../images/icon/icon-person-h.png) no-repeat center;
+    background-size:contain ;
+}
+.of-icon-heart{
+    background: url(../images/icon/icon-heart.png) no-repeat center;
+    background-size:contain ;
+}
+.of-icon-heart-on{
+    background: url(../images/icon/icon-heart-h.png) no-repeat center ;
+    background-size:contain ;
+}
+.of-icon-home-on,
+.of-icon-classify-on,
+.of-icon-hot-on,
+.of-icon-person-on,
+.of-icon-heart-on{
+    display: none;
+}
+.active .of-icon-home,
+.active .of-icon-classify,
+.active .of-icon-hot,
+.active .of-icon-person,
+.active .of-icon-heart{
+    display: none;
+}
+.active .of-icon-home-on,
+.active .of-icon-classify-on,
+.active .of-icon-hot-on,
+.active .of-icon-person-on,
+.active .of-icon-heart-on{
+    display: block;
+}

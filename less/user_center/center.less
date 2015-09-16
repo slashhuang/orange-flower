@@ -1,0 +1,250 @@
+/***
+    个人中心样式表
+    build by rwson @2015-0805
+***/
+
+body{
+    overflow: scroll;
+}
+
+h4,h6{
+    margin: 0;
+    padding: 0;
+}
+
+.user-center-top{
+    border-bottom: 1px solid #dcdcdc;
+    color: #2d2d2d;
+    height: 3.8rem;
+    line-height: 1.8rem;
+    background: #dfdfdf;
+    font-size: 1.7rem;
+    text-align: center;
+    position: relative;
+    padding:1rem;
+    font-weight: 700;
+}
+
+/*头部样式*/
+
+.user-center-info{
+    padding: 1.5rem 5%;
+    background: #fff;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.left-info{
+    height: 100%;
+    width: 60%;
+    float: left;
+}
+
+.avator{
+    display: block;
+    float: left;
+    height: 5rem;
+    width: 5rem;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.name-mobile{
+    float: left;
+    padding: 0 0 0 3%;
+}
+
+.u-name{
+    font-weight: 300;
+    font-size: 1.4rem;
+    line-height: 3rem;
+    color: #2d2d2d;
+}
+
+.u-mobile{
+    font-size: 1.3rem;
+    color: #9d9d9d;
+}
+
+.reg-btn-disable{
+    float: right;
+    padding: 0.7rem 1.5rem;
+    background: #c7c7c7;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+    border-radius: 2rem;
+    font-size: 1.6rem;
+    color: #fff!important;
+}
+.reg-btn-active{
+    float: right;
+    margin-top:10px;
+    padding: 0.7rem 1.5rem;
+    background-color: #15c690;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+    border-radius: 2rem;
+    font-size: 1.6rem;
+    color: #fff!important;
+}
+
+
+/*个人资料*/
+.user-center-balance{
+    padding: 1.5rem 0;
+    background: #fff;
+    overflow: hidden;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.balance-left,
+.balance-right{
+    width: 50%;
+    height: 3.7rem;
+    border-right: 1px solid #f2f2f2;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+}
+
+.balance-right{
+    border: none;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -ms-box-sizing: content-box;
+    -o-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.info-text{
+    font-size: 13px;
+    color: #888;
+    padding: 0 0 0.6rem 0;
+}
+
+.info-num{
+    font-size: 1.9rem;
+    color: #f00;
+    font-family: Arial;
+}
+
+/*用户列表*/
+.user-center-btn-list{
+    background: #fff;
+    border-top: 1px solid #e6e6e6;
+    padding-bottom:100px;
+}
+
+.list-item{
+    padding: 1.5rem 1.25rem;
+    height: 2rem;
+    border-bottom: 1px solid #e6e6e6;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -ms-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.list-item:nth-of-type(1){
+    background: url(../../images/user_center/my_order.png) no-repeat 1.25rem 1.5rem;
+    background-size: 2.4rem;
+}
+
+.list-item:nth-of-type(2){
+    background: url(../../images/user_center/my_bill.png) no-repeat 1.25rem 1.4rem;
+    background-size: 2.4rem;
+}
+.list-item:nth-of-type(3){
+    background: url(../../images/icon/activityIcon.jpg) no-repeat 1.6rem 1.4rem;
+    background-size: 1.6rem;
+}
+.list-item:nth-of-type(4){
+    background: url(../../images/user_center/hot_line.png) no-repeat 1.25rem 1.4rem;
+    background-size: 2.4rem;
+}
+
+.list-item:nth-of-type(5){
+    background: url(../../images/user_center/change_pwd.png) no-repeat 1.25rem 1.4rem;
+    background-size: 2.4rem;
+}
+
+.list-item:nth-of-type(6){
+    background: url(../../images/user_center/get_help.png) no-repeat 1.25rem 1.4rem;
+    background-size: 2.4rem;
+}
+
+.list-item-link{
+    display: inline-block;
+    padding: 0 0 0 2.7rem;
+    font-size: 15px;
+    color: #2d2d2d;
+    line-height: 2rem;
+}
+
+.list-item a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.list-item .arrow{
+    display: inline-block;
+    width:30px ;
+    height: 17px ;
+    margin: 0;
+    background: url(../../images/user_center/arrow_right.png) no-repeat 20px 3px;
+    background-size: 8px 14px ;
+    float: right;
+}
+
+/*个人账号设置*/
+.setAccountHead{
+    padding:10px;
+}
+.setAccountHead span {
+    float:left;
+    padding-top:15px;
+    display: inline;
+    vertical-align: middle;
+}
+.setAccountHead div.set-Head-Style {
+    margin-top:17px;
+}
+/*输入新密码*/
+.modifyPWD-form{
+    padding:10px;
+    width:100%;
+}
+.modifyPWD-form input{
+    width:100%;
+    border-bottom:1px #e9e9e9 solid;
+    padding:15px 0;
+    font-size:16px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.modifyPWD-form input::-webkit-input-placeholder {
+    font-size:16px;
+}
+.modifyPWD-form input:-moz-placeholder {
+    font-size:16px;
+}
+.modifyPWD-form input::-moz-placeholder {
+    font-size:16px;
+}
+.modifyPWD-form input:-ms-input-placeholder {
+    font-size:16px;
+}
