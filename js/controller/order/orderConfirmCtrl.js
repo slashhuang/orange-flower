@@ -67,7 +67,13 @@ define(["weixinPay", "jquery", "pingpp"], function (wx, $, pay) {
          * @param status
          */
         $scope.confirmBuy = function (id, firstPay,status) {
-            var submitData = {
+            var firstArr = ('' + storageParams["firstPay"]).split("."),
+                after = "00";
+            if(firstArr.length > 1){
+                after = ('' + storageParams["firstPay"]).split(".")[1].length == 1 ? "0" : "00";
+            }
+
+                submitData = {
                 "orderType": "FORWARD",                         //  订单类型
                 "orderLineDtos": [
                     {
@@ -76,7 +82,7 @@ define(["weixinPay", "jquery", "pingpp"], function (wx, $, pay) {
                         "skuId": storageParams["skuId"],                 //  商品sku
                         "saleVolume": 1,                     //  销售数量
                         "periods": $scope.data.periods,                           //  分期期数
-                        "firstPay": firstPay,                          //  首付金额
+                        "firstPay": ('' + storageParams["firstPay"]).replace(/\./g,"") + after,                          //  首付金额
                         "clientRemark": "",
                         "actFlag":$scope.data.activity
                     }
@@ -224,7 +230,7 @@ define(["weixinPay", "jquery", "pingpp"], function (wx, $, pay) {
                     "payAmount": ammnont,                                  //  销售总额
                     "prePeriodsPay": data["monthPay"] * 100,         //  每期付款
                     "periods": data["periods"],                     //  分期期数
-                    "firstPay": data["firstPay"] * 100,                    //  首付
+                    "firstPay": data["firstPay"],                    //  首付
                     "id":data["skuId"],                     //  skuId
                     "uId":data["uId"],                   //  用户Id
                     "activity":data["activity"],         //  活动
