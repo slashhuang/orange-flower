@@ -1,0 +1,24 @@
+<div style="height:100%;width:100%; background:#f0f0f0;position:absolute;top:0">
+    <div id="settingFilter" ng-show="showFunc==true" ng-click="changeHeadView()"></div>
+    <div class="of-header gray reg-log clear-float ">
+        <a class="header-back" href="javascript:history.back()"></a>
+        意见反馈
+        <b class="header-function settings-plus-icon" ng-click="changeHeadView()"></b>
+        <ul class="settings-func-list" ng-show="showFunc==true">
+            <li>消息</li>
+            <li><a href="/sale/search">搜索</a></li>
+            <li><a href="/sale/category">分类</a></li>
+            <li ng-click="refreshPage()">刷新</li>
+            <li>分享</li>
+        </ul>
+    </div>
+
+    <div class="h-40"></div>
+    <div class="feedback-textarea" ng-show="!feedbackOrchen">
+        <textarea placeholder="请输入您的宝贵意见，非常感谢！" maxlength="300" ng-model="feedbackText"></textarea>
+    </div>
+    <div class="of-button of-button-bar" style="margin-top: 30px;" ng-show="!feedbackOrchen" ng-click="feedbackSubmit(feedbackText)">提交</div>
+
+    <div class="feedback-success" ng-show="feedbackOrchen"></div>
+
+</div>

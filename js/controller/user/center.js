@@ -22,11 +22,9 @@ define([], function () {
                     }else{
                         $scope.headPic = "../images/default-head.jpg";
                     }
-                    //  显示用户头像
                 }
                 else{
                     $location.path("/login");
-                    //location.href="/login"
                 }
 
                 /**

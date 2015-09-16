@@ -13,7 +13,10 @@ define(['angular', 'config/routeConfig',"directives/directive","filters/filters"
             ["ngRoute","appDirectives","appFilters","mainModule", "salesModule",
               "userModule", "orderModule", "reglogModule", "orderModule", "billModule"]);
         //定义全局变量
-        app.run(['$rootScope','$location','$timeout','$http',function ($rootScope,$location,$timeout,$http) {
+        app.run(['$rootScope','$location','$timeout','$http','$route',function ($rootScope,$location,$timeout,$http,$route) {
+            $rootScope.refreshPage = function(){
+                $route.reload()
+            };
 
             $rootScope.prefuri = "http://api.orangezc.com";
             $rootScope.jumpFlag = false;
@@ -30,6 +33,7 @@ define(['angular', 'config/routeConfig',"directives/directive","filters/filters"
              * @param type  类型
              */
             $rootScope.debugLog = function(info,type){
+                $rootScope.debugFlat = false;
                 if($rootScope.debugFlat){
                     console.trace();
                     if(type == "alert"){
